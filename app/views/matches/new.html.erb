@@ -1,0 +1,25 @@
+<h1>Enter Match data for <%= "#{@team.fll_number} #{@team.team_name}" %></h1>
+
+<%  form_for [@team, @match] do |f| %>
+<%= f.error_messages %>
+<p><%= label(:match,:match_number) %><%= f.text_field :match_number %></p>
+<table>
+  <% fields_for :results do |match_fields| 
+		$challenge.missions.each do |mission| -%>
+	<tr><td colspan="3"><b><%= mission.description -%></b></td></tr>
+	<% mission.items.each do |item|
+		allowed_values=item.allowed_values
+		if allowed_values.class != Range
+			allowed_values = "Y/N"
+		end
+		 -%>
+	<tr>
+		<td>*</td><td><%= item.description %></td><td><%= match_fields.text_field item.label, {:size  => 2, :maxlength => 2} %> <%= allowed_values %></td>
+	</tr>	
+		
+<%		end	
+	end
+  end %>
+</table>
+<%= f.submit "Submit" %>
+<%  end -%>

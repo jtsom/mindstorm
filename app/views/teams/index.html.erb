@@ -1,0 +1,22 @@
+<h1>Listing teams</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for team in @teams %>
+  <tr>
+    <td><%= team.fll_number %></td>
+    <td><%= team.team_name %></td>
+	<td><%= team.matches.length %></td>
+    <td><%= link_to 'Show', team %></td>
+    <td><%= link_to 'Edit', edit_team_path(team) %></td>
+    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to "Enter Match Data", new_team_match_path(team) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New team', new_team_path %>
