@@ -167,9 +167,9 @@ YN = [1, 0]
 
 challenge do
   mission "Bury Carbon Dioxide" do
-    item :BuryCarbonDioxide, "# Gray carbon dioxide in underground area", 0..4, "5"
+    item :CarbonDioxideBuried, "# Gray carbon dioxide in underground area", 0..4, "5"
     score do |items|
-      items[:BuryCarbonDioxide]*5
+      items[:CarbonDioxideBuried]*5
     end
   end
   
@@ -180,42 +180,42 @@ challenge do
       (items[:LeveeTouchingRed] * 5) + (items[:LeveeTouchingGreen] * 4)
     end
     check "Maximum of 8 levees" do |items|
-        (items[:LeveeTouchingRed] + items[:LeveeTouchingRed]) <= 8
+        (items[:LeveeTouchingRed] + items[:LeveeTouchingGreen]) <= 8
     end
   end
   
   mission "Test Levees" do
-    item :TestLevees, "Wheel Hit or Miss Levees and not blocked?", YN, "15"
+    item :LeveesTested, "Wheel Hit or Miss Levees and not blocked?", YN, "15"
     score do |items|
-      items[:TestLevees]*15
+      items[:LeveesTested]*15
     end
   end
   
   mission "Raise Flood Barrier" do
-    item :RaiseFloodBarrier, "Flood Barrier Raised?", YN, "15"
+    item :FloodBarrierRaised, "Flood Barrier Raised?", YN, "15"
     score do |items|
-      items[:RaiseFloodBarrier]*15
+      items[:FloodBarrierRaised]*15
     end
   end
   
   mission "Elevate House" do
-    item :ElevateHouse, "House Raised?", YN, "15"
+    item :HouseRaised, "House Raised?", YN, "25"
     score do |items|
-      items[:ElevateHouse]*25
+      items[:HouseRaised]*25
     end
   end
   
   mission "Turn Off Lights" do
-    item :TurnOffLights, "House Lights Turned Off?", YN, "20"
+    item :LightsOff, "House Lights Turned Off?", YN, "20"
     score do |items|
-      items[:TurnOffLights]*20
+      items[:LightsOff]*20
     end
   end
   
   mission "Open A Window" do
-    item :OpenWindow, "House Window Opened?", YN, "25"
+    item :WindowOpen, "House Window Opened?", YN, "25"
     score do |items|
-      items[:OpenWindow]*20
+      items[:WindowOpen]*25
     end
   end  
   
@@ -231,9 +231,9 @@ challenge do
   end
   
   mission "Find Agreement" do
-    item :FindAgreement, "Arrows Pointing in the same direction?", YN, "40"
+    item :ArrowsAligned, "Arrows Pointing in the same direction?", YN, "40"
     score do |items|
-      items[:FindAgreement] * 40
+      items[:ArrowsAligned] * 40
     end
   end
   
@@ -249,23 +249,23 @@ challenge do
   end
   
   mission "Deliver Drilling Machine" do
-    item :DrillingMachineDelivered, "Drilling Machine Delivered?", YN, "20"
+    item :MachineDelivered, "Drilling Machine Delivered?", YN, "20"
     score do |items|
-      items[:DrillingMachineDelivered]*20
+      items[:MachineDelivered]*20
     end
   end
   
   mission "Drilling Machine Assembly Raised" do
-    item :DrillingMachineAssemblyRaised, "Drilling Machine Assembly Raised?", YN, "10"
+    item :AssemblyRaised, "Drilling Machine Assembly Raised?", YN, "10"
     score do |items|
-      items[:DrillingMachineAssemblyRaised]*10
+      items[:AssemblyRaised]*10
     end
   end
   
   mission "Extract Ice Core" do
-    item :ExtractIceCore, "Ice Core Extracted?", YN, "20"
+    item :IceCoreExtracted, "Ice Core Extracted?", YN, "20"
     score do |items|
-      items[:ExtractIceCore]*20
+      items[:IceCoreExtracted]*20
     end
   end
 
@@ -275,47 +275,47 @@ challenge do
       items[:IceCoreReturned]*10
     end
     check "Ice Core must be extracted before being returned" do |items|
-      items[:ExtractIceCore]
+      items[:IceCoreReturned]
     end
   end 
   
   mission "Deliver Buoy" do
-    item :DeliverBuoy, "Buoy Delivered and Upright?", YN, "25"
+    item :BuoyDelivered, "Buoy Delivered and Upright?", YN, "25"
     score do |items|
-      items[:DeliverBuoy]*25
+      items[:BuoyDelivered]*25
     end
   end
   
   mission "Insulate House" do
-    item :InsulateHouse, "Insulation Delivered to House?", YN, "25"
+    item :Insulated, "Insulation Delivered to House?", YN, "10"
     score do |items|
-      items[:InsulateHouse]*10 
+      items[:Insulated]*10 
     end
   end
   
   mission "Ride Bicycle" do
-    item :RideBicycle, "Bicycle Delivered to House?", YN, "10"
+    item :BicycleDelivered, "Bicycle Delivered to House?", YN, "10"
     score do |items|
-      items[:RideBicycle]*10
+      items[:BicycleDelivered]*10
     end
   end
   
   mission "Telecommunicate and Research" do
-    item :Telecommunicate, "Laptop Computer Delivered to House?", YN, "10"
+    item :LaptopDelivered, "Laptop Computer Delivered to House?", YN, "10"
     score do |items|
-      items[:Telecommunicate]*10
+      items[:LaptopDelivered]*10
     end
   end
   
   mission "Study Wildlife" do
-    item :StudyWildlifeBearUpright, "Bear Delivered to Research Area Upright?", YN, "15"
-    item :StudyWildlifeBearSleeping, "Bear Delivered to Research Area Sleeping?", YN, "10"
-    item :Snowmobile, "Snowmobile Delivered?", YN, "10"
+    item :BearUpright, "Bear Delivered to Research Area Upright?", YN, "15"
+    item :BearSleeping, "Bear Delivered to Research Area Sleeping?", YN, "10"
+    item :SnowmobileDelivered, "Snowmobile Delivered?", YN, "10"
     score do |items|
-      items[:StudyWildlifeBearUpright]*15 + items[:StudyWildlifeBearSleeping]*10 + items[:Snowmobile]*10
+      items[:BearUpright]*15 + items[:BearSleeping]*10 + items[:SnowmobileDelivered]*10
     end
     check "Bear is either Upright or Sleeping" do |items|
-      items[:StudyWildlifeBearUpright] + items[:StudyWildlifeBearSleeping] <= 1
+      items[:BearUpright] + items[:BearSleeping] <= 1
     end
   end
   

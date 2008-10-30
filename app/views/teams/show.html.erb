@@ -1,3 +1,57 @@
+<p><%= "#{@team.fll_number} #{@team.team_name}" %></p>
+<p># Matches: <%= @matches.length %></p>
 
+<table border="1" style="border-collapse:collapse;">
+	<th rowspan="2">Match</th>
+	<th rowspan=2>Points</th>	
+	<% $challenge.missions.each do |mission| %>	
+	<th colspan=<%= mission.items.length %> >
+	<%= mission.description %>
+	</th>
+	<% end %>
+	</tr>
+
+	<tr>
+	<% $challenge.missions.each do |mission|
+	  	mission.items.each do |item| %>
+	<th align="center">
+	<%= item.label.to_s.gsub(/([A-Z])/, ' \1')[1..-1] %>
+	</th>
+	<% end
+	 end %>
+	</tr>
+	
+	<tr>
+	<th colspan="2"></th>
+	<% $challenge.missions.each {|mission| 
+	 mission.items.each {|item| %>
+	<th>
+	<%= item.scoring %>
+	</th>
+	<% } } %>
+	</tr>
+	
+	<% 
+	@matches.each do |match| %>
+	<tr align="center">
+		
+	<%= "<td>#{match.match_number}</td><td>#{match.score}</td>" %>
+	<%	$challenge.missions.each do |mission|
+			mission.items.each do |item|
+				value = match.results[item.label]
+				if value != " " and $challenge.type_of(item.label) == :boolean
+			        value = ["N","Y"][value]
+			    end
+	%>
+				<%= "<td>#{value}</td>" %>
+	<%
+			end
+		end
+	%>
+	</tr>	
+	<% end 
+	%>
+	</tr>
+</table>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

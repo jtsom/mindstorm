@@ -1,11 +1,9 @@
 <h1>Listing teams</h1>
 
-<table>
-  <tr>
-  </tr>
+<table cellpadding="5">
 
 <% for team in @teams %>
-  <tr>
+  <tr class="<%= cycle("even", "odd") %>">
     <td><%= team.fll_number %></td>
     <td><%= team.team_name %></td>
 	<td><%= team.matches.length %></td>

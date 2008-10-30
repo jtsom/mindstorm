@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
+    @matches = @team.matches.find(:all, :order => :match_number)
 
     respond_to do |format|
       format.html # show.html.erb
