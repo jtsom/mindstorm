@@ -1,3 +1,4 @@
+Team #	Team Name	School / Affiliation	City, State
 104	Northboro Team1	Mellican Middle School	Northborough, Ma
 414	Moose Squad	none	Worcester, MA
 474	Climate Crusaders	Home team	Westborough, MA
@@ -7,6 +8,7 @@
 1557	The Bricksters	Foxborough Regional Charter School	Foxboro, MA
 1590	Some Assembly Required	John F. Kennedy Middle School	Natick, Ma
 1591	Some Assembly Required	John F. Kennedy Middle School	Natick, Ma
+2702	Devill Dolls	Southeast School	Leominster, MA
 3101	Team Signa	Voyagers Homeschooling Cooperative	Acton, MA
 3102	Seven Devils	Voyagers Homeschooling Cooperative	Acton, MA
 3114	Techno Voyagers	Al-Hamra Academy	Shrewsbury, MA
@@ -19,6 +21,7 @@
 3675	Team Barracuda	Millbury Sutton Youth Robotics	Sutton, MA
 3799	Newtonian Mechanics	N/A	Newton, MA
 3868	The Bot Heard Round the World	Alcott School	Concord, MA
+3887	princeton bricksters	thomas prince school	princeton, ma
 4316	Smokin' Robots	MIT Lincoln Laboratory	Lexington, MA
 4614	Cheeseballers	MIT Lincoln Laboratory	Lexington, MA
 5410	Knights of the Lego Table	Advanced Math & Science Academy	Marlborough, MA
