@@ -10,6 +10,10 @@ class TeamsController < ApplicationController
     end
   end
 
+  def standings
+    @teams = Team.find(:all, :include => :matches, :order => 'fll_number')
+  end
+  
   # GET /teams/1
   # GET /teams/1.xml
   def show

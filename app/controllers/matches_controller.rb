@@ -5,6 +5,10 @@ class MatchesController < ApplicationController
     @match = Match.new
   end
   
+  def index
+    @matches = Match.find(:all)
+  end
+  
   def create
     @team = Team.find params[:team_id]
     @match = @team.matches.build(params[:match])

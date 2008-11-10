@@ -1,10 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :matches
 
   map.resources :teams do |teams|
     teams.resources :matches
   end
 
+  map.standings 'standings', :controller => 'teams', :action => 'standings'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
