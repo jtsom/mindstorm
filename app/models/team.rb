@@ -11,4 +11,12 @@ class Team < ActiveRecord::Base
       records.each {|r| self.new(r).save}
     end
     
+    def high_score
+      if matches then
+        matches.maximum(:score)
+      else
+        0
+      end
+    end
+    
 end

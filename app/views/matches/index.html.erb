@@ -1,0 +1,13 @@
+<table>
+<% @matches.group_by(&:match_number).sort.each do |match_number, matches| %>
+	<tr>
+		<td colspan="2">Match: <%= match_number %></td>
+	</tr>
+	<% matches.each do |match| %>
+	<tr>
+		<td><%= match.team.team_name %></td>
+		<td><%= match.score %></td>
+	</tr>
+	<% end %>
+<% end %>
+</table>
