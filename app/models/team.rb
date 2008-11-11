@@ -12,7 +12,7 @@ class Team < ActiveRecord::Base
     end
     
     def high_score
-      if matches then
+      if matches.length > 0
         matches.maximum(:score)
       else
         0
