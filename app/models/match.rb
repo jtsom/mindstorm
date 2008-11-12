@@ -4,4 +4,5 @@ class Match < ActiveRecord::Base
     serialize :results
     validates_presence_of :match_number, :on => :create, :message => "can't be blank"
     validates_uniqueness_of :match_number, :scope => :team_id, :message => "for this team already exists"
+    
 end

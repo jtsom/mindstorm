@@ -34,8 +34,9 @@
 	<% 
 	@matches.each do |match| %>
 	<tr align="center">
-		
-	<%= "<td>#{match.match_number}</td><td>#{match.score}</td>" %>
+	
+	<td><%= link_to match.match_number, edit_team_match_path(@team, match) %></td>
+	<%= "<td>#{match.score}</td>" %>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]

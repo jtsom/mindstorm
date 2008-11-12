@@ -26,10 +26,9 @@ function validate_boolean()
     return false;
 }
 
-function validate () {
+function validate() {
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
 	green = parseInt(document.getElementById('results_LeveeTouchingGreen').value);
-	alert (red + green);
 	if (red + green > 8)
 	{
 		alert('Red + Green Levees must be <= 8');
@@ -38,7 +37,7 @@ function validate () {
 	
 	moneyResearch = document.getElementById('results_MoneyInResearchArea').value;
 	moneyUnderground = document.getElementById('results_MoneyInUndergroundReservoir').value;
-	if (moneyResearch =='Y' && moneyUnderground == 'Y')
+	if (moneyResearch.toUpperCase() =='Y' && moneyUnderground.toUpperCase() == 'Y')
 	{
 		alert('Yellow money ball must be in either Research Area or Underground, not both');
 		return false;
@@ -46,7 +45,7 @@ function validate () {
 	
 	bearUpright = document.getElementById('results_BearUpright').value;
 	bearSleeping = document.getElementById('results_BearSleeping').value;
-	if (bearUpright =='Y' && bearSleeping == 'Y')
+	if (bearUpright.toUpperCase() =='Y' && bearSleeping.toUpperCase() == 'Y')
 	{
 		alert('Bear can be either Upright or Sleeping, not both!');
 		return false;
@@ -54,7 +53,7 @@ function validate () {
 	
 	robotResearch = document.getElementById('results_RobotInResearch').value;
 	robotYellow = document.getElementById('results_RobotInYellowGrid').value;
-	if (robotResearch =='Y' && robotResearch == 'Y')
+	if (robotResearch.toUpperCase() =='Y' && robotYellow.toUpperCase() == 'Y')
 	{
 		alert('Robot may finish in either Research Area or Yellow Grid Area, not both!');
 		return false;

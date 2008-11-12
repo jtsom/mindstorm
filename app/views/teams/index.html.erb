@@ -1,16 +1,15 @@
 <h1>Listing teams</h1>
-
+<p><%= link_to "Show Standings", standings_path %></p>
 <table cellpadding="5">
 
 <% for team in @teams %>
   <tr class="<%= cycle("even", "odd") %>">
     <td><%= team.fll_number %></td>
-    <td><%= team.team_name %></td>
+    <td><%= link_to team.team_name, team %></td>
 	<td><%= team.matches.length %></td>
-    <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><%= link_to "Enter Match Data", new_team_match_path(team) %></td>
+	<td><%= link_to "Enter Match Data", new_team_match_path(team) unless team.matches.length > 5 %></td>
   </tr>
 <% end %>
 </table>
