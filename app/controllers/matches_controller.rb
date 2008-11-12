@@ -18,6 +18,7 @@ class MatchesController < ApplicationController
     @team = Team.find(params[:team_id])
     @match = @team.matches.find(params[:id])
     if @match.valid?
+	  
       results = {}
       params[:results].each_pair do |key, value|
         results[key.to_sym] = case value
@@ -31,7 +32,7 @@ class MatchesController < ApplicationController
       
       if $challenge.check(results)
         @match.score = $challenge.score(results)
-        @match.save
+        @match.update_attributes(params[:match])
         
         redirect_to team_path(@team)
       else
