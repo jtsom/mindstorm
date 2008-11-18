@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081028013304) do
+ActiveRecord::Schema.define(:version => 20081118023010) do
 
   create_table "matches", :force => true do |t|
     t.integer  "match_number"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20081028013304) do
     t.datetime "updated_at"
     t.string   "school"
     t.string   "town"
+    t.integer  "project_score"
+    t.integer  "technical_score"
   end
 
 end

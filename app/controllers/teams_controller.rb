@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   end
 
   def standings
-    @teams = Team.find(:all, :include => :matches).sort {|a,b| b.high_score <=> a.high_score}
+    @teams = Team.find(:all, :include => :matches).sort {|a,b| b.average_score <=> a.average_score}
   end
   
   # GET /teams/1

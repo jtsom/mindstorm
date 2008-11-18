@@ -22,11 +22,11 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
   
-  desc "Symlink shared configs and folders on each release."
-  task :symlink_shared do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-  end
+  # desc "Symlink shared configs and folders on each release."
+  # task :symlink_shared do
+  #   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  #   run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
+  # end
 
   desc "Start Application - not needed with Passenger"
   task :start, :roles => :app do
@@ -34,4 +34,4 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+#after 'deploy:update_code', 'deploy:symlink_shared'
