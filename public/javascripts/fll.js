@@ -27,11 +27,22 @@ function validate_boolean()
 }
 
 function validate() {
+	
+	matchNumber = document.getElementById('match_match_number').value;
+	
+	if (matchNumber.length == 0)
+	{
+		alert('Please enter the match number!');
+		document.getElementById('match_match_number').focus();
+		return false;
+	}
+	
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
 	green = parseInt(document.getElementById('results_LeveeTouchingGreen').value);
 	if (red + green > 8)
 	{
 		alert('Red + Green Levees must be <= 8');
+		document.getElementById('results_LeveeTouchingRed').focus();
 		return false;
 	}
 	
@@ -40,6 +51,7 @@ function validate() {
 	if (moneyResearch.toUpperCase() =='Y' && moneyUnderground.toUpperCase() == 'Y')
 	{
 		alert('Yellow money ball must be in either Research Area or Underground, not both');
+		document.getElementById('results_MoneyInResearchArea').focus();
 		return false;
 	}
 	
@@ -48,6 +60,7 @@ function validate() {
 	if (bearUpright.toUpperCase() =='Y' && bearSleeping.toUpperCase() == 'Y')
 	{
 		alert('Bear can be either Upright or Sleeping, not both!');
+		document.getElementById('results_BearUpright').focus();
 		return false;
 	}	
 	
@@ -55,6 +68,7 @@ function validate() {
 	robotYellow = document.getElementById('results_RobotInYellowGrid').value;
 	if (robotResearch.toUpperCase() =='Y' && robotYellow.toUpperCase() == 'Y')
 	{
+		document.getElementById('results_RobotInResearch').focus();
 		alert('Robot may finish in either Research Area or Yellow Grid Area, not both!');
 		return false;
 	}

@@ -2,7 +2,7 @@
 
 <%  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
 <%= f.error_messages %>
-<p><b><%= label(:match,:match_number) %></b> <%= f.text_field :match_number %></p>
+<p><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></p>
 <table style="border-collapse:collapse;" border="1">
   <% fields_for :results do |match_fields| 
 		$challenge.missions.each do |mission| -%>
@@ -12,6 +12,12 @@
 		if allowed_values.class != Range
 			allowed_values = "Y/N"
 		end
+		if @match.results
+			value=@match.results[item.label]
+		else
+			value=""
+		end
+
 		input_type = $challenge.type_of(item.label)
 		if input_type == :range
 			val_func = "return validate_range(#{allowed_values.max});"
@@ -20,7 +26,7 @@
 		end
 		 -%>
 
-		<td><%= item.description %></td><td><%= match_fields.text_field item.label, { :size  => 2, :maxlength => 1, :onkeypress => val_func } %> <%= allowed_values %></td>
+		<td><%= item.description %></td><td><%= match_fields.text_field item.label, { :value => value, :size  => 2, :maxlength => 1, :onkeypress => val_func } %> <%= allowed_values %></td>
 	</tr>	
 		
 <%		end	

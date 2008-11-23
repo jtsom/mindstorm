@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = Team.find(:all)
+    @teams = Team.find(:all, :include => :matches)
 
     respond_to do |format|
       format.html # index.html.erb
