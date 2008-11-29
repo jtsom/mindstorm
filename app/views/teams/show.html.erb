@@ -1,10 +1,7 @@
 <p><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
-<p>Project Score: <%= @team.project_score %></p>
-<p>Technical Score: <%= @team.technical_score %></p>
-
 <p># Matches: <%= @matches.length %></p>
-
+<p>Average Score: <%= @team.average_score %></p>
 <table border="1" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
 	<th rowspan=2>Points</th>	
@@ -27,12 +24,13 @@
 	
 	<tr>
 	<th colspan="2"></th>
-	<% $challenge.missions.each {|mission| 
-	 mission.items.each {|item| %>
+	<% $challenge.missions.each do |mission| 
+		mission.items.each do |item| %>
 	<th>
 	<%= item.scoring %>
 	</th>
-	<% } } %>
+	<% 	end
+	 end %>
 	</tr>
 	
 	<% 
@@ -59,4 +57,5 @@
 	</tr>
 </table>
 <%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Back', teams_path %> | 
+<%= link_to 'Match List', matches_path %>

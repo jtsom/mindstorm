@@ -9,6 +9,11 @@ class MatchesController < ApplicationController
     @matches = Match.find(:all)
   end
   
+  def show
+    @matches = Match.match_list(params[:id])
+    @match_number = params[:id]
+  end
+  
   def edit
     @team = Team.find(params[:team_id])
     @match = @team.matches.find(params[:id])
@@ -32,16 +37,17 @@ class MatchesController < ApplicationController
 
        if $challenge.check(results)
          @match.score = $challenge.score(results)
-
+         @match.save
+         
          redirect_to team_path(@team)
        else
          err = "Please correct the following: <br>"
          $errors.each { |error| err += error + "<br>" }
          flash[:notice] = err
-         render :action => "new"
+         render :action => "edit"
        end
      else
-       render :action  => "new"
+       render :action  => "edit"
      end
    end
   

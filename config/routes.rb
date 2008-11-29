@@ -2,9 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :matches
 
-  map.resources :teams do |teams|
-    teams.resources :matches
-  end
+  map.resources :teams, :has_many => :matches
 
   map.standings 'standings', :controller => 'teams', :action => 'standings'
   

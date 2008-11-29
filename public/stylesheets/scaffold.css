@@ -73,3 +73,55 @@ tr.even
 {
  background-color: #a0f0a0;
 }
+
+/* Match Results details */
+#page {width: 960px; height: 500px; border: 0px solid black; font-family: arial;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	background: #6CF;
+	padding: 1em;
+
+	}
+#top {width: 960px; height:150px;}
+
+#title {border: 1px solid; background-color: #ccc;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+		width: 310px;
+		font-size: 36pt;
+		margin: auto auto;
+		text-align: center;
+		margin-top: 1em;
+		/*background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#009));*/
+		}
+		
+.table {
+		border: 1px solid;
+		width: 298px;
+		margin: 1em 10px 1em 10px;
+		float: left;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		font-size: 20pt;
+		background: #FF0;
+		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+		}
+		
+.tabletitle {
+		margin: auto auto;
+		text-align: center;
+		font-weight: bold;
+		}
+.results {
+		margin: 10px 10px;
+		}
+.teamresults {
+		font: 20pt arial, sans-serif;
+		}
+#bottom {
+		margin:auto auto;
+		margin-top: 1em;
+		width: 400px;
+		}

@@ -3,6 +3,7 @@
 <%  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
 <%= f.error_messages %>
 <p><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></p>
+<p><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number %></p>
 <table style="border-collapse:collapse;" border="1">
   <% fields_for :results do |match_fields| 
 		$challenge.missions.each do |mission| -%>
