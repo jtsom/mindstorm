@@ -1,18 +1,17 @@
 Team #	Team Name	School / Affiliation	City, State
-104	Northboro Team1	Mellican Middle School	Northborough, Ma
+104	Northboro Team1	Mellican Middle School	Northborough, MA
 414	Moose Squad	none	Worcester, MA
 474	Climate Crusaders	Home team	Westborough, MA
+652	Top Secret	Neighborhood Friends	Brookline, MA
 1100	RoboPIQLZ	None	Dover, MA
 1414	RoboNetics II	Hudson Public Schools	Hudson, MA
 1415	RoboNetics I	Hudson Public Schools	Hudson, MA
 1557	The Bricksters	Foxborough Regional Charter School	Foxboro, MA
-1590	Some Assembly Required	John F. Kennedy Middle School	Natick, Ma
-1591	Some Assembly Required	John F. Kennedy Middle School	Natick, Ma
 2702	Devill Dolls	Southeast School	Leominster, MA
+2837	Southeast Dragons	Southeast School	Leominster, MA
 3101	Team Signa	Voyagers Homeschooling Cooperative	Acton, MA
 3102	Seven Devils	Voyagers Homeschooling Cooperative	Acton, MA
 3114	Techno Voyagers	Al-Hamra Academy	Shrewsbury, MA
-3190	Robotic Einsteins	BFCCPS	Franklin, MA
 3277	Northboro Robotics Team 2	Melican Middle School	Northboro, MA
 3316	Robolancers	Luther Burbank Middle School	Lancaster, MA
 3526	LLAMAS	MIT Lincoln Laboratory	Lexington, MA
@@ -21,21 +20,22 @@ Team #	Team Name	School / Affiliation	City, State
 3675	Team Barracuda	Millbury Sutton Youth Robotics	Sutton, MA
 3799	Newtonian Mechanics	N/A	Newton, MA
 3868	The Bot Heard Round the World	Alcott School	Concord, MA
-3887	princeton bricksters	thomas prince school	princeton, ma
+3887	Princeton Bricksters	Thomas Prince School	Princeton, MA
+3943	Hopkinton Legocules	Hopkinton Middle School	Hopkinton, MA
+4165	Shock	Thomas Prince School	Princeton, MA
 4316	Smokin' Robots	MIT Lincoln Laboratory	Lexington, MA
 4614	Cheeseballers	MIT Lincoln Laboratory	Lexington, MA
+4660	The Nutbots	Trahan's Homeschool	Boylston, MA
 5410	Knights of the Lego Table	Advanced Math & Science Academy	Marlborough, MA
 5463	Medfield Robotics Club	None	Medfield, MA
-5652	StAsRobotics	St. Augustine's	Andover, MA
 5703	McCarthy Maniacs	McCarthy Elementary	Framingham, MA
+5822	Froot Loops	none	Lunenburg, MA
 5922	Sobo Sco-Bros	Southborough Robotics	Southborough, MA
 6202	Fighting Irish	Clinton Middle School	Clinton, Ma
 6203	Jr. Gael Force	Clinton Middle School	Clinton, ma
-6431	Hiwah	Homeschool Group	Douglas, MA
-7117	Lego Trolls	Groton Homeschoolers	Groton - Dunstable, MA
-7150	Green Reapers	Burncoat Middle School	Worcester, MA
+6736	Valiant Vikings	Al-Hamra Academy	Shrewsbury, MA
+7150	Purple Reapers	Burncoat Middle School	Worcester, MA
 7157	Masterminds	St. Joseph School	Webster, MA
 7339	AMSA Dominators	Advanced Math & Science Academy	Marlborough, MA
-7870	Gibbons FLL	Gibbons Middle School	Westborough, MA
-10004	Technokids	Northboro Elementary	Northborough, Ma
+10004	Technokids	Northboro Elementary	Northborough, MA
 10016	Al-Huda Robotics Club	Al-Huda Academy	Worcester, MA

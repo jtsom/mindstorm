@@ -1,0 +1,26 @@
+
+<div id="page">
+	<table width="960" cellpadding="0" cellspacing="0">
+		<tr>
+		<td width="320" align="center"><%= image_tag("mm.png", :height => 150) %></td>
+		<td width="320"><div id="title">Match <%= @match_number %></div></td>
+		<td width="320" align="center"><%= image_tag("FLL.png", :height => 150) %></td>
+		</tr>
+	</table>
+<% @matches.group_by(&:table_number).each do |table_number, matches| %>
+
+	<div class="table">
+		<div class="tabletitle">Table <%= table_number %></div>
+		<div class="results">
+			<p class="teamresults"><%= "#{matches[0].team.fll_number}: #{matches[0].score}" if matches[0] -%></p>
+			<p class="teamresults"><%= "#{matches[1].team.fll_number}: #{matches[1].score}" if matches[1] -%></p>
+		</div>
+	</div>
+
+<% end %>	
+	<div style="clear:left"></div>
+	<div id="bottom">
+		<%= link_to image_tag("FLLCC.png", :width => 400 ), matches_path %> 
+		
+	</div>
+</div>
