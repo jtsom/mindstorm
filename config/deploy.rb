@@ -12,6 +12,8 @@ set :user, "jtsombakos"
 set :admin_runner, "jtsombakos"
 #set :use_sudo, false
 
+set :load_teams_cmd, "Team.load_from_file('#{release_path}/support/teams.yml')"
+
 default_run_options[:pty] = true
 
 set :branch, "master"
@@ -28,6 +30,11 @@ namespace :deploy do
   #   run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
   # end
 
+  desc "Clear and load team list"
+  task :load_teams do
+    run "script/runner '#{load_teams_cmd}"
+  end
+  
   desc "Start Application - not needed with Passenger"
   task :start, :roles => :app do
     # nothing to do
