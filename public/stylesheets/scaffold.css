@@ -81,7 +81,7 @@ tr.even
 	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 	background: #6CF;
 	padding: 1em;
-
+	margin: auto auto;
 	}
 #top {width: 960px; height:150px;}
 
