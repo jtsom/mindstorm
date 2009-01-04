@@ -7,7 +7,7 @@
 		<td width="320" align="center"><%= image_tag("FLL.png", :height => 150) %></td>
 		</tr>
 	</table>
-<% @matches.group_by(&:table_number).each do |table_number, matches| %>
+<% @matches.group_by(&:table_number).sort.each do |table_number, matches| %>
 
 	<div class="table">
 		<div class="tabletitle">Table <%= table_number %></div>
