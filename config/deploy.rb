@@ -24,11 +24,11 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
   
-  # desc "Symlink shared configs and folders on each release."
-  # task :symlink_shared do
-  #   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+   desc "Symlink shared configs and folders on each release."
+   task :symlink_shared do
+     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   #   run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-  # end
+   end
 
   desc "Clear and load team list"
   task :load_teams do
@@ -41,4 +41,4 @@ namespace :deploy do
   end
 end
 
-#after 'deploy:update_code', 'deploy:symlink_shared'
+after 'deploy:update_code', 'deploy:symlink_shared'
