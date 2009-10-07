@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = Team.find(:all, :include => :matches, :order => :fll_number)
+    @teams = Team.find(:all, :include => [:finals, :qualifications], :order => :fll_number)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,14 +11,14 @@ class TeamsController < ApplicationController
   end
 
   def standings
-    @teams = Team.find(:all, :include => :matches).sort {|a,b| b.average_score <=> a.average_score}
+    @teams = Team.find(:all, :include => :qualifications).sort {|a,b| b.average_score <=> a.average_score}
   end
   
   # GET /teams/1
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-    @matches = @team.matches.find(:all, :order => :match_number)
+    @matches = @team.qualifications.find(:all, :order => :match_number)
 
     respond_to do |format|
       format.html # show.html.erb

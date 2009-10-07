@@ -1,7 +1,8 @@
 class Team < ActiveRecord::Base
 
-    has_many :matches, :dependent => :destroy
-    
+    has_many :finals, :dependent => :destroy
+    has_many :qualifications, :dependent => :destroy
+
     validates_uniqueness_of :fll_number, :message => "must be unique"
     validates_numericality_of :fll_number, :message => "is not a number"
     # validates_numericality_of :project_score, :message => "is not a number"
@@ -17,12 +18,20 @@ class Team < ActiveRecord::Base
         matches.maximum(:score)|| 0
     end
     
-    def total_score
-        matches.sum(:score)
+    def total_qual_score
+        qualifications.sum(:score)
     end
     
-    def average_score
-      matches.average(:score) || 0
+    def total_finals_score
+        finals.sum(:score)
+    end
+    
+    def average_qual_score
+      qualifications.average(:score) || 0
+    end
+    
+    def average_final_score
+      finals.average(:score) || 0
     end
     
 end

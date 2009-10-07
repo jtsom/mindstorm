@@ -36,7 +36,7 @@ function validate() {
 		document.getElementById('match_match_number').focus();
 		return false;
 	}
-	
+/*	
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
 	green = parseInt(document.getElementById('results_LeveeTouchingGreen').value);
 	if (red + green > 8)
@@ -72,6 +72,6 @@ function validate() {
 		alert('Robot may finish in either Research Area or Yellow Grid Area, not both!');
 		return false;
 	}
-	
+*/	
 	return true;
 }

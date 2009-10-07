@@ -4,15 +4,19 @@
 
 <table border="1" style="border-collapse:collapse">
 	<tr>
-		<td>#</td><td>Name</td><th>Avg</th><td width="25px">1</td><td width="25px">2</td><td width="25px">3</td><td width="25px">4</td><td width="25px">5</td><td width="25px">6</td></tr>
+		<td>#</td><td>Name</td><th>Avg</th>
+		<% (1..APP_CONFIG["max_matches"]).each do |col| %>
+			<td width="25px"><%= col %></td>
+		<% end %>
+	</tr>
 <% @teams.each do |team| -%>
 	<tr><%= "<td>#{team.fll_number}</td><td>#{team.team_name}</td>" %>
 		<%= "<td align='right'><b>#{team.average_score}</b></td>" %>
 	<% team.matches.each do |match| %>
 	<%= "<td align='right'>#{match.score}</td>" %>
 	<% end %>
-	<% if team.matches.length < 6
-		(team.matches.length+1..6).each do |i| %>
+	<% if team.matches.length < APP_CONFIG["max_matches"]
+		(team.matches.length+1..APP_CONFIG["max_matches"]).each do %>
 		<td>&nbsp;</td>
 		<% end 
 	   end -%>

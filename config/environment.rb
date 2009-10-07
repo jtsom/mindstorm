@@ -66,4 +66,4 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-require "lib/challenge-2008.rb"
+require "lib/challenge-2009.rb"

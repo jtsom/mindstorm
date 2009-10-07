@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :matches
+  map.resources :finals
+  map.resources :qualifications
 
-  map.resources :teams, :has_many => :matches
+  map.resources :teams, :has_many => [:finals, :qualifications]
 
   map.standings 'standings', :controller => 'teams', :action => 'standings'
   

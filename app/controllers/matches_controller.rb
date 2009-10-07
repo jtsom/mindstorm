@@ -1,29 +1,46 @@
 class MatchesController < ApplicationController
+
+  before_filter :get_class
   
   def new
     @team = Team.find params[:team_id]
-    @match = Match.new
+    @match = @match_class.new
+		render  "matches/new"
   end
   
   def index
-    @matches = Match.find(:all)
+		@matches = @match_class.find(:all, :order => "match_number")
+		render "matches/index"
   end
   
   def show
     @matches = Match.match_list(params[:id])
+    case params[:controller]
+      when "qualifications"
+        @matches = @matches.qual_matches
+      when "finals"
+        @matches = @matches.final_matches
+    end
     @match_number = params[:id]
+    render "matches/show"
   end
   
   def edit
     @team = Team.find(params[:team_id])
-    @match = @team.matches.find(params[:id])
+		@match = @match_class.find(params[:id])
+    render "matches/edit"
   end
   
   def update
      @team = Team.find(params[:team_id])
-     @match = @team.matches.find(params[:id])
-     if @match.update_attributes(params[:match])
+     @match = case params[:controller]
+         when "qualifications"
+           @team.qualifications.find(params[:id])
+         when "finals"
+           @team.finals.find(params[:id])
+       end
 
+     if @match.update_attributes(params[params[:controller].singularize.to_sym])
        results = {}
        params[:results].each_pair do |key, value|
          results[key.to_sym] = case value
@@ -36,6 +53,7 @@ class MatchesController < ApplicationController
        @match.results = results
 
        if $challenge.check(results)
+         flash[:notice] = "Results for match #{@match.match_number} updated."
          @match.score = $challenge.score(results)
          @match.save
          
@@ -53,8 +71,9 @@ class MatchesController < ApplicationController
   
   def create
     @team = Team.find params[:team_id]
-    @match = @team.matches.build(params[:match])
-    @match.results = params[:results]
+
+    @match = @match_class.new(params[params[:controller].singularize.to_sym])
+
     if @match.valid?
       results = {}
       params[:results].each_pair do |key, value|
@@ -66,19 +85,32 @@ class MatchesController < ApplicationController
       end
     
       @match.results = results
-
+    
       if $challenge.check(results)
+        flash[:notice] = "Results for match #{@match.match_number} saved."
         @match.score = $challenge.score(results)
         @match.save
+        case params[:controller]
+          when "qualifications"
+            @team.qualifications << @match
+          when "finals"
+            @team.finals << @match
+        end
         redirect_to :controller => "teams"
       else
         err = "Please correct the following: <br>"
         $errors.each { |error| err += error + "<br>" }
         flash[:notice] = err
-        render :action => "new"
+        render  "matches/new"
       end
     else
-      render :action  => "new"
+      render  "matches/new"
     end
   end
+
+private
+
+	def get_class
+		@match_class=params[:controller].classify.constantize
+	end
 end
