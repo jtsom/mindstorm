@@ -1,0 +1,2 @@
+class QualificationsController < MatchesController
+end
