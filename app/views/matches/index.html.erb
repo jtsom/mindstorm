@@ -9,15 +9,23 @@
 			when "finals"
 				final_path(match_number)
 			end
+
 	%>
 	<tr>
 		<td colspan="2"><b><%= link_to "Match: #{match_number}", lnk %></b></td>
 	</tr>
-	<% matches.each do |match| %>
+	<% matches.each do |match|
+		edit_link = case params[:controller]
+					when "qualifications"
+						edit_team_qualification_path(match.team_id, match)
+					when "finals"
+						edit_team_final_path(match.team_id, match)
+					end	
+	 %>
 	<tr>
 		<td><%= match.table_number %></td>
 		<td><%= match.team.fll_number %></td>
-		<td><%= link_to match.team.team_name, edit_team_qualification_path(match.team_id, match) %></td>
+		<td><%= link_to match.team.team_name, edit_link %></td>
 		<td><%= match.score %></td>
 	</tr>
 	<% end %>

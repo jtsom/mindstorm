@@ -11,12 +11,12 @@
 	</tr>
 <% @teams.each do |team| -%>
 	<tr><%= "<td>#{team.fll_number}</td><td>#{team.team_name}</td>" %>
-		<%= "<td align='right'><b>#{team.average_score}</b></td>" %>
-	<% team.matches.each do |match| %>
+		<%= "<td align='right'><b>#{team.average_qual_score}</b></td>" %>
+	<% team.qualifications.each do |match| %>
 	<%= "<td align='right'>#{match.score}</td>" %>
 	<% end %>
-	<% if team.matches.length < APP_CONFIG["max_matches"]
-		(team.matches.length+1..APP_CONFIG["max_matches"]).each do %>
+	<% if team.qualifications.length < APP_CONFIG["max_matches"]
+		(team.qualifications.length+1..APP_CONFIG["max_matches"]).each do %>
 		<td>&nbsp;</td>
 		<% end 
 	   end -%>

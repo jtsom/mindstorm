@@ -32,7 +32,7 @@ namespace :deploy do
 
   desc "Clear and load team list"
   task :load_teams do
-    run "script/runner '#{load_teams_cmd}"
+    run "script/runner '#{load_teams_cmd}'"
   end
   
   desc "Start Application - not needed with Passenger"

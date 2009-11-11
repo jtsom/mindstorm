@@ -12,15 +12,17 @@
 	<div class="table">
 		<div class="tabletitle">Table <%= table_number %></div>
 		<div class="results">
-			<p class="teamresults"><%= "#{matches[0].team.fll_number}: #{matches[0].score}" if matches[0] -%></p>
-			<p class="teamresults"><%= "#{matches[1].team.fll_number}: #{matches[1].score}" if matches[1] -%></p>
+			<p class="teamresults"><%= "#{matches[0].team.fll_number}: #{matches[0].score}" if matches[0] -%>
+				<%= " *" if matches[0].score > matches[1].score -%></p>
+			<p class="teamresults"><%= "#{matches[1].team.fll_number}: #{matches[1].score}" if matches[1] -%>
+				<%= " *" if matches[1].score > matches[0].score -%></p>
 		</div>
 	</div>
 
 <% end %>	
 	<div style="clear:left"></div>
 	<div id="bottom">
-		<%= image_tag("FLLCC.png", :width => 400 ) %>
+		<%= image_tag("smart_move_logo.jpg" ) %>
 		
 	</div>
 </div>

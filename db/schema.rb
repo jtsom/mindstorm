@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090915035019) do
+ActiveRecord::Schema.define(:version => 20091027030807) do
 
   create_table "matches", :force => true do |t|
     t.integer  "match_number"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20090915035019) do
     t.integer  "table_number"
     t.string   "type"
   end
+
+  add_index "matches", ["type"], :name => "index_matches_on_type"
 
   create_table "teams", :force => true do |t|
     t.integer  "fll_number"

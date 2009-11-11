@@ -75,7 +75,7 @@ tr.even
 }
 
 /* Match Results details */
-#page {width: 960px; height: 500px; border: 0px solid black; font-family: arial;
+#page {width: 960px;  border: 0px solid black; font-family: arial;
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -123,5 +123,5 @@ tr.even
 #bottom {
 		margin:auto auto;
 		margin-top: 1em;
-		width: 400px;
+		width: 275px;
 		}
