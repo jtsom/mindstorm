@@ -16,6 +16,10 @@
 		end
 		if @match.results
 			value=@match.results[item.label]
+			input_type = $challenge.type_of(item.label)
+			if input_type == :boolean
+				value = ["N","Y"][value]
+			end
 		else
 			value=""
 		end

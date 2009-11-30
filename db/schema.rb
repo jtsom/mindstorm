@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091027030807) do
+ActiveRecord::Schema.define(:version => 20091127212307) do
 
   create_table "matches", :force => true do |t|
     t.integer  "match_number"
@@ -24,6 +24,72 @@ ActiveRecord::Schema.define(:version => 20091027030807) do
 
   add_index "matches", ["type"], :name => "index_matches_on_type"
 
+  create_table "project_scores", :force => true do |t|
+    t.integer  "total_score"
+    t.integer  "research1"
+    t.integer  "research2"
+    t.integer  "research3"
+    t.integer  "research4"
+    t.integer  "research5"
+    t.integer  "is1"
+    t.integer  "is2"
+    t.integer  "is3"
+    t.integer  "sharing1"
+    t.integer  "sharing2"
+    t.integer  "pres1"
+    t.integer  "pres2"
+    t.integer  "pres3"
+    t.integer  "pres4"
+    t.integer  "pres5"
+    t.integer  "pres6"
+    t.integer  "pres7"
+    t.integer  "pres8"
+    t.integer  "pres9"
+    t.integer  "pres10"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "team_id"
+    t.integer  "research6"
+  end
+
+  add_index "project_scores", ["team_id"], :name => "index_project_scores_on_team_id"
+
+  create_table "robot_scores", :force => true do |t|
+    t.integer  "inno_design"
+    t.integer  "strategy1"
+    t.integer  "strategy2"
+    t.integer  "loconav1"
+    t.integer  "loconav2"
+    t.integer  "loconav3"
+    t.integer  "loconav4"
+    t.integer  "loconav5"
+    t.integer  "prog1"
+    t.integer  "prog2"
+    t.integer  "prog3"
+    t.integer  "prog4"
+    t.integer  "prog5"
+    t.integer  "prog6"
+    t.integer  "prog7"
+    t.integer  "prog8"
+    t.integer  "kids1"
+    t.integer  "kids2"
+    t.integer  "kids3"
+    t.integer  "structural1"
+    t.integer  "structural2"
+    t.integer  "structural3"
+    t.integer  "structural4"
+    t.integer  "structural5"
+    t.integer  "overall1"
+    t.integer  "overall2"
+    t.integer  "overall3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "team_id"
+    t.integer  "total_score"
+  end
+
+  add_index "robot_scores", ["team_id"], :name => "index_robot_scores_on_team_id"
+
   create_table "teams", :force => true do |t|
     t.integer  "fll_number"
     t.string   "team_name"
@@ -31,8 +97,6 @@ ActiveRecord::Schema.define(:version => 20091027030807) do
     t.datetime "updated_at"
     t.string   "school"
     t.string   "town"
-    t.integer  "project_score"
-    t.integer  "technical_score"
   end
 
 end

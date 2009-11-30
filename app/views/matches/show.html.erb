@@ -2,25 +2,34 @@
 <div id="page">
 	<table width="960" cellpadding="0" cellspacing="0">
 		<tr>
-		<td width="320" align="center"><%= image_tag("mm.png", :height => 150) %></td>
-		<td width="320"><div id="title"><%= params[:controller].classify %> Match<br><%= @match_number %></div></td>
-		<td width="320" align="center"><%= image_tag("FLL.png", :height => 150) %></td>
+		<td width="300" align="center"><%= image_tag("mm.png", :height => 150) %></td>
+		<td width="360"><div id="title"><%= params[:controller].classify %> Match <%= @match_number %></div></td>
+		<td width="300" align="center"><%= image_tag("FLL.png", :height => 150) %></td>
 		</tr>
 	</table>
 <% @matches.group_by(&:table_number).sort.each do |table_number, matches| %>
 
-	<div class="table">
+	<div class="table table<%= table_number%>">
 		<div class="tabletitle">Table <%= table_number %></div>
 		<div class="results">
-			<p class="teamresults"><%= "#{matches[0].team.fll_number}: #{matches[0].score}" if matches[0] -%>
-				<%= " *" if matches[0].score > matches[1].score -%></p>
-			<p class="teamresults"><%= "#{matches[1].team.fll_number}: #{matches[1].score}" if matches[1] -%>
-				<%= " *" if matches[1].score > matches[0].score -%></p>
+			<p class="teamresults">
+			<% if matches[0] -%>
+				<%= "#{matches[0].team.fll_number}: #{matches[0].score}" -%>
+				<br />
+				<span class="teamname"><%= "#{matches[0].team.team_name}" %></span>
+			<% end -%>
+			</p>
+			<p class="teamresults">
+				<% if matches[1] -%>
+					<%= "#{matches[1].team.fll_number}: #{matches[1].score}" -%>
+					<br />
+					<span class="teamname"><%= "#{matches[1].team.team_name}" %></span>
+				<% end -%>
+			</p>
 		</div>
 	</div>
 
 <% end %>	
-	<div style="clear:left"></div>
 	<div id="bottom">
 		<%= image_tag("smart_move_logo.jpg" ) %>
 		

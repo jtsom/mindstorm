@@ -1,0 +1,87 @@
+<table border=1 id="finalresults" style='border-collapse: collapse;table-layout:fixed'>
+
+ <tr class="heading">
+  <td width=53></td>
+  <td width=66></td>
+
+  <td colspan=9 align="center">Robot Design Scores</td>
+  <td width=6></td>
+  <td colspan=6 align="center">Research Project Scores</td>
+  <td width=9></td>
+  <td colspan=2 align="center">Robot Performance</td>
+  <td width=9></td>
+  <td colspan=5 align="center">Teamwork</td>
+  <td width=10></td>
+  <td colspan=2 align="center">Champion's Award</td>
+ </tr>
+ <tr class="heading">
+  <td>Team #</td>
+  <td>Name</td>
+
+  <td>Inno. Design</td>
+  <td>Strategy</td>
+  <td>Locomotion &amp; Navigation</td>
+  <td>Programming</td>
+  <td>Children Did Work</td>
+  <td>Structural</td>
+  <td>Overall Design</td>
+  <td>Total</td>
+  <td>Rank</td>
+  <td></td>
+  <td>Research</td>
+  <td>Inno. Solution</td>
+  <td>Sharing</td>
+  <td>Creative Pres.</td>
+  <td>Total</td>
+  <td>Rank</td>
+  <td></td>
+  <td>Score</td>
+  <td>Rank</td>
+  <td></td>
+  <td>RD: Children Did Work</td>
+  <td>RP: Add three</td>
+  <td>Other Score</td>
+  <td>Total</td>
+  <td>Rank</td>
+  <td></td>
+  <td>Score</td>
+  <td>Rank</td>
+ </tr>
+
+<% @teams.each do |team| %>
+	<tr><td><%= "#{team.fll_number}</td><td>#{team.team_name}" %></td>
+	<% if team.robot_score %>
+			<td><%= team.robot_score.inno_design %></td>
+			<td><%= team.robot_score.strategy_score %></td>
+			<td><%= team.robot_score.loconav_score %></td>
+			<td><%= team.robot_score.programming_score %></td>
+			<td><%= team.robot_score.kids_score %></td>
+			<td><%= team.robot_score.structural_score %></td>
+			<td><%= team.robot_score.overall_score %></td>
+	<% else %>
+		<td colspan="7">&nbsp;</td>
+	<% end %>
+	<td><%= team.robot_score.total_score if team.robot_score %></td>
+	<td><%= @robot_rank[team.fll_number.to_s.to_sym] if team.robot_score %></td><!-- rank -->
+	<td>&nbsp;</td>
+	<% if team.project_score %>
+		<td><%= team.project_score.research_score %></td>
+		<td><%= team.project_score.innovative_score %></td>
+		<td><%= team.project_score.sharing_score %></td>
+		<td><%= team.project_score.pres_score %></td>
+	<% else %>
+		<td colspan="4">&nbsp;</td>
+	<% end %>
+	<td><%= team.project_score.total_score if team.project_score %></td>
+	<td><%= @project_rank[team.fll_number.to_s.to_sym] if team.project_score %></td>
+	<td>&nbsp;</td>
+	<td><%= team.average_qual_score %></td>
+	<td></td><!-- rank -->
+	<td>&nbsp;</td>
+	<td><%= team.robot_score.kids_score if team.robot_score %></td>
+	<td><%= (team.project_score.teamwork_score) if team.project_score %></td>
+	<td>&nbsp;</td><!-- other score - not used -->
+	<td><%= team.teamwork_score %></td>
+	</tr>
+<% end %>
+</table>

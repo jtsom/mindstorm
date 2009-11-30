@@ -89,17 +89,19 @@ tr.even
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-		width: 310px;
-		font-size: 26pt;
+		width: 330px;
+		height: 60px;
+		font-size: 22pt;
 		margin: auto auto;
 		text-align: center;
 		margin-top: 1em;
+		padding-top: 22px;
 		/*background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#009));*/
 		}
 		
 .table {
-		border: 1px solid;
-		width: 298px;
+		/*border: 1px solid;*/
+		width: 458px;
 		margin: 1em 10px 1em 10px;
 		float: left;
 		-moz-border-radius: 5px;
@@ -107,8 +109,23 @@ tr.even
 		font-size: 20pt;
 		background: #FF0;
 		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+		color: white;
 		}
 		
+.table1 {
+		background: blue;
+		}
+.table2 {
+		background: yellow;
+		color: black;
+		}
+.table3 {
+		background: green;
+		}
+.table4 {
+		background: #B22222;
+		}
+						
 .tabletitle {
 		margin: auto auto;
 		text-align: center;
@@ -120,8 +137,16 @@ tr.even
 .teamresults {
 		font: 20pt arial, sans-serif;
 		}
+.teamname {
+	font-size: 14pt;
+	font-style: italic;
+	}
 #bottom {
 		margin:auto auto;
 		margin-top: 1em;
 		width: 275px;
+		clear: both;
 		}
+table#scoring {font: 75% "arial", Verdana, sans-serif;}
+	.heading {font-weight: bold;}
+table#finalresults {font: 10px arial sans-serif;}

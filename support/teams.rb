@@ -16,12 +16,12 @@ FILENAME = "teams09.txt"
 
 teams = []
 
-data = File.open(FILENAME).read.split("\r")
+data = File.open(FILENAME).read.split("\n")
 data.each {|line|
   fields = line.split("\t")
 
     teams << {
-      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[2], :town => (fields[3] + ", " + fields[4])
+      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[2], :town => (fields[3] )
     }
 
 }

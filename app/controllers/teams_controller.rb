@@ -14,11 +14,20 @@ class TeamsController < ApplicationController
     @teams = Team.find(:all, :include => :qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
   end
   
+  def results
+    
+    @teams=Team.find(:all).sort {|a,b| a.fll_number <=> b.fll_number}
+    get_robot_ranking
+    get_project_ranking
+
+  end
+  
   # GET /teams/1
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-    @matches = @team.qualifications.find(:all, :order => :match_number)
+    @qualifications = @team.qualifications.find(:all, :order => :match_number)
+    @finals = @team.finals.find(:all, :order => :match_number)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,6 +94,22 @@ class TeamsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(teams_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def get_robot_ranking
+    @robot_rank = {}
+    teams = Team.find(:all, :include => :robot_score).sort {|a,b| b.total_robot_score <=> a.total_robot_score}
+    teams.each_with_index do |team, i|
+      @robot_rank[team.fll_number.to_s.to_sym] = i + 1
+    end
+  end
+  
+  def get_project_ranking
+    @project_rank = {}
+    teams = Team.find(:all, :include => :project_score).sort {|a,b| b.total_project_score <=> a.total_project_score}
+    teams.each_with_index do |team, i|
+      @project_rank[team.fll_number.to_s.to_sym] = i + 1
     end
   end
 end

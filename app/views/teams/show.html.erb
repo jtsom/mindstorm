@@ -1,61 +1,81 @@
-<p><%= "#{@team.fll_number} #{@team.team_name}" %></p>
+<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
-<p># Matches: <%= @matches.length %></p>
-<p>Average Score: <%= @team.average_qual_score %></p>
 <table border="1" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
-	<th rowspan=2>Points</th>	
-	<% $challenge.missions.each do |mission| %>	
-	<th colspan=<%= mission.items.length %> >
-	<%= mission.description %>
-	</th>
+	<th rowspan="2">Table</th>
+	<th rowspan="2">Points</th>	
+	<% $challenge.missions.each do |mission| -%>	
+		<th colspan=<%= mission.items.length %> ><%= mission.description -%></th>
 	<% end %>
 	</tr>
 
 	<tr>
 	<% $challenge.missions.each do |mission|
-	  	mission.items.each do |item| %>
-	<th align="center">
-	<%= item.label.to_s.gsub(/([A-Z])/, ' \1')[1..-1] %>
-	</th>
-	<% end
-	 end %>
+	  	 mission.items.each do |item| -%>
+			<th align="center"><%= item.label.to_s.gsub(/([A-Z])/, ' \1')[1..-1] -%></th>
+	<%   end
+	   end %>
 	</tr>
 	
 	<tr>
-	<th colspan="2"></th>
+	<th colspan="3"></th>
 	<% $challenge.missions.each do |mission| 
-		mission.items.each do |item| %>
-	<th>
-	<%= item.scoring %>
-	</th>
+		mission.items.each do |item| -%>
+	<th><%= item.scoring -%></th>
 	<% 	end
 	 end %>
 	</tr>
-	
-	<% 
-	@matches.each do |match| %>
+
+	<tr>
+		<td colspan="14" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %></td>
+	</tr>
+	<% 	@qualifications.each do |match| -%>
 	<tr align="center">
 	
-	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
-	<%= "<td>#{match.score}</td>" %>
+	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
+	<td><%= match.table_number %></td>
+	<%= "<td>#{match.score}</td>" -%>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]
+				score = value.to_i * item.scoring.to_i
 				if value != " " and $challenge.type_of(item.label) == :boolean
 			        value = ["N","Y"][value]
 			    end
 	%>
-				<%= "<td>#{value}</td>" %>
-	<%
-			end
-		end
-	%>
+				<%= "<td>#{value} (#{score})</td>" -%>
+	<%		end
+		end	%>
 	</tr>	
-	<% end 
-	%>
+	<% end 	%>
+	
+	<tr>
+		<td colspan="14" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 	</tr>
+		<% 	@finals.each do |match| %>
+		<tr align="center">
+	
+		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
+		<td><%= match.table_number %></td>
+		<%= "<td>#{match.score}</td>" -%>
+		<%	$challenge.missions.each do |mission|
+				mission.items.each do |item|
+					value = match.results[item.label]
+					score = value.to_i * item.scoring.to_i
+					if value != " " and $challenge.type_of(item.label) == :boolean
+				        value = ["N","Y"][value]
+				    end
+		%>
+					<%= "<td>#{value} (#{score})</td>" -%>
+		<%		end
+			end	%>
+		</tr>	
+	<% end 	%>
+	
 </table>
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %> | 
-<%= link_to 'Match List', qualifications_path %>
+<p>Project Score: <%= @team.project_score.total_score if @team.project_score %><br />
+   Robot Technical Score: <%= @team.robot_score.total_score if @team.robot_score %>
+</p>
+<%= link_to 'Edit', edit_team_path(@team) -%> |
+<%= link_to 'Team List', teams_path -%>
+

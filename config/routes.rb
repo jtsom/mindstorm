@@ -1,11 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resource :robot_scores
+
+  map.resource :project_scores
+
 
   map.resources :finals
   map.resources :qualifications
 
-  map.resources :teams, :has_many => [:finals, :qualifications]
-
+  map.resources :teams do |team|
+    team.resources :finals
+    team.resources :qualifications
+    team.resources :project_scores
+    team.resources :robot_scores
+  end
+  
   map.standings 'standings', :controller => 'teams', :action => 'standings'
+  map.results 'results', :controller => 'teams', :action => 'results'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

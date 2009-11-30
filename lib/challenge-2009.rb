@@ -181,7 +181,7 @@ challenge do
   # Need max number of access markers and loops
   mission "Gain Access To Things" do
     item :AccessMarkers, "# Access Markers Upright", 0..8, "25"
-    item :LoopsInBase, "# Loops In Base", 0..8, "10"
+    item :LoopsInBase, "# Loops In Base", 0..11, "10"
     score do |items|
       (items[:AccessMarkers] * 25) + (items[:LoopsInBase] * 10)
     end

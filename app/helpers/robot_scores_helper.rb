@@ -1,0 +1,2 @@
+module RobotScoresHelper
+end

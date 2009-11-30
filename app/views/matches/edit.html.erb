@@ -1,4 +1,4 @@
-<h1>Editing Match <%= @match.match_number %> for <%= @team.team_name %></h1>
+<h1>Editing <%= params[:controller].classify.to_s %> Match <%= @match.match_number %> for <%= @team.team_name %></h1>
 
 <%  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
 <%= f.error_messages %>

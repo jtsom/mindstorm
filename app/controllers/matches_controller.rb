@@ -14,7 +14,7 @@ class MatchesController < ApplicationController
   end
   
   def show
-    @matches = Match.match_list(params[:id])
+    @matches = Match.match_list(params[:id])  
     case params[:controller]
       when "qualifications"
         @matches = @matches.qual_matches
@@ -62,10 +62,10 @@ class MatchesController < ApplicationController
          err = "Please correct the following: <br>"
          $errors.each { |error| err += error + "<br>" }
          flash[:notice] = err
-         render :action => "edit"
+         render  "matches/edit"
        end
      else
-       render :action  => "edit"
+       render "matches/edit"
      end
    end
   
