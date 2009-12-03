@@ -40,33 +40,35 @@ class MatchesController < ApplicationController
            @team.finals.find(params[:id])
        end
 
-     if @match.update_attributes(params[params[:controller].singularize.to_sym])
-       results = {}
-       params[:results].each_pair do |key, value|
-         results[key.to_sym] = case value
-           when "y", "Y" : 1
-           when "n", "N" : 0
-           else value.to_i
-         end
+
+     results = {}
+     params[:results].each_pair do |key, value|
+       results[key.to_sym] = case value
+         when "y", "Y" : 1
+         when "n", "N" : 0
+         else value.to_i
        end
+     end
+     
+     @match.attributes = params[params[:controller].singularize.to_sym]
+     @match.results = results
 
-       @match.results = results
-
-       if $challenge.check(results)
+     if $challenge.check(results)
+       
+       @match.score = $challenge.score(results)
+       if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
-         @match.score = $challenge.score(results)
-         @match.save
-         
-         redirect_to team_path(@team)
+         redirect_to teams_path
        else
-         err = "Please correct the following: <br>"
-         $errors.each { |error| err += error + "<br>" }
-         flash[:notice] = err
-         render  "matches/edit"
+          render "matches/edit"
        end
      else
-       render "matches/edit"
+       err = "Please correct the following: <br>"
+       $errors.each { |error| err += error + "<br>" }
+       flash[:notice] = err
+       render  "matches/edit"
      end
+
    end
   
   def create

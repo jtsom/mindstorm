@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #fff;  }
 
 body, p, ol, ul, td {
   font-family: arial, helvetica, sans-serif;
@@ -117,7 +117,7 @@ tr.even
 		}
 .table2 {
 		background: yellow;
-		color: black;
+		color: #eee;
 		}
 .table3 {
 		background: green;
@@ -129,13 +129,19 @@ tr.even
 .tabletitle {
 		margin: auto auto;
 		text-align: center;
-		font-weight: bold;
+		/*font-weight: bold;*/
+		text-shadow: #222 2px 2px 5px;
 		}
 .results {
 		margin: 10px 10px;
+		text-align: center;
+		text-shadow: #222 2px 2px 5px;
 		}
 .teamresults {
 		font: 20pt arial, sans-serif;
+		}
+.score {
+		font-size: 24pt;
 		}
 .teamname {
 	font-size: 14pt;
@@ -146,6 +152,7 @@ tr.even
 		margin-top: 1em;
 		width: 275px;
 		clear: both;
+		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 		}
 table#scoring {font: 75% "arial", Verdana, sans-serif;}
 	.heading {font-weight: bold;}

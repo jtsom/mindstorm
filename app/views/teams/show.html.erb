@@ -1,6 +1,6 @@
 <p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
-<table border="1" style="border-collapse:collapse;">
+<table border="1" width="960" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
 	<th rowspan="2">Table</th>
 	<th rowspan="2">Points</th>	
@@ -73,9 +73,417 @@
 	<% end 	%>
 	
 </table>
-<p>Project Score: <%= @team.project_score.total_score if @team.project_score %><br />
-   Robot Technical Score: <%= @team.robot_score.total_score if @team.robot_score %>
-</p>
+
+
+<table width="960">
+	<tr valign="top">
+		<td width="50%">
+			<h2>Project Scores</h2>
+<table border="1" style='border-collapse: collapse'>
+
+	<tr>
+		<td rowspan="6" width="80">
+			Research
+		</td>
+		<td width="135">
+			Research Problem Clearly Defined
+		</td>
+		<td width="20">
+			<%= @team.project_score.research1 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Used outside resouces
+		</td>
+		<td>
+			<%= @team.project_score.research2 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Researched the impact of the problem &amp; applied to solution
+		</td>
+		<td>
+			<%= @team.project_score.research3 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Researched existing solutions &amp; applied that knowledge
+		</td>
+		<td>
+			<%= @team.project_score.research4 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Alternative theories presented and addressed
+		</td>
+		<td>
+			<%= @team.project_score.research5 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Demonstrated understanding of technical terms
+		</td>
+		<td>
+			<%= @team.project_score.research6 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="3">
+			Innovative solution
+		</td>
+		<td>
+			Solution presented that clearly addresses the problem
+		</td>
+		<td>
+			<%= @team.project_score.is1 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Data presented supports the solution
+		</td>
+		<td>
+			<%= @team.project_score.is2 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Solution is innovative and applies knowledge of science/technology
+		</td>
+		<td>
+			<%= @team.project_score.is3 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="2">
+			Sharing
+		</td>
+		<td>
+			Shared the project, research, and solution with others
+		</td>
+		<td>
+			<%= @team.project_score.sharing1 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Considered how problem/solution impact others &amp; plans produced change
+		</td>
+		<td>
+			<%= @team.project_score.sharing2 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="10">
+			Creative Presentation
+		</td>
+		<td>
+			Organized presention; logical progression; clear beginning, middle, and end
+		</td>
+		<td>
+			<%= @team.project_score.pres1 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			All or almost all team members participated (TW)
+		</td>
+		<td>
+			<%= @team.project_score.pres2 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Comprehensive answers to judges questions
+		</td>
+		<td>
+			<%= @team.project_score.pres3 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Collaboration of group is seamless (TW)
+		</td>
+		<td>
+			<%= @team.project_score.pres4 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Carefully chosen visual aids and support material add to presentation
+		</td>
+		<td>
+			<%= @team.project_score.pres5 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Excellent use of creativity
+		</td>
+		<td>
+			<%= @team.project_score.pres6 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Clearly the work of the kids from beginning to end (TW)
+		</td>
+		<td>
+			<%= @team.project_score.pres7 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			No evident errors and well rehearsed
+		</td>
+		<td>
+			<%= @team.project_score.pres8 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Excellent use of time
+		</td>
+		<td>
+			<%= @team.project_score.pres9 if @team.project_score %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			No technical difficulties
+		</td>
+		<td>
+			<%= @team.project_score.pres10 if @team.project_score %>
+		</td>
+	</tr>
+</table>
+	</td>
+		<td>
+			<h2>Robot Technical Scores</h2>
+			<table border="1" style="border-collapse:collapse">
+
+					<td width="80">
+						Innov.Design
+					</td>
+					<td width="135">
+						Check box for each of the following statements if they are true:
+					</td>
+					<td width="20">
+						<%= @team.robot_score.inno_design if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="2">
+						Strategy
+					</td>
+					<td>
+						Communicates complete design process, from initial concept thru build, test, &amp; refinement
+					</td>
+					<td>
+						<%= @team.robot_score.strategy1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Innovative strategy combining mission tasks, plotting routes, maximizing points
+					</td>
+					<td>
+						<%= @team.robot_score.strategy2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="5">
+						Locomotion and Navigation
+					</td>
+					<td>
+						Goes defined distances efficiently
+					</td>
+					<td>
+						<%= @team.robot_score.loconav1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Adjusts speed, position sensing for optimum speed and accuracy
+					</td>
+					<td>
+						<%= @team.robot_score.loconav2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Turns accurately and consistently
+					</td>
+					<td>
+						<%= @team.robot_score.loconav3 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Moves between two points accurately and consistently
+					</td>
+					<td>
+						<%= @team.robot_score.loconav4 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Excellent allowance for variables (battery wear, obstacles). May use sensors
+					</td>
+					<td>
+						<%= @team.robot_score.loconav5 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="6">
+						Programming
+					</td>
+					<td>
+						Programs logically organized
+					</td>
+					<td>
+						<%= @team.robot_score.prog1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Programs very efficient
+					</td>
+					<td>
+						<%= @team.robot_score.prog2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Programs always work, even for complex tasks
+					</td>
+					<td>
+						<%= @team.robot_score.prog3 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sensors guarantee certain actions in every trial
+					</td>
+					<td>
+						<%= @team.robot_score.prog5 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Programs work in competition as in practice
+					</td>
+					<td>
+						<%= @team.robot_score.prog6 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Variables, loops, subroutines, and conditions are effective
+					</td>
+					<td>
+						<%= @team.robot_score.prog8 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="3">
+						Kids did work (TW)
+					</td>
+					<td>
+						Children can describe mission and reference the program
+					</td>
+					<td>
+						<%= @team.robot_score.kids1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Knowledge of structure and programming shows understanding of underlying design, science, and technology
+					</td>
+					<td>
+						<%= @team.robot_score.kids2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Building/programming was done by team members
+					</td>
+					<td>
+						<%= @team.robot_score.kids3 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="4">
+						Structural
+					</td>
+					<td>
+						Robot assembles easy
+					</td>
+					<td>
+						<%= @team.robot_score.structural1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Robot base stable and robust
+					</td>
+					<td>
+						<%= @team.robot_score.structural2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Attachments modular; function as expected and easily added/removed. Displays wide range of capabilities. Attachements perform tasks well and repeatable
+					</td>
+					<td>
+						<%= @team.robot_score.structural4 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Robot designed by team; design is unique and creative
+					</td>
+					<td>
+						<%= @team.robot_score.structural5 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="3">
+						Overall Design
+					</td>
+					<td>
+						Robot is elegant, complete system
+					</td>
+					<td>
+						<%= @team.robot_score.overall1 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						All components work well together
+					</td>
+					<td>
+						<%= @team.robot_score.overall2 if @team.robot_score %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						All components look like they belong together
+					</td>
+					<td>
+						<%= @team.robot_score.overall3 if @team.robot_score %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+		
 <%= link_to 'Edit', edit_team_path(@team) -%> |
 <%= link_to 'Team List', teams_path -%>
 

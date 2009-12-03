@@ -16,9 +16,7 @@ class TeamsController < ApplicationController
   
   def results
     
-    @teams=Team.find(:all).sort {|a,b| a.fll_number <=> b.fll_number}
-    get_robot_ranking
-    get_project_ranking
+    @teams=Team.find(:all, :include => [:robot_score, :project_score]).sort {|a,b| a.fll_number <=> b.fll_number}
 
   end
   

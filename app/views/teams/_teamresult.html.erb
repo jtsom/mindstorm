@@ -1,0 +1,38 @@
+<tr><td><%= "#{team.fll_number}</td><td>#{team.team_name}" %></td>
+<% if team.robot_score %>
+		<td><%= team.robot_score.inno_design %></td>
+		<td><%= team.robot_score.strategy_score %></td>
+		<td><%= team.robot_score.loconav_score %></td>
+		<td><%= team.robot_score.programming_score %></td>
+		<td><%= team.robot_score.kids_score %></td>
+		<td><%= team.robot_score.structural_score %></td>
+		<td><%= team.robot_score.overall_score %></td>
+<% else %>
+	<td colspan="7">&nbsp;</td>
+<% end %>
+<td><%= team.robot_score.total_score if team.robot_score %></td>
+<td>&nbsp;</td><!-- rank -->
+<td>&nbsp;</td>
+<% if team.project_score %>
+	<td><%= team.project_score.research_score %></td>
+	<td><%= team.project_score.innovative_score %></td>
+	<td><%= team.project_score.sharing_score %></td>
+	<td><%= team.project_score.pres_score %></td>
+<% else %>
+	<td colspan="4">&nbsp;</td>
+<% end %>
+<td><%= team.project_score.total_score if team.project_score %></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><%= team.average_qual_score if team.average_qual_score > 0%></td>
+<td></td><!-- rank -->
+<td>&nbsp;</td>
+<td><%= team.robot_score.kids_score if team.robot_score %></td>
+<td><%= (team.project_score.teamwork_score) if team.project_score %></td>
+<td>&nbsp;</td><!-- other score - not used -->
+<td><%= team.teamwork_score if team.teamwork_score > 0%></td>
+<td></td><!-- rank -->
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
