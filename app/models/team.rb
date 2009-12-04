@@ -11,6 +11,7 @@ class Team < ActiveRecord::Base
     # validates_numericality_of :project_score, :message => "is not a number"
     # validates_numericality_of :technical_score, :message => "is not a number"
     
+    # Team.load_from_file(Rails.root.join('support','teams09.yml'))  
     def self.load_from_file(filename)
       self.destroy_all
       records = YAML::load(File.open(filename))

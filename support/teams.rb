@@ -21,7 +21,7 @@ data.each {|line|
   fields = line.split("\t")
 
     teams << {
-      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[2], :town => (fields[3] )
+      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[2], :town => "#{fields[3]}, MA"
     }
 
 }

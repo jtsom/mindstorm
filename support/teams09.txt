@@ -1,48 +1,49 @@
-113	Mindstorms Mayhem	Milford Area Youth Homeschoolers Enriching Minds	Bedford, MA
-183	Road Warriors		Westborough, MA
-531	Trojan Turtles		Natick, MA
-592	When Lego People Fly	Leominster Youth Robotics Inc	Leominster, MA
-826	Geared Gators	Leominster Youth Robotics	Leominster, MA
-922	Leominster Pink Flamingos	Leominster Youth Robotics	Leominster, MA
-1392	roboPIQLZ		Dover, MA
-1697	RAMS Robotics	Robert Adams Middle School	Holliston, MA
-2456	Gael Force Jr.	Gael Force	Clinton, MA
-2458	Fighting Irish	Gael Force	Clinton, MA
-2779	Eagles	Chocksett Middle School	Sterling, MA
-2843	The Decoders		Westford, MA
-3327	RoboKids	Leominster Youth Robotics	Leominster, MA
-3508	Epic Crusaders		Billerica, MA
-3571	Ice Tornadoes	Leominster Youth Robotics	Leominster, MA
-3788	Unicycling Berserker Rhinos	First Parish Unitarian Universalist Church	Chelmsford, MA
-4026	Cougar Constructors	Mulready Elementary	Hudson, MA
-4381	E-Race		Worcester, MA
-4403	Mad Cows		Concord, MA
-4475	Princeton Shock Bricksters	Princeton, MA
-4497	RoboPenguins	Leominster Youth Robotics	Leominster, MA
-4498	The Rampaging Robojets	Leominster Youth Robotics	Leominster, MA
-4499	Wild Horses	Leominster Youth Robotics	Leominster, MA
-4500	Devil Dolls	Leominster Youth Robotics	Leominster, MA
-4501	The Roaring Dragons of Flame	Leominster Youth Robotics	Leominster, MA
-4502	RoboVaders	Leominster Youth Robotics	Leominster, MA
-4525	Lady Falcons	Leominster Youth Robotics	Leominster, MA
-4601	Framingham	Framingham Fifth Graders	Framingham, MA
-4709	Enter Name Here	Acton, MA
-5113	The Bot Heard Round the World	Alcott School	Concord, MA
-5533	Thunderbots	Leominster Youth Robotics	Leominster, MA
-5534	EARTH	Leominster Youth Robotics	Leominster, MA
-5535	Rock-N-Rollbots	Leominster Youth Robotics	Leominster, MA
-5765	Robo Rebels	Leominster Youth Robotics	Leominster, MA
-6663	Westminster Gear Bots	Westminster, MA
-6803	Kenstrucksheneers	Girls Inc of Worcester	Worcester, MA
-6988	A-Town Bots	Arlington Public Schools	Arlington, MA
-6990	Legolympians		Chelmsford , MA
-7140	Sudbury Gears & Gizmos	Sudbury, MA
-7920	Shamrocks	Gael Force Robotics	Clinton, MA
-8035	RoboLeague		Malden, MA
-9128	Melrose Middle School Team	Melrose Veterans Memorial Middle School	Melrose, MA
-9340	Gyrotechniques	Arlington Public Schools	Arlington, MA
-9532	MESA Movers		Framingham, MA
-9821	Beaufort 9	Gael Force Robotics	Clinton, MA
-9866	Why So Serious	Melrose Middle School	Melrose, MA
-9899	Ottoson Technologics	Arlington Public Schools	Arlington, MA
-15000	Eagles 2	Chocksett Middle School	Sterling, MA
+FLL#	Team Name	Affiliation	Location
+113	Mindstorms Mayhem	Milford Area Youth Homeschoolers Enriching Minds	Bedford
+183	Road Warriors		Westborough
+826	Geared Gators	Leominster Youth Robotics	Leominster
+922	Leominster Pink Flamingos	Leominster Youth Robotics	Leominster
+3327	RoboKids	Leominster Youth Robotics	Leominster
+3571	Ice Tornadoes	Leominster Youth Robotics	Leominster
+4497	RoboPenguins	Leominster Youth Robotics	Leominster
+4498	The Rampaging Robojets	Leominster Youth Robotics	Leominster
+4499	Wild Horses	Leominster Youth Robotics	Leominster
+4500	Devil Dolls	Leominster Youth Robotics	Leominster
+4501	The Roaring Dragons of Flame	Leominster Youth Robotics	Leominster
+4502	RoboVaders	Leominster Youth Robotics	Leominster
+4525	Lady Falcons	Leominster Youth Robotics	Leominster
+5533	Thunderbots	Leominster Youth Robotics	Leominster
+5534	EARTH	Leominster Youth Robotics	Leominster
+5535	Rock-N-Rollbots	Leominster Youth Robotics	Leominster
+5765	Robo Rebels	Leominster Youth Robotics	Leominster
+1697	RAMS Robotics	Robert Adams Middle School	Holliston
+531	Trojan Turtles		Natick
+592	When Lego People Fly	Leominster Youth Robotics Inc	Leominster
+4381	E-Race		Worcester
+3788	Unicycling Berserker Rhinos	First Parish Unitarian Universalist Church	Chelmsford
+6663	Westminster Gear Bots		Westminster
+4403	Mad Cows		Concord
+2843	The Decoders		Westford
+1105	Team Barracuda		Sutton
+2456	Gael Force Jr.	Gael Force	Clinton
+2458	Fighting Irish	Gael Force	Clinton
+7920	Shamrocks	Gael Force Robotics	Clinton
+9821	Beaufort 9	Gael Force Robotics	Clinton
+5113	The Bot Heard Round the World	Alcott School	Concord
+9532	MESA Movers		Framingham
+3508	Epic Crusaders		Billerica
+2779	Eagles	Chocksett Middle School	Sterling
+15000	Eagles 2	Chocksett Middle School	Sterling
+6990	Legolympians		Chelmsford 
+1392	roboPIQLZ		Dover
+8035	RoboLeague		Malden
+4601	Framingham	Framingham Fifth Graders	Framingham
+7140	Sudbury Gears & Gizmos		Sudbury
+4475	Princeton Shock Bricksters		Princeton
+9899	Ottoson Technologics	Arlington Public Schools	Arlington
+9866	Why So Serious	Melrose Middle School	Melrose
+9340	Gyrotechniques	Arlington Public Schools	Arlington
+6988	A-Town Bots	Arlington Public Schools	Arlington
+9128	Melrose Middle School Team	Melrose Veterans Memorial Middle School	Melrose
+6803	Kenstrucksheneers	Girls Inc of Worcester	Worcester
+4709	Enter Name Here		Acton
