@@ -12,7 +12,7 @@ set :user, "jtsombakos"
 set :admin_runner, "jtsombakos"
 #set :use_sudo, false
 
-set :load_teams_cmd, "Team.load_from_file('#{release_path}/support/teams.yml')"
+set :load_teams_cmd, "Team.load_from_file('#{release_path}/support/teams09.yml')"
 
 default_run_options[:pty] = true
 

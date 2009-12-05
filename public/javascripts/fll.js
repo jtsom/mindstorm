@@ -25,7 +25,18 @@ function validate_boolean()
         if (s == "Y" || s == 'y' || s == "N" || s == 'n') {return true;}
     return false;
 }
-
+function change_color()
+{
+	tableField = document.getElementById('tableField');
+	tableNum = document.getElementById('qualification_table_number').value;
+	if (tableNum)
+	{
+		tableField.className = 'table' + tableNum;
+	} else {
+		tableField.className = '';
+	}
+	
+}
 function validate() {
 	
 	matchNumber = document.getElementById('match_match_number').value;
@@ -36,6 +47,7 @@ function validate() {
 		document.getElementById('match_match_number').focus();
 		return false;
 	}
+
 /*	
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
 	green = parseInt(document.getElementById('results_LeveeTouchingGreen').value);
