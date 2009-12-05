@@ -180,7 +180,7 @@ challenge do
   
   # Need max number of access markers and loops
   mission "Gain Access To Things" do
-    item :AccessMarkers, "# Access Markers Upright", 0..8, "25"
+    item :AccessMarkers, "# Access Markers Down", 0..4, "25"
     item :LoopsInBase, "# Loops In Base", 0..11, "10"
     score do |items|
       (items[:AccessMarkers] * 25) + (items[:LoopsInBase] * 10)
@@ -188,10 +188,10 @@ challenge do
   end
   
   mission "Avoid Impacts" do
-    item :WarningBeacons, "# Warning Beacons Down", 0..4, "10"
-	item :SensorWallsAvoidance, "# Sensor Walls Upright", 0..4, "10"
+    item :WarningBeacons, "# Warning Beacons Upright", 0..8, "10"
+	  item :SensorWallsAvoidance, "# Sensor Walls Upright", 0..4, "10"
     score do |items|
-      (items[:WarningBeacons] * 10) + ( [ items[:SensorWallsAvoidance], items[:WarningBeacons] ].min * 10)
+      (items[:WarningBeacons] * 10) + ( [ items[:SensorWallsAvoidance], items[:AccessMarkers] ].min * 10)
 	  #need rules for walls + beacons + Sensor Walls Impact
     end
 	check "All Sensor Walls are Down, but Survive Impacts/All Sensor walls Down is NO" do |items|
