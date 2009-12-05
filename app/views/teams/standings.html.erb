@@ -3,14 +3,15 @@
 <%= link_to 'Back', teams_path %>
 
 <table border="1" style="border-collapse:collapse">
-	<tr>
+	<tr><td>&nbsp;</td>
 		<td>#</td><td>Name</td><th>Avg</th>
 		<% (1..APP_CONFIG["max_matches"]).each do |col| %>
 			<td width="25px"><%= col %></td>
 		<% end %>
 	</tr>
-<% @teams.each do |team| -%>
-	<tr><%= "<td>#{team.fll_number}</td><td>#{team.team_name}</td>" %>
+<% @teams.each_with_index do |team, i| -%>
+	<tr><td><%= i + 1 %></td>
+	<%= "<td>#{team.fll_number}</td><td>#{team.team_name}</td>" %>
 		<%= "<td align='right'><b>#{team.average_qual_score}</b></td>" %>
 	<% team.qualifications.each do |match| %>
 	<%= "<td align='right'>#{match.score}</td>" %>
