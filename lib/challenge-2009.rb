@@ -194,17 +194,17 @@ challenge do
       (items[:WarningBeacons] * 10) + ( [ items[:SensorWallsAvoidance], items[:AccessMarkers] ].min * 10)
 	  #need rules for walls + beacons + Sensor Walls Impact
     end
-	check "All Sensor Walls are Down, but Survive Impacts/All Sensor walls Down is NO" do |items|
-		if items[:SensorWallsAvoidance] == 0 
-			if items[:SensorWallsImpact] == 0
-				false
-			else
-				true
-			end
-		else
-			true
-		end
-	end
+  # check "All Sensor Walls are Down, but Survive Impacts/All Sensor walls Down is NO" do |items|
+  #   if items[:SensorWallsAvoidance] == 0 
+  #     if items[:SensorWallsImpact] == 0
+  #       false
+  #     else
+  #       true
+  #     end
+  #   else
+  #     true
+  #   end
+  # end
   end
   
   mission "Survive Impacts" do
