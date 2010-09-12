@@ -1,12 +1,12 @@
 <h1>Editing <%= params[:controller].classify.to_s %> Match <%= @match.match_number %> for <%= @team.team_name %></h1>
 
-<%  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
-<%= f.error_messages %>
+<%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
+<%= errors_for(@match).html_safe %>
 <p><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></p>
 <p><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></p>
 
 <table style="border-collapse:collapse;" border="1">
-  <% fields_for :results do |match_fields| 
+  <%= fields_for :results do |match_fields| 
 		$challenge.missions.each do |mission| -%>
 	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description -%></b></td>
 	<% mission.items.each do |item|

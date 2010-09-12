@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
   end
   
   def index
-		@matches = @match_class.find(:all, :order => "match_number")
+		@matches = @match_class.order(:match_number)
 		render "matches/index"
   end
   
@@ -44,8 +44,8 @@ class MatchesController < ApplicationController
      results = {}
      params[:results].each_pair do |key, value|
        results[key.to_sym] = case value
-         when "y", "Y" : 1
-         when "n", "N" : 0
+         when "y", "Y" then 1
+         when "n", "N" then 0
          else value.to_i
        end
      end
@@ -80,8 +80,8 @@ class MatchesController < ApplicationController
       results = {}
       params[:results].each_pair do |key, value|
         results[key.to_sym] = case value
-          when "y", "Y" : 1
-          when "n", "N" : 0
+          when "y", "Y" then 1
+          when "n", "N" then 0
           else value.to_i
         end
       end

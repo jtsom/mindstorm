@@ -1,5 +1,5 @@
-<% form_for [@team, @robotscore] do |f| %>
-  <%= f.error_messages %>
+<%= form_for [@team, @robotscore] do |f| %>
+  <%= errors_for(@robotscore) %>
 
 <table border="1" width="960" id="scoring" style='border-collapse: collapse'>
 	<tr>

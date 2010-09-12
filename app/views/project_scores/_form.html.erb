@@ -1,5 +1,5 @@
-<% form_for [@team, @projectscore] do |f| %>
-  <%= f.error_messages %>
+<%= form_for [@team, @projectscore] do |f| %>
+  <%= errors_for(@projectscore) %>
 	<table border="1"  style='border-collapse: collapse;' id="scoring">
 
 		<tr class="heading">

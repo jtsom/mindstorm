@@ -7,6 +7,7 @@
 
 ################### Implementation classes, skip this section on first reading
 
+puts "***** here *****"
 
 class Range
   def join(c)

@@ -1,4 +1,4 @@
-<tr><td><%= "#{team.fll_number}</td><td>#{team.team_name}" %></td>
+<tr><td><%= "#{team.fll_number}</td><td>#{team.team_name}".html_safe %></td>
 <% if team.robot_score %>
 		<td><%= team.robot_score.inno_design %></td>
 		<td><%= team.robot_score.strategy_score %></td>

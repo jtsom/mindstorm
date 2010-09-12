@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = Team.find(:all, :include => [:finals, :qualifications], :order => :fll_number)
+    @teams = Team.includes(:finals, :qualifications).order(:fll_number)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,12 +11,12 @@ class TeamsController < ApplicationController
   end
 
   def standings
-    @teams = Team.find(:all, :include => :qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
+    @teams = Team.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
   end
   
   def results
     
-    @teams=Team.find(:all, :include => [:robot_score, :project_score]).sort {|a,b| a.fll_number <=> b.fll_number}
+    @teams=Team.includes(:robot_score, :project_score).sort {|a,b| a.fll_number <=> b.fll_number}
 
   end
   
@@ -24,8 +24,8 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-    @qualifications = @team.qualifications.find(:all, :order => :match_number)
-    @finals = @team.finals.find(:all, :order => :match_number)
+    @qualifications = @team.qualifications.order(:match_number)
+    @finals = @team.finals.order(:match_number)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -97,7 +97,7 @@ class TeamsController < ApplicationController
   
   def get_robot_ranking
     @robot_rank = {}
-    teams = Team.find(:all, :include => :robot_score).sort {|a,b| b.total_robot_score <=> a.total_robot_score}
+    teams = Team.includes(:robot_score).sort {|a,b| b.total_robot_score <=> a.total_robot_score}
     teams.each_with_index do |team, i|
       @robot_rank[team.fll_number.to_s.to_sym] = i + 1
     end
@@ -105,7 +105,7 @@ class TeamsController < ApplicationController
   
   def get_project_ranking
     @project_rank = {}
-    teams = Team.find(:all, :include => :project_score).sort {|a,b| b.total_project_score <=> a.total_project_score}
+    teams = Team.includes(:project_score).sort {|a,b| b.total_project_score <=> a.total_project_score}
     teams.each_with_index do |team, i|
       @project_rank[team.fll_number.to_s.to_sym] = i + 1
     end
