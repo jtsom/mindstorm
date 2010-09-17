@@ -12,7 +12,7 @@
 	<tr>
 	<% $challenge.missions.each do |mission|
 	  	 mission.items.each do |item| -%>
-			<th align="center"><%= item.label.to_s.gsub(/([A-Z])/, ' \1')[1..-1] -%></th>
+			<th align="center"><%= item.label.to_s.titleize -%></th>
 	<%   end
 	   end %>
 	</tr>

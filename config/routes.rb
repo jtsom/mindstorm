@@ -15,9 +15,9 @@ Mindstorm::Application.routes.draw do
     resources :robot_scores
   end
   
-  match '/standings'  => 'teams#standings', :as => :standings
+  match 'standings', :to =>  'teams#standings'
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
-  match '/results' => 'teams#results', :as  => :results
+  match 'results', :to  => 'teams#results'
   #map.results 'results', :controller => 'teams', :action => 'results'
   
   root :to  => 'teams#index'
