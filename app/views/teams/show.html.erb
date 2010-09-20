@@ -1,6 +1,6 @@
 <p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
-<table border="1" width="960" style="border-collapse:collapse;">
+<table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
 	<th rowspan="2">Table</th>
 	<th rowspan="2">Points</th>	
@@ -27,14 +27,14 @@
 	</tr>
 
 	<tr>
-		<td colspan="14" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %></td>
+		<td colspan="22" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %></td>
 	</tr>
 	<% 	@qualifications.each do |match| -%>
 	<tr align="center">
 	
 	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
 	<td><%= match.table_number %></td>
-	<%= "<td>#{match.score}</td>" -%>
+	<%= "<td>#{match.score}</td>".html_safe -%>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]
@@ -43,21 +43,21 @@
 			        value = ["N","Y"][value]
 			    end
 	%>
-				<%= "<td>#{value} (#{score})</td>" -%>
+				<%= "<td>#{value} (#{score})</td>".html_safe -%>
 	<%		end
 		end	%>
 	</tr>	
 	<% end 	%>
 	
 	<tr>
-		<td colspan="14" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		<td colspan="22" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 	</tr>
 		<% 	@finals.each do |match| %>
 		<tr align="center">
 	
 		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
 		<td><%= match.table_number %></td>
-		<%= "<td>#{match.score}</td>" -%>
+		<%= "<td>#{match.score}</td>".html_safe -%>
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
 					value = match.results[item.label]
@@ -66,7 +66,7 @@
 				        value = ["N","Y"][value]
 				    end
 		%>
-					<%= "<td>#{value} (#{score})</td>" -%>
+					<%= "<td>#{value} (#{score})</td>".html_safe -%>
 		<%		end
 			end	%>
 		</tr>	

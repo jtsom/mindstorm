@@ -14,13 +14,14 @@ class MatchesController < ApplicationController
   end
   
   def show
-    @matches = Match.match_list(params[:id])  
-    case params[:controller]
-      when "qualifications"
-        @matches = @matches.qual_matches
-      when "finals"
-        @matches = @matches.final_matches
-    end
+    # @matches = Match.match_list(params[:id])  
+    # case params[:controller]
+    #   when "qualifications"
+    #     @matches = @matches.qual_matches
+    #   when "finals"
+    #     @matches = @matches.final_matches
+    # end
+    @matches = @match_class.match_list(params[:id])
     @match_number = params[:id]
     render "matches/show"
   end
@@ -33,13 +34,13 @@ class MatchesController < ApplicationController
   
   def update
      @team = Team.find(params[:team_id])
-     @match = case params[:controller]
-         when "qualifications"
-           @team.qualifications.find(params[:id])
-         when "finals"
-           @team.finals.find(params[:id])
-       end
-
+     # @match = case params[:controller]
+     #     when "qualifications"
+     #       @team.qualifications.find(params[:id])
+     #     when "finals"
+     #       @team.finals.find(params[:id])
+     #   end
+     @match = @match_class.find(params[:id])
 
      results = {}
      params[:results].each_pair do |key, value|
@@ -65,7 +66,7 @@ class MatchesController < ApplicationController
      else
        err = "Please correct the following: <br>"
        $errors.each { |error| err += error + "<br>" }
-       flash[:notice] = err
+       flash[:notice] = err.html_safe
        render  "matches/edit"
      end
 
@@ -102,7 +103,7 @@ class MatchesController < ApplicationController
       else
         err = "Please correct the following: <br>"
         $errors.each { |error| err += error + "<br>" }
-        flash[:notice] = err
+        flash[:notice] = err.html_safe
         render  "matches/new"
       end
     else
