@@ -43,7 +43,7 @@
 			        value = ["N","Y"][value]
 			    end
 	%>
-				<%= "<td>#{value} (#{score})</td>".html_safe -%>
+				<td><%= value.to_s + " (" + score.to_s + ")" %></td>
 	<%		end
 		end	%>
 	</tr>	
@@ -57,7 +57,7 @@
 	
 		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
 		<td><%= match.table_number %></td>
-		<%= "<td>#{match.score}</td>".html_safe -%>
+		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
 					value = match.results[item.label]
@@ -66,7 +66,7 @@
 				        value = ["N","Y"][value]
 				    end
 		%>
-					<%= "<td>#{value} (#{score})</td>".html_safe -%>
+					<td><%= value.to_s + " (" + score.to_s + ")" %></td>
 		<%		end
 			end	%>
 		</tr>	
