@@ -12,7 +12,7 @@
 #
 require 'yaml'
 
-FILENAME = "teams09.txt"
+FILENAME = "teams.txt"
 
 teams = []
 
@@ -21,14 +21,15 @@ data.each {|line|
   fields = line.split("\t")
 
     teams << {
-      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[2], :town => "#{fields[3]}, MA"
+      :fll_number => fields[0].to_i, :team_name => fields[1], :school => fields[8], :town => fields[11], :coach => fields[2], :coach_email => fields[4],
+      :asst_coach => fields[5], :asst_coach_email => fields[7], :state => fields[12]
     }
 
 }
 
 puts teams.to_yaml
 
-File.open("teams09.yml", 'w') {|f|
+File.open("teams.yml", 'w') {|f|
   f.write teams.to_yaml
 }
 

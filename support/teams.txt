@@ -1,41 +1,48 @@
-Team #	Team Name	School / Affiliation	City, State
-104	Northboro Team1	Mellican Middle School	Northborough, MA
-414	Moose Squad	none	Worcester, MA
-474	Climate Crusaders	Home team	Westborough, MA
-652	Top Secret	Neighborhood Friends	Brookline, MA
-1100	RoboPIQLZ	None	Dover, MA
-1414	RoboNetics II	Hudson Public Schools	Hudson, MA
-1415	RoboNetics I	Hudson Public Schools	Hudson, MA
-1557	The Bricksters	Foxborough Regional Charter School	Foxboro, MA
-2702	Devill Dolls	Southeast School	Leominster, MA
-2837	Southeast Dragons	Southeast School	Leominster, MA
-3101	Team Signa	Voyagers Homeschooling Cooperative	Acton, MA
-3102	Seven Devils	Voyagers Homeschooling Cooperative	Acton, MA
-3114	Techno Voyagers	Al-Hamra Academy	Shrewsbury, MA
-3277	Northboro Robotics Team 2	Melican Middle School	Northboro, MA
-3316	Robolancers	Luther Burbank Middle School	Lancaster, MA
-3526	LLAMAS	MIT Lincoln Laboratory	Lexington, MA
-3650	Unassessembled Beaverbots	First Parish Unitarian Universalist	Chelmsford, MA
-3651	The Nor'easters	First Parish Unitarian Universalist	Chelmsford, MA
-3675	Team Barracuda	Millbury Sutton Youth Robotics	Sutton, MA
-3799	Newtonian Mechanics	N/A	Newton, MA
-3868	The Bot Heard Round the World	Alcott School	Concord, MA
-3887	Princeton Bricksters	Thomas Prince School	Princeton, MA
-3943	Hopkinton Legocules	Hopkinton Middle School	Hopkinton, MA
-4165	Shock	Thomas Prince School	Princeton, MA
-4316	Smokin' Robots	MIT Lincoln Laboratory	Lexington, MA
-4614	Cheeseballers	MIT Lincoln Laboratory	Lexington, MA
-4660	The Nutbots	Trahan's Homeschool	Boylston, MA
-5410	Knights of the Lego Table	Advanced Math & Science Academy	Marlborough, MA
-5463	Medfield Robotics Club	None	Medfield, MA
-5703	McCarthy Maniacs	McCarthy Elementary	Framingham, MA
-5822	Froot Loops	none	Lunenburg, MA
-5922	Sobo Sco-Bros	Southborough Robotics	Southborough, MA
-6202	Fighting Irish	Clinton Middle School	Clinton, Ma
-6203	Jr. Gael Force	Clinton Middle School	Clinton, ma
-6736	Valiant Vikings	Al-Hamra Academy	Shrewsbury, MA
-7150	Purple Reapers	Burncoat Middle School	Worcester, MA
-7157	Masterminds	St. Joseph School	Webster, MA
-7339	AMSA Dominators	Advanced Math & Science Academy	Marlborough, MA
-10004	Technokids	Northboro Elementary	Northborough, MA
-10016	Al-Huda Robotics Club	Al-Huda Academy	Worcester, MA
+6496	Acton FLL team	Hemlatta H. Sakarda	9786359855	hemlattasakarda@yahoo.com					36 Meyer Hill Drive		Acton	MA	01720	Massachusetts		City	FALSE	Neighborhood Group	Members/Parents	Hemlatta H. Sakarda	1	1	Web1			TRUE
+1218	Westminster Gear Bots	Tiffany Davis	978-874-0828	tiffanydavis80@comcast.net					80 Lanes Rd		Westminster	MA	01473	Massachusetts		Suburban	FALSE	friends	Members/Parents	Tiffany Davis	1	1	Othersummer camp			TRUE
+1561	Northboro Team 1	Mr. Daniel A. Strickland	508-393-9130	first.team1100@gmail.com				Northboro Robotics	37 Hamilton Rd		Northborough	MA	01532	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	Members/Parents	Mr. Daniel A. Strickland	5	8	FLL Partners/Events1			FALSE
+1559	Northboro Team 2	Mr. Daniel A. Strickland	508-393-9130	first.team1100@gmail.com				Northboro Robotics	37 Hamilton Rd		Northborough	MA	01532	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	Members/Parents	Mr. Daniel A. Strickland	5	8	FLL Partners/Events1			FALSE
+3061	Dover Rovers	Mr. Paul  Wood	617-876-1530	paulwood@pol.net				Dover Rovers	55 Yorkshire Road		Dover	ME	02030	Massachusetts		Rural	FALSE	Neighborhood Group	Members/Parents	Mr. Paul  Wood	3	3	FLL Partners/Events1			TRUE
+8526	Incredible Droids	Mr. Michal Mamro	508-943-8545	mikemr@charter.net				"St. Joseph School, Webster, MA"	50 Camile Road		Webster	MA	01570	Massachusetts	Rhode Island	Suburban	FALSE	School	Members/Parents	Mr. Michal Mamro	2	2	FLL Partners/Events1Web1			TRUE
+755	RoboNetics Red	Ellen Schuck	978 567 6250	eschuck@hudson.k12.ma.us				Hudson Public Schools	69 Brigham Street		Hudson	MA	01749	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	private grant	Ellen Schuck	4	4	Other FIRST Programs1			FALSE
+756	RoboNetics White	Ellen Schuck	978 567 6250	eschuck@hudson.k12.ma.us				Hudson Public Schools	69 Brigham Street		Hudson	MA	01749	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	private grant	Ellen Schuck	4	4	Other FIRST Programs1			FALSE
+9125	RoboNetics Blue	Ellen Schuck	978 567 6250	eschuck@hudson.k12.ma.us				Hudson Public Schools	69 Brigham Street		Hudson	MA	01749	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	private grant	Ellen Schuck	5	5	Otherparent volunteer			FALSE
+3286	Cybernetics Without Borders	Mrs. Ting Kwong ( Mary) Jenny	978 340 0559	tk.jenny@gmail.com	Ted Gaudet	978-833-6114	tgaudet15@hotmail.com	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	0	School1			TRUE
+7536	Enginotics	Mrs. Susan Clark	978-851-6631	srbclark@yahoo.com					30 Bridle Path		Tewksbury	MA	01876	Massachusetts		Suburban	TRUE	Neighborhood Group	Members/Parents	Mrs. Susan Clark	0	0	Othermindstorm camp			TRUE
+5469	ROBO TREKERS	Mr. Mohsin ALI	508-845-0233	mohsin.ali@intel.com	Syed G. Quadri	508-329-1536	syed.g.quadri@intel.com	AL-HAMRA ACADEMY	435 South Street		Shrewsbury	MA	01545	Massachusetts	Rhode Island	Suburban	FALSE	After School Program	Members/Parents	Mr. Mohsin ALI	2	2	Otherco-workers			TRUE
+5480	Robo Chillers	Mr. Mohsin ALI	508-845-0233	mohsin.ali@intel.com	Syed G. Quadri	508-329-1536	syed.g.quadri@intel.com	AL-HAMRA ACADEMY	435 South Street		Shrewsbury	MA	01545	Massachusetts	Rhode Island	Suburban	FALSE	After School Program	Members/Parents	Mr. Mohsin ALI	2	2	Otherco-workers			TRUE
+6070	Robo Explorers	Mr. Mohsin ALI	508-845-0233	mohsin.ali@intel.com					4 View Street		Shrewsbury	MA	01545-2631	Massachusetts	Rhode Island	Suburban	FALSE	Neighborhood Group	Members/Parents	Mr. Mohsin ALI	0	2	Otherco-workersWeb1			TRUE
+10387	RoboNetics - Green	Ellen Schuck	978 567 6250	eschuck@hudson.k12.ma.us				Hudson Public Schools	69 Brigham Street		Hudson	MA	01749	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	local grant	Ellen Schuck	5	5	Other FIRST Programs1			FALSE
+9701	Robo Storm	Dr. Montgomery C. Brower	617-901-0564	mcbrower@verizon.net					14 MacArthur Road		Natick	MA	01760	Massachusetts		Suburban	FALSE	Neighborhood	Members/Parents	Dr. Montgomery C. Brower	0	0	OtherFriends			TRUE
+2680	Concord Middle School	Ms. Susanne O. Broderick	508-340-8987	sbroderick@colonial.net				Concord Middle School	825 Old Marlboro Road		Concord	MA	01742	Massachusetts		Suburban	FALSE	After School Program	Members/Parents	Ms. Susanne O. Broderick	0	0	School1			TRUE
+3294	Tough Guys Wear Pink	Devon Joyce	978-537-0285	DJcoltzfan@aim.com	Leah E. Arpano	9788400703	rooleah8@aim.com	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	5	Other			TRUE
+3284	Bionic BattleBots	David Swift	978-855-7600	dmbb2@yahoo.com	Mr. James M. DeCarolis	978-537-5319	jam661@verizon.net	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	0	School1			TRUE
+3282	Robokids	David Carter	9788401310	dave_carter827@hotmail.com	Mrs. Marie Keane	978-840-4258	mkeane126@comcast.net	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	3	School1			TRUE
+2761	Concord Middle School	Susanne Broderick	978-341-2790	sobroderick@hotmail.com				Concord Public Schools	835 Old Marlboro Road		Concord	MA	01742	Massachusetts		Suburban	FALSE	After School Program	Members/Parents	Susanne Broderick	0	0	School1			TRUE
+8412	Team 7	Ms. Sundie L. Meroth	781 981-0339	meroth@ll.mit.edu	Dr. Richard J. Molnar	781-981-4482	rmolnar@ll.mit.edu	MIT Lincoln Laboratory	244 Wood St		Lexington	MA	02420	Massachusetts	New Hampshire	Suburban	FALSE	MIT	MIT	Mr. Jonathan H. Williams	4	0	OtherMIT			TRUE
+8070	Ninja Healers	Mr. Edward D. Crowley	508-366-6193	ecrowley@hbr.org					12 Wheeler Road		Westborough	MA	01581	Massachusetts	Connecticut	Suburban	FALSE	Neighborhood Group	Members/Parents	Mr. Edward D. Crowley	0	0	Web1			TRUE
+8409	Legolympians	Mr. Leon Reitman	9787613667	grndsm@yahoo.com					163 Dalton Rd 		Chelmsford 	MA	01824	Massachusetts	New Hampshire	Suburban	FALSE	Neighborhood Group	Members/Parents	Mr. Leon Reitman	1	1	Other FIRST Programs1			FALSE
+9858	Lego Pants	Mrs. Marie Keane	978-840-4258	mkeane126@comcast.net				"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	5	Other			TRUE
+7654	Nanobots	Sheshamala Mankame	7817840846	amankame@comcast.net	Mr. Sean Cloherty	781-793-0384	seancloherty@comcast.net		42 Blair Circle		Sharon	MA	02067	Massachusetts		Suburban	FALSE	Neighborhood Group	Members/Parents	Sheshamala Mankame	1	1	School1FLL Partners/Events1Media1			TRUE
+3285	ThunderBotZ	Mr. Bruce McDowell	978-840-8523	bruce.mcdowell@verizon.net	Mrs. Marie Keane	978-840-4258	mkeane126@comcast.net	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	2	FLL Partners/Events1			TRUE
+3283	Roaring Dragons of Flame	Mr. Louis G. Marino	978-677-7619	landnrecovery@gmail.com	Mrs. Marie Keane	978-840-4258	mkeane126@comcast.net	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	5	Other			TRUE
+3280	O.W.A.G.A	Christopher Cratsley	978-665-3617	ccratsley@fsc.edu	Mrs. Marie Keane	978-840-4258	mkeane126@comcast.net	"Leominster Youth Robotics, Inc."	24 Church Street	Room 34	Leominster	MA	01453	Massachusetts	New Hampshire	City	FALSE	Community Organization	Members/Parents	Mrs. Marie Keane	5	5	Other			TRUE
+8410	Team 6	Mr. Curtis W. Heisey	781-981-1223	heisey@ll.mit.edu	Mr. Joel Walker	339-223-7933	jwalker@ll.mit.edu	MIT Lincoln Laboratory	244 Wood St		Lexington	MA	02420	Massachusetts	New Hampshire	Suburban	FALSE	work	Local Businesses	Mr. Jonathan H. Williams	3	3	FLL Partners/Events1			TRUE
+1376	Team#3	Cindy D. Engholm	781-981-3863	cindy.engholm@gmail.com				MIT Lincoln Laboratory	244 Wood Street		Lexington	MA	02420	Massachusetts	New Hampshire	Suburban	FALSE	Company Program	Local Businesses	Mr. Jonathan H. Williams	2	2	FLL Partners/Events1			TRUE
+10350	Endrans	Ms. Rekha Gopalan	978-635-9102	rekh_gopalan@yahoo.com					7 Maddy Lane		Acton	MA	01720	Massachusetts	Rhode Island	Suburban	FALSE	Neighborhood Group	Members/Parents	Ms. Rekha Gopalan	0	0	Web1			TRUE
+7933	Bucs Robotics	Ms. Sarah Leshay	781-275-1700	sarah_leshay@bedford.k12.ma.us				Bedford Robotics	Bedford High School	9 Mudge Way	Bedford	MA	01730	Massachusetts		Suburban	FALSE	After School Program	Members/Parents	Ms. Sarah Leshay	1	1	Other FIRST Programs1			TRUE
+7934	JGMS Robotics	Ms. Sarah Leshay	781-275-1700	sarah_leshay@bedford.k12.ma.us				Bedford Robotics	Bedford High School	9 Mudge Way	Bedford	MA	01730	Massachusetts		Suburban	FALSE	After School Program	Members/Parents	Ms. Sarah Leshay	1	1	Other FIRST Programs1			TRUE
+7935	Buc Bots	Ms. Sarah Leshay	781-275-1700	sarah_leshay@bedford.k12.ma.us				Bedford Robotics	Bedford High School	9 Mudge Way	Bedford	MA	01730	Massachusetts		Suburban	FALSE	After School Program	Members/Parents	Ms. Sarah Leshay	1	1	Other FIRST Programs1			TRUE
+10459	Ottoson 3	Dr. Ronald L. Spangler	339-223-2928	ron_spangler@verizon.net				Ottoson Middle School	63 Acton St		Arlington	MA	02476-6096	Massachusetts	New Hampshire	Suburban	FALSE	School	Members/Parents	Dr. Ronald L. Spangler	1	0	Web1			TRUE
+10456	Gyrotechniques2	Mr. Gary A. Blanchette	781-316-3745	gblanchette@arlington.k12.ma.us				Ottoson Middle School	63 Acton St 		Arlington	MA	02476-6096	Massachusetts	New Hampshire	Suburban	FALSE	School	Members/Parents	Dr. Ronald L. Spangler	1	1	School1Web1			TRUE
+10458	Ottoson 2	Ms. Julie McDaniel	781-888-0285	jmcdaniel@arlington.k12.ma.us				Ottoson Middle School	63 Acton St		Arlington	MA	02476-6096	Massachusetts	New Hampshire	Suburban	FALSE	School	Members/Parents	Dr. Ronald L. Spangler	1	1	OtherParent			TRUE
+8768	Robotic Destroyer	xiaofeng cai	781-810-4091	tech.frank.cai@gmail.com				Motorola Inc	9 Fairland Street 		Lexington 	MA	02421	Massachusetts	New Hampshire	Suburban	FALSE	Neighborhood Group	Motorola Fund	xiaofeng cai	5	2	FLL Partners/Events1Web1			TRUE
+1566	UU Robots 1	Ms. Beth Benoit	978 250 1567	benoitb@us.ibm.com	Will Kahn-Greene	617-596-2432	willg@bluesock.org	First Parish Unitarian Universalist Chelmsford	55 High st		Chelmsford	MA	01824	Massachusetts	New Hampshire	Suburban	FALSE	Religious Organization	Members/Parents	Ms. Beth Benoit	5	4	OtherFLL coach in our church			TRUE
+1567	UU Robots 2	John B. Allison	978-430-0228	john.b.allison@gmail.com				First Parish Unitarian Universalist of Chelmsford	55 High St		Chelmsford	MA	01824	Massachusetts	New Hampshire	Suburban	FALSE	Religious Organization	Members/Parents	Ms. Beth Benoit	5	0	OtherFLL Coach in our church			TRUE
+6072	Robodocs	Mrs. Tara J. Tetreault	5088018417	tetreaultt@foxborough.k12.ma.us				Ahern Middle School	111 Mechanic Street		Foxborough	MA	02035	Massachusetts	Rhode Island	Suburban	FALSE	After School Program	Local Businesses	Mrs. Tara J. Tetreault	0	0	OtherBusiness that funded our program			FALSE
+1375	Purple Popcorn Eaters	Dr. Carl E. Fossa Jr	781-981-4984	cfossa@ll.mit.edu	Nancy B. List	7819814634	nlist@ll.mit.edu	MIT Lincoln Laboratory	244 Wood Street		Lexington	MA	02420	Massachusetts	New Hampshire	Suburban	FALSE	After School Program	Local Businesses	Mr. Jonathan H. Williams	2	2	FLL Partners/Events1			FALSE
+1377	Team#4			lee@ll.mit.edu	Dr. David C. Freeman Jr.	781-981-1811	dfreeman@ll.mit.edu	MIT Lincoln Laboratory	244 Wood Street		Lexington	MA	02420	Massachusetts	New Hampshire	Suburban	FALSE	MIT Lincoln Laboratory Outreach Program	Local Businesses	Mr. Jonathan H. Williams	2	2	FLL Partners/Events1			FALSE
+11368	Mindstorm Minifigures	Ms. Kimberlee Martin	978-582-0362	kmartin@northportsoftware.com					522 Burrage St		Lunenburg	MA	01462	Massachusetts	New Hampshire	Rural	FALSE	Community Organization	Members/Parents	Ms. Kimberlee Martin	1	0	OtherFrom a friend			FALSE
+196	Eagles	Anastasia E. Padilla	978-422-6552	stacey_padilla@wrsd.net				Chocksett Middle School	40 Boutelle Rd		Sterling	MA	01564	Massachusetts		Suburban	FALSE	After School Program	School	Anastasia E. Padilla	1	1	Otherfriend			FALSE
+11576	Mad Cows	Mr. Andrew T. Lee	978-287-0231	andyandterry@earthlink.net					35 Davis Court		Concord	MA	01742	Massachusetts		Suburban	FALSE	Neighborhood Group	Members/Parents	Mr. Andrew T. Lee	3	3	Web1			FALSE
+7811	L.M.U.	Mr. Spencer l. Simons	508-654-1065	slsimons@comcast.net				L..M.U.	7 Black Elk Road		Sharon	MA	02048	Massachusetts		Suburban	FALSE	Community Organization	Members/Parents	Mr. Spencer l. Simons	3	3	FLL Partners/Events1Web1			FALSE

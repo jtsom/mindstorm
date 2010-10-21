@@ -1,161 +1,433 @@
 --- 
-- :team_name: Northboro Team1
-  :school: Mellican Middle School
-  :town: Northborough, MA
-  :fll_number: 104
-- :team_name: Moose Squad
-  :school: none
-  :town: Worcester, MA
-  :fll_number: 414
-- :team_name: Climate Crusaders
-  :school: Home team
-  :town: Westborough, MA
-  :fll_number: 474
-- :team_name: Top Secret
-  :school: Neighborhood Friends
-  :town: Brookline, MA
-  :fll_number: 652
-- :team_name: RoboPIQLZ
-  :school: None
-  :town: Dover, MA
-  :fll_number: 1100
-- :team_name: RoboNetics II
+- :town: Acton
+  :coach: Hemlatta H. Sakarda
+  :coach_email: hemlattasakarda@yahoo.com
+  :fll_number: 6496
+  :asst_coach: ""
+  :team_name: Acton FLL team
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Westminster
+  :coach: Tiffany Davis
+  :coach_email: tiffanydavis80@comcast.net
+  :fll_number: 1218
+  :asst_coach: ""
+  :team_name: Westminster Gear Bots
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Northborough
+  :coach: Mr. Daniel A. Strickland
+  :coach_email: first.team1100@gmail.com
+  :fll_number: 1561
+  :asst_coach: ""
+  :team_name: Northboro Team 1
+  :asst_coach_email: ""
+  :school: Northboro Robotics
+  :state: MA
+- :town: Northborough
+  :coach: Mr. Daniel A. Strickland
+  :coach_email: first.team1100@gmail.com
+  :fll_number: 1559
+  :asst_coach: ""
+  :team_name: Northboro Team 2
+  :asst_coach_email: ""
+  :school: Northboro Robotics
+  :state: MA
+- :town: Dover
+  :coach: Mr. Paul  Wood
+  :coach_email: paulwood@pol.net
+  :fll_number: 3061
+  :asst_coach: ""
+  :team_name: Dover Rovers
+  :asst_coach_email: ""
+  :school: Dover Rovers
+  :state: ME
+- :town: Webster
+  :coach: Mr. Michal Mamro
+  :coach_email: mikemr@charter.net
+  :fll_number: 8526
+  :asst_coach: ""
+  :team_name: Incredible Droids
+  :asst_coach_email: ""
+  :school: "\"St. Joseph School, Webster, MA\""
+  :state: MA
+- :town: Hudson
+  :coach: Ellen Schuck
+  :coach_email: eschuck@hudson.k12.ma.us
+  :fll_number: 755
+  :asst_coach: ""
+  :team_name: RoboNetics Red
+  :asst_coach_email: ""
   :school: Hudson Public Schools
-  :town: Hudson, MA
-  :fll_number: 1414
-- :team_name: RoboNetics I
+  :state: MA
+- :town: Hudson
+  :coach: Ellen Schuck
+  :coach_email: eschuck@hudson.k12.ma.us
+  :fll_number: 756
+  :asst_coach: ""
+  :team_name: RoboNetics White
+  :asst_coach_email: ""
   :school: Hudson Public Schools
-  :town: Hudson, MA
-  :fll_number: 1415
-- :team_name: The Bricksters
-  :school: Foxborough Regional Charter School
-  :town: Foxboro, MA
-  :fll_number: 1557
-- :team_name: Devill Dolls
-  :school: Southeast School
-  :town: Leominster, MA
-  :fll_number: 2702
-- :team_name: Southeast Dragons
-  :school: Southeast School
-  :town: Leominster, MA
-  :fll_number: 2837
-- :team_name: Team Signa
-  :school: Voyagers Homeschooling Cooperative
-  :town: Acton, MA
-  :fll_number: 3101
-- :team_name: Seven Devils
-  :school: Voyagers Homeschooling Cooperative
-  :town: Acton, MA
-  :fll_number: 3102
-- :team_name: Techno Voyagers
-  :school: Al-Hamra Academy
-  :town: Shrewsbury, MA
-  :fll_number: 3114
-- :team_name: Northboro Robotics Team 2
-  :school: Melican Middle School
-  :town: Northboro, MA
-  :fll_number: 3277
-- :team_name: Robolancers
-  :school: Luther Burbank Middle School
-  :town: Lancaster, MA
-  :fll_number: 3316
-- :team_name: LLAMAS
+  :state: MA
+- :town: Hudson
+  :coach: Ellen Schuck
+  :coach_email: eschuck@hudson.k12.ma.us
+  :fll_number: 9125
+  :asst_coach: ""
+  :team_name: RoboNetics Blue
+  :asst_coach_email: ""
+  :school: Hudson Public Schools
+  :state: MA
+- :town: Leominster
+  :coach: Mrs. Ting Kwong ( Mary) Jenny
+  :coach_email: tk.jenny@gmail.com
+  :fll_number: 3286
+  :asst_coach: Ted Gaudet
+  :team_name: Cybernetics Without Borders
+  :asst_coach_email: tgaudet15@hotmail.com
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Tewksbury
+  :coach: Mrs. Susan Clark
+  :coach_email: srbclark@yahoo.com
+  :fll_number: 7536
+  :asst_coach: ""
+  :team_name: Enginotics
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Shrewsbury
+  :coach: Mr. Mohsin ALI
+  :coach_email: mohsin.ali@intel.com
+  :fll_number: 5469
+  :asst_coach: Syed G. Quadri
+  :team_name: ROBO TREKERS
+  :asst_coach_email: syed.g.quadri@intel.com
+  :school: AL-HAMRA ACADEMY
+  :state: MA
+- :town: Shrewsbury
+  :coach: Mr. Mohsin ALI
+  :coach_email: mohsin.ali@intel.com
+  :fll_number: 5480
+  :asst_coach: Syed G. Quadri
+  :team_name: Robo Chillers
+  :asst_coach_email: syed.g.quadri@intel.com
+  :school: AL-HAMRA ACADEMY
+  :state: MA
+- :town: Shrewsbury
+  :coach: Mr. Mohsin ALI
+  :coach_email: mohsin.ali@intel.com
+  :fll_number: 6070
+  :asst_coach: ""
+  :team_name: Robo Explorers
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Hudson
+  :coach: Ellen Schuck
+  :coach_email: eschuck@hudson.k12.ma.us
+  :fll_number: 10387
+  :asst_coach: ""
+  :team_name: RoboNetics - Green
+  :asst_coach_email: ""
+  :school: Hudson Public Schools
+  :state: MA
+- :town: Natick
+  :coach: Dr. Montgomery C. Brower
+  :coach_email: mcbrower@verizon.net
+  :fll_number: 9701
+  :asst_coach: ""
+  :team_name: Robo Storm
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Concord
+  :coach: Ms. Susanne O. Broderick
+  :coach_email: sbroderick@colonial.net
+  :fll_number: 2680
+  :asst_coach: ""
+  :team_name: Concord Middle School
+  :asst_coach_email: ""
+  :school: Concord Middle School
+  :state: MA
+- :town: Leominster
+  :coach: Devon Joyce
+  :coach_email: DJcoltzfan@aim.com
+  :fll_number: 3294
+  :asst_coach: Leah E. Arpano
+  :team_name: Tough Guys Wear Pink
+  :asst_coach_email: rooleah8@aim.com
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Leominster
+  :coach: David Swift
+  :coach_email: dmbb2@yahoo.com
+  :fll_number: 3284
+  :asst_coach: Mr. James M. DeCarolis
+  :team_name: Bionic BattleBots
+  :asst_coach_email: jam661@verizon.net
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Leominster
+  :coach: David Carter
+  :coach_email: dave_carter827@hotmail.com
+  :fll_number: 3282
+  :asst_coach: Mrs. Marie Keane
+  :team_name: Robokids
+  :asst_coach_email: mkeane126@comcast.net
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Concord
+  :coach: Susanne Broderick
+  :coach_email: sobroderick@hotmail.com
+  :fll_number: 2761
+  :asst_coach: ""
+  :team_name: Concord Middle School
+  :asst_coach_email: ""
+  :school: Concord Public Schools
+  :state: MA
+- :town: Lexington
+  :coach: Ms. Sundie L. Meroth
+  :coach_email: meroth@ll.mit.edu
+  :fll_number: 8412
+  :asst_coach: Dr. Richard J. Molnar
+  :team_name: Team 7
+  :asst_coach_email: rmolnar@ll.mit.edu
   :school: MIT Lincoln Laboratory
-  :town: Lexington, MA
-  :fll_number: 3526
-- :team_name: Unassessembled Beaverbots
-  :school: First Parish Unitarian Universalist
-  :town: Chelmsford, MA
-  :fll_number: 3650
-- :team_name: The Nor'easters
-  :school: First Parish Unitarian Universalist
-  :town: Chelmsford, MA
-  :fll_number: 3651
-- :team_name: Team Barracuda
-  :school: Millbury Sutton Youth Robotics
-  :town: Sutton, MA
-  :fll_number: 3675
-- :team_name: Newtonian Mechanics
-  :school: N/A
-  :town: Newton, MA
-  :fll_number: 3799
-- :team_name: The Bot Heard Round the World
-  :school: Alcott School
-  :town: Concord, MA
-  :fll_number: 3868
-- :team_name: Princeton Bricksters
-  :school: Thomas Prince School
-  :town: Princeton, MA
-  :fll_number: 3887
-- :team_name: Hopkinton Legocules
-  :school: Hopkinton Middle School
-  :town: Hopkinton, MA
-  :fll_number: 3943
-- :team_name: Shock
-  :school: Thomas Prince School
-  :town: Princeton, MA
-  :fll_number: 4165
-- :team_name: Smokin' Robots
+  :state: MA
+- :town: Westborough
+  :coach: Mr. Edward D. Crowley
+  :coach_email: ecrowley@hbr.org
+  :fll_number: 8070
+  :asst_coach: ""
+  :team_name: Ninja Healers
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: "Chelmsford "
+  :coach: Mr. Leon Reitman
+  :coach_email: grndsm@yahoo.com
+  :fll_number: 8409
+  :asst_coach: ""
+  :team_name: Legolympians
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Leominster
+  :coach: Mrs. Marie Keane
+  :coach_email: mkeane126@comcast.net
+  :fll_number: 9858
+  :asst_coach: ""
+  :team_name: Lego Pants
+  :asst_coach_email: ""
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Sharon
+  :coach: Sheshamala Mankame
+  :coach_email: amankame@comcast.net
+  :fll_number: 7654
+  :asst_coach: Mr. Sean Cloherty
+  :team_name: Nanobots
+  :asst_coach_email: seancloherty@comcast.net
+  :school: ""
+  :state: MA
+- :town: Leominster
+  :coach: Mr. Bruce McDowell
+  :coach_email: bruce.mcdowell@verizon.net
+  :fll_number: 3285
+  :asst_coach: Mrs. Marie Keane
+  :team_name: ThunderBotZ
+  :asst_coach_email: mkeane126@comcast.net
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Leominster
+  :coach: Mr. Louis G. Marino
+  :coach_email: landnrecovery@gmail.com
+  :fll_number: 3283
+  :asst_coach: Mrs. Marie Keane
+  :team_name: Roaring Dragons of Flame
+  :asst_coach_email: mkeane126@comcast.net
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Leominster
+  :coach: Christopher Cratsley
+  :coach_email: ccratsley@fsc.edu
+  :fll_number: 3280
+  :asst_coach: Mrs. Marie Keane
+  :team_name: O.W.A.G.A
+  :asst_coach_email: mkeane126@comcast.net
+  :school: "\"Leominster Youth Robotics, Inc.\""
+  :state: MA
+- :town: Lexington
+  :coach: Mr. Curtis W. Heisey
+  :coach_email: heisey@ll.mit.edu
+  :fll_number: 8410
+  :asst_coach: Mr. Joel Walker
+  :team_name: Team 6
+  :asst_coach_email: jwalker@ll.mit.edu
   :school: MIT Lincoln Laboratory
-  :town: Lexington, MA
-  :fll_number: 4316
-- :team_name: Cheeseballers
+  :state: MA
+- :town: Lexington
+  :coach: Cindy D. Engholm
+  :coach_email: cindy.engholm@gmail.com
+  :fll_number: 1376
+  :asst_coach: ""
+  :team_name: Team#3
+  :asst_coach_email: ""
   :school: MIT Lincoln Laboratory
-  :town: Lexington, MA
-  :fll_number: 4614
-- :team_name: The Nutbots
-  :school: Trahan's Homeschool
-  :town: Boylston, MA
-  :fll_number: 4660
-- :team_name: Knights of the Lego Table
-  :school: Advanced Math & Science Academy
-  :town: Marlborough, MA
-  :fll_number: 5410
-- :team_name: Medfield Robotics Club
-  :school: None
-  :town: Medfield, MA
-  :fll_number: 5463
-- :team_name: McCarthy Maniacs
-  :school: McCarthy Elementary
-  :town: Framingham, MA
-  :fll_number: 5703
-- :team_name: Froot Loops
-  :school: none
-  :town: Lunenburg, MA
-  :fll_number: 5822
-- :team_name: Sobo Sco-Bros
-  :school: Southborough Robotics
-  :town: Southborough, MA
-  :fll_number: 5922
-- :team_name: Fighting Irish
-  :school: Clinton Middle School
-  :town: Clinton, MA
-  :fll_number: 6202
-- :team_name: Jr. Gael Force
-  :school: Clinton Middle School
-  :town: Clinton, MA
-  :fll_number: 6203
-- :team_name: Valiant Vikings
-  :school: Al-Hamra Academy
-  :town: Shrewsbury, MA
-  :fll_number: 6736
-- :team_name: Purple Reapers
-  :school: Burncoat Middle School
-  :town: Worcester, MA
-  :fll_number: 7150
-- :team_name: Masterminds
-  :school: St. Joseph School
-  :town: Webster, MA
-  :fll_number: 7157
-- :team_name: AMSA Dominators
-  :school: Advanced Math & Science Academy
-  :town: Marlborough, MA
-  :fll_number: 7339
-- :team_name: Technokids
-  :school: Northboro Elementary
-  :town: Northborough, MA
-  :fll_number: 10004
-- :team_name: Al-Huda Robotics Club
-  :school: Al-Huda Academy
-  :town: Worcester, MA
-  :fll_number: 10016
+  :state: MA
+- :town: Acton
+  :coach: Ms. Rekha Gopalan
+  :coach_email: rekh_gopalan@yahoo.com
+  :fll_number: 10350
+  :asst_coach: ""
+  :team_name: Endrans
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Bedford
+  :coach: Ms. Sarah Leshay
+  :coach_email: sarah_leshay@bedford.k12.ma.us
+  :fll_number: 7933
+  :asst_coach: ""
+  :team_name: Bucs Robotics
+  :asst_coach_email: ""
+  :school: Bedford Robotics
+  :state: MA
+- :town: Bedford
+  :coach: Ms. Sarah Leshay
+  :coach_email: sarah_leshay@bedford.k12.ma.us
+  :fll_number: 7934
+  :asst_coach: ""
+  :team_name: JGMS Robotics
+  :asst_coach_email: ""
+  :school: Bedford Robotics
+  :state: MA
+- :town: Bedford
+  :coach: Ms. Sarah Leshay
+  :coach_email: sarah_leshay@bedford.k12.ma.us
+  :fll_number: 7935
+  :asst_coach: ""
+  :team_name: Buc Bots
+  :asst_coach_email: ""
+  :school: Bedford Robotics
+  :state: MA
+- :town: Arlington
+  :coach: Dr. Ronald L. Spangler
+  :coach_email: ron_spangler@verizon.net
+  :fll_number: 10459
+  :asst_coach: ""
+  :team_name: Ottoson 3
+  :asst_coach_email: ""
+  :school: Ottoson Middle School
+  :state: MA
+- :town: Arlington
+  :coach: Mr. Gary A. Blanchette
+  :coach_email: gblanchette@arlington.k12.ma.us
+  :fll_number: 10456
+  :asst_coach: ""
+  :team_name: Gyrotechniques2
+  :asst_coach_email: ""
+  :school: Ottoson Middle School
+  :state: MA
+- :town: Arlington
+  :coach: Ms. Julie McDaniel
+  :coach_email: jmcdaniel@arlington.k12.ma.us
+  :fll_number: 10458
+  :asst_coach: ""
+  :team_name: Ottoson 2
+  :asst_coach_email: ""
+  :school: Ottoson Middle School
+  :state: MA
+- :town: "Lexington "
+  :coach: xiaofeng cai
+  :coach_email: tech.frank.cai@gmail.com
+  :fll_number: 8768
+  :asst_coach: ""
+  :team_name: Robotic Destroyer
+  :asst_coach_email: ""
+  :school: Motorola Inc
+  :state: MA
+- :town: Chelmsford
+  :coach: Ms. Beth Benoit
+  :coach_email: benoitb@us.ibm.com
+  :fll_number: 1566
+  :asst_coach: Will Kahn-Greene
+  :team_name: UU Robots 1
+  :asst_coach_email: willg@bluesock.org
+  :school: First Parish Unitarian Universalist Chelmsford
+  :state: MA
+- :town: Chelmsford
+  :coach: John B. Allison
+  :coach_email: john.b.allison@gmail.com
+  :fll_number: 1567
+  :asst_coach: ""
+  :team_name: UU Robots 2
+  :asst_coach_email: ""
+  :school: First Parish Unitarian Universalist of Chelmsford
+  :state: MA
+- :town: Foxborough
+  :coach: Mrs. Tara J. Tetreault
+  :coach_email: tetreaultt@foxborough.k12.ma.us
+  :fll_number: 6072
+  :asst_coach: ""
+  :team_name: Robodocs
+  :asst_coach_email: ""
+  :school: Ahern Middle School
+  :state: MA
+- :town: Lexington
+  :coach: Dr. Carl E. Fossa Jr
+  :coach_email: cfossa@ll.mit.edu
+  :fll_number: 1375
+  :asst_coach: Nancy B. List
+  :team_name: Purple Popcorn Eaters
+  :asst_coach_email: nlist@ll.mit.edu
+  :school: MIT Lincoln Laboratory
+  :state: MA
+- :town: Lexington
+  :coach: ""
+  :coach_email: lee@ll.mit.edu
+  :fll_number: 1377
+  :asst_coach: Dr. David C. Freeman Jr.
+  :team_name: Team#4
+  :asst_coach_email: dfreeman@ll.mit.edu
+  :school: MIT Lincoln Laboratory
+  :state: MA
+- :town: Lunenburg
+  :coach: Ms. Kimberlee Martin
+  :coach_email: kmartin@northportsoftware.com
+  :fll_number: 11368
+  :asst_coach: ""
+  :team_name: Mindstorm Minifigures
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Sterling
+  :coach: Anastasia E. Padilla
+  :coach_email: stacey_padilla@wrsd.net
+  :fll_number: 196
+  :asst_coach: ""
+  :team_name: Eagles
+  :asst_coach_email: ""
+  :school: Chocksett Middle School
+  :state: MA
+- :town: Concord
+  :coach: Mr. Andrew T. Lee
+  :coach_email: andyandterry@earthlink.net
+  :fll_number: 11576
+  :asst_coach: ""
+  :team_name: Mad Cows
+  :asst_coach_email: ""
+  :school: ""
+  :state: MA
+- :town: Sharon
+  :coach: Mr. Spencer l. Simons
+  :coach_email: slsimons@comcast.net
+  :fll_number: 7811
+  :asst_coach: ""
+  :team_name: L.M.U.
+  :asst_coach_email: ""
+  :school: L..M.U.
+  :state: MA
