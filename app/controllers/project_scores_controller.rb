@@ -10,7 +10,6 @@ class ProjectScoresController < ApplicationController
   end
   
   def create
-    debugger
     team = Team.find params[:team_id]
     team.create_project_score(params[:project_score])
     

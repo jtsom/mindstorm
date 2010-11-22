@@ -3,7 +3,7 @@ class RobotScore < ActiveRecord::Base
   belongs_to :team
   
   before_save :calculate_total_score
-
+  validates :judge_name, :presence => true
 
   
   

@@ -2,7 +2,7 @@ class ProjectScore < ActiveRecord::Base
   
   belongs_to :team
   before_save :calculate_total_score
-
+  validates :judge_name, :presence => true
   
   def research_score
     fields = %w{r_problemID r_source r_analysis r_review }

@@ -1,9 +1,13 @@
 class RobotScoresController < ApplicationController
+
+  respond_to :html
+  
   def new
     
     @team = Team.find params[:team_id]
     @robotscore = RobotScore.new
-
+    respond_with(@team, @robotscore)
+    
   end
   
   def create
@@ -25,10 +29,7 @@ class RobotScoresController < ApplicationController
   def edit
     @team = Team.find params[:team_id]
     @robotscore = @team.robot_scores.find(params[:id])
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @team }
-    end
+    respond_with(@team, @robotscore)
   end
   
   def update

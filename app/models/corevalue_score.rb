@@ -2,6 +2,8 @@ class CorevalueScore < ActiveRecord::Base
   belongs_to :team
   before_save :calculate_total_score
   
+  validates :judge_name, :presence => true
+  
   def inspiration_score
     fields = %w{i_discovery i_team_spirit i_integration}
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }  
