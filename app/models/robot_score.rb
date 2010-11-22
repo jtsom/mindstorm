@@ -4,6 +4,9 @@ class RobotScore < ActiveRecord::Base
   
   before_save :calculate_total_score
 
+
+  
+  
   def strategy_score
     fields = %w{strategy1 strategy2}
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }  

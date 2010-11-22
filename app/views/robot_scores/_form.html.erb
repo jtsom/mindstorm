@@ -1,6 +1,6 @@
 <%= form_for [@team, @robotscore] do |f| %>
   <%= errors_for(@robotscore) %>
-
+<p>Judge: <%= f.text_field :judge_name %></p>
 <table border="1" width="960" id="scoring" style='border-collapse: collapse'>
 	<tr>
 		<td width="27" class="heading">

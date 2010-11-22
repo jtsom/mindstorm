@@ -12,6 +12,10 @@ class TeamsController < ApplicationController
 
   def standings
     @teams = Team.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @teams }
+    end
   end
   
   def results
@@ -24,6 +28,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
+    
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
 

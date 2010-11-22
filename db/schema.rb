@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101014235731) do
+ActiveRecord::Schema.define(:version => 20101119003832) do
+
+  create_table "corevalue_scores", :force => true do |t|
+    t.integer  "i_discovery"
+    t.integer  "i_team_spirit"
+    t.integer  "i_integration"
+    t.text     "i_comments"
+    t.integer  "t_effectiveness"
+    t.integer  "t_efficiency"
+    t.integer  "t_initiative"
+    t.text     "t_comments"
+    t.integer  "g_inclusion"
+    t.integer  "g_respect"
+    t.integer  "g_coopertition"
+    t.text     "g_comments"
+    t.integer  "total_score"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "judge_name"
+  end
 
   create_table "matches", :force => true do |t|
     t.integer  "match_number"
@@ -51,6 +71,20 @@ ActiveRecord::Schema.define(:version => 20101014235731) do
     t.datetime "updated_at"
     t.integer  "team_id"
     t.integer  "research6"
+    t.integer  "r_problemID"
+    t.integer  "r_source"
+    t.integer  "r_analysis"
+    t.integer  "r_review"
+    t.text     "r_comments"
+    t.integer  "i_teamsolution"
+    t.integer  "i_innovation"
+    t.integer  "i_implementation"
+    t.text     "i_comments"
+    t.integer  "p_preseffective"
+    t.integer  "p_creativity"
+    t.integer  "p_sharing"
+    t.text     "p_comments"
+    t.string   "judge_name"
   end
 
   add_index "project_scores", ["team_id"], :name => "index_project_scores_on_team_id"
@@ -87,6 +121,19 @@ ActiveRecord::Schema.define(:version => 20101014235731) do
     t.datetime "updated_at"
     t.integer  "team_id"
     t.integer  "total_score"
+    t.integer  "m_durability"
+    t.integer  "m_efficiency"
+    t.integer  "m_mechanization"
+    t.text     "m_comments"
+    t.integer  "p_quality"
+    t.integer  "p_efficiency"
+    t.integer  "p_automation"
+    t.text     "p_comments"
+    t.integer  "i_designprocess"
+    t.integer  "i_strategy"
+    t.integer  "i_innovation"
+    t.text     "i_comments"
+    t.string   "judge_name"
   end
 
   add_index "robot_scores", ["team_id"], :name => "index_robot_scores_on_team_id"

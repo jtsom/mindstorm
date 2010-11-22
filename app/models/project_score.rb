@@ -5,22 +5,17 @@ class ProjectScore < ActiveRecord::Base
 
   
   def research_score
-    fields = %w{research1 research2 research3 research4 research5}
-    fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) } 
-  end
-  
-  def innovative_score
-    fields = %w{is1 is2 is3}
+    fields = %w{r_problemID r_source r_analysis r_review }
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   end
   
-  def sharing_score
-    fields = %w{sharing1 sharing2}
+  def innovative_score
+    fields = %w{i_teamsolution i_innovation i_implementation }
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   end
   
   def pres_score
-    fields = %w{pres1 pres2 pres3 pres4 pres5 pres6 pres7 pres8 pres9 pres10}
+    fields = %w{p_preseffective p_creativity p_sharing }
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   end
 

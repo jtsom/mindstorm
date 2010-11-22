@@ -1,10 +1,5 @@
 Mindstorm::Application.routes.draw do
 
-  resource :robot_scores
-
-  resource :project_scores
-
-
   resources :finals
   resources :qualifications
 
@@ -13,6 +8,7 @@ Mindstorm::Application.routes.draw do
     resources :qualifications
     resources :project_scores
     resources :robot_scores
+    resources :corevalue_scores
   end
   
   match 'standings', :to =>  'teams#standings'

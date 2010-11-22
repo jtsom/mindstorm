@@ -3,8 +3,9 @@ class Team < ActiveRecord::Base
     has_many :finals, :dependent => :destroy
     has_many :qualifications, :dependent => :destroy
     
-    has_one :project_score, :dependent => :destroy
-    has_one :robot_score, :dependent => :destroy
+    has_many :project_scores, :dependent => :destroy
+    has_many :robot_scores, :dependent => :destroy
+    has_many :corevalue_scores, :dependent => :destroy
 
     validates_uniqueness_of :fll_number, :message => "must be unique"
     validates_numericality_of :fll_number, :message => "is not a number"

@@ -12,16 +12,6 @@
 	<td><%= link_to "Enter Qual Match Data", new_team_qualification_path(team) unless team.qualifications.length > APP_CONFIG["max_matches"] - 1 %></td>
 	<td><%= team.finals.length %></td>
 	<td><%= link_to "Enter Final Match Data", new_team_final_path(team) unless team.finals.length > APP_CONFIG["max_matches"] - 1 %></td>
-	<% if team.project_score %>
-		<td><%= link_to "Edit Project Scores",edit_team_project_score_path(team, team.project_score) %>
-	<% else %>
-		<td><%= link_to "Enter Project Scores",new_team_project_score_path(team) %>
-	<% end %>
-	<% if team.robot_score %>
-		<td><%= link_to "Edit Robot Tech. Scores",edit_team_robot_score_path(team, team.robot_score) %>
-	<% else %>
-		<td><%= link_to "Enter Robot Tech. Scores",new_team_robot_score_path(team) %>
-	<% end %>
 	
   </tr>
 <% end %>
