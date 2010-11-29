@@ -1,0 +1,40 @@
+﻿body
+{
+}
+
+
+.vertical
+{
+    -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+	width: 20px;
+	/*vertical-align:middle;*/
+	font-weight: bold;
+	
+}
+.category
+{
+    font: 9pt Arial, sans-serif;
+    font-weight: bold;
+    }
+td
+{
+    font: 9pt Arial, sans-serif;
+     border: thin solid #000000;
+}
+.grid
+{
+    border-collapse: collapse;
+    width: 1180px;
+    border: thin solid #000000;
+}
+tr.alt
+{
+    background: #C0C0C0;
+     border: thin solid #000000;
+}
+td.alt
+{
+    background: #C0C0C0;
+     border: thin solid #000000;
+}

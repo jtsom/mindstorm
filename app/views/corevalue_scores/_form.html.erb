@@ -1,0 +1,272 @@
+<%= form_for [@team, @corevalue_score] do |f| %>
+	<%= errors_for(@corevalue_score) %>
+	
+	<p>Judge: <%= f.text_field :judge_name %></p>
+	
+	<table class="grid" >
+        <tr style="border: none;">
+            <td style="border: none;">
+                &nbsp;
+            </td>
+            <td>
+                <b><i>Beginning</i></b>
+            </td>
+            <td>
+                <i><b>Developing</b></i>
+            </td>
+            <td>
+                <i><b>Accomplished</b></i>
+            </td>
+            <td>
+                <i><b>Exemplary</b></i>
+            </td>
+        </tr>
+        <tr >
+            <td rowspan="8" >
+                <div class="vertical">Inspiration</div>
+            </td>
+            <td class="alt">
+                <b>Discovery</b>
+            </td>
+            <td class="alt" colspan="3">
+                <i>Balanced emphasis on the overall FLL experience (Robot, Project, Core Values) ; it's
+                    not just about winning awards</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :i_discovery, "1" %> emphasis on only one aspect; others neglected
+            </td>
+            <td>
+                <%= f.radio_button :i_discovery, "2" %> emphasis on two aspects; one aspect neglected
+            </td>
+            <td>
+                <%= f.radio_button :i_discovery, "3" %> emphasis on all three aspects
+            </td>
+            <td>
+                <%= f.radio_button :i_discovery, "4" %> balanced emphasis on all three aspects
+            </td>
+        </tr>
+        <tr class="alt">
+            <td>
+                <b>Team Spirit</b>
+            </td>
+            <td colspan="3">
+                <i>Enthusiastic and fun expression of the team identity</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :i_team_spirit, "1" %> minimal enthusiasm AND minimal identity
+            </td>
+            <td>
+                <%= f.radio_button :i_team_spirit, "2" %> minimal enthusiasm OR minimal identity
+            </td>
+            <td>
+                <%= f.radio_button :i_team_spirit, "3" %> team is enthusiastic and fun; clear identity
+            </td>
+            <td>
+                <%= f.radio_button :i_team_spirit, "4" %> team engages others in their enthusiasm and fun; clear identity
+            </td>
+        </tr>
+        <tr class="alt">
+            <td>
+                <b>Integration</b>
+            </td>
+            <td colspan="3">
+                <i>Application of FLL values and skills outside FLL (ability to cite current and potential
+                    examples from daily life)</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :i_integration, "1" %> team does not apply FLL values and skills outside FLL
+            </td>
+            <td>
+                <%= f.radio_button :i_integration, "2" %> team able to cite at least one example
+            </td>
+            <td>
+                <%= f.radio_button :i_integration, "3" %> team able to cite multiple examples
+            </td>
+            <td>
+                <%= f.radio_button :i_integration, "4" %> team able to cite multiple and personal examples
+            </td>
+        </tr>
+        <tr valign="top">
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td colspan="4" valign="top">
+                Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
+            </td>
+        </tr>
+    </table>
+    <table class="grid">
+        <tr>
+            <td rowspan="7">
+                <div class="vertical">
+                    Teamwork</div>
+            </td>
+            <td class="alt">
+                <b>Effectiveness</b>
+            </td>
+            <td class="alt" colspan="3">
+                <i>Problem solving and decision making processes help team achieve their goals</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :t_effectiveness, "1" %> emphasis on only one aspect; others neglected
+            </td>
+            <td>
+                <%= f.radio_button :t_effectiveness, "2" %> emphasis on two aspects; one aspect neglected
+            </td>
+            <td>
+                <%= f.radio_button :t_effectiveness, "3" %> emphasis on all three aspects
+            </td>
+            <td>
+                <%= f.radio_button :t_effectiveness, "4" %> balanced emphasis on all three aspects
+            </td>           
+        </tr>       
+        <tr class="alt">
+            <td>
+                <b>Efficiency</b>
+            </td>
+            <td colspan="3">
+                <i>Resources used relative to what the team accomplishes (time management, distribution
+                    of roles and responsibilities)</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :t_efficiency, "1" %> minimal enthusiasm AND minimal identity
+            </td>
+            <td>
+                <%= f.radio_button :t_efficiency, "2" %> minimal enthusiasm OR minimal identity
+            </td>
+            <td>
+                <%= f.radio_button :t_efficiency, "3" %> team is enthusiastic and fun; clear identity
+            </td>
+            <td>
+                <%= f.radio_button :t_efficiency, "4" %> team engages others in their enthusiasm and fun; clear identity
+            </td>
+        </tr>
+        <tr class="alt">
+            <td>
+                <b>Initiative</b>
+            </td>
+            <td colspan="3">
+                <i>Responsibility the team has in their success and the nature of coach involvement</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :t_initiative, "1" %> team does not apply FLL values and skills outside FLL
+            </td>
+            <td>
+                <%= f.radio_button :t_initiative, "2" %> team able to cite at least one example
+            </td>
+            <td>
+                <%= f.radio_button :t_initiative, "3" %> team able to cite multiple examples
+            </td>
+            <td>
+                <%= f.radio_button :t_initiative, "4" %> team able to cite multiple and personal examples
+            </td>
+        </tr>
+        <tr valign="top">
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td colspan="4">
+                Comments:<%= f.text_area :t_comments, :rows => 5, :cols => 100 %>
+            </td>
+        </tr>
+    </table>
+    <table class="grid">
+        <tr>
+            <td rowspan="8" valign="bottom">
+                <div class="vertical">
+                    Gracious&nbsp;Professionalism&trade;</div>
+            </td>
+            <td class="alt">
+                <b>Inclusion</b>
+            </td>
+            <td class="alt" colspan="3">
+                <i>Consideration and appreciation for the contributions (ideas and skills) of all team
+                    members, with balanced involvement</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :g_inclusion, "1" %> unbalanced team involvement AND lack of appreciation for contributions
+            </td>
+            <td>
+                <%= f.radio_button :g_inclusion, "2" %> unbalanced team involvement OR lack of appreciation for contributions
+            </td>
+            <td>
+                <%= f.radio_button :g_inclusion, "3" %> balanced team involvement AND appreciation for contributions of most team members
+            </td>
+            <td>
+                <%= f.radio_button :g_inclusion, "4" %> balanced team involvement AND appreciation for contributions of all team members
+            </td>
+        </tr>
+        <tr class="alt">
+            <td>
+                <b>Respect</b>
+            </td>
+            <td colspan="3">
+                <i>Team members act and speak with integrity and sensitivity, so that others feel valued&mdash;especially
+                    when solving problmes or resolving conflicts</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                 <%= f.radio_button :g_respect, "1" %> not evident with majority of team members
+            </td>
+            <td>
+                 <%= f.radio_button :g_respect, "2" %> evident with majority of the team members
+            </td>
+            <td>
+                 <%= f.radio_button :g_respect, "3" %> almost always evident with all team members
+            </td>
+            <td>
+                 <%= f.radio_button :g_respect, "4" %> always evident, even in the most difficult situations
+            </td>
+        </tr>
+        <tr class="alt">
+            <td>
+                <b>Cooperation</b>
+            </td>
+            <td colspan="3">
+                <i>Team competes in the spirit of friendly competition and cooperation with others</i>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td>
+                <%= f.radio_button :g_coopertition, "4" %> not evident with majority of team members
+            </td>
+            <td>
+                <%= f.radio_button :g_coopertition, "4" %> evident with majority of team members
+            </td>
+            <td>
+                <%= f.radio_button :g_coopertition, "4" %> almost always eveident with all team members
+            </td>
+            <td>
+                <%= f.radio_button :g_coopertition, "4" %> always evident, even in difficult situations&mdash;and team actively helps other teams
+            </td>
+        </tr>
+     
+        <tr valign="top">
+            <!-- <td rowspan="7">Inspiration</td> -->
+            <td colspan="4">
+                Comments:<%= f.text_area :g_comments, :rows => 5, :cols => 100 %>
+            </td>
+        </tr>
+    </table>
+	<%= f.submit 'Submit' %>
+<% end %>
