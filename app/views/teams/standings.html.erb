@@ -1,8 +1,23 @@
+<script>
+
+$(document).ready(function() {
+			$('div.scrollme').marquee().bind('stop',function() {
+			reloadPage();
+			});
+        });
+
+function reloadPage()
+{
+	window.location = window.location;
+}
+</script>
+
 <h1>Team Standings</h1>
 
 <%= link_to 'Back', teams_path %>
 
-<table border="1" style="border-collapse:collapse">
+<div class="scrollme" behavior="scroll" direction="up" height="600"  scrollamount="1">
+<table border="1" style="border-collapse:collapse" id="standings">
 	<tr><td>&nbsp;</td>
 		<td>#</td><td>Name</td><th>Avg</th>
 		<% (1..APP_CONFIG["max_matches"]).each do |col| %>
@@ -24,3 +39,4 @@
 	</tr>
 <% end -%>
 </table>
+</div>

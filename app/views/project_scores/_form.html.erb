@@ -1,401 +1,275 @@
 <%= form_for [@team, @projectscore] do |f| %>
   <%= errors_for(@projectscore) %>
-	<table border="1"  style='border-collapse: collapse;' id="scoring">
+	
+	<table class="grid">
+	        <tr style="border: none;">
+	            <td style="border: none;">
+	                &nbsp;
+	            </td>
+	            <td>
+	                <b><i>Beginning</i></b>
+	            </td>
+	            <td>
+	                <i><b>Developing</b></i>
+	            </td>
+	            <td>
+	                <i><b>Accomplished</b></i>
+	            </td>
+	            <td>
+	                <i><b>Exemplary</b></i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td rowspan="9">
+	                <div class="vertical">
+	                  <span>Research</span> 
+	                  </div>
+	            </td>
+	            <td class="alt">
+	                <b>Problem Identification</b>
+	            </td>
+	            <td class="alt" colspan="3">
+	                <i>Clear definition of the problem being studied</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                unclear; few details
+	            </td>
+	            <td>
+	              somewhat clear; details missing
+	            </td>
+	            <td>
+	               clear; detailed
+	            </td>
+	            <td>
+	               very clear; very detailed
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>Sources of Information</b>
+	            </td>
+	            <td colspan="3">
+	                <i>Types/Sources of information cited (e.g. books, magazines, websites, reports and other resources), including professionals in the field</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	               one type of information cited; minimal sources
+	            </td>
+	            <td>
+	               two types of information cited; several sources
+	            </td>
+	            <td>
+	                three types of information cited; many sources, including professionals
+	            </td>
+	            <td>
+	                four(+)types of information cited; extensive sources, incl. professionals
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>Provlem Analysis</b>
+	            </td>
+	            <td colspan="3">
+	                <i>Depth to which the problem was studied and analyzed by the team</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                minimal study; no team analysis
+	            </td>
+	            <td>
+	               minimal study; some team analysis 
+	            </td>
+	            <td>
+	                sufficient study and analysis by team
+	             </td>
+	            <td>
+	                extensive study and analysis by team
+	            </td>
+	        </tr>
+	           <tr class="alt">
+	            <td>
+	                <b>Review Existing Solutions</b>
+	            </td>
+	            <td colspan="3">
+	                <i>Extent to which other theories and solultions were analyzed by the team</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	              minimal review; no team analysis
+	            </td>
+	            <td>
+	               minimal study; some team analysis 
+	            </td>
+	            <td>
+	                sufficient study and analysis by team
+	             </td>
+	            <td>
+	                extensive study and analysis by team
+	            </td>
+	        </tr>
+	        <tr valign="top">
+	            <td colspan="4" valign="top">
+	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="grid">
+	        <tr>
+	            <td rowspan="7">
+	                <div class="vertical">Innovative&nbsp;Solution</div>
+	            </td>
+	            <td class="alt">
+	                <b>Team Solution</b>
+	            </td>
+	            <td class="alt" colspan="3">
+	                <i>Clear explanation of the proposed solution</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	               difficult to understand
+	            </td>
+	            <td>
+	                some parts confusing
+	            </td>
+	            <td>
+	               understandable
+	            </td>
+	            <td>
+	              easy to understand by all
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>Innovation</b>
+	            </td>
+	            <td colspan="3">
+	                <i>Degree to which the team's solution makes life better by improving existing options, developing a new application of existing ideas or solving the problem in a completely new way</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                existing solutions/application
+	            </td>
+	            <td>
+	               solutions/application contains some original elements(s)
+	            </td>
+	            <td>
+	               original solution/application
+	            </td>
+	            <td>
+	                original solution/application with the potential to add significant value
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>implementation</b>
+	            </td>
+	            <td colspan="3">
+	                <i>consideration of factors for implementation (cost, ease of manufacturing, ect.)</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	               minimal factors considered
+	            </td>
+	            <td>
+	                some factors considered
+	            </td>
+	            <td>
+	                factors well considered; some question about proposed solutions
+	            </td>
+	            <td>
+	               factors well considered and feasible solution proposed
+	            </td>
+	        </tr>
+	        <tr valign="top">
+	            <td colspan="4">
+	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="grid">
+	        <tr>
+	            <td rowspan="7">
+	                <div class="vertical">
+	                Presentation</div>
+	            </td>
+	            <td class="alt">
+	                <b>Presentation Effectiveness</b>
+	            </td>
+	            <td class="alt" colspan="3">
+	                <i>Message delivery and organization of the presentation</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                unclear or disorganized
+	            </td>
+	            <td>
+	              somewhat clear; minimal organization
+	            </td>
+	            <td>
+	                mostly clear; mostly organized
+	            </td>
+	            <td>
+	                very clear and well organized
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>Creativity</b>
+	            </td>
+	            <td colspan="3">
+	                <i>Imagination used to develop and deliver the presentation</i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	               minimally engaging; familiar presentation style
+	            </td>
+	            <td>
+	                somewhat engaging; familiar presentation style
+	            </td>
+	            <td>
+	                engaging; familiar presentation style
+	            </td>
+	            <td>
+	             engaging and new presentation style
+	            </td>
+	        </tr>
+	        <tr class="alt">
+	            <td>
+	                <b>Sharing</b>
+	            </td>
+	            <td colspan="3">
+	                <i></i>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>general, non-targeted audience(s)
 
-		<tr class="heading">
-			<td colspan="2"></td>
-			<td width="150">
-				Needs Improvement (1)
-			</td>
-			<td width="150">
-				Fair (2)
-			</td>
-			<td width="150">
-				Good (3)
-			</td>
-			<td width="150">
-				Excellent (4)
-			</td>
-		</tr>
-		<tr>
-			<td rowspan="6" class="heading">
-				Research
-			</td>
-			<td width="135">
-				Research Problem Clearly Defined
-			</td>
-			<td width="150">
-				<%= f.radio_button "research1", "1" %> * No problem or does not relate
-			</td>
-			<td width="150">
-				<%= f.radio_button "research1", "2" %> Vague; poorly relates
-			</td>
-			<td width="150">
-				<%= f.radio_button "research1", "3" %> Clear; relates
-			</td>
-			<td width="150">
-				<%= f.radio_button "research1", "4" %> Concise, relates with theme
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Used outside resouces
-			</td>
-			<td width="150">
-				<%= f.radio_button "research2", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "research2", "2" %> Limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "research2", "3" %> Diverse
-			</td>
-			<td width="150">
-				<%= f.radio_button "research2", "4" %> Multiple; inc professionals
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Researched the impact of the problem &amp; applied to solution
-			</td>
-			<td width="150">
-				<%= f.radio_button "research3", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "research3", "2" %> Limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "research3", "3" %> Clearly done
-			</td>
-			<td> <%= f.radio_button "research3", "4" %>
-				Examined &amp; applied
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Researched existing solutions &amp; applied that knowledge
-			</td>
-			<td width="150">
-				<%= f.radio_button "research4", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "research4", "2" %> Limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "research4", "3" %> Done but not considered
-			</td>
-			<td width="150">
-				<%= f.radio_button "research4", "4" %> Done &amp; applied
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Alternative theories presented and addressed
-			</td>
-			<td width="150">
-				<%= f.radio_button "research5", "1" %> Ignored
-			</td>
-			<td width="150">
-				<%= f.radio_button "research5", "2" %> Dismissed
-			</td>
-			<td width="150">
-				<%= f.radio_button "research5", "3" %> Considered
-			</td>
-			<td width="150">
-				<%= f.radio_button "research5", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Demonstrated understanding of technical terms
-			</td>
-			<td width="150">
-				<%= f.radio_button "research6", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "research6", "2" %> Limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "research6", "3" %> Yes, but did not explain clearly
-			</td>
-			<td width="150">
-				<%= f.radio_button "research6", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr height="5">
-			<td height="5" colspan="6"></td>
-		</tr>
-		<tr >
-			<td rowspan="3" class="heading">
-				Innovative solution
-			</td>
-			<td width="135">
-				Solution presented that clearly addresses the problem
-			</td>
-			<td width="150">
-				<%= f.radio_button "is1", "1" %> * No solution presented
-			</td>
-			<td width="150">
-				<%= f.radio_button "is1", "2" %> Unclear
-			</td>
-			<td width="150">
-				<%= f.radio_button "is1", "3" %> Described, but prob not addressed
-			</td>
-			<td width="150">
-				<%= f.radio_button "is1", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Data presented supports the solution
-			</td>
-			<td width="150">
-				<%= f.radio_button "is2", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "is2", "1" %> Weak or limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "is2", "1" %> Adequate
-			</td>
-			<td width="150">
-				<%= f.radio_button "is2", "1" %> Substantial
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Solution is innovative and applies knowledge of science/technology
-			</td>
-			<td width="150">
-				<%= f.radio_button "is3", "1" %> Not innov or new
-			</td>
-			<td width="150">
-				<%= f.radio_button "is3", "2" %> Somewhat
-			</td>
-			<td width="150">
-				<%= f.radio_button "is3", "3" %> Yes &amp; applies some sci/tech knowledge
-			</td>
-			<td width="150">
-				<%= f.radio_button "is3", "4" %> Yes &amp; applies sci/tech knowledge
-			</td>
-		</tr>
-		<tr height="5">
-			<td height="5" colspan="6"></td>
-		</tr>
-		<tr >
-			<td rowspan="2" class="heading">
-				Sharing
-			</td>
-			<td width="135">
-				Shared the project, research, and solution with others
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing1", "1" %> * Did not share
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing1", "2" %> Shared with parents
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing1", "3" %> With class, sponsors, other teams
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing1", "4" %> With school, community, experts
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Considered how problem/solution impact others &amp; plans produced change
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing2", "1" %> Did not consider
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing2", "2" %> Considered impact, not changes
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing2", "3" %> Considered &amp; recommend changes
-			</td>
-			<td width="150">
-				<%= f.radio_button "sharing2", "4" %> Considered &amp; implemented plan
-			</td>
-		</tr>
-		<tr height="5">
-			<td height="5" colspan="6"></td>
-		</tr>
-		<tr >
-			<td rowspan="10" class="heading">
-				Creative Presentation
-			</td>
-			<td width="135">
-				Organized presention; logical progression; clear beginning, middle, and end
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres1", "1" %> Rambles
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres1", "2" %> Weak
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres1", "3" %> Org clear; progression need improvement
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres1", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				All or almost all team members participated (TW)
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres2", "1" %> Limited
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres2", "2" %> Less than half
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres2", "3" %> Most
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres2", "4" %> All or almost all
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Comprehensive answers to judges questions
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres3", "1" %> Unable to answer
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres3", "2" %> Weak answers
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres3", "2" %> Adequate answers
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres3", "2" %> Comprehensive
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Collaboration of group is seamless (TW)
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres4", "1" %> Ideas not integrated
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres4", "2" %> Not well-integrated
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres4", "3" %> Project is group effort
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres4", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Carefully chosen visual aids and support material add to presentation
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres5", "1" %> None
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres5", "2" %> Ineffective
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres5", "3" %> Complement
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres5", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Excellent use of creativity
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres6", "1" %> Lacking
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres6", "2" %> Informed pres but limited creativity
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres6", "3" %> Uses creativity
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres6", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Clearly the work of the kids from beginning to end (TW)
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres7", "1" %> Excessive adult involvement
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres7", "2" %> Intervention is apparent
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres7", "3" %> Not obv, but difficult setup/take down
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres7", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				No evident errors and well rehearsed
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres8", "1" %> Many errors
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres8", "2" %> Few, need more rehearsing
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres8", "3" %> Few, well-rehearsed
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres8", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr >
-			<td width="135">
-				Excellent use of time
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres9", "1" %> Too long
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres9", "2" %> Slightly too long
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres9", "3" %> Proper length
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres9", "4" %> &nbsp;
-			</td>
-		</tr>
-		<tr>
-			<td width="135">
-				No technical difficulties
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres10", "1" %> Plagued by them
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres10", "2" %> Several
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres10", "3" %> Very minor
-			</td>
-			<td width="150">
-				<%= f.radio_button "pres10", "4" %> &nbsp;
-			</td>
-		</tr>
+	            </td>
+	            <td>single targeted audience that can benefit
 
-	</table>
+	            </td>
+	            <td>
+	               multiple targeted audience that can benefit from solution
+	            </td>
+	            <td>
+	                mult. targeted audiences that can benefit from solution, utilizing diverse sharing methods
+	            </td>
+	        </tr>
+	        <tr valign="top">
+	            <td colspan="4">
+	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	            </td>
+	        </tr>
+	    </table>
   <p><%= f.submit "Submit" %></p>
 <% end %>

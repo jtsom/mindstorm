@@ -84,9 +84,24 @@
 <h2>Robot Scores</h2>
 <ol>
 <%
+	flds = %w{m_durability m_efficiency m_mechanization}
+	flds += %w{p_quality p_efficiency p_automation}
+	flds += %w{i_designprocess i_strategy i_innovation}
+%>
+
+<%	
 	@team.robot_scores.each do |robot_score|
 %>
 		<li><%= link_to robot_score.judge_name, edit_team_robot_score_path(@team, robot_score) %></li>
+		<table>
+			<tr>
+		<% flds.each do |fld| %>
+				<td>
+					<%= robot_score.send("#{fld}") %>
+				</td>
+			<% end %>		
+			</tr>
+		</table>
 <%	end %>
 </ol>
 
@@ -95,7 +110,7 @@
 <%
 	@team.project_scores.each do |project_score|
 %>
-		<li><%= project_score.judge_name %></li>
+		<li><%= link_to project_score.judge_name, edit_team_project_score_path(@team, project_score) %></li>
 <%	end %>
 </ol>
 
@@ -104,6 +119,6 @@
 <%
 	@team.corevalue_scores.each do |corevalue_score|
 %>
-		<li><%= corevalue_score.judge_name %></li>
+		<li><%= link_to corevalue_score.judge_name, edit_team_corevalue_score_path(@team, corevalue_score) %></li>
 <%	end %>
 </ol>

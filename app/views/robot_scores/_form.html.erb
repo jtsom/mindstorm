@@ -1,509 +1,258 @@
 <%= form_for [@team, @robotscore] do |f| %>
   <%= errors_for(@robotscore) %>
 <p>Judge: <%= f.text_field :judge_name %></p>
-<table border="1" width="960" id="scoring" style='border-collapse: collapse'>
-	<tr>
-		<td width="27" class="heading">
-			Innov.Design
-		</td>
-		<td width="135">
-			Add score of the following statements if they are true and enter score:
-			<%= f.text_field :inno_design %>
-		</td>
-		<td width="150">
-			1. Design creative, unique use of drive train or structure
-		</td>
-		<td width="150">
-			2.  Manipulators/ sensors used in unexpected ways
-		</td>
-		<td width="150">
-			3.  Unique/creative strategy for coordinating missions
-		</td>
-		<td width="150">
-			4. Programming tasks used in unexpected ways
-		</td>
-	</tr>
-	<tr>
-		<td colspan="6"></td>
-	</tr>
-	<tr class="heading">
-		<td colspan="2"></td>
-		<td width="80">
-			Needs Improvement (1)
-		</td>
-		<td width="80">
-			Fair (2)
-		</td>
-		<td width="76">
-			Good (3)
-		</td>
-		<td width="77">
-			Excellent (4)
-		</td>
-	</tr>
-	<tr>
-		<td rowspan="2" class="heading">
-			Strategy
-		</td>
-		<td width="135">
-			Communicates complete design process, from initial concept thru build, test, &amp; refinement
-		</td>
-		<td>
-			<%= f.radio_button "strategy1", "1" %> Standard Design
-		</td>
-		<td>
-			<%= f.radio_button "strategy1", "2" %> Some forethought
-		</td>
-		<td>
-			<%= f.radio_button "strategy1", "3" %> Basic understand
-		</td>
-		<td>
-			<%= f.radio_button "strategy1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Innovative strategy combining mission tasks, plotting routes, maximizing points
-		</td>
-		<td>
-			<%= f.radio_button "strategy2", "1" %> Ease of task
-		</td>
-		<td>
-			<%= f.radio_button "strategy2", "2" %> Often ease of task
-		</td>
-		<td>
-			<%= f.radio_button "strategy2", "3" %> Strategic planning
-		</td>
-		<td>
-			<%= f.radio_button "strategy2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="6"></td>
-	</tr>
-	<tr>
-		<td rowspan="5" class="heading">
-			Locomotion and Navigation
-		</td>
-		<td width="135">
-			Goes defined distances efficiently
-		</td>
-		<td>
-			<%= f.radio_button "loconav1", "1" %> Difficulty
-		</td>
-		<td>
-			<%= f.radio_button "loconav1", "2" %> Sometimes
-		</td>
-		<td>
-			<%= f.radio_button "loconav1", "3" %> Most of time
-		</td>
-		<td>
-			<%= f.radio_button "loconav1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Adjusts speed, position sensing for optimum speed and accuracy
-		</td>
-		<td>
-			<%= f.radio_button "loconav2", "1" %> Too fast or slow
-		</td>
-		<td>
-			<%= f.radio_button "loconav2", "2" %> Somewhat
-		</td>
-		<td>
-			<%= f.radio_button "loconav2", "3" %> Most of time
-		</td>
-		<td>
-			<%= f.radio_button "loconav2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Turns accurately and consistently
-		</td>
-		<td>
-			<%= f.radio_button "loconav3", "1" %> Not acc or consis
-		</td>
-		<td>
-			<%= f.radio_button "loconav3", "2" %> Sometimes
-		</td>
-		<td>
-			<%= f.radio_button "loconav3", "3" %> Reasonably
-		</td>
-		<td>
-			<%= f.radio_button "loconav3", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Moves between two points accurately and consistently
-		</td>
-		<td>
-			<%= f.radio_button "loconav4", "1" %> Inconsistent
-		</td>
-		<td>
-			<%= f.radio_button "loconav4", "2" %> Sometimes
-		</td>
-		<td>
-			<%= f.radio_button "loconav4", "3" %> Reasonably
-		</td>
-		<td>
-			<%= f.radio_button "loconav4", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Excellent allowance for variables (battery wear, obstacles). May use sensors
-		</td>
-		<td>
-			<%= f.radio_button "loconav5", "1" %> No effort to know
-		</td>
-		<td>
-			<%= f.radio_button "loconav5", "2" %> Little to no effort
-		</td>
-		<td>
-			<%= f.radio_button "loconav5", "3" %> Allows for variables
-		</td>
-		<td>
-			<%= f.radio_button "loconav5", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="6"></td>
-	</tr>
-	<tr>
-		<td rowspan="8" class="heading">
-			Programming
-		</td>
-		<td width="135">
-			Programs logically organized
-		</td>
-		<td>
-			<%= f.radio_button "prog1", "1" %> Disorganized
-		</td>
-		<td>
-			<%= f.radio_button "prog1", "2" %> Somewhat
-		</td>
-		<td>
-			<%= f.radio_button "prog1", "3" %> Organized
-		</td>
-		<td>
-			<%= f.radio_button "prog1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Programs very efficient
-		</td>
-		<td>
-			<%= f.radio_button "prog2", "1" %> Inefficient
-		</td>
-		<td>
-			<%= f.radio_button "prog2", "2" %> Some efficient
-		</td>
-		<td>
-			<%= f.radio_button "prog2", "3" %> Most efficient
-		</td>
-		<td>
-			<%= f.radio_button "prog2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Programs always work, even for complex tasks
-		</td>
-		<td>
-			<%= f.radio_button "prog3", "1" %> Unpredictable
-		</td>
-		<td>
-			<%= f.radio_button "prog3", "2" %> Somewhat
-		</td>
-		<td>
-			<%= f.radio_button "prog3", "3" %> Mostly
-		</td>
-		<td>
-			<%= f.radio_button "prog3", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Sensors to replicate actions
-		</td>
-		<td colspan="4" class="heading">
-		Used or Not Used (If not used, skip next two lines)
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Sensors guarantee certain actions in every trial
-		</td>
-		<td>
-			<%= f.radio_button "prog5", "1" %> Inaqeduate
-		</td>
-		<td>
-			<%= f.radio_button "prog5", "2" %> Occasionally
-		</td>
-		<td>
-			<%= f.radio_button "prog5", "3" %> Used effectively
-		</td>
-		<td>
-			<%= f.radio_button "prog5", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Programs work in competition as in practice
-		</td>
-		<td>
-			<%= f.radio_button "prog6", "1" %> Do not do tasks
-		</td>
-		<td>
-			<%= f.radio_button "prog6", "2" %> Some of tasks
-		</td>
-		<td>
-			<%= f.radio_button "prog6", "3" %> Do what's expected
-		</td>
-		<td>
-			<%= f.radio_button "prog6", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Variables, loops, subroutines, and conditions
-		</td>
-		<td colspan="4" class="heading">
-			Used or Not Used (If not used, skip next line)
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Variables, loops, subroutines, and conditions are effective
-		</td>
-		<td>
-			<%= f.radio_button "prog8", "1" %> Defined but unused
-		</td>
-		<td>
-			<%= f.radio_button "prog8", "2" %> Not understood
-		</td>
-		<td>
-			<%= f.radio_button "prog8", "3" %> Are needed
-		</td>
-		<td>
-			<%= f.radio_button "prog8", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td class="heading"></td>
-	</tr>
-	<tr>
-		<td rowspan="3" class="heading">
-			Kids did work (TW)
-		</td>
-		<td width="135">
-			Children can describe mission and reference the program
-		</td>
-		<td>
-			<%= f.radio_button "kids1", "1" %> Cannot
-		</td>
-		<td>
-			<%= f.radio_button "kids1", "2" %> Part
-		</td>
-		<td>
-			<%= f.radio_button "kids1", "3" %> Most
-		</td>
-		<td>
-			<%= f.radio_button "kids1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Knowledge of structure and programming shows understanding of underlying design, science, and technology
-		</td>
-		<td>
-			<%= f.radio_button "kids2", "1" %> Little knowledge
-		</td>
-		<td>
-			<%= f.radio_button "kids2", "2" %> Min. understanding
-		</td>
-		<td>
-			<%= f.radio_button "kids2", "3" %> Moderate
-		</td>
-		<td>
-			<%= f.radio_button "kids2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Building/programming was done by team members
-		</td>
-		<td>
-			<%= f.radio_button "kids3", "1" %> Appears coach did it
-		</td>
-		<td>
-			<%= f.radio_button "kids3", "2" %> Directed by coach
-		</td>
-		<td>
-			<%= f.radio_button "kids3", "3" %> Help from coach
-		</td>
-		<td>
-			<%= f.radio_button "kids3", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="6"></td>
-	</tr>
-	<tr class="heading">
-		<td colspan="2"></td>
-		<td width="80">
-			Needs Improvement (1)
-		</td>
-		<td width="80">
-			Fair (2)
-		</td>
-		<td width="76">
-			Good (3)
-		</td>
-		<td width="77">
-			Excellent (4)
-		</td>
-	</tr>
-	<tr>
-		<td rowspan="5" class="heading">
-			Structural
-		</td>
-		<td width="135">
-			Robot assembles easy
-		</td>
-		<td>
-			<%= f.radio_button "structural1", "1" %> Difficulty
-		</td>
-		<td>
-			<%= f.radio_button "structural1", "2" %> Few errors
-		</td>
-		<td>
-			<%= f.radio_button "structural1", "3" %> Slow, no errors
-		</td>
-		<td>
-			<%= f.radio_button "structural1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Robot base stable and robust
-		</td>
-		<td>
-			<%= f.radio_button "structural2", "1" %> Weak, falls apart
-		</td>
-		<td>
-			<%= f.radio_button "structural2", "2" %> Some stability
-		</td>
-		<td>
-			<%= f.radio_button "structural2", "3" %> Stable, not robust
-		</td>
-		<td>
-			<%= f.radio_button "structural2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Attachments
-		</td>
-		<td colspan="4" class="heading">
-			Used or Not Used (If not used, skip next line)
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Attachments modular; function as expected and easily added/removed. Displays wide range of capabilities. Attachements perform tasks well and repeatable
-		</td>
-		<td>
-			<%= f.radio_button "structural4", "1" %> Weak, falls apart
-		</td>
-		<td>
-			<%= f.radio_button "structural4", "2" %> Not modular
-		</td>
-		<td>
-			<%= f.radio_button "structural4", "3" %> Modular, ok
-		</td>
-		<td>
-			<%= f.radio_button "structural4", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			Robot designed by team; design is unique and creative
-		</td>
-		<td>
-			<%= f.radio_button "structural5", "1" %> From book
-		</td>
-		<td>
-			<%= f.radio_button "structural5", "2" %> Some team ideas
-		</td>
-		<td>
-			<%= f.radio_button "structural5", "3" %> Designed by team
-		</td>
-		<td>
-			<%= f.radio_button "structural5", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="6"></td>
-	</tr>
-	<tr>
-		<td rowspan="3" class="heading">
-			Overall Design
-		</td>
-		<td width="135">
-			Robot is elegant, complete system
-		</td>
-		<td>
-			<%= f.radio_button "overall1", "1" %> Lacks most
-		</td>
-		<td>
-			<%= f.radio_button "overall1", "2" %> Lacks many
-		</td>
-		<td>
-			<%= f.radio_button "overall1", "3" %> Lacks some
-		</td>
-		<td>
-			<%= f.radio_button "overall1", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			All components work well together
-		</td>
-		<td>
-			<%= f.radio_button "overall2", "1" %> Few do
-		</td>
-		<td>
-			<%= f.radio_button "overall2", "2" %> Some do
-		</td>
-		<td>
-			<%= f.radio_button "overall2", "3" %> Most do
-		</td>
-		<td>
-			<%= f.radio_button "overall2", "4" %> &nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td width="135">
-			All components look like they belong together
-		</td>
-		<td>
-			<%= f.radio_button "overall3", "1" %> Few do
-		</td>
-		<td>
-			<%= f.radio_button "overall3", "2" %> Some do
-		</td>
-		<td>
-			<%= f.radio_button "overall3", "3" %> Most do
-		</td>
-		<td>
-			<%= f.radio_button "overall3", "4" %> &nbsp;
-		</td>
-	</tr>
+
+<table class="grid">
+    <tr style="border: none;">
+        <td style="border: none;">
+            &nbsp;
+        </td>
+        <td>
+            <b><i>Beginning</i></b>
+        </td>
+        <td>
+            <i><b>Developing</b></i>
+        </td>
+        <td>
+            <i><b>Accomplished</b></i>
+        </td>
+        <td>
+            <i><b>Exemplary</b></i>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="7">
+            <div class="vertical">
+              <span>Mechanical&nbsp;Design</span> 
+              </div>
+        </td>
+        <td class="alt">
+            <b>Durbility</b>
+        </td>
+        <td class="alt" colspan="3">
+            <i>Evidence of structural integrity; ability to withstand rigors of competition</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            quite fragile, breaks a lot
+        </td>
+        <td>
+            frequent or significat faults/repairs
+        </td>
+        <td>
+            rare faults/repairs
+        </td>
+        <td>
+            sound construction; no repairs
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Mechanical Efficiency</b>
+        </td>
+        <td colspan="3">
+            <i>Economic use of parts and time; easy to repair and modify</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            excessive parts or time to repair/modify
+        </td>
+        <td>
+            inefficient parts or time to repair/modify
+        </td>
+        <td>
+            appropriate use of parts and time to repair/modify
+        </td>
+        <td>
+            streamlined use of parts and time to repair/modify
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Mechanization</b>
+        </td>
+        <td colspan="3">
+            <i>Ability of robot mechanisms to move or act with appropriate speed, strenght and accuracy
+                for inteneded tasks (propulsion and execution)</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            imbalance of speed, strenght and accuracy on most tasks
+        </td>
+        <td>
+            imbalance of speed, strength and accuracy on some tasks
+        </td>
+        <td>
+            appropriate balance of speed, strength and accuracy on most tasks
+        </td>
+        <td>
+            appropriate balance of speed, strength and accuracy on every task
+        </td>
+    </tr>
+    <tr valign="top">
+        <td colspan="4" valign="top">
+            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+        </td>
+    </tr>
+</table>
+<table class="grid">
+    <tr>
+        <td rowspan="7">
+            <div class="vertical">Programming</div>
+        </td>
+        <td class="alt">
+            <b>Programming Quality</b>
+        </td>
+        <td class="alt" colspan="3">
+            <i>Programming is appropriate for the intended purpose and achieves consistent results</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            does not achieve purpose AND is inconsisten
+        </td>
+        <td>
+            does not achieve purpose OR is inconsistent
+        </td>
+        <td>
+            achieves purpose repeatedly
+        </td>
+        <td>
+            achieve purpose every time
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Programming Efficiency</b>
+        </td>
+        <td colspan="3">
+            <i>Program is modular, streamlined, and understandable</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            excessive code and difficult to understand
+        </td>
+        <td>
+            inefficient code and challenge to understand
+        </td>
+        <td>
+            appropriate code and easy to understand
+        </td>
+        <td>
+            stremlined code and easy for anyone to understand
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Automation/Navigation</b>
+        </td>
+        <td colspan="3">
+            <i>Ability of the robot to move or act as intended using mechanical and/or sensor feedback(with
+                minimal reliance on driver intervention and/or program timing)</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            frequent driver intervention to aim AND retrieve robot
+        </td>
+        <td>
+            frequent driver intervention to aim OR retrieve robot
+        </td>
+        <td>
+            robot moves/acts as intended repeatedly w/occasional driver intervention
+        </td>
+        <td>
+            robot moves/acts as intended every time with no driver intervention
+        </td>
+    </tr>
+    <tr valign="top">
+        <td colspan="4">
+            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+        </td>
+    </tr>
+</table>
+<table class="grid">
+    <tr>
+        <td rowspan="7">
+            <div class="vertical">Innovation&nbsp;&amp;&nbsp;Strategy  </div>
+        </td>
+        <td class="alt">
+            <b>Design Process</b>
+        </td>
+        <td class="alt" colspan="3">
+            <i>Ablity to develop and explain improvement cycles where alternatives are considered
+                and narrowed, selections tested, designs imporved</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            disorganized AND poorly explained improvement cycles
+        </td>
+        <td>
+            disorganized OR poorly explained improvement cycles
+        </td>
+        <td>
+            systematic and well-explained improvement cycles
+        </td>
+        <td>
+            systematic, well-explained and well-documented improvement cycles
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Missions Strategy</b>
+        </td>
+        <td colspan="3">
+            <i>Creation of new, unique, or unexpected feature(s) (e.g designs, programming, strategies
+                or applications) that are beneficial in performing the specified tasks</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            no clear goals AND no clear strategy
+        </td>
+        <td>
+            no clear goals OR no clear strategy
+        </td>
+        <td>
+            clear strategy to accomplish the team's well defined goals
+        </td>
+        <td>
+            clear strategy to accomplish most/all game missions
+        </td>
+    </tr>
+    <tr class="alt">
+        <td>
+            <b>Innovation</b>
+        </td>
+        <td colspan="3">
+            <i>Creation of new, unique, or unexpected feature(s)(e.g designs, programming, strategies
+                or applications) that are beneficial in performing the specified task</i>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            existing feature(s)
+        </td>
+        <td>
+            featrue(s) contrins some original element(s)
+        </td>
+        <td>
+            original feature(s)
+        </td>
+        <td>
+            original feature(s) with the potential to add significant value
+        </td>
+    </tr>
+    <tr valign="top">
+        <td colspan="4">
+            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+        </td>
+    </tr>
 </table>
 
   <p><%= f.submit "Submit" %></p>
