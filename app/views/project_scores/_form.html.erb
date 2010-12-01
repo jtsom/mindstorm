@@ -1,49 +1,35 @@
 <%= form_for [@team, @projectscore] do |f| %>
   <%= errors_for(@projectscore) %>
-	
+	<p>Judge: <%= f.text_field :judge_name %></p>
 	<table class="grid">
 	        <tr style="border: none;">
 	            <td style="border: none;">
 	                &nbsp;
 	            </td>
-	            <td>
-	                <b><i>Beginning</i></b>
-	            </td>
-	            <td>
-	                <i><b>Developing</b></i>
-	            </td>
-	            <td>
-	                <i><b>Accomplished</b></i>
-	            </td>
-	            <td>
-	                <i><b>Exemplary</b></i>
-	            </td>
+	            <td><b><i>Beginning</i></b></td>
+	            <td><i><b>Developing</b></i></td>
+	            <td><i><b>Accomplished</b></i> </td>
+	            <td><i><b>Exemplary</b></i></td>
 	        </tr>
 	        <tr>
 	            <td rowspan="9">
-	                <div class="vertical">
-	                  <span>Research</span> 
-	                  </div>
+	                <div class="vertical">Research</div>
 	            </td>
-	            <td class="alt">
-	                <b>Problem Identification</b>
-	            </td>
-	            <td class="alt" colspan="3">
-	                <i>Clear definition of the problem being studied</i>
-	            </td>
+	            <td class="alt"><b>Problem Identification</b></td>
+	            <td class="alt" colspan="3"><i>Clear definition of the problem being studied</i></td>
 	        </tr>
 	        <tr>
 	            <td>
-	                unclear; few details
+	              <%= f.radio_button :r_problemID, "1" %> unclear; few details
 	            </td>
 	            <td>
-	              somewhat clear; details missing
+	              <%= f.radio_button :r_problemID, "2" %> somewhat clear; details missing
 	            </td>
 	            <td>
-	               clear; detailed
+	              <%= f.radio_button :r_problemID, "3" %> clear; detailed
 	            </td>
 	            <td>
-	               very clear; very detailed
+	              <%= f.radio_button :r_problemID, "4" %> very clear; very detailed
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -56,21 +42,21 @@
 	        </tr>
 	        <tr>
 	            <td>
-	               one type of information cited; minimal sources
+	               <%= f.radio_button :r_source, "1" %> one type of information cited; minimal sources
 	            </td>
 	            <td>
-	               two types of information cited; several sources
+	               <%= f.radio_button :r_source, "2" %> two types of information cited; several sources
 	            </td>
 	            <td>
-	                three types of information cited; many sources, including professionals
+	               <%= f.radio_button :r_source, "3" %> three types of information cited; many sources, including professionals
 	            </td>
 	            <td>
-	                four(+)types of information cited; extensive sources, incl. professionals
+	               <%= f.radio_button :r_source, "4" %> four(+)types of information cited; extensive sources, incl. professionals
 	            </td>
 	        </tr>
 	        <tr class="alt">
 	            <td>
-	                <b>Provlem Analysis</b>
+	                <b>Problem Analysis</b>
 	            </td>
 	            <td colspan="3">
 	                <i>Depth to which the problem was studied and analyzed by the team</i>
@@ -78,16 +64,16 @@
 	        </tr>
 	        <tr>
 	            <td>
-	                minimal study; no team analysis
+	              <%= f.radio_button :r_analysis, "1" %> minimal study; no team analysis
 	            </td>
 	            <td>
-	               minimal study; some team analysis 
+	              <%= f.radio_button :r_analysis, "2" %>  minimal study; some team analysis 
 	            </td>
 	            <td>
-	                sufficient study and analysis by team
+	              <%= f.radio_button :r_analysis, "3" %> sufficient study and analysis by team
 	             </td>
 	            <td>
-	                extensive study and analysis by team
+	              <%= f.radio_button :r_analysis, "4" %>  extensive study and analysis by team
 	            </td>
 	        </tr>
 	           <tr class="alt">
@@ -100,21 +86,21 @@
 	        </tr>
 	        <tr>
 	            <td>
-	              minimal review; no team analysis
+	              <%= f.radio_button :r_review, "1" %> minimal review; no team analysis
 	            </td>
 	            <td>
-	               minimal study; some team analysis 
+	               <%= f.radio_button :r_review, "2" %> minimal study; some team analysis 
 	            </td>
 	            <td>
-	                sufficient study and analysis by team
+	               <%= f.radio_button :r_review, "3" %> sufficient study and analysis by team
 	             </td>
 	            <td>
-	                extensive study and analysis by team
+	               <%= f.radio_button :r_review, "4" %> extensive study and analysis by team
 	            </td>
 	        </tr>
 	        <tr valign="top">
 	            <td colspan="4" valign="top">
-	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	                Comments:<%= f.text_area :r_comments, :rows => 5, :cols => 100 %>
 	            </td>
 	        </tr>
 	    </table>
@@ -132,16 +118,16 @@
 	        </tr>
 	        <tr>
 	            <td>
-	               difficult to understand
+	               <%= f.radio_button :i_teamsolution, "1" %> difficult to understand
 	            </td>
 	            <td>
-	                some parts confusing
+	                <%= f.radio_button :i_teamsolution, "2" %> some parts confusing
 	            </td>
 	            <td>
-	               understandable
+	               <%= f.radio_button :i_teamsolution, "3" %> understandable
 	            </td>
 	            <td>
-	              easy to understand by all
+	              <%= f.radio_button :i_teamsolution, "4" %> easy to understand by all
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -154,21 +140,21 @@
 	        </tr>
 	        <tr>
 	            <td>
-	                existing solutions/application
+	                <%= f.radio_button :i_innovation, "1" %> existing solutions/application
 	            </td>
 	            <td>
-	               solutions/application contains some original elements(s)
+	               <%= f.radio_button :i_innovation, "2" %> solutions/application contains some original elements(s)
 	            </td>
 	            <td>
-	               original solution/application
+	               <%= f.radio_button :i_innovation, "3" %> original solution/application
 	            </td>
 	            <td>
-	                original solution/application with the potential to add significant value
+	                <%= f.radio_button :i_innovation, "4" %> original solution/application with the potential to add significant value
 	            </td>
 	        </tr>
 	        <tr class="alt">
 	            <td>
-	                <b>implementation</b>
+	                <b>Implementation</b>
 	            </td>
 	            <td colspan="3">
 	                <i>consideration of factors for implementation (cost, ease of manufacturing, ect.)</i>
@@ -176,21 +162,21 @@
 	        </tr>
 	        <tr>
 	            <td>
-	               minimal factors considered
+	               <%= f.radio_button :i_implementation, "1" %> minimal factors considered
 	            </td>
 	            <td>
-	                some factors considered
+	                <%= f.radio_button :i_implementation, "2" %> some factors considered
 	            </td>
 	            <td>
-	                factors well considered; some question about proposed solutions
+	                <%= f.radio_button :i_implementation, "3" %> factors well considered; some question about proposed solutions
 	            </td>
 	            <td>
-	               factors well considered and feasible solution proposed
+	               <%= f.radio_button :i_implementation, "4" %> factors well considered and feasible solution proposed
 	            </td>
 	        </tr>
 	        <tr valign="top">
 	            <td colspan="4">
-	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	                Comments:<%= f.text_area :r_comments, :rows => 5, :cols => 100 %>
 	            </td>
 	        </tr>
 	    </table>
@@ -209,16 +195,16 @@
 	        </tr>
 	        <tr>
 	            <td>
-	                unclear or disorganized
+	                <%= f.radio_button :p_preseffective, "1" %> unclear or disorganized
 	            </td>
 	            <td>
-	              somewhat clear; minimal organization
+	               <%= f.radio_button :p_preseffective, "2" %> somewhat clear; minimal organization
 	            </td>
 	            <td>
-	                mostly clear; mostly organized
+	                <%= f.radio_button :p_preseffective, "3" %> mostly clear; mostly organized
 	            </td>
 	            <td>
-	                very clear and well organized
+	                <%= f.radio_button :p_preseffective, "4" %> very clear and well organized
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -231,16 +217,16 @@
 	        </tr>
 	        <tr>
 	            <td>
-	               minimally engaging; familiar presentation style
+	               <%= f.radio_button :p_creativity, "1" %> minimally engaging; familiar presentation style
 	            </td>
 	            <td>
-	                somewhat engaging; familiar presentation style
+	                <%= f.radio_button :p_creativity, "2" %> somewhat engaging; familiar presentation style
 	            </td>
 	            <td>
-	                engaging; familiar presentation style
+	              <%= f.radio_button :p_creativity, "3" %> engaging; familiar presentation style
 	            </td>
 	            <td>
-	             engaging and new presentation style
+	              <%= f.radio_button :p_creativity, "4" %>engaging and new presentation style
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -252,22 +238,14 @@
 	            </td>
 	        </tr>
 	        <tr>
-	            <td>general, non-targeted audience(s)
-
-	            </td>
-	            <td>single targeted audience that can benefit
-
-	            </td>
-	            <td>
-	               multiple targeted audience that can benefit from solution
-	            </td>
-	            <td>
-	                mult. targeted audiences that can benefit from solution, utilizing diverse sharing methods
-	            </td>
+	            <td><%= f.radio_button :p_sharing, "1" %> general, non-targeted audience(s)</td>
+	            <td><%= f.radio_button :p_sharing, "2" %> single targeted audience that can benefit</td>
+	            <td><%= f.radio_button :p_sharing, "3" %> multiple targeted audience that can benefit from solution </td>
+	            <td><%= f.radio_button :p_sharing, "4" %> mult. targeted audiences that can benefit from solution, utilizing diverse sharing methods</td>
 	        </tr>
 	        <tr valign="top">
 	            <td colspan="4">
-	                Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+	                Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
 	            </td>
 	        </tr>
 	    </table>

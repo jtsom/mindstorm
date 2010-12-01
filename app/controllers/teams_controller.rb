@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   
   def results
     
-    @teams=Team.includes(:robot_scores, :project_scores).sort {|a,b| a.fll_number <=> b.fll_number}
+    @teams=Team.includes(:robot_scores, :project_scores, :corevalue_scores).sort {|a,b| a.fll_number <=> b.fll_number}
 
   end
   

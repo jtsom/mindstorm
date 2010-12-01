@@ -19,15 +19,9 @@ class ProjectScore < ActiveRecord::Base
     fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   end
 
-  def teamwork_score
-    research_score + sharing_score + pres_score
-  end
-  
   private
     def calculate_total_score
-      fields = %w{research1 research2 research3 research4 research5 is1 is2 is3 sharing1 sharing2 pres1 pres2 pres3 pres4 pres5 pres6 pres7 pres8 pres9 pres10}
-
-      self.total_score = fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
+      self.total_score = research_score + innovative_score + pres_score
 
     end  
 end

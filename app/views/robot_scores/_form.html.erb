@@ -35,16 +35,16 @@
     </tr>
     <tr>
         <td>
-            quite fragile, breaks a lot
+            <%= f.radio_button :m_durability, "1" %> quite fragile, breaks a lot
         </td>
         <td>
-            frequent or significat faults/repairs
+            <%= f.radio_button :m_durability, "2" %> frequent or significat faults/repairs
         </td>
         <td>
-            rare faults/repairs
+            <%= f.radio_button :m_durability, "3" %> rare faults/repairs
         </td>
         <td>
-            sound construction; no repairs
+            <%= f.radio_button :m_durability, "4" %> sound construction; no repairs
         </td>
     </tr>
     <tr class="alt">
@@ -57,16 +57,16 @@
     </tr>
     <tr>
         <td>
-            excessive parts or time to repair/modify
+            <%= f.radio_button :m_efficiency, "1" %> excessive parts or time to repair/modify
         </td>
         <td>
-            inefficient parts or time to repair/modify
+            <%= f.radio_button :m_efficiency, "2" %> inefficient parts or time to repair/modify
         </td>
         <td>
-            appropriate use of parts and time to repair/modify
+            <%= f.radio_button :m_efficiency, "3" %> appropriate use of parts and time to repair/modify
         </td>
         <td>
-            streamlined use of parts and time to repair/modify
+            <%= f.radio_button :m_efficiency, "4" %> streamlined use of parts and time to repair/modify
         </td>
     </tr>
     <tr class="alt">
@@ -80,21 +80,21 @@
     </tr>
     <tr>
         <td>
-            imbalance of speed, strenght and accuracy on most tasks
+            <%= f.radio_button :m_mechanization, "1" %> imbalance of speed, strenght and accuracy on most tasks
         </td>
         <td>
-            imbalance of speed, strength and accuracy on some tasks
+            <%= f.radio_button :m_mechanization, "2" %> imbalance of speed, strength and accuracy on some tasks
         </td>
         <td>
-            appropriate balance of speed, strength and accuracy on most tasks
+            <%= f.radio_button :m_mechanization, "3" %> appropriate balance of speed, strength and accuracy on most tasks
         </td>
         <td>
-            appropriate balance of speed, strength and accuracy on every task
+            <%= f.radio_button :m_mechanization, "4" %> appropriate balance of speed, strength and accuracy on every task
         </td>
     </tr>
     <tr valign="top">
         <td colspan="4" valign="top">
-            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+            Comments:<%= f.text_area :m_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>
 </table>
@@ -112,16 +112,16 @@
     </tr>
     <tr>
         <td>
-            does not achieve purpose AND is inconsisten
+            <%= f.radio_button :p_quality, "1" %> does not achieve purpose AND is inconsisten
         </td>
         <td>
-            does not achieve purpose OR is inconsistent
+            <%= f.radio_button :p_quality, "2" %> does not achieve purpose OR is inconsistent
         </td>
         <td>
-            achieves purpose repeatedly
+            <%= f.radio_button :p_quality, "3" %> achieves purpose repeatedly
         </td>
         <td>
-            achieve purpose every time
+            <%= f.radio_button :p_quality, "4" %> achieve purpose every time
         </td>
     </tr>
     <tr class="alt">
@@ -134,16 +134,16 @@
     </tr>
     <tr>
         <td>
-            excessive code and difficult to understand
+            <%= f.radio_button :p_efficiency, "1" %> excessive code and difficult to understand
         </td>
         <td>
-            inefficient code and challenge to understand
+            <%= f.radio_button :p_efficiency, "2" %> inefficient code and challenge to understand
         </td>
         <td>
-            appropriate code and easy to understand
+            <%= f.radio_button :p_efficiency, "3" %> appropriate code and easy to understand
         </td>
         <td>
-            stremlined code and easy for anyone to understand
+            <%= f.radio_button :p_efficiency, "4" %> stremlined code and easy for anyone to understand
         </td>
     </tr>
     <tr class="alt">
@@ -157,21 +157,21 @@
     </tr>
     <tr>
         <td>
-            frequent driver intervention to aim AND retrieve robot
+            <%= f.radio_button :p_automation, "1" %> frequent driver intervention to aim AND retrieve robot
         </td>
         <td>
-            frequent driver intervention to aim OR retrieve robot
+            <%= f.radio_button :p_automation, "2" %> frequent driver intervention to aim OR retrieve robot
         </td>
         <td>
-            robot moves/acts as intended repeatedly w/occasional driver intervention
+            <%= f.radio_button :p_automation, "3" %>  robot moves/acts as intended repeatedly w/occasional driver intervention
         </td>
         <td>
-            robot moves/acts as intended every time with no driver intervention
+            <%= f.radio_button :p_automation, "4" %> robot moves/acts as intended every time with no driver intervention
         </td>
     </tr>
     <tr valign="top">
         <td colspan="4">
-            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+            Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>
 </table>
@@ -190,16 +190,16 @@
     </tr>
     <tr>
         <td>
-            disorganized AND poorly explained improvement cycles
+            <%= f.radio_button :i_designprocess, "1" %> disorganized AND poorly explained improvement cycles
         </td>
         <td>
-            disorganized OR poorly explained improvement cycles
+            <%= f.radio_button :i_designprocess, "2" %> disorganized OR poorly explained improvement cycles
         </td>
         <td>
-            systematic and well-explained improvement cycles
+            <%= f.radio_button :i_designprocess, "3" %> systematic and well-explained improvement cycles
         </td>
         <td>
-            systematic, well-explained and well-documented improvement cycles
+            <%= f.radio_button :i_designprocess, "4" %> systematic, well-explained and well-documented improvement cycles
         </td>
     </tr>
     <tr class="alt">
@@ -213,16 +213,16 @@
     </tr>
     <tr>
         <td>
-            no clear goals AND no clear strategy
+            <%= f.radio_button :i_strategy, "1" %> no clear goals AND no clear strategy
         </td>
         <td>
-            no clear goals OR no clear strategy
+            <%= f.radio_button :i_strategy, "2" %> no clear goals OR no clear strategy
         </td>
         <td>
-            clear strategy to accomplish the team's well defined goals
+            <%= f.radio_button :i_strategy, "3" %> clear strategy to accomplish the team's well defined goals
         </td>
         <td>
-            clear strategy to accomplish most/all game missions
+            <%= f.radio_button :i_strategy, "4" %> clear strategy to accomplish most/all game missions
         </td>
     </tr>
     <tr class="alt">
@@ -236,21 +236,21 @@
     </tr>
     <tr>
         <td>
-            existing feature(s)
+            <%= f.radio_button :i_innovation, "1" %> existing feature(s)
         </td>
         <td>
-            featrue(s) contrins some original element(s)
+            <%= f.radio_button :i_innovation, "2" %> feature(s) contains some original element(s)
         </td>
         <td>
-            original feature(s)
+            <%= f.radio_button :i_innovation, "3" %> original feature(s)
         </td>
         <td>
-            original feature(s) with the potential to add significant value
+            <%= f.radio_button :i_innovation, "4" %> original feature(s) with the potential to add significant value
         </td>
     </tr>
     <tr valign="top">
         <td colspan="4">
-            Comments:<textarea name="Name" rows="8" cols="100"></textarea>
+            Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>
 </table>

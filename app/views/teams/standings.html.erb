@@ -1,5 +1,5 @@
+<% content_for :head do -%>
 <script>
-
 $(document).ready(function() {
 			$('div.scrollme').marquee().bind('stop',function() {
 			reloadPage();
@@ -10,7 +10,8 @@ function reloadPage()
 {
 	window.location = window.location;
 }
-</script>
+</script>	
+<% end -%>
 
 <h1>Team Standings</h1>
 

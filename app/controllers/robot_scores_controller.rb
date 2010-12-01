@@ -11,19 +11,11 @@ class RobotScoresController < ApplicationController
   end
   
   def create
-    team = Team.find params[:team_id]
-    team.create_robot_score(params[:robot_score])
+    @team = Team.find(params[:team_id])
+    @robot_score = @team.robot_scores.build(params[:robot_score])
+    flash[:notice] = "Robot score created" if @robot_score.save
     
-    respond_to do |format|
-      if team.save
-        flash[:notice] = 'Technical score entered.'
-        format.html { redirect_to :controller => "teams" }
-        format.xml  { render :xml => team, :status => :created, :location => team }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => team.errors, :status => :unprocessable_entity }
-      end
-    end
+    respond_with(@team, @robot_score, :location => @team)
   end 
   
   def edit
@@ -33,18 +25,9 @@ class RobotScoresController < ApplicationController
   end
   
   def update
-    @team = Team.find params[:team_id]
-    @team.robot_scores.find(params[:id]).update_attributes(params[:robot_score])
-    
-    respond_to do |format|
-      if @team.save
-        flash[:notice] = 'Robot score updated.'
-        format.html { redirect_to @team }
-        format.xml  { render :xml => team, :status => :created, :location => team }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => team.errors, :status => :unprocessable_entity }
-      end
-    end
+    team = Team.find(params[:team_id])
+    robot_score = team.robot_scores.find(params[:id]).update_attributes(params[:robot_score])
+    flash[:notice] = "Robot score updated" if robot_score
+    respond_with(team, robot_score, :location => team)
   end 
 end

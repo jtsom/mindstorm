@@ -19,38 +19,6 @@ class Team < ActiveRecord::Base
       records.each {|r| self.new(r).save}
     end
     
-    def teamwork_score
-      ts = 0
-      # if robot_score
-      #   ts = robot_score.kids_score || 0
-      # end
-      # if project_score
-      #   ts += project_score.teamwork_score || 0
-      # end
-      # ts || 0
-    end
-    
-    def total_robot_score
-      # if self.robot_score
-      #   self.robot_score.total_score
-      # else
-      #   0
-      # end
-      robot_scores.sum(:total_score)
-    end
-    
-    def total_project_score
-      # if self.project_score
-      #   self.project_score.total_score
-      # else
-      #   0
-      # end
-      project_scores.sum(:total_score)
-    end
-    
-    def total_corevalue_score
-      corevalue_scores.sum(:total_score)
-    end
     
     def high_score
         matches.maximum(:score)|| 0
