@@ -277,7 +277,7 @@ challenge do
    end   
  
    mission "Red Blood Cells (touch penalty)" do
-     item :AccessMarkers, "Red Blood Cells on Table", 0..4, "5"
+     item :AccessMarkers, "Red Blood Cells on Table", 0..8, "5"
      score do |items|
        (items[:AccessMarkers] * 5)
      end
