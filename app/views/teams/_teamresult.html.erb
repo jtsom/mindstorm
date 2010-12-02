@@ -1,38 +1,30 @@
-<tr><td><%= "#{team.fll_number}</td><td>#{team.team_name}".html_safe %></td>
-<% if team.robot_score %>
-		<td><%= team.robot_score.inno_design %></td>
-		<td><%= team.robot_score.strategy_score %></td>
-		<td><%= team.robot_score.loconav_score %></td>
-		<td><%= team.robot_score.programming_score %></td>
-		<td><%= team.robot_score.kids_score %></td>
-		<td><%= team.robot_score.structural_score %></td>
-		<td><%= team.robot_score.overall_score %></td>
-<% else %>
-	<td colspan="7">&nbsp;</td>
-<% end %>
-<td><%= team.robot_score.total_score if team.robot_score %></td>
-<td>&nbsp;</td><!-- rank -->
-<td>&nbsp;</td>
-<% if team.project_score %>
-	<td><%= team.project_score.research_score %></td>
-	<td><%= team.project_score.innovative_score %></td>
-	<td><%= team.project_score.sharing_score %></td>
-	<td><%= team.project_score.pres_score %></td>
-<% else %>
-	<td colspan="4">&nbsp;</td>
-<% end %>
-<td><%= team.project_score.total_score if team.project_score %></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><%= team.average_qual_score if team.average_qual_score > 0%></td>
-<td></td><!-- rank -->
-<td>&nbsp;</td>
-<td><%= team.robot_score.kids_score if team.robot_score %></td>
-<td><%= (team.project_score.teamwork_score) if team.project_score %></td>
-<td>&nbsp;</td><!-- other score - not used -->
-<td><%= team.teamwork_score if team.teamwork_score > 0%></td>
-<td></td><!-- rank -->
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<tr><td><%= team.fll_number %></td><td><%=team.team_name %></td>
+		<td>&nbsp;</td>
+		<td><%= team.mechanical_design %></td>
+		<td><%= team.programming %></td>
+		<td><%= team.innovation_strategy %></td>
+		<td><%= team.robot_scores_total  %></td>
+
+		<td>&nbsp;</td>
+		<td><%= team.performance_rank %></td>
+		<td>&nbsp;</td><!-- rank -->
+		<td><%= team.total_score %></td>
+		<td><%= team.total_rank %></td>
+		<td>&nbsp;</td>
+
+		<td><%= team.research %></td>
+		<td><%= team.innovative_solution %></td>
+		<td><%= team.presentation %></td>
+		<td><%= team.project_scores_total %></td>
+		<td><%= team.project_rank %></td>
+		<td>&nbsp;</td>
+
+		<td><%= team.inspiration %></td>
+		<td><%= team.teamwork %></td>
+		<td><%= team.grac_prof %></td>
+		<td><%= team.corevalue_scores_total %></td>
+		<td><%= team.corevalue_rank %></td>
+		<td>&nbsp;</td>
+		<td><%= team.champion_score %></td>
+		<td><%= team.champion_rank %></td>
 </tr>

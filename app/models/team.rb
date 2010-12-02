@@ -9,8 +9,8 @@ class Team < ActiveRecord::Base
 
     validates_uniqueness_of :fll_number, :message => "must be unique"
     validates_numericality_of :fll_number, :message => "is not a number"
-    # validates_numericality_of :project_score, :message => "is not a number"
-    # validates_numericality_of :technical_score, :message => "is not a number"
+
+    attr_accessor :performance_rank, :robot_rank, :total_score, :total_rank, :project_rank, :corevalue_rank, :champion_score, :champion_rank
     
     # Team.load_from_file(Rails.root.join('support','teams09.yml'))  
     def self.load_from_file(filename)
@@ -19,6 +19,62 @@ class Team < ActiveRecord::Base
       records.each {|r| self.new(r).save}
     end
     
+    ####### ROBOT SCORING #######
+    def mechanical_design
+      robot_scores.average(:mechanical_design) || 0
+    end
+    
+    def programming
+      robot_scores.average(:programming) || 0
+    end
+    
+    def innovation_strategy
+      robot_scores.average(:innovation_strategy) || 0
+    end
+    
+    def robot_scores_total
+      robot_scores.average(:total_score) || 0
+    end
+    
+ 
+    ####### PROJECT SCORING #######
+    
+     def research
+       project_scores.average(:research) || 0
+     end
+     
+     def innovative_solution
+       project_scores.average(:innovative_solution) || 0
+     end
+     
+     def presentation
+       project_scores.average(:presentation) || 0
+     end
+     
+     def project_scores_total
+       project_scores.average(:total_score) || 0
+     end
+    
+     
+    ####### CORE VALUES SCORING #######
+    
+    def inspiration
+      corevalue_scores.average(:inspiration) || 0
+    end
+    
+    def teamwork
+      corevalue_scores.average(:teamwork) || 0
+    end
+    
+    def grac_prof
+      corevalue_scores.average(:grac_prof) || 0
+    end
+    
+    def corevalue_scores_total
+      corevalue_scores.average(:total_score) || 0
+    end
+    
+    #################################
     
     def high_score
         matches.maximum(:score)|| 0

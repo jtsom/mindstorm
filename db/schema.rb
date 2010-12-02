@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125014940) do
+ActiveRecord::Schema.define(:version => 20101202004246) do
 
   create_table "corevalue_scores", :force => true do |t|
     t.integer  "i_discovery",     :default => 0
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20101125014940) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "judge_name"
+    t.integer  "inspiration"
+    t.integer  "teamwork"
+    t.integer  "grac_prof"
   end
 
   create_table "matches", :force => true do |t|
@@ -47,93 +50,51 @@ ActiveRecord::Schema.define(:version => 20101125014940) do
 
   create_table "project_scores", :force => true do |t|
     t.integer  "total_score"
-    t.integer  "research1"
-    t.integer  "research2"
-    t.integer  "research3"
-    t.integer  "research4"
-    t.integer  "research5"
-    t.integer  "is1"
-    t.integer  "is2"
-    t.integer  "is3"
-    t.integer  "sharing1"
-    t.integer  "sharing2"
-    t.integer  "pres1"
-    t.integer  "pres2"
-    t.integer  "pres3"
-    t.integer  "pres4"
-    t.integer  "pres5"
-    t.integer  "pres6"
-    t.integer  "pres7"
-    t.integer  "pres8"
-    t.integer  "pres9"
-    t.integer  "pres10"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "team_id"
-    t.integer  "research6"
-    t.integer  "r_problemID",      :default => 0
-    t.integer  "r_source",         :default => 0
-    t.integer  "r_analysis",       :default => 0
-    t.integer  "r_review",         :default => 0
+    t.integer  "r_problemID",         :default => 0
+    t.integer  "r_source",            :default => 0
+    t.integer  "r_analysis",          :default => 0
+    t.integer  "r_review",            :default => 0
     t.text     "r_comments"
-    t.integer  "i_teamsolution",   :default => 0
-    t.integer  "i_innovation",     :default => 0
-    t.integer  "i_implementation", :default => 0
+    t.integer  "i_teamsolution",      :default => 0
+    t.integer  "i_innovation",        :default => 0
+    t.integer  "i_implementation",    :default => 0
     t.text     "i_comments"
-    t.integer  "p_preseffective",  :default => 0
-    t.integer  "p_creativity",     :default => 0
-    t.integer  "p_sharing",        :default => 0
+    t.integer  "p_preseffective",     :default => 0
+    t.integer  "p_creativity",        :default => 0
+    t.integer  "p_sharing",           :default => 0
     t.text     "p_comments"
     t.string   "judge_name"
+    t.integer  "research"
+    t.integer  "innovative_solution"
+    t.integer  "presentation"
   end
 
   add_index "project_scores", ["team_id"], :name => "index_project_scores_on_team_id"
 
   create_table "robot_scores", :force => true do |t|
-    t.integer  "inno_design"
-    t.integer  "strategy1"
-    t.integer  "strategy2"
-    t.integer  "loconav1"
-    t.integer  "loconav2"
-    t.integer  "loconav3"
-    t.integer  "loconav4"
-    t.integer  "loconav5"
-    t.integer  "prog1"
-    t.integer  "prog2"
-    t.integer  "prog3"
-    t.integer  "prog4"
-    t.integer  "prog5"
-    t.integer  "prog6"
-    t.integer  "prog7"
-    t.integer  "prog8"
-    t.integer  "kids1"
-    t.integer  "kids2"
-    t.integer  "kids3"
-    t.integer  "structural1"
-    t.integer  "structural2"
-    t.integer  "structural3"
-    t.integer  "structural4"
-    t.integer  "structural5"
-    t.integer  "overall1"
-    t.integer  "overall2"
-    t.integer  "overall3"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "team_id"
     t.integer  "total_score"
-    t.integer  "m_durability",    :default => 0
-    t.integer  "m_efficiency",    :default => 0
-    t.integer  "m_mechanization", :default => 0
+    t.integer  "m_durability",        :default => 0
+    t.integer  "m_efficiency",        :default => 0
+    t.integer  "m_mechanization",     :default => 0
     t.text     "m_comments"
-    t.integer  "p_quality",       :default => 0
-    t.integer  "p_efficiency",    :default => 0
-    t.integer  "p_automation",    :default => 0
+    t.integer  "p_quality",           :default => 0
+    t.integer  "p_efficiency",        :default => 0
+    t.integer  "p_automation",        :default => 0
     t.text     "p_comments"
-    t.integer  "i_designprocess", :default => 0
-    t.integer  "i_strategy",      :default => 0
-    t.integer  "i_innovation",    :default => 0
+    t.integer  "i_designprocess",     :default => 0
+    t.integer  "i_strategy",          :default => 0
+    t.integer  "i_innovation",        :default => 0
     t.text     "i_comments"
     t.string   "judge_name"
+    t.integer  "mechanical_design"
+    t.integer  "programming"
+    t.integer  "innovation_strategy"
   end
 
   add_index "robot_scores", ["team_id"], :name => "index_robot_scores_on_team_id"

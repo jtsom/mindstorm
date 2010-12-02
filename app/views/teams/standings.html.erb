@@ -26,9 +26,9 @@ function reloadPage()
 		<% end %>
 	</tr>
 <% @teams.each_with_index do |team, i| -%>
-	<tr><td><%= i + 1 %></td>
-	 <td><%=team.fll_number %></td><td><%=team.team_name %></td>
-		<td align='right'><b><%=team.average_qual_score %></b></td>
+	<tr> <td><%= i + 1 %></td>
+	 <td><b><%=team.fll_number %></b></td><td><b><%=team.team_name %></b></td>
+		<td align='right' style="color:red"><b><%=team.average_qual_score %></b></td>
 	<% team.qualifications.each do |match| %>
 	<td align='right'><%= match.score %></td>
 	<% end %>

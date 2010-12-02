@@ -1,54 +1,49 @@
 <table border=1 id="finalresults" style='border-collapse: collapse;table-layout:fixed'>
 
- <tr class="heading">
-  <td width=53></td>
-  <td width=66></td>
-
-  <td colspan=9 align="center">Robot Design Scores</td>
-  <td width=6></td>
-  <td colspan=6 align="center">Research Project Scores</td>
-  <td width=9></td>
-  <td colspan=2 align="center">Robot Performance</td>
-  <td width=9></td>
-  <td colspan=5 align="center">Teamwork</td>
-  <td width=10></td>
-  <td colspan=2 align="center">Champion's Award</td>
- </tr>
- <tr class="heading">
-  <td>Team #</td>
-  <td>Name</td>
-
-  <td>Inno. Design</td>
-  <td>Strategy</td>
-  <td>Locomotion &amp; Navigation</td>
-  <td>Programming</td>
-  <td>Children Did Work</td>
-  <td>Structural</td>
-  <td>Overall Design</td>
-  <td>Total</td>
-  <td>Rank</td>
-  <td></td>
-  <td>Research</td>
-  <td>Inno. Solution</td>
-  <td>Sharing</td>
-  <td>Creative Pres.</td>
-  <td>Total</td>
-  <td>Rank</td>
-  <td></td>
-  <td>Score</td>
-  <td>Rank</td>
-  <td></td>
-  <td>RD: Children Did Work</td>
-  <td>RP: Add three</td>
-  <td>Other Score</td>
-  <td>Total</td>
-  <td>Rank</td>
-  <td></td>
-  <td>Score</td>
-  <td>Rank</td>
- </tr>
-
+	<tr>
+		<td colspan="2">&nbsp;</td>
+		<td >&nbsp;</td>
+		<td colspan="4"  style="text-align:center">Robot</td>
+		<td >&nbsp;</td>
+		<td  style="text-align:center">Robot Performance</td>
+		<td >&nbsp;</td>
+		<td colspan="2"  style="text-align:center">Total</td>
+		<td >&nbsp;</td>
+		<td colspan="5"  style="text-align:center">Project</td>
+		<td >&nbsp;</td>
+		<td colspan="5"  style="text-align:center">Core Values</td>
+		<td >&nbsp;</td>
+		<td colspan="2"  style="text-align:center">Champion's Award</td>
+	</tr>
+	<tr>
+		<td>Team #</td>
+		<td>Name</td>
+		<td>&nbsp;</td>
+		<td>Mechanical Design</td>
+		<td>Programming</td>
+		<td>Innovation &amp; Strategy</td>
+		<td>Total</td>
+		<td>&nbsp;</td>
+		<td>Score</td>
+		<td>&nbsp;</td>
+		<td>Score</td>
+		<td>Rank</td>
+		<td>&nbsp;</td>
+		<td>Research</td>
+		<td>Innovative Solution</td>
+		<td>Presentation</td>
+		<td>Total</td>
+		<td>Rank</td>
+		<td>&nbsp;</td>
+		<td>Inspiration</td>
+		<td>Teamwork</td>
+		<td>Gracious Professionalism</td>
+		<td>Total</td>
+		<td>Rank</td>
+		<td>&nbsp;</td>
+		<td>Score</td>
+		<td>Rank</td>
+	</tr>
+	
 	<%= render :partial => 'teamresult', :collection => @teams, :as => :team %>
-
-
 </table>
