@@ -8,6 +8,9 @@
             &nbsp;
         </td>
         <td>
+            <b><i>None</i></b>
+        </td>
+        <td>
             <b><i>Beginning</i></b>
         </td>
         <td>
@@ -26,7 +29,7 @@
               <span>Mechanical&nbsp;Design</span> 
               </div>
         </td>
-        <td class="alt">
+        <td class="alt" colspan="2">
             <b>Durbility</b>
         </td>
         <td class="alt" colspan="3">
@@ -34,66 +37,75 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :m_durability, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :m_durability, "1" %> quite fragile, breaks a lot
+            <%= f.radio_button :m_durability, "1" %> <%= f.label :m_durability, "quite fragile, breaks a lot", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :m_durability, "2" %> frequent or significat faults/repairs
+            <%= f.radio_button :m_durability, "2" %> <%= f.label :m_durability, "frequent or significat faults/repairs", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :m_durability, "3" %> rare faults/repairs
+            <%= f.radio_button :m_durability, "3" %> <%= f.label :m_durability, "rare faults/repairs", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :m_durability, "4" %> sound construction; no repairs
+            <%= f.radio_button :m_durability, "4" %> <%= f.label :m_durability, "sound construction; no repairs", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Mechanical Efficiency</b>
         </td>
-        <td colspan="3">
+        <td colspan="4">
             <i>Economic use of parts and time; easy to repair and modify</i>
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :m_efficiency, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :m_efficiency, "1" %> excessive parts or time to repair/modify
+            <%= f.radio_button :m_efficiency, "1" %> <%= f.label :m_efficiency, "excessive parts or time to repair/modify", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "2" %> inefficient parts or time to repair/modify
+            <%= f.radio_button :m_efficiency, "2" %> <%= f.label :m_efficiency, "inefficient parts or time to repair/modify", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "3" %> appropriate use of parts and time to repair/modify
+            <%= f.radio_button :m_efficiency, "3" %> <%= f.label :m_efficiency, "appropriate use of parts and time to repair/modify", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "4" %> streamlined use of parts and time to repair/modify
+            <%= f.radio_button :m_efficiency, "4" %> <%= f.label :m_efficiency, "streamlined use of parts and time to repair/modify", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Mechanization</b>
         </td>
-        <td colspan="3">
+        <td colspan="4">
             <i>Ability of robot mechanisms to move or act with appropriate speed, strenght and accuracy
                 for inteneded tasks (propulsion and execution)</i>
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :m_mechanization, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :m_mechanization, "1" %> imbalance of speed, strenght and accuracy on most tasks
+            <%= f.radio_button :m_mechanization, "1" %> <%= f.label :m_mechanization, "imbalance of speed, strenght and accuracy on most tasks", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :m_mechanization, "2" %> imbalance of speed, strength and accuracy on some tasks
+            <%= f.radio_button :m_mechanization, "2" %> <%= f.label :m_mechanization, "imbalance of speed, strength and accuracy on some tasks", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :m_mechanization, "3" %> appropriate balance of speed, strength and accuracy on most tasks
+            <%= f.radio_button :m_mechanization, "3" %> <%= f.label :m_mechanization, "appropriate balance of speed, strength and accuracy on most tasks", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :m_mechanization, "4" %> appropriate balance of speed, strength and accuracy on every task
+            <%= f.radio_button :m_mechanization, "4" %> <%= f.label :m_mechanization, "appropriate balance of speed, strength and accuracy on every task", :value => "4" %>
         </td>
     </tr>
     <tr valign="top">
-        <td colspan="4" valign="top">
+        <td colspan="5" valign="top">
             Comments:<%= f.text_area :m_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>
@@ -103,7 +115,7 @@
         <td rowspan="7">
             <div class="vertical">Programming</div>
         </td>
-        <td class="alt">
+        <td class="alt" colspan="2">
             <b>Programming Quality</b>
         </td>
         <td class="alt" colspan="3">
@@ -111,21 +123,24 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :p_quality, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :p_quality, "1" %> does not achieve purpose AND is inconsisten
+            <%= f.radio_button :p_quality, "1" %> <%= f.label :p_quality, "does not achieve purpose AND is inconsistent", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "2" %> does not achieve purpose OR is inconsistent
+            <%= f.radio_button :p_quality, "2" %> <%= f.label :p_quality, "does not achieve purpose OR is inconsistent", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "3" %> achieves purpose repeatedly
+            <%= f.radio_button :p_quality, "3" %> <%= f.label :p_quality, "achieves purpose repeatedly", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "4" %> achieve purpose every time
+            <%= f.radio_button :p_quality, "4" %> <%= f.label :p_quality, "achieve purpose every time", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Programming Efficiency</b>
         </td>
         <td colspan="3">
@@ -133,21 +148,24 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :p_efficiency, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :p_efficiency, "1" %> excessive code and difficult to understand
+            <%= f.radio_button :p_efficiency, "1" %> <%= f.label :p_efficiency, "excessive code and difficult to understand", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :p_efficiency, "2" %> inefficient code and challenge to understand
+            <%= f.radio_button :p_efficiency, "2" %> <%= f.label :p_efficiency, "inefficient code and challenge to understand", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :p_efficiency, "3" %> appropriate code and easy to understand
+            <%= f.radio_button :p_efficiency, "3" %> <%= f.label :p_efficiency, "appropriate code and easy to understand", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :p_efficiency, "4" %> stremlined code and easy for anyone to understand
+            <%= f.radio_button :p_efficiency, "4" %> <%= f.label :p_efficiency, "streamlined code and easy for anyone to understand", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Automation/Navigation</b>
         </td>
         <td colspan="3">
@@ -156,21 +174,24 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :p_automation, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :p_automation, "1" %> frequent driver intervention to aim AND retrieve robot
+            <%= f.radio_button :p_automation, "1" %> <%= f.label :p_automation, "frequent driver intervention to aim AND retrieve robot", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :p_automation, "2" %> frequent driver intervention to aim OR retrieve robot
+            <%= f.radio_button :p_automation, "2" %> <%= f.label :p_automation, "frequent driver intervention to aim OR retrieve robot", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :p_automation, "3" %>  robot moves/acts as intended repeatedly w/occasional driver intervention
+            <%= f.radio_button :p_automation, "3" %>  <%= f.label :p_automation, "robot moves/acts as intended repeatedly w/occasional driver intervention", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :p_automation, "4" %> robot moves/acts as intended every time with no driver intervention
+            <%= f.radio_button :p_automation, "4" %> <%= f.label :p_automation, "robot moves/acts as intended every time with no driver intervention", :value => "4" %>
         </td>
     </tr>
     <tr valign="top">
-        <td colspan="4">
+        <td colspan="5">
             Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>
@@ -180,30 +201,33 @@
         <td rowspan="7">
             <div class="vertical">Innovation&nbsp;&amp;&nbsp;Strategy  </div>
         </td>
-        <td class="alt">
+        <td class="alt" colspan="2">
             <b>Design Process</b>
         </td>
-        <td class="alt" colspan="3">
+        <td class="alt" colspan="4">
             <i>Ablity to develop and explain improvement cycles where alternatives are considered
                 and narrowed, selections tested, designs imporved</i>
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :i_designprocess, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :i_designprocess, "1" %> disorganized AND poorly explained improvement cycles
+            <%= f.radio_button :i_designprocess, "1" %> <%= f.label :i_designprocess, "disorganized AND poorly explained improvement cycles", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :i_designprocess, "2" %> disorganized OR poorly explained improvement cycles
+            <%= f.radio_button :i_designprocess, "2" %> <%= f.label :i_designprocess, "disorganized OR poorly explained improvement cycles", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :i_designprocess, "3" %> systematic and well-explained improvement cycles
+            <%= f.radio_button :i_designprocess, "3" %> <%= f.label :i_designprocess, "systematic and well-explained improvement cycles", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :i_designprocess, "4" %> systematic, well-explained and well-documented improvement cycles
+            <%= f.radio_button :i_designprocess, "4" %> <%= f.label :i_designprocess, "systematic, well-explained and well-documented improvement cycles", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Missions Strategy</b>
         </td>
         <td colspan="3">
@@ -212,21 +236,24 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :i_strategy, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :i_strategy, "1" %> no clear goals AND no clear strategy
+            <%= f.radio_button :i_strategy, "1" %> <%= f.label :i_strategy, "no clear goals AND no clear strategy", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :i_strategy, "2" %> no clear goals OR no clear strategy
+            <%= f.radio_button :i_strategy, "2" %> <%= f.label :i_strategy, "no clear goals OR no clear strategy", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :i_strategy, "3" %> clear strategy to accomplish the team's well defined goals
+            <%= f.radio_button :i_strategy, "3" %> <%= f.label :i_strategy, "clear strategy to accomplish the team's well defined goals", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :i_strategy, "4" %> clear strategy to accomplish most/all game missions
+            <%= f.radio_button :i_strategy, "4" %> <%= f.label :i_strategy, "clear strategy to accomplish most/all game missions", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
-        <td>
+        <td colspan="2">
             <b>Innovation</b>
         </td>
         <td colspan="3">
@@ -235,21 +262,24 @@
         </td>
     </tr>
     <tr>
+		<td>
+			<%= f.radio_button :i_innovation, "0", :default => true %>
+		</td>
         <td>
-            <%= f.radio_button :i_innovation, "1" %> existing feature(s)
+            <%= f.radio_button :i_innovation, "1" %> <%= f.label :i_innovation, "existing feature(s)", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "2" %> feature(s) contains some original element(s)
+            <%= f.radio_button :i_innovation, "2" %> <%= f.label :i_innovation, "feature(s) contains some original element(s)", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "3" %> original feature(s)
+            <%= f.radio_button :i_innovation, "3" %> <%= f.label :i_innovation, "original feature(s)", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "4" %> original feature(s) with the potential to add significant value
+            <%= f.radio_button :i_innovation, "4" %> <%= f.label :i_innovation, "original feature(s) with the potential to add significant value", :value => "4" %>
         </td>
     </tr>
     <tr valign="top">
-        <td colspan="4">
+        <td colspan="5">
             Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
         </td>
     </tr>

@@ -8,6 +8,9 @@
             <td style="border: none;">
                 &nbsp;
             </td>
+	        <td>
+	            <b><i>None</i></b>
+	        </td>
             <td>
                 <b><i>Beginning</i></b>
             </td>
@@ -25,7 +28,7 @@
             <td rowspan="8" >
                 <div class="vertical">Inspiration</div>
             </td>
-            <td class="alt">
+            <td class="alt" colspan="2">
                 <b>Discovery</b>
             </td>
             <td class="alt" colspan="3">
@@ -34,22 +37,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :i_discovery, "1" %> emphasis on only one aspect; others neglected
+				<%= f.radio_button :i_discovery, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :i_discovery, "1" %><%= f.label :i_discovery, "emphasis on only one aspect; others neglected", :value => "1" %> 
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "2" %> emphasis on two aspects; one aspect neglected
+                <%= f.radio_button :i_discovery, "2" %> <%= f.label :i_discovery, "emphasis on two aspects; one aspect neglected" , :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "3" %> emphasis on all three aspects
+                <%= f.radio_button :i_discovery, "3" %> <%= f.label :i_discovery, "emphasis on all three aspects", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "4" %> balanced emphasis on all three aspects
+                <%= f.radio_button :i_discovery, "4" %> <%= f.label :i_discovery, "balanced emphasis on all three aspects", :value => "4" %>
             </td>
         </tr>
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Team Spirit</b>
             </td>
             <td colspan="3">
@@ -57,22 +62,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :i_team_spirit, "1" %> minimal enthusiasm AND minimal identity
+				<%= f.radio_button :i_team_spirit, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :i_team_spirit, "1" %> <%= f.label :i_team_spirit, "minimal enthusiasm AND minimal identity", :value => "1" %>
             </td>
             <td>
-                <%= f.radio_button :i_team_spirit, "2" %> minimal enthusiasm OR minimal identity
+                <%= f.radio_button :i_team_spirit, "2" %> <%= f.label :i_team_spirit, "minimal enthusiasm OR minimal identity", :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :i_team_spirit, "3" %> team is enthusiastic and fun; clear identity
+                <%= f.radio_button :i_team_spirit, "3" %> <%= f.label :i_team_spirit, "team is enthusiastic and fun; clear identity", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :i_team_spirit, "4" %> team engages others in their enthusiasm and fun; clear identity
+                <%= f.radio_button :i_team_spirit, "4" %> <%= f.label :i_team_spirit, "team engages others in their enthusiasm and fun; clear identity", :value => "4" %>
             </td>
         </tr>
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Integration</b>
             </td>
             <td colspan="3">
@@ -81,23 +88,25 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :i_integration, "1" %> team does not apply FLL values and skills outside FLL
+				<%= f.radio_button :i_integration, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "team does not apply FLL values and skills outside FLL", :value => "1"  %>
             </td>
             <td>
-                <%= f.radio_button :i_integration, "2" %> team able to cite at least one example
+                <%= f.radio_button :i_integration, "2" %> <%= f.label :i_integration, "team able to cite at least one example", :value => "2"  %>
             </td>
             <td>
-                <%= f.radio_button :i_integration, "3" %> team able to cite multiple examples
+                <%= f.radio_button :i_integration, "3" %> <%= f.label :i_integration, "team able to cite multiple examples", :value => "3"  %>
             </td>
             <td>
-                <%= f.radio_button :i_integration, "4" %> team able to cite multiple and personal examples
+                <%= f.radio_button :i_integration, "4" %> <%= f.label :i_integration, "team able to cite multiple and personal examples", :value => "4"  %>
             </td>
         </tr>
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
-            <td colspan="4" valign="top">
+            <td colspan="5" valign="top">
                 Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
             </td>
         </tr>
@@ -108,7 +117,7 @@
                 <div class="vertical">
                     Teamwork</div>
             </td>
-            <td class="alt">
+            <td class="alt" colspan="2">
                 <b>Effectiveness</b>
             </td>
             <td class="alt" colspan="3">
@@ -116,22 +125,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :t_effectiveness, "1" %> emphasis on only one aspect; others neglected
+				<%= f.radio_button :t_effectiveness, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :t_effectiveness, "1" %> <%= f.label :t_effectiveness, "emphasis on only one aspect; others neglected", :value => "1" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "2" %> emphasis on two aspects; one aspect neglected
+                <%= f.radio_button :t_effectiveness, "2" %> <%= f.label :t_effectiveness, "emphasis on two aspects; one aspect neglected", :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "3" %> emphasis on all three aspects
+                <%= f.radio_button :t_effectiveness, "3" %> <%= f.label :t_effectiveness, "emphasis on all three aspects", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "4" %> balanced emphasis on all three aspects
+                <%= f.radio_button :t_effectiveness, "4" %> <%= f.label :t_effectiveness, "balanced emphasis on all three aspects", :value => "4" %>
             </td>           
         </tr>       
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Efficiency</b>
             </td>
             <td colspan="3">
@@ -140,22 +151,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :t_efficiency, "1" %> minimal enthusiasm AND minimal identity
+				<%= f.radio_button :t_efficiency, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :t_efficiency, "1" %> <%= f.label :t_efficiency, "minimal enthusiasm AND minimal identity", :value => "1" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "2" %> minimal enthusiasm OR minimal identity
+                <%= f.radio_button :t_efficiency, "2" %> <%= f.label :t_efficiency, "minimal enthusiasm OR minimal identity", :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "3" %> team is enthusiastic and fun; clear identity
+                <%= f.radio_button :t_efficiency, "3" %> <%= f.label :t_efficiency, "team is enthusiastic and fun; clear identity", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "4" %> team engages others in their enthusiasm and fun; clear identity
+                <%= f.radio_button :t_efficiency, "4" %> <%= f.label :t_efficiency, "team engages others in their enthusiasm and fun; clear identity", :value => "4" %>
             </td>
         </tr>
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Initiative</b>
             </td>
             <td colspan="3">
@@ -163,23 +176,25 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :t_initiative, "1" %> team does not apply FLL values and skills outside FLL
+				<%= f.radio_button :t_initiative, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :t_initiative, "1" %> <%= f.label :t_initiative, "team does not apply FLL values and skills outside FLL", :value => "1" %>
             </td>
             <td>
-                <%= f.radio_button :t_initiative, "2" %> team able to cite at least one example
+                <%= f.radio_button :t_initiative, "2" %> <%= f.label :t_initiative, "team able to cite at least one example", :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :t_initiative, "3" %> team able to cite multiple examples
+                <%= f.radio_button :t_initiative, "3" %> <%= f.label :t_initiative, "team able to cite multiple examples", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :t_initiative, "4" %> team able to cite multiple and personal examples
+                <%= f.radio_button :t_initiative, "4" %> <%= f.label :t_initiative, "team able to cite multiple and personal examples", :value => "4" %>
             </td>
         </tr>
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
-            <td colspan="4">
+            <td colspan="5">
                 Comments:<%= f.text_area :t_comments, :rows => 5, :cols => 100 %>
             </td>
         </tr>
@@ -190,7 +205,7 @@
                 <div class="vertical">
                     Gracious&nbsp;Professionalism&trade;</div>
             </td>
-            <td class="alt">
+            <td class="alt" colspan="2">
                 <b>Inclusion</b>
             </td>
             <td class="alt" colspan="3">
@@ -199,22 +214,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :g_inclusion, "1" %> unbalanced team involvement AND lack of appreciation for contributions
+				<%= f.radio_button :g_inclusion, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :g_inclusion, "1" %> <%= f.label :g_inclusion, "unbalanced team involvement AND lack of appreciation for contributions", :value => "1" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "2" %> unbalanced team involvement OR lack of appreciation for contributions
+                <%= f.radio_button :g_inclusion, "2" %> <%= f.label :g_inclusion, "unbalanced team involvement OR lack of appreciation for contributions", :value => "2" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "3" %> balanced team involvement AND appreciation for contributions of most team members
+                <%= f.radio_button :g_inclusion, "3" %> <%= f.label :g_inclusion, "balanced team involvement AND appreciation for contributions of most team members", :value => "3" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "4" %> balanced team involvement AND appreciation for contributions of all team members
+                <%= f.radio_button :g_inclusion, "4" %> <%= f.label :g_inclusion, "balanced team involvement AND appreciation for contributions of all team members", :value => "4" %>
             </td>
         </tr>
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Respect</b>
             </td>
             <td colspan="3">
@@ -223,22 +240,24 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                 <%= f.radio_button :g_respect, "1" %> not evident with majority of team members
+				<%= f.radio_button :g_respect, "0", :default => true %>
+			</td>
+            <td>
+                 <%= f.radio_button :g_respect, "1" %> <%= f.label :g_respect, "not evident with majority of team members", :value => "1" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "2" %> evident with majority of the team members
+                 <%= f.radio_button :g_respect, "2" %> <%= f.label :g_respect, "evident with majority of the team members", :value => "2" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "3" %> almost always evident with all team members
+                 <%= f.radio_button :g_respect, "3" %> <%= f.label :g_respect, "almost always evident with all team members", :value => "3" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "4" %> always evident, even in the most difficult situations
+                 <%= f.radio_button :g_respect, "4" %> <%= f.label :g_respect, "always evident, even in the most difficult situations", :value => "4" %>
             </td>
         </tr>
         <tr class="alt">
-            <td>
+            <td colspan="2">
                 <b>Cooperation</b>
             </td>
             <td colspan="3">
@@ -246,24 +265,26 @@
             </td>
         </tr>
         <tr>
-            <!-- <td rowspan="7">Inspiration</td> -->
             <td>
-                <%= f.radio_button :g_coopertition, "4" %> not evident with majority of team members
+				<%= f.radio_button :g_coopertition, "0", :default => true %>
+			</td>
+            <td>
+                <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "not evident with majority of team members", :value => "4" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "4" %> evident with majority of team members
+                <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "evident with majority of team members", :value => "4" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "4" %> almost always eveident with all team members
+                <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "almost always eveident with all team members", :value => "4" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "4" %> always evident, even in difficult situations&mdash;and team actively helps other teams
+                <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "always evident, even in difficult situations - and team actively helps other teams", :value => "4" %>
             </td>
         </tr>
      
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
-            <td colspan="4">
+            <td colspan="5">
                 Comments:<%= f.text_area :g_comments, :rows => 5, :cols => 100 %>
             </td>
         </tr>

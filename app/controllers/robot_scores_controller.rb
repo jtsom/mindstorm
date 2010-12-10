@@ -12,10 +12,10 @@ class RobotScoresController < ApplicationController
   
   def create
     @team = Team.find(params[:team_id])
-    @robot_score = @team.robot_scores.build(params[:robot_score])
-    flash[:notice] = "Robot score created" if @robot_score.save
+    @robotscore = @team.robot_scores.build(params[:robot_score])
+    flash[:notice] = "Robot score created" if @robotscore.save
     
-    respond_with(@team, @robot_score, :location => @team)
+    respond_with(@team, @robotscore, :location => @team)
   end 
   
   def edit

@@ -11,6 +11,7 @@ class Team < ActiveRecord::Base
     validates_numericality_of :fll_number, :message => "is not a number"
 
     attr_accessor :performance_rank, :robot_rank, :total_score, :total_rank, :project_rank, :corevalue_rank, :champion_score, :champion_rank
+    attr_accessor :robot_scores_rank
     
     # Team.load_from_file(Rails.root.join('support','teams09.yml'))  
     def self.load_from_file(filename)

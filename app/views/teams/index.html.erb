@@ -11,7 +11,7 @@
 	<td><%= team.qualifications.length %></td>
 	<td><%= link_to "Enter Qual Match Data", new_team_qualification_path(team) unless team.qualifications.length > APP_CONFIG["max_matches"] - 1 %></td>
 	<td><%= team.finals.length %></td>
-	<td><%= link_to "Enter Final Match Data", new_team_final_path(team) unless team.finals.length > APP_CONFIG["max_matches"] - 1 %></td>
+	<td><%= link_to "Enter Final Match Data", new_team_final_path(team) %></td>
 	
   </tr>
 <% end %>

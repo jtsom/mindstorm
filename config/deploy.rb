@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 set :application, "mindstorm"
 set :repository,  "git://github.com/jtsom/mindstorm.git"
 set :scm, :git

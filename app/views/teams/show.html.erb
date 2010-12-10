@@ -81,6 +81,9 @@
 <%= link_to 'Edit', edit_team_path(@team) -%> |
 <%= link_to 'Team List', teams_path -%>
 
+<table width="1024" border="1" style="border-collapse:collapse">
+	<tr>
+		<td width="33%">
 <h2>Robot Scores</h2>
 
 <%	
@@ -89,8 +92,8 @@
 	<p>Judge: <%= link_to robot_score.judge_name, edit_team_robot_score_path(@team, robot_score)%></p>
 	<%= render :partial => "robot", :object => robot_score %>
 <%	end %>
-
-
+</td>
+<td width="33%">
 <h2>Project Scores</h2>
 
 <%
@@ -100,7 +103,8 @@
 		<%= render :partial => "project", :object => project_score %>
 <%	end %>
 </ol>
-
+</td>
+<td width="34%">
 <h2>Core Values Scores</h2>
 
 <%
@@ -109,3 +113,6 @@
 		<p>Judge: <%= link_to corevalue_score.judge_name, edit_team_corevalue_score_path(@team, corevalue_score) %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>
 <%	end %>
+</td>
+</tr>
+</table>

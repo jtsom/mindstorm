@@ -11,10 +11,10 @@ class ProjectScoresController < ApplicationController
   
   def create
     @team = Team.find(params[:team_id])
-    @project_score = @team.project_scores.build(params[:project_score])
-    flash[:notice] = "Project score created" if @project_score.save
+    @projectscore = @team.project_scores.build(params[:project_score])
+    flash[:notice] = "Project score created" if @projectscore.save
     
-    respond_with(@team, @project_score, :location => @team)
+    respond_with(@team, @projectscore, :location => @team)
   end
   
   def edit
@@ -25,9 +25,9 @@ class ProjectScoresController < ApplicationController
   end
   
   def update
-    team = Team.find(params[:team_id])
-    project_score = team.project_scores.find(params[:id]).update_attributes(params[:project_score])
-    flash[:notice] = "Project score updated" if project_score
-    respond_with(team, project_score, :location => team)
+    @team = Team.find(params[:team_id])
+    @project_score = @team.project_scores.find(params[:id]).update_attributes(params[:project_score])
+    flash[:notice] = "Project score updated" if @project_score
+    respond_with(@team, @project_score, :location => @team)
   end
 end

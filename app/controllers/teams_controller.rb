@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  
   # GET /teams
   # GET /teams.xml
   def index
@@ -103,31 +104,108 @@ class TeamsController < ApplicationController
     
     #sort by qualification score, highest first, and rank them
     @teams.sort! {|a,b| b.average_qual_score <=> a.average_qual_score}
+    last_score = -1
+    last_rank = 1
     @teams.each_with_index do |team, index|
-      team.performance_rank = index + 1
+      score = team.average_qual_score || 0
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      last_rank = team_rank
+      team.performance_rank = team_rank
+      last_score = score
     end
+
+    #rank robot project scores
+    @teams.sort! {|a,b| b.robot_scores_total <=> a.robot_scores_total }
+    last_score = -1
+    last_rank = 1
+    @teams.each_with_index do |team, index|
+      score = team.robot_scores_total
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      last_rank = team_rank
+      team.robot_scores_rank = team_rank
+      last_score = score
+    end
+ 
     
     # Calculate robot ranking score (robot presentation score + ranking)
     @teams.each do |team|
-      team.total_score = (team.robot_scores_total / 2) + (team.performance_rank / 2)
+      team.total_score = (team.robot_scores_rank / 2) + (team.performance_rank / 2)
     end
     
     #rank robot scores
     @teams.sort! {|a,b| b.total_score <=> a.total_score }
+    last_score = -1
+    last_rank = 1
     @teams.each_with_index do |team, index|
-      team.total_rank = index + 1
+      score = team.total_score
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      last_rank = team_rank
+      team.total_rank = team_rank
+      last_score = score
     end
     
     #sort project scores and rank them, highest first
     @teams = @teams.sort {|a,b| b.project_scores_total <=> a.project_scores_total }
+    last_score = -1
+    last_rank = 1
     @teams.each_with_index do |team, index|
-      team.project_rank = index + 1
+      score = team.project_scores_total
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      team.project_rank = team_rank
+      last_rank = team_rank
+      last_score = score
     end
     
     #sort core values scores and rank them, highest first
     @teams.sort! {|a,b| b.corevalue_scores_total <=> a.corevalue_scores_total }
+    last_score = -1
+    last_rank = 1
     @teams.each_with_index do |team, index|
-      team.corevalue_rank = index + 1
+      score = team.corevalue_scores_total
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      last_rank = team_rank
+      team.corevalue_rank = team_rank
+      last_score = score
     end
     
     #calculate champion score
@@ -137,8 +215,22 @@ class TeamsController < ApplicationController
     
     #sort champion scores and rank them, LOWEST first
     @teams.sort! {|a,b| a.champion_score <=> b.champion_score }
+    last_score = -1
+    last_rank = 1
     @teams.each_with_index do |team, index|
-      team.champion_rank = index + 1
+      score = team.champion_score
+      if last_score >= 0
+        if score == last_score
+          team_rank = last_rank
+        else
+          team_rank = index + 1
+        end
+      else
+        team_rank = index + 1
+      end
+      last_rank = team_rank
+      team.champion_rank = team_rank
+      last_score = score
     end
     
     #finally sort by team number
