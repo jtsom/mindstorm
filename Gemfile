@@ -8,7 +8,9 @@ group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'mongrel','1.2.0.pre2'
 end
-#gem 'mysql'
+group :production do
+	gem 'mysql'
+end
 gem 'jquery-rails'
 
 # Use unicorn as the web server
