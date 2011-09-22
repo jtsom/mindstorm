@@ -7,7 +7,9 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @teams }
+      format.xml  { render :xml => @teams.to_xml(:include => [:qualifications, :finals, :robot_scores, :project_scores, :corevalue_scores]) }
+      #format.json { render :json => @teams.to_json(:include => [:qualifications, :finals,:robot_scores, :project_scores, :corevalue_scores]) }
+      format.json { render :json => @teams }
     end
   end
 
@@ -23,7 +25,8 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @team }
+      format.xml  { render :xml => @team.to_xml(:include => [:qualifications, :finals,:robot_scores, :project_scores, :corevalue_scores]) }
+      format.json { render :json => @team.to_json( :include => [:qualifications, :finals,:robot_scores, :project_scores, :corevalue_scores]) }
     end
   end
 
@@ -95,6 +98,10 @@ class TeamsController < ApplicationController
       format.html
       format.xml { render :xml => @teams }
     end
+  end
+  
+  def all_teams
+    @teams=Team.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
   end
   
   def results

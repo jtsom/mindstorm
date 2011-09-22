@@ -1,11 +1,21 @@
 class CorevalueScoresController < ApplicationController
   
-  respond_to :html
+  respond_to :html, :xml, :json
   
   def new
     @team = Team.find params[:team_id]
     @corevalue_score = CorevalueScore.new
     respond_with(@team, @corevalue_score)
+  end
+  
+  def index
+    @team  = Team.find params[:team_id]
+    respond_with(@team.corevalue_scores)
+  end
+  
+  def show
+    @team  = Team.find params[:team_id]
+    respond_with(@team.corevalue_scores.find(params[:id]))
   end
   
   def create

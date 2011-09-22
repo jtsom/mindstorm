@@ -1,12 +1,21 @@
 class ProjectScoresController < ApplicationController
   
-  respond_to :html
+  respond_to :html, :xml, :json
   
-  def new
-    
+  def new   
     @team = Team.find params[:team_id]
     @projectscore = ProjectScore.new
     respond_with(@team, @projectscore)
+  end
+  
+  def index
+    @team  = Team.find params[:team_id]
+    respond_with(@team.project_scores)
+  end
+  
+  def show
+    @team  = Team.find params[:team_id]
+    respond_with(@team.project_scores.find(params[:id]))
   end
   
   def create

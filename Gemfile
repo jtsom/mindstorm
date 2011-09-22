@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
-  gem 'mongrel','1.2.0.pre2'
+  #gem 'mongrel','1.2.0.pre2'
 end
 group :production do
 	gem 'mysql'

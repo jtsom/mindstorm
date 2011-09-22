@@ -1,6 +1,6 @@
 class RobotScoresController < ApplicationController
 
-  respond_to :html
+  respond_to :html, :xml, :json
   
   def new
     
@@ -8,6 +8,16 @@ class RobotScoresController < ApplicationController
     @robotscore = RobotScore.new
     respond_with(@team, @robotscore)
     
+  end
+  
+  def index
+    @team  = Team.find params[:team_id]
+    respond_with(@team.robot_scores)
+  end
+  
+  def show
+    @team  = Team.find params[:team_id]
+    respond_with(@team.robot_scores.find(params[:id]))
   end
   
   def create

@@ -38,3 +38,13 @@ td.alt
     background: #C0C0C0;
      border: thin solid #000000;
 }
+
+@media screen
+{
+.page-break  { display:block; }
+}
+
+@media all
+{
+  .page-break  { display:block; page-break-after:always;}
+} 

@@ -1,4 +1,9 @@
-<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
+<h1>Complete Results</h1>
+<%
+	@teams.each do |team|
+%>
+
+<p class="teamname"><%= "#{team.fll_number} #{team.team_name}" %></p>
 
 <table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
@@ -27,37 +32,36 @@
 	</tr>
 
 	<tr>
-		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %></td>
+		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(team.qualifications.length, "Qualification")}" %> - Average score: <%= team.average_qual_score %></td>
 	</tr>
-	<% 	@qualifications.each do |match| -%>
+	<% 	team.qualifications.each do |match| -%>
 	<tr align="center">
 	
-	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
+	<td><%= match.match_number -%></td>
 	<td><%= match.table_number %></td>
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]
 				#score = value.to_i * item.scoring.to_i
-				puts "***" + item.scoring
 				score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
 				if value != " " and $challenge.type_of(item.label) == :boolean
 			        value = ["N","Y"][value]
 			    end
 	%>
-				<td><%= value.to_s + " " + score  %></td>
+				<td><%= value.to_s + " " + score.to_s  %></td>
 	<%		end
 		end	%>
 	</tr>	
 	<% end 	%>
 	
 	<tr>
-		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(team.finals.length, "Final")}" %></td>
 	</tr>
-		<% 	@finals.each do |match| %>
+		<% 	team.finals.each do |match| %>
 		<tr align="center">
 	
-		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
+		<td><%= match.match_number %></td>
 		<td><%= match.table_number %></td>
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
@@ -75,23 +79,15 @@
 	<% end 	%>
 	
 </table>
-
-<p>Add: <%= link_to 'Robot Score', new_team_robot_score_path(@team) %> |
-	<%= link_to 'Project Score', new_team_project_score_path(@team)  %> | 
-	<%= link_to 'Core Value Score', new_team_corevalue_score_path(@team)  %></p>
-		
-<%= link_to 'Edit', edit_team_path(@team) -%> |
-<%= link_to 'Team List', teams_path -%>
-
 <table width="1024" border="1" style="border-collapse:collapse">
 	<tr>
 		<td width="33%">
 <h2>Robot Scores</h2>
 
 <%	
-	@team.robot_scores.each do |robot_score|
+	team.robot_scores.each do |robot_score|
 %>
-	<p>Judge: <%= link_to robot_score.judge_name, edit_team_robot_score_path(@team, robot_score)%></p>
+	<p>Judge: <%= robot_score.judge_name %></p>
 	<%= render :partial => "robot", :object => robot_score %>
 <%	end %>
 </td>
@@ -99,9 +95,9 @@
 <h2>Project Scores</h2>
 
 <%
-	@team.project_scores.each do |project_score|
+	team.project_scores.each do |project_score|
 %>
-		<p>Judge: <%= link_to project_score.judge_name, edit_team_project_score_path(@team, project_score) %></p>
+		<p>Judge: <%= project_score.judge_name %></p>
 		<%= render :partial => "project", :object => project_score %>
 <%	end %>
 </ol>
@@ -110,11 +106,16 @@
 <h2>Core Values Scores</h2>
 
 <%
-	@team.corevalue_scores.each do |corevalue_score|
+	team.corevalue_scores.each do |corevalue_score|
 %>
-		<p>Judge: <%= link_to corevalue_score.judge_name, edit_team_corevalue_score_path(@team, corevalue_score) %></p>
+		<p>Judge: <%= corevalue_score.judge_name %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>
 <%	end %>
 </td>
 </tr>
 </table>
+<div class="page-break"></div>
+<%
+	end
+%>
+

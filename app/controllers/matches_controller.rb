@@ -10,7 +10,12 @@ class MatchesController < ApplicationController
   
   def index
 		@matches = @match_class.order(:match_number)
-		render "matches/index"
+		respond_to do |wants|
+       wants.html { render "matches/index" }
+       wants.xml {render :xml => @matches }
+       wants.json {render :json => @matches }
+     end
+		#render "matches/index"
   end
   
   def show
@@ -23,7 +28,10 @@ class MatchesController < ApplicationController
     # end
     @matches = @match_class.match_list(params[:id])
     @match_number = params[:id]
-    render "matches/show"
+    respond_to do |format|
+      format.html {render "matches/show" }
+      format.xml {render :xml => @matches }
+    end
   end
   
   def edit

@@ -15,6 +15,7 @@ Mindstorm::Application.routes.draw do
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
   match 'results', :to  => 'teams#results'
   #map.results 'results', :controller => 'teams', :action => 'results'
+  match 'all_teams', :to => 'teams#all_teams'
   
   root :to  => 'teams#index'
   
