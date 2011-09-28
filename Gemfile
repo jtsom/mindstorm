@@ -9,7 +9,9 @@ group :development do
   #gem 'mongrel','1.2.0.pre2'
 end
 group :production do
-	gem 'mysql'
+	#gem 'mysql'
+	gem 'pg'
+	gem 'thin'
 end
 gem 'jquery-rails'
 
