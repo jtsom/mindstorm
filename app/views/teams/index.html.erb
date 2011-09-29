@@ -1,7 +1,7 @@
 <h1>Listing teams</h1>
 <p><%= link_to "Show Standings", standings_path %> | <%= link_to "Qualifications Match List", qualifications_path %>
 	| <%= link_to "Finals Match List", finals_path %> | <%= link_to "Overall Results", results_path %> | <%= link_to "All Team Results", all_teams_path %></p>
-<table cellpadding="5">
+<table id="teamtable">
 
 <% for team in @teams %>
   <tr class="<%= cycle("even", "odd") %>">

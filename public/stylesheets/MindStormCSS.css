@@ -13,14 +13,25 @@
 	
 }
 .category
-{
+	{
     font: 9pt Arial, sans-serif;
     font-weight: bold;
     }
+#teamtable
+{
+	border-collapse:collapse;
+}
+#teamtable td
+{
+	padding:3px;
+	border: none;
+}
+
 td
 {
     font: 9pt Arial, sans-serif;
      border: thin solid #000000;
+
 }
 .grid
 {
