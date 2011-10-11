@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<%= stylesheet_link_tag 'MindStormCSS.css', :media => "all" %>
+  </head>
+  <body>
+    <h1>Thank you for joining us at Mindstorm Mayhem!</h1>
+    <p>
+		Included below are your team's match and judging results. If you have any questions blah blah blah.
+    </p>
+
+
+	<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
+
+	<table border="1" width="1024" style="border-collapse:collapse;">
+		<th rowspan="2">Match</th>
+		<th rowspan="2">Table</th>
+		<th rowspan="2">Points</th>	
+		<% $challenge.missions.each do |mission| -%>	
+			<th colspan=<%= mission.items.length %> ><%= mission.description -%></th>
+		<% end %>
+		</tr>
+
+		<tr>
+		<% $challenge.missions.each do |mission|
+		  	 mission.items.each do |item| -%>
+				<th align="center"><%= item.label.to_s.titleize -%></th>
+		<%   end
+		   end %>
+		</tr>
+
+		<tr>
+		<th colspan="3"></th>
+		<% $challenge.missions.each do |mission| 
+			mission.items.each do |item| -%>
+		<th><%= item.scoring -%></th>
+		<% 	end
+		 end %>
+		</tr>
+
+		<tr>
+			<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %></td>
+		</tr>
+		<% 	@qualifications.each do |match| -%>
+		<tr align="center">
+
+		<td><%= match.match_number -%></td>
+		<td><%= match.table_number %></td>
+		<td><%= match.score %></td>
+		<%	$challenge.missions.each do |mission|
+				mission.items.each do |item|
+					value = match.results[item.label]
+					#score = value.to_i * item.scoring.to_i
+					puts "***" + item.scoring
+					score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
+					if value != " " and $challenge.type_of(item.label) == :boolean
+				        value = ["N","Y"][value]
+				    end
+		%>
+					<td><%= value.to_s + " " + score  %></td>
+		<%		end
+			end	%>
+		</tr>	
+		<% end 	%>
+
+		<tr>
+			<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		</tr>
+			<% 	@finals.each do |match| %>
+			<tr align="center">
+
+			<td><%= match.match_number %></td>
+			<td><%= match.table_number %></td>
+			<td><%= match.score %></td>
+			<%	$challenge.missions.each do |mission|
+					mission.items.each do |item|
+						value = match.results[item.label]
+						score = value.to_i * item.scoring.to_i
+						if value != " " and $challenge.type_of(item.label) == :boolean
+					        value = ["N","Y"][value]
+					    end
+			%>
+						<td><%= value.to_s + " (" + score.to_s + ")" %></td>
+			<%		end
+				end	%>
+			</tr>	
+		<% end 	%>
+
+	</table>
+
+	<table width="1024" border="1" style="border-collapse:collapse">
+		<tr>
+			<td width="33%" valign="top">
+	<h2>Robot Scores</h2>
+
+	<%	
+		@team.robot_scores.each do |robot_score|
+	%>
+		<p>Judge: <%= robot_score.judge_name %></p>
+		<%= render :partial => "teams/robot", :object => robot_score %>
+	<%	end %>
+	</td>
+	<td width="33%" valign="top">
+	<h2>Project Scores</h2>
+
+	<%
+		@team.project_scores.each do |project_score|
+	%>
+			<p>Judge: <%= project_score.judge_name %></p>
+			<%= render :partial => "teams/project", :object => project_score %>
+	<%	end %>
+	</ol>
+	</td>
+	<td width="34%" valign="top">
+	<h2>Core Values Scores</h2>
+
+	<%
+		@team.corevalue_scores.each do |corevalue_score|
+	%>
+			<p>Judge: <%= corevalue_score.judge_name %></p>
+			<%= render :partial => "teams/corevalue", :object => corevalue_score %>
+	<%	end %>
+	</td>
+	</tr>
+	</table>
+  </body>
+</html>
