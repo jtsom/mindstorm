@@ -19,19 +19,20 @@ class MatchesController < ApplicationController
   end
   
   def show
-    # @matches = Match.match_list(params[:id])  
-    # case params[:controller]
-    #   when "qualifications"
-    #     @matches = @matches.qual_matches
-    #   when "finals"
-    #     @matches = @matches.final_matches
-    # end
     @matches = @match_class.match_list(params[:id])
     @match_number = params[:id]
     respond_to do |format|
       format.html {render "matches/show" }
       format.xml {render :xml => @matches }
     end
+  end
+  
+  def destroy
+    team = Team.find(params[:team_id])
+    match = @match_class.find(params[:id])
+    match.destroy
+    flash[:notice] = "Match #{match.match_number} for team #{team.fll_number} deleted."
+    redirect_to :action => "index"
   end
   
   def edit
@@ -42,12 +43,6 @@ class MatchesController < ApplicationController
   
   def update
      @team = Team.find(params[:team_id])
-     # @match = case params[:controller]
-     #     when "qualifications"
-     #       @team.qualifications.find(params[:id])
-     #     when "finals"
-     #       @team.finals.find(params[:id])
-     #   end
      @match = @match_class.find(params[:id])
 
      results = {}

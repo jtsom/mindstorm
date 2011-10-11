@@ -92,6 +92,11 @@ class TeamsController < ApplicationController
     end
   end
 
+  def upload
+    flash[:notice] = 'Team list uploaded.'
+    redirect_to :action => :index
+  end
+  
   def standings
     @teams = Team.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
     respond_to do |format|
@@ -104,6 +109,16 @@ class TeamsController < ApplicationController
     @teams=Team.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
   end
   
+  def sendresults
+    @team = Team.find(params[:id])
+    
+    @qualifications = @team.qualifications.order(:match_number)
+    @finals = @team.finals.order(:match_number)
+    
+    TeamMailer.team_details_email(@team, @qualifications, @finals).deliver
+
+  end
+
   def results
     
     #get all the teams

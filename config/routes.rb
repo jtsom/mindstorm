@@ -17,6 +17,9 @@ Mindstorm::Application.routes.draw do
   #map.results 'results', :controller => 'teams', :action => 'results'
   match 'all_teams', :to => 'teams#all_teams'
   
+  match 'teams/upload', :to => 'teams#upload'
+  match 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
+  
   root :to  => 'teams#index'
   
   # The priority is based upon order of creation:
