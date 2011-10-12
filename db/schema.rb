@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101202004246) do
+ActiveRecord::Schema.define(:version => 20111011225611) do
+
+  create_table "competitions", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "corevalue_scores", :force => true do |t|
     t.integer  "i_discovery",     :default => 0
@@ -111,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20101202004246) do
     t.string   "asst_coach"
     t.string   "asst_coach_email"
     t.string   "state"
+    t.integer  "competition_id"
   end
 
 end

@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
 
+    belongs_to :competition
+    
     has_many :finals, :dependent => :destroy
     has_many :qualifications, :dependent => :destroy
     

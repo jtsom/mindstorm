@@ -1,3 +1,4 @@
+
 <p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
 <table border="1" width="1024" style="border-collapse:collapse;">
@@ -39,7 +40,7 @@
 			mission.items.each do |item|
 				value = match.results[item.label]
 				#score = value.to_i * item.scoring.to_i
-				puts "***" + item.scoring
+				
 				score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
 				if value != " " and $challenge.type_of(item.label) == :boolean
 			        value = ["N","Y"][value]

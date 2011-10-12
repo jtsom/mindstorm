@@ -1,7 +1,11 @@
 Mindstorm::Application.routes.draw do
 
+  get "sessions/new"
+
   resources :finals
   resources :qualifications
+  resources :sessions
+  resources :competitions
 
   resources :teams do
     resources :finals
@@ -10,6 +14,9 @@ Mindstorm::Application.routes.draw do
     resources :robot_scores
     resources :corevalue_scores
   end
+  
+  match 'login', :to => 'sessions#new', :as => :login
+  match 'logout', :to => 'sessions#destroy', :as => :logout
   
   match 'standings', :to =>  'teams#standings'
   #map.standings 'standings', :controller => 'teams', :action => 'standings'

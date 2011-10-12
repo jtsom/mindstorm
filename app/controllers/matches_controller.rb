@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   before_filter :get_class
   
   def new
-    @team = Team.find params[:team_id]
+    @team = current_competition.teams.find params[:team_id]
     @match = @match_class.new
 		render  "matches/new"
   end
@@ -28,7 +28,7 @@ class MatchesController < ApplicationController
   end
   
   def destroy
-    team = Team.find(params[:team_id])
+    team = current_competition.teams.find(params[:team_id])
     match = @match_class.find(params[:id])
     match.destroy
     flash[:notice] = "Match #{match.match_number} for team #{team.fll_number} deleted."
@@ -36,13 +36,13 @@ class MatchesController < ApplicationController
   end
   
   def edit
-    @team = Team.find(params[:team_id])
+    @team = current_competition.teams.find(params[:team_id])
 		@match = @match_class.find(params[:id])
     render "matches/edit"
   end
   
   def update
-     @team = Team.find(params[:team_id])
+     @team = current_competition.teams.find(params[:team_id])
      @match = @match_class.find(params[:id])
 
      results = {}
@@ -76,7 +76,7 @@ class MatchesController < ApplicationController
    end
   
   def create
-    @team = Team.find params[:team_id]
+    @team = current_competition.teams.find params[:team_id]
 
     @match = @match_class.new(params[params[:controller].singularize.to_sym])
 

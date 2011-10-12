@@ -1,10 +1,12 @@
 class TeamsController < ApplicationController
   
+ before_filter :authenticate
+  
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = Team.includes(:finals, :qualifications).order(:fll_number)
-
+    @teams = current_competition.teams.includes(:finals, :qualifications).order(:fll_number)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @teams.to_xml(:include => [:qualifications, :finals, :robot_scores, :project_scores, :corevalue_scores]) }
@@ -18,7 +20,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.xml
   def show
-    @team = Team.find(params[:id])
+    @team = current_competition.teams.find(params[:id])
     
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
@@ -33,7 +35,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   # GET /teams/new.xml
   def new
-    @team = Team.new
+    @team = current_competition.teams.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,13 +45,13 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
-    @team = Team.find(params[:id])
+    @team = current_competition.teams.find(params[:id])
   end
 
   # POST /teams
   # POST /teams.xml
   def create
-    @team = Team.new(params[:team])
+    @team = current_competition.teams.new(params[:team])
 
     respond_to do |format|
       if @team.save
@@ -98,7 +100,7 @@ class TeamsController < ApplicationController
   end
   
   def standings
-    @teams = Team.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
+    @teams = current_competition.teams.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
     respond_to do |format|
       format.html
       format.xml { render :xml => @teams }
@@ -106,11 +108,11 @@ class TeamsController < ApplicationController
   end
   
   def all_teams
-    @teams=Team.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
+    @teams=current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
   end
   
   def sendresults
-    @team = Team.find(params[:id])
+    @team = current_competition.teams.find(params[:id])
     
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
@@ -122,7 +124,7 @@ class TeamsController < ApplicationController
   def results
     
     #get all the teams
-    @teams=Team.includes(:robot_scores, :project_scores, :corevalue_scores)
+    @teams=current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
     
     #sort by qualification score, highest first, and rank them
     @teams.sort! {|a,b| b.average_qual_score <=> a.average_qual_score}
@@ -260,4 +262,8 @@ class TeamsController < ApplicationController
     
   end
 
+private
+  def authenticate
+    
+  end
 end
