@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
 
   before_filter :get_class
+  before_filter :authenticate
   
   def new
     @team = current_competition.teams.find params[:team_id]
@@ -119,4 +120,10 @@ private
 	def get_class
 		@match_class=params[:controller].classify.constantize
 	end
+  
+  def authenticate
+    if current_competition == nil
+      redirect_to root_url
+    end
+  end
 end

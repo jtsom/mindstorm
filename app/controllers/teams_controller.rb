@@ -117,7 +117,7 @@ class TeamsController < ApplicationController
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
     
-    TeamMailer.team_details_email(@team, @qualifications, @finals).deliver
+    TeamMailer.team_details_email(current_competition, @team, @qualifications, @finals).deliver
 
   end
 
@@ -264,6 +264,8 @@ class TeamsController < ApplicationController
 
 private
   def authenticate
-    
+    if current_competition == nil
+      redirect_to root_url
+    end
   end
 end

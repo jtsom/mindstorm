@@ -7,7 +7,14 @@
   <%= stylesheet_link_tag 'MindStormCSS', :cache => true %>
 </head>
 <body>
-
+	<div id="user_nav">
+	  <% if current_competition %>
+	    <span class="teamTitle"><%= current_competition.full_name %></span>.
+	    <%= link_to "Log out", logout_path %>
+	  <% else %>
+	    <%= link_to "Log in", login_path %>
+	  <% end %>
+	</div>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>

@@ -27,7 +27,7 @@ Mindstorm::Application.routes.draw do
   match 'teams/upload', :to => 'teams#upload'
   match 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
   
-  root :to  => 'teams#index'
+  root :to  => 'sessions#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

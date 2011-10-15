@@ -43,7 +43,7 @@
 	                <b>Sources of Information</b>
 	            </td>
 	            <td colspan="3">
-	                <i>Types/Sources of information cited (e.g. books, magazines, websites, reports and other resources), including professionals in the field</i>
+	                <i>Types (e.g. books, magazines, websites, reports and other resources) and number of quality sources cited, including professionals in the field</i>
 	            </td>
 	        </tr>
 	        <tr>
@@ -93,7 +93,7 @@
 	                <b>Review Existing Solutions</b>
 	            </td>
 	            <td colspan="3">
-	                <i>Extent to which other theories and solultions were analyzed by the team</i>
+	                <i>xtent to which existing theories and solutions were analyzed by the team, Including an effort to verify the originality of the team's solution</i>
 	            </td>
 	        </tr>
 	        <tr>
@@ -222,7 +222,7 @@
 					<%= f.radio_button :p_preseffective, "0", :default => true %>
 				</td>
 	            <td>
-	                <%= f.radio_button :p_preseffective, "1" %> <%= f.label :p_preseffective, "unclear or disorganized", :value => "1" %>
+	                <%= f.radio_button :p_preseffective, "1" %> <%= f.label :p_preseffective, "unclear OR disorganized", :value => "1" %>
 	            </td>
 	            <td>
 	               <%= f.radio_button :p_preseffective, "2" %> <%= f.label :p_preseffective, "somewhat clear; minimal organization", :value => "2" %>
@@ -231,7 +231,7 @@
 	                <%= f.radio_button :p_preseffective, "3" %> <%= f.label :p_preseffective, "mostly clear; mostly organized", :value => "3" %>
 	            </td>
 	            <td>
-	                <%= f.radio_button :p_preseffective, "4" %> <%= f.label :p_preseffective, "very clear and well organized", :value => "4" %>
+	                <%= f.radio_button :p_preseffective, "4" %> <%= f.label :p_preseffective, "very clear AND well organized", :value => "4" %>
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -247,16 +247,16 @@
 					<%= f.radio_button :p_creativity, "0", :default => true %>
 				</td>
 	            <td>
-	               <%= f.radio_button :p_creativity, "1" %><%= f.label :p_creativity, " minimally engaging; familiar presentation style", :value => "1" %>
+	               <%= f.radio_button :p_creativity, "1" %><%= f.label :p_creativity, " minimally engaging OR unimaginative", :value => "1" %>
 	            </td>
 	            <td>
-	                <%= f.radio_button :p_creativity, "2" %> <%= f.label :p_creativity, "somewhat engaging; familiar presentation style", :value => "2" %>
+	                <%= f.radio_button :p_creativity, "2" %> <%= f.label :p_creativity, "engaging OR unimaginative", :value => "2" %>
 	            </td>
 	            <td>
-	              <%= f.radio_button :p_creativity, "3" %> <%= f.label :p_creativity, "engaging; familiar presentation style", :value => "3" %>
+	              <%= f.radio_button :p_creativity, "3" %> <%= f.label :p_creativity, "engaging AND unimaginative", :value => "3" %>
 	            </td>
 	            <td>
-	              <%= f.radio_button :p_creativity, "4" %><%= f.label :p_creativity, "engaging and new presentation style", :value => "4" %>
+	              <%= f.radio_button :p_creativity, "4" %><%= f.label :p_creativity, "very engaging AND exceptionally unimaginative", :value => "4" %>
 	            </td>
 	        </tr>
 	        <tr class="alt">
@@ -264,17 +264,17 @@
 	                <b>Sharing</b>
 	            </td>
 	            <td colspan="3">
-	                <i></i>
+	                <i>Degree to which the team shared their Project before the tournament with others who might benefit from the team's efforts</i>
 	            </td>
 	        </tr>
 	        <tr>
 				<td>
 					<%= f.radio_button :p_sharing, "0", :default => true %>
 				</td>
-	            <td><%= f.radio_button :p_sharing, "1" %> <%= f.label :p_sharing, "general, non-targeted audience(s)", :value => "1" %></td>
-	            <td><%= f.radio_button :p_sharing, "2" %> <%= f.label :p_sharing, "single targeted audience that can benefit", :value => "2" %></td>
-	            <td><%= f.radio_button :p_sharing, "3" %> <%= f.label :p_sharing, "multiple targeted audience that can benefit from solution", :value => "3" %> </td>
-	            <td><%= f.radio_button :p_sharing, "4" %> <%= f.label :p_sharing, "mult. targeted audiences that can benefit from solution, utilizing diverse sharing methods", :value => "4" %></td>
+	            <td><%= f.radio_button :p_sharing, "1" %> <%= f.label :p_sharing, "shared with one individual", :value => "1" %></td>
+	            <td><%= f.radio_button :p_sharing, "2" %> <%= f.label :p_sharing, "shared with one group", :value => "2" %></td>
+	            <td><%= f.radio_button :p_sharing, "3" %> <%= f.label :p_sharing, "shared with one individual or group who may benefit", :value => "3" %> </td>
+	            <td><%= f.radio_button :p_sharing, "4" %> <%= f.label :p_sharing, "shared with multiple individuals or groups who may benefit", :value => "4" %></td>
 	        </tr>
 	        <tr valign="top">
 	            <td colspan="5">

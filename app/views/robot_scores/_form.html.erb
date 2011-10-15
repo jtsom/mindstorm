@@ -119,7 +119,7 @@
             <b>Programming Quality</b>
         </td>
         <td class="alt" colspan="3">
-            <i>Programming is appropriate for the intended purpose and achieves consistent results</i>
+            <i>Programs are appropriate for the intended purpose and would achieve consistent results, assuming no mechanical faults</i>
         </td>
     </tr>
     <tr>
@@ -127,16 +127,16 @@
 			<%= f.radio_button :p_quality, "0", :default => true %>
 		</td>
         <td>
-            <%= f.radio_button :p_quality, "1" %> <%= f.label :p_quality, "does not achieve purpose AND is inconsistent", :value => "1" %>
+            <%= f.radio_button :p_quality, "1" %> <%= f.label :p_quality, "would not achieve purpose AND is inconsistent", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "2" %> <%= f.label :p_quality, "does not achieve purpose OR is inconsistent", :value => "2" %>
+            <%= f.radio_button :p_quality, "2" %> <%= f.label :p_quality, "would not achieve purpose OR is inconsistent", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "3" %> <%= f.label :p_quality, "achieves purpose repeatedly", :value => "3" %>
+            <%= f.radio_button :p_quality, "3" %> <%= f.label :p_quality, "should achieve purpose repeatedly", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :p_quality, "4" %> <%= f.label :p_quality, "achieve purpose every time", :value => "4" %>
+            <%= f.radio_button :p_quality, "4" %> <%= f.label :p_quality, "should achieve purpose every time", :value => "4" %>
         </td>
     </tr>
     <tr class="alt">
@@ -144,7 +144,7 @@
             <b>Programming Efficiency</b>
         </td>
         <td colspan="3">
-            <i>Program is modular, streamlined, and understandable</i>
+            <i>Programs are modular, streamlined, and understandable</i>
         </td>
     </tr>
     <tr>
@@ -169,7 +169,7 @@
             <b>Automation/Navigation</b>
         </td>
         <td colspan="3">
-            <i>Ability of the robot to move or act as intended using mechanical and/or sensor feedback(with
+            <i>Ability of the robot to move or act as intended using mechanical and/or sensor feedback (with
                 minimal reliance on driver intervention and/or program timing)</i>
         </td>
     </tr>
@@ -206,7 +206,7 @@
         </td>
         <td class="alt" colspan="4">
             <i>Ablity to develop and explain improvement cycles where alternatives are considered
-                and narrowed, selections tested, designs imporved</i>
+                and narrowed, designs improved (applies to programming as well as mechanical design)</i>
         </td>
     </tr>
     <tr>
@@ -231,8 +231,7 @@
             <b>Missions Strategy</b>
         </td>
         <td colspan="3">
-            <i>Creation of new, unique, or unexpected feature(s) (e.g designs, programming, strategies
-                or applications) that are beneficial in performing the specified tasks</i>
+            <i>Ability to clearly define and describe the team's game strategy</i>
         </td>
     </tr>
     <tr>
@@ -266,16 +265,16 @@
 			<%= f.radio_button :i_innovation, "0", :default => true %>
 		</td>
         <td>
-            <%= f.radio_button :i_innovation, "1" %> <%= f.label :i_innovation, "existing feature(s)", :value => "1" %>
+            <%= f.radio_button :i_innovation, "1" %> <%= f.label :i_innovation, "original feature(s) with no added value or potential", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "2" %> <%= f.label :i_innovation, "feature(s) contains some original element(s)", :value => "2" %>
+            <%= f.radio_button :i_innovation, "2" %> <%= f.label :i_innovation, "original feature(s) with some added value or potential", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "3" %> <%= f.label :i_innovation, "original feature(s)", :value => "3" %>
+            <%= f.radio_button :i_innovation, "3" %> <%= f.label :i_innovation, "original feature(s) with the potential to add significant", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :i_innovation, "4" %> <%= f.label :i_innovation, "original feature(s) with the potential to add significant value", :value => "4" %>
+            <%= f.radio_button :i_innovation, "4" %> <%= f.label :i_innovation, "original feature(s) that add significant value", :value => "4" %>
         </td>
     </tr>
     <tr valign="top">

@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
   
 private
   def current_competition
-    puts "here"
-    puts "session " + session[:competition_id].to_s
+
     @current_competition ||= Competition.find(session[:competition_id]) if session[:competition_id]
     
   end

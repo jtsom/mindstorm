@@ -2,7 +2,10 @@
 {
 }
 
-
+.teamTitle
+{
+	font: 120% "Lucida Grande",Arial , "Trebuchet MS", Verdana, sans-serif;
+}
 .vertical
 {
     -webkit-transform: rotate(-90deg);

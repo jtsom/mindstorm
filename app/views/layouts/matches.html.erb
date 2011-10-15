@@ -6,11 +6,19 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Matches</title>
   <%= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'MindStormCSS' %>
 <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'fll' %>
 </head>
 <body>
-
+	<div id="user_nav">
+	  <% if current_competition %>
+	    <span class="teamTitle"><%= current_competition.full_name %></span>.
+	    <%= link_to "Log out", logout_path %>
+	  <% else %>
+	    <%= link_to "Log in", login_path %>
+	  <% end %>
+	</div>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
