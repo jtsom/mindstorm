@@ -36,7 +36,15 @@ Mindstorm::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'shrewsburyrobotics.org',
+      :user_name            => 'john@shrewsburyrobotics.org',
+      :password             => 'sardi11',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+  }
   # Enable threaded mode
   # config.threadsafe!
 
