@@ -169,6 +169,15 @@ end
 YN = [1, 0]
 
 ################### The challenge definition -- READ THIS FIRST. It's the most important part of the project
+def corn_harvest_score(corn_in_base, corn_on_mat)
+  if corn_in_base == 1
+    9
+  elsif corn_on_mat == 1
+    5
+  else
+    0
+  end
+end
 
 challenge do
   mission "Good Bacteria" do
@@ -219,7 +228,7 @@ challenge do
     item :corn_touching_mat, "Any corn touching mat?", YN, "5"
     item :corn_in_base, "Any corn in base?", YN, "9"
     score do |items|
-      (items[:corn_touching_mat] * 5) + (items[:corn_in_base] * 9)
+      corn_harvest_score(items[:corn_in_base], items[:corn_touching_mat])
     end
   end
   

@@ -36,6 +36,14 @@ td
      border: thin solid #000000;
 
 }
+.matchlist
+{
+	border-collapse:collapse;
+}
+.matchlist td
+{
+	border: none;
+}
 .grid
 {
     border-collapse: collapse;

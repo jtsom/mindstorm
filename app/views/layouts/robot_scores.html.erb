@@ -5,11 +5,12 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Robot Score: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'MindStormCSS', :cache => true %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
 	<div id="user_nav">
-	  <% if current_competition %>
-	    <span class="teamTitle"><%= current_competition.full_name %></span>.
+	  <% if @current_competition %>
+	    <span class="teamTitle"><%= @current_competition.full_name %></span>.
 	    <%= link_to "Log out", logout_path %>
 	  <% else %>
 	    <%= link_to "Log in", login_path %>

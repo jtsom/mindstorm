@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = current_competition.teams.includes(:finals, :qualifications).order(:fll_number)
+    @teams = @current_competition.teams.includes(:finals, :qualifications).order(:fll_number)
     
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.xml
   def show
-    @team = current_competition.teams.find(params[:id])
+    @team = @current_competition.teams.find(params[:id])
     
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
@@ -35,7 +35,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   # GET /teams/new.xml
   def new
-    @team = current_competition.teams.new
+    @team = @current_competition.teams.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,13 +45,13 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
-    @team = current_competition.teams.find(params[:id])
+    @team = @current_competition.teams.find(params[:id])
   end
 
   # POST /teams
   # POST /teams.xml
   def create
-    @team = current_competition.teams.new(params[:team])
+    @team = @current_competition.teams.new(params[:team])
 
     respond_to do |format|
       if @team.save
@@ -68,7 +68,7 @@ class TeamsController < ApplicationController
   # PUT /teams/1
   # PUT /teams/1.xml
   def update
-    @team = Team.find(params[:id])
+    @team = @current_competition.teams.find(params[:id])
 
     respond_to do |format|
       if @team.update_attributes(params[:team])
@@ -85,7 +85,7 @@ class TeamsController < ApplicationController
   # DELETE /teams/1
   # DELETE /teams/1.xml
   def destroy
-    @team = Team.find(params[:id])
+    @team = @current_competition.teams.find(params[:id])
     @team.destroy
 
     respond_to do |format|
@@ -100,7 +100,7 @@ class TeamsController < ApplicationController
   end
   
   def standings
-    @teams = current_competition.teams.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
+    @teams = @current_competition.teams.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
     respond_to do |format|
       format.html
       format.xml { render :xml => @teams }
@@ -108,11 +108,11 @@ class TeamsController < ApplicationController
   end
   
   def all_teams
-    @teams=current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
+    @teams=@current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
   end
   
   def sendresults
-    @team = current_competition.teams.find(params[:id])
+    @team = @current_competition.teams.find(params[:id])
     
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
@@ -124,7 +124,7 @@ class TeamsController < ApplicationController
   def results
     
     #get all the teams
-    @teams=current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
+    @teams = @current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
     
     #sort by qualification score, highest first, and rank them
     @teams.sort! {|a,b| b.average_qual_score <=> a.average_qual_score}

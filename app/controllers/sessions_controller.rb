@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
 
     competition = Competition.authenticate(params[:competition_name], params[:password])
-    
+    session[:testing] = "testing"
     if competition
-      session[:competition_id] = competition.id
+      session[:competition] = competition.id
       redirect_to teams_path
     else
       flash.now.alert = "Invalid name or password!"
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:competition_id] = nil
+    session[:competition] = nil
     redirect_to login_path
   end
 end

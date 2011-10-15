@@ -1,7 +1,7 @@
 <h1><%= params[:controller].classify %> Match List</h1>
 <p><%= link_to "Team List ", teams_path %></p>
 
-<table>
+<table class="matchlist">
 <% @matches.group_by(&:match_number).sort.each do |match_number, matches| 
 	lnk = case params[:controller]
 			when "qualifications"

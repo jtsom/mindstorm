@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   
 private
   def current_competition
-
-    @current_competition ||= Competition.find(session[:competition_id]) if session[:competition_id]
-    
+    @current_competition ||= Competition.find(session[:competition]) if session[:competition]
   end
 end

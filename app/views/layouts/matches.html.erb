@@ -9,11 +9,12 @@
 <%= stylesheet_link_tag 'MindStormCSS' %>
 <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'fll' %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
 	<div id="user_nav">
-	  <% if current_competition %>
-	    <span class="teamTitle"><%= current_competition.full_name %></span>.
+	  <% if @current_competition %>
+	    <span class="teamTitle"><%= @current_competition.full_name %></span>.
 	    <%= link_to "Log out", logout_path %>
 	  <% else %>
 	    <%= link_to "Log in", login_path %>
