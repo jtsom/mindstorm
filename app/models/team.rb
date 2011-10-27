@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
     has_many :robot_scores, :dependent => :destroy
     has_many :corevalue_scores, :dependent => :destroy
 
-    validates_uniqueness_of :fll_number, :message => "must be unique"
+    validates_uniqueness_of :fll_number, :scope => :competition_id, :message => "must be unique"
     validates_numericality_of :fll_number, :message => "is not a number"
 
     attr_accessor :performance_rank, :robot_rank, :total_score, :total_rank, :project_rank, :corevalue_rank, :champion_score, :champion_rank

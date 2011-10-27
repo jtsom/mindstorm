@@ -95,6 +95,25 @@ class TeamsController < ApplicationController
   end
 
   def upload
+    uploaded = params[:csv_import][:file]
+    raw = uploaded.read
+    if raw.split("\r").length > 1
+      data = raw.split("\r")
+    else
+      data = raw.split("\n")
+    end
+    
+    Team.destroy_all(:competition_id => @current_competition.id)
+    
+    puts "size=" + data.length.to_s
+    data.each { |line| 
+      puts "line=" + line
+      fields = line.split("\t")
+      puts fields[0] + ' ' + fields[1]
+      @current_competition.teams.create(:fll_number => fields[0], :team_name => fields[1], :school => fields[2], :town => fields[3], :coach => fields[4], :coach_email => fields[5], :asst_coach => fields[6], :asst_coach_email => fields[7], :state => fields[8])
+
+    }
+    
     flash[:notice] = 'Team list uploaded.'
     redirect_to :action => :index
   end
