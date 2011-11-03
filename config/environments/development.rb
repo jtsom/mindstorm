@@ -20,8 +20,8 @@ Mindstorm::Application.configure do
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => 'shrewsburyrobotics.org',
-      :user_name            => 'john@shrewsburyrobotics.org',
-      :password             => 'sardi11',
+      :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
+      :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
