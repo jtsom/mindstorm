@@ -5,6 +5,8 @@ class TeamMailer < ActionMailer::Base
       @qualifications = qualifications
       @finals = finals
       @competition = competition
-      mail(:from => competition.full_name, :to => team.coach_email, :subject => "Your Team's Results at #{competition.full_name}")
+      to_email_with_name = "#{team.coach} <#{team.coach_email}>"
+      from_email_with_name = "#{competition.full_name} <#{competition.from_email}>"
+      mail(:from => from_email_with_name, :to => to_email_with_name, :subject => "Your Team's Results at #{competition.full_name}")
     end
 end
