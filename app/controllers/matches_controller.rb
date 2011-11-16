@@ -10,7 +10,25 @@ class MatchesController < ApplicationController
   end
   
   def index
-		@matches = @match_class.order(:match_number)
+		#@matches = @match_class.order(:match_number)
+		teams = @current_competition.teams
+		
+		@matches = []
+		teams.each do |team|
+      puts team.team_name
+		  case params[:controller]
+    	  when "qualifications"
+    	    all_matches = team.qualifications
+        when "finals"
+          all_matches = team.finals
+      end
+	    if all_matches && !all_matches.empty?
+	      @matches.concat(all_matches)
+	    end
+	  end
+
+	  @matches = @matches.sort {|a,b| a.match_number <=> b.match_number }
+    
 		respond_to do |wants|
        wants.html { render "matches/index" }
        wants.xml {render :xml => @matches }
