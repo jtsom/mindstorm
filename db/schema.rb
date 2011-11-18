@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111013225707) do
+ActiveRecord::Schema.define(:version => 20111118003833) do
 
   create_table "competitions", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20111013225707) do
     t.datetime "updated_at"
     t.string   "from_email"
     t.string   "full_name"
+    t.string   "contact_name"
   end
 
   create_table "corevalue_scores", :force => true do |t|

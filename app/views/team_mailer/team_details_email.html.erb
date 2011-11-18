@@ -7,10 +7,11 @@
   <body>
     <h1>Thank you for joining us at <%= @competition.full_name %>!</h1>
     <p>
-		Included below are your team's match and judging results. If you have any questions blah blah blah.
+		Included below are your team's match and judging results. If you have any questions, click "Reply" to send
+		an email to the event organizer - <%= @competition.contact_name %> (<%= @competition.email %>).
     </p>
 
-
+	<hr>
 	<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
 	<table border="1" width="1024" style="border-collapse:collapse;">
