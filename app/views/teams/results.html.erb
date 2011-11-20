@@ -1,13 +1,17 @@
+Sort by: <%= link_to "Team", results_path(:type => "team") %> |
+<%= link_to "Match", results_path(:type => "match") %> |
+<%= link_to "Robot", results_path(:type => "robot") %> |
+<%= link_to "Project", results_path(:type => "project") %> |
+<%= link_to "Core Values", results_path(:type => "corevalues") %> |
+<%= link_to "Champion", results_path(:type => "champion") %> |
 <table border=1 id="finalresults" style='border-collapse: collapse;table-layout:fixed'>
 
 	<tr>
 		<td colspan="2">&nbsp;</td>
 		<td >&nbsp;</td>
+		<td colspan="2" style="text-align:center">Robot Performance</td>
+		<td >&nbsp;</td>
 		<td colspan="5"  style="text-align:center">Robot</td>
-		<td >&nbsp;</td>
-		<td  style="text-align:center">Robot Performance</td>
-		<td >&nbsp;</td>
-		<td colspan="2"  style="text-align:center">Total</td>
 		<td >&nbsp;</td>
 		<td colspan="5"  style="text-align:center">Project</td>
 		<td >&nbsp;</td>
@@ -19,15 +23,13 @@
 		<td>Team #</td>
 		<td>Name</td>
 		<td>&nbsp;</td>
+		<td>Avg. Score</td>
+		<td>Rank</td>
+		<td>&nbsp;</td>
 		<td>Mechanical Design</td>
 		<td>Programming</td>
 		<td>Innovation &amp; Strategy</td>
 		<td>Total</td>
-		<td>Rank</td>
-		<td>&nbsp;</td>
-		<td>Score</td>
-		<td>&nbsp;</td>
-		<td>Score</td>
 		<td>Rank</td>
 		<td>&nbsp;</td>
 		<td>Research</td>

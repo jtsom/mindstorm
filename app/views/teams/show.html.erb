@@ -92,7 +92,8 @@
 <%	
 	@team.robot_scores.each do |robot_score|
 %>
-	<p>Judge: <%= link_to robot_score.judge_name, edit_team_robot_score_path(@team, robot_score)%></p>
+	<p>Judge: <%= link_to robot_score.judge_name, edit_team_robot_score_path(@team, robot_score)%> | 
+		<%= link_to "Remove Entry", team_robot_score_path(@team, robot_score), :confirm => 'Are you sure?', :method => :delete %></p>
 	<%= render :partial => "robot", :object => robot_score %>
 <%	end %>
 </td>
@@ -102,7 +103,8 @@
 <%
 	@team.project_scores.each do |project_score|
 %>
-		<p>Judge: <%= link_to project_score.judge_name, edit_team_project_score_path(@team, project_score) %></p>
+		<p>Judge: <%= link_to project_score.judge_name, edit_team_project_score_path(@team, project_score) %> | 
+			<%= link_to "Remove Entry", team_project_score_path(@team, project_score), :confirm => 'Are you sure?', :method => :delete %></p>
 		<%= render :partial => "project", :object => project_score %>
 <%	end %>
 </ol>
@@ -113,7 +115,8 @@
 <%
 	@team.corevalue_scores.each do |corevalue_score|
 %>
-		<p>Judge: <%= link_to corevalue_score.judge_name, edit_team_corevalue_score_path(@team, corevalue_score) %></p>
+		<p>Judge: <%= link_to corevalue_score.judge_name, edit_team_corevalue_score_path(@team, corevalue_score) %> | 
+			<%= link_to "Remove Entry", team_corevalue_score_path(@team, corevalue_score), :confirm => 'Are you sure?', :method => :delete %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>
 <%	end %>
 </td>

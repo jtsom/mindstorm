@@ -187,29 +187,29 @@ class TeamsController < ApplicationController
  
     
     # Calculate robot ranking score (robot presentation score + ranking)
-    @teams.each do |team|
-      team.total_score = (team.robot_scores_rank / 2) + (team.performance_rank / 2)
-    end
+    # @teams.each do |team|
+    #   team.total_score = (team.robot_scores_rank / 2) + (team.performance_rank / 2)
+    # end
     
     #rank robot scores
-    @teams.sort! {|a,b| b.total_score <=> a.total_score }
-    last_score = -1
-    last_rank = 1
-    @teams.each_with_index do |team, index|
-      score = team.total_score
-      if last_score >= 0
-        if score == last_score
-          team_rank = last_rank
-        else
-          team_rank = index + 1
-        end
-      else
-        team_rank = index + 1
-      end
-      last_rank = team_rank
-      team.total_rank = team_rank
-      last_score = score
-    end
+    # @teams.sort! {|a,b| b.total_score <=> a.total_score }
+    # last_score = -1
+    # last_rank = 1
+    # @teams.each_with_index do |team, index|
+    #   score = team.total_score
+    #   if last_score >= 0
+    #     if score == last_score
+    #       team_rank = last_rank
+    #     else
+    #       team_rank = index + 1
+    #     end
+    #   else
+    #     team_rank = index + 1
+    #   end
+    #   last_rank = team_rank
+    #   team.total_rank = team_rank
+    #   last_score = score
+    # end
     
     #sort project scores and rank them, highest first
     @teams = @teams.sort {|a,b| b.project_scores_total <=> a.project_scores_total }
@@ -253,10 +253,10 @@ class TeamsController < ApplicationController
     
     #calculate champion score
     @teams.each do |team|
-      team.champion_score = team.total_rank + team.project_rank + team.corevalue_rank
+      team.champion_score = team.performance_rank + team.robot_scores_rank + team.project_rank + team.corevalue_rank
     end
     
-    #sort champion scores and rank them, LOWEST first
+    #sort champion scores and rank them
     @teams.sort! {|a,b| a.champion_score <=> b.champion_score }
     last_score = -1
     last_rank = 1
@@ -277,8 +277,22 @@ class TeamsController < ApplicationController
     end
     
     #finally sort by team number
-    @teams.sort! {|a,b| a.fll_number <=> b.fll_number}
+    case params[:type]
+      when "team"
+        @teams.sort! {|a,b| a.fll_number <=> b.fll_number}
+      when "match"
+        @teams.sort! {|a,b| a.performance_rank <=> b.performance_rank}
+      when "robot"
+        @teams.sort! {|a,b| a.robot_scores_rank <=> b.robot_scores_rank}
+      when "project"
+        @teams.sort! {|a,b| a.project_rank <=> b.project_rank}
+      when "corevalues"
+        @teams.sort! {|a,b| a.corevalue_rank <=> b.corevalue_rank}
+      when "champion" || ""
+        @teams.sort! {|a,b| a.champion_rank <=> b.champion_rank}
+    end
     
+    puts "type=" + params[:type] if params[:type]
   end
 
 private

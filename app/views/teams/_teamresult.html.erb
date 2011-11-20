@@ -1,17 +1,15 @@
-<tr><td><%= team.fll_number %></td><td><%=team.team_name %></td>
+<tr><td><%= team.fll_number %></td><td><%=link_to team.team_name, team %></td>
+		<td>&nbsp;</td>
+		<td><%= team.average_qual_score %></td>
+		<td><%= team.performance_rank %></td>
 		<td>&nbsp;</td>
 		<td><%= team.mechanical_design %></td>
 		<td><%= team.programming %></td>
 		<td><%= team.innovation_strategy %></td>
 		<td><%= team.robot_scores_total %></td>
 		<td><%= team.robot_scores_rank  %></td>
-
-		<td>&nbsp;</td>
-		<td><%= team.performance_rank %></td>
+		
 		<td>&nbsp;</td><!-- rank -->
-		<td><%= team.total_score %></td>
-		<td><%= team.total_rank %></td>
-		<td>&nbsp;</td>
 
 		<td><%= team.research %></td>
 		<td><%= team.innovative_solution %></td>

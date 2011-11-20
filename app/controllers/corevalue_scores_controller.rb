@@ -40,6 +40,14 @@ class CorevalueScoresController < ApplicationController
     respond_with(team, corevalue_score, :location => team)
   end
   
+  def destroy
+    @team = @current_competition.teams.find(params[:team_id])
+    score = @team.corevalue_scores.find(params[:id])
+    score.destroy
+    flash[:notice] = "Core Value Score Entry team #{@team.fll_number} deleted."
+    redirect_to @team
+  end
+  
   private
     def authenticate
       if current_competition == nil

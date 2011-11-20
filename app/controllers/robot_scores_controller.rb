@@ -43,7 +43,15 @@ class RobotScoresController < ApplicationController
     respond_with(team, robot_score, :location => team)
   end 
   
-  private
+  def destroy
+    @team = @current_competition.teams.find(params[:team_id])
+    score = @team.robot_scores.find(params[:id])
+    score.destroy
+    flash[:notice] = "Robot Score Entry team #{@team.fll_number} deleted."
+    redirect_to @team
+  end
+  
+private
     def authenticate
       if current_competition == nil
         redirect_to root_url

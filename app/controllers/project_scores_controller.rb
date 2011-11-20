@@ -42,6 +42,14 @@ class ProjectScoresController < ApplicationController
     respond_with(@team, @project_score, :location => @team)
   end
   
+  def destroy
+    @team = @current_competition.teams.find(params[:team_id])
+    score = @team.project_scores.find(params[:id])
+    score.destroy
+    flash[:notice] = "Project Score Entry team #{@team.fll_number} deleted."
+    redirect_to @team
+  end
+    
   private
     def authenticate
       if current_competition == nil
