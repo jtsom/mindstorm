@@ -7,10 +7,71 @@
   <body>
     <h1>Thank you for joining us at <%= @competition.full_name %>!</h1>
     <p>
-		Included below are your team's match and judging results. If you have any questions, click "Reply" to send
-		an email to the event organizer - <%= @competition.contact_name %> (<%= @competition.email %>).
+		Below you will find the judging feedback from your most recent MA FLL competition.
+		  Our volunteer judges dedicated much time and effort listening to your teams' vast 
+		accomplishments and deliberating with each other on the merits of those achievements.
     </p>
-
+	<p>We provide you this feedback as an opportunity for your teams to make improvements for 
+		future events and to better understand how the judge’s interpreted your contributions.  
+		Here are some important factors to understand:
+	</p>
+	<ol>
+		<li>The feedback is shown to you in a condensed form, using numerical equivalents (below) to represent 
+			which box the judges checked off.   You need to review the data provided alongside the actual 
+			FLL Rubric (found here:http://firstlegoleague.org/sites/default/files/Challenge/FoodFactor/Combined_Rubrics_FINAL.pdf).
+			  When deemed valuable, any judge’s comments are included at the end.  The numerical equivalents for the rubric are:<br />
+			0. Not demonstrated<br />
+			1. Beginning<br />
+			2. Developing<br />
+			3. Accomplished<br />
+			4. Exemplary<br />
+		</li>
+		<li>Your team was judged by a minimum of two judges.  These judges discussed your team and 
+			evaluated them to the best of their abilities.  In any given rubric line, the average 
+			of the two judges scores is provided.    For example, if it says 2.5, it means one judge 
+			gave your team a 2, while the other scored your team a 3.
+		</li>
+		<li>Judges can only make comments and assessments based on what was presented 
+			and shared with them in the room.  In some cases, the judges may indicate 
+			that something wasn’t done when your team has in fact done it.  This just 
+			means that the team did not communicate that effectively to the judges.  
+			Judge’s are asked to interpret what they see and hear and fit it into these rubrics...
+			 it’s no easy feat!
+		</li>
+		<li>
+			 Please use these results as a positive way to look at your team rather than a negative.  
+			It is an opportunity for everyone to make improvements and to reinvigorate what the judges 
+			saw as excellent.  Nobody’s perfect (not even the judges).  No team scored perfect in all areas!
+		</li>
+	</ol>
+	<p>
+		It is important to note, in particular, that if your team did not bring a copy of their programming 
+		to the robot design judging, they are likely to have received a "not demonstrated" in some of those categories.
+	</p>
+	<p>
+		In terms of advancement and awarding of the Champion's Award, please also recall:
+	</p>
+	<ul>
+		<li>
+			Your team must have competed in all areas (robot performance, robot design judging, 
+			project judging, and core values judging) to be eligible.
+		</li>
+		<li>
+			Your team's robot must have scored in the top 40% of the teams at the event.   (FLL created this criteria this year to address concerns from the pilot.  
+			This change effected several teams who may have qualified by the old FLL standard.)
+		</li>
+	</ul>
+	<p>
+		If you have any questions, please ask.  There may have been a typo when entering the information 
+		into the feedback form, etc.  Know, however, that we are unable to provide you with the hard copy 
+		of the scores directly from the judges.  This allows the judges freedom to make notes on each team 
+		in confidence that those notes are for their review and not to be shared with the world.
+	</p>
+	<p>
+		Thanks for competing in FLL!  We hope to see you again soon!<br />
+		MA FLL Event Organizers<br />
+		<%= @competition.full_name %> Event organizer: <%= @competition.contact_name %> - <%= @competition.from_email %>
+	</p>
 	<hr>
 	<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
 
