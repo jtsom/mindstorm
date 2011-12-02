@@ -18,6 +18,9 @@ class CorevalueScore < ActiveRecord::Base
   #   fields = %w{g_inclusion g_respect g_coopertition}
   #   fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   # end
+  def award_count
+    ((self.award_inspiration || "N") + (self.award_teamwork || "N") + (self.award_gracprof || "N")).count("Y")
+  end
   
 private
   def calculate_total_scores
@@ -26,5 +29,7 @@ private
     self.grac_prof = g_inclusion + g_respect + g_coopertition
     self.total_score = self.inspiration + self.teamwork + self.grac_prof
   end
+  
+
 end
 

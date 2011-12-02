@@ -49,6 +49,7 @@ td
     border-collapse: collapse;
     width: 960px;
     border: thin solid #000000;
+	margin-bottom:40px;
 }
 tr.alt
 {

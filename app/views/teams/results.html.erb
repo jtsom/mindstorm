@@ -1,9 +1,11 @@
+<p><%= link_to 'Team List', teams_path -%></p>
 Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 <%= link_to "Match", results_path(:type => "match") %> |
 <%= link_to "Robot", results_path(:type => "robot") %> |
 <%= link_to "Project", results_path(:type => "project") %> |
 <%= link_to "Core Values", results_path(:type => "corevalues") %> |
-<%= link_to "Champion", results_path(:type => "champion") %> |
+<%= link_to "Champion", results_path(:type => "champion") %> | 
+<%= link_to "Awards", results_path(:type => "awards") %> |
 <table border=1 id="finalresults" style='border-collapse: collapse;table-layout:fixed'>
 
 	<tr>
@@ -17,7 +19,7 @@ Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 		<td >&nbsp;</td>
 		<td colspan="5"  style="text-align:center">Core Values</td>
 		<td >&nbsp;</td>
-		<td colspan="2"  style="text-align:center">Champion's Award</td>
+		<td colspan="3"  style="text-align:center">Champion's Award</td>
 	</tr>
 	<tr>
 		<td>Team #</td>
@@ -44,6 +46,7 @@ Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 		<td>Total</td>
 		<td>Rank</td>
 		<td>&nbsp;</td>
+		<td>#Awards</td>
 		<td>Score</td>
 		<td>Rank</td>
 	</tr>

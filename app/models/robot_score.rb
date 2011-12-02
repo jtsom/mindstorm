@@ -22,6 +22,10 @@ class RobotScore < ActiveRecord::Base
   #   fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   # end
   
+  def award_count
+    ((self.award_mechdesign || "N") + (self.award_programming || "N") + (self.award_strategy || "N") ).count("Y")
+  end
+  
 private
     def calculate_total_scores
       self.mechanical_design = m_durability + m_efficiency + m_mechanization

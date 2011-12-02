@@ -24,7 +24,7 @@
         </td>
     </tr>
     <tr>
-        <td rowspan="7">
+        <td rowspan="8">
             <div class="vertical">
               <span>Mechanical&nbsp;Design</span> 
               </div>
@@ -104,6 +104,9 @@
             <%= f.radio_button :m_mechanization, "4" %> <%= f.label :m_mechanization, "appropriate balance of speed, strength and accuracy on every task", :value => "4" %>
         </td>
     </tr>
+	<tr height="60px">
+		<td colspan="5"><%= f.check_box :award_mechdesign, {}, "Y", "N" %> <strong>Mechanical Design Award Consideration<strong></td>
+	</tr>
     <tr valign="top">
         <td colspan="5" valign="top">
             Comments:<%= f.text_area :m_comments, :rows => 5, :cols => 100 %>
@@ -112,7 +115,7 @@
 </table>
 <table class="grid">
     <tr>
-        <td rowspan="7">
+        <td rowspan="8">
             <div class="vertical">Programming</div>
         </td>
         <td class="alt" colspan="2">
@@ -190,6 +193,9 @@
             <%= f.radio_button :p_automation, "4" %> <%= f.label :p_automation, "robot moves/acts as intended every time with no driver intervention", :value => "4" %>
         </td>
     </tr>
+	<tr height="60px">
+		<td colspan="5"><%= f.check_box :award_programming, {}, "Y", "N" %> <strong> Programming Award Consideration<strong></td>
+	</tr>
     <tr valign="top">
         <td colspan="5">
             Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
@@ -198,7 +204,7 @@
 </table>
 <table class="grid">
     <tr>
-        <td rowspan="7">
+        <td rowspan="8">
             <div class="vertical">Innovation&nbsp;&amp;&nbsp;Strategy  </div>
         </td>
         <td class="alt" colspan="2">
@@ -277,6 +283,9 @@
             <%= f.radio_button :i_innovation, "4" %> <%= f.label :i_innovation, "original feature(s) that add significant value", :value => "4" %>
         </td>
     </tr>
+	<tr height="60px">
+		<td colspan="5"><%= f.check_box :award_strategy, {}, "Y", "N" %> <strong> Strategy &amp; Innovation Award Consideration<strong></td>
+	</tr>
     <tr valign="top">
         <td colspan="5">
             Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>

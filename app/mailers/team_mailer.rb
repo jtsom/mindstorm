@@ -5,6 +5,19 @@ class TeamMailer < ActionMailer::Base
       @qualifications = qualifications
       @finals = finals
       @competition = competition
+      @r_count = 0
+      @p_count = 0
+      @c_count = 0
+      @team.robot_scores.each do |score|
+        @r_count += score.award_count
+      end
+      @team.project_scores.each do |score|
+        @p_count += score.award_count
+      end
+      @team.corevalue_scores.each do |score|
+        @c_count += score.award_count
+      end
+      
       to_email_with_name = "#{team.coach} <#{team.coach_email}>"
       from_email_with_name = "#{competition.contact_name} <#{competition.from_email}>"
       mail(:from => competition.from_email, :cc => competition.from_email, 

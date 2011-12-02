@@ -104,6 +104,9 @@
                 <%= f.radio_button :i_integration, "4" %> <%= f.label :i_integration, "team able to cite multiple and personal examples", :value => "4"  %>
             </td>
         </tr>
+		<tr height="60px">
+			<td colspan="5"><%= f.check_box :award_inspiration, {}, "Y",  "N" %> <strong>Inspiration Award Consideration<strong></td>
+		</tr>
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
             <td colspan="5" valign="top">
@@ -192,6 +195,9 @@
                 <%= f.radio_button :t_initiative, "4" %> <%= f.label :t_initiative, "team independence with minimum coach guidance", :value => "4" %>
             </td>
         </tr>
+		<tr height="60px">
+			<td colspan="5"><%= f.check_box :award_teamwork, {}, "Y", "N" %> <strong> Teamwork Award Consideration<strong></td>
+		</tr>
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
             <td colspan="5">
@@ -201,7 +207,7 @@
     </table>
     <table class="grid">
         <tr>
-            <td rowspan="8" valign="bottom">
+            <td rowspan="7" valign="bottom">
                 <div class="vertical">
                     Gracious&nbsp;Professionalism&trade;</div>
             </td>
@@ -281,7 +287,9 @@
                 <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "always evident, even in difficult situations - and team actively helps other teams", :value => "4" %>
             </td>
         </tr>
-     
+     	<tr height="60px">
+			<td colspan="5"><%= f.check_box :award_gracprof, {}, "Y", "N" %> <strong>Gracious Professionalism Award Consideration<strong></td>
+		</tr>
         <tr valign="top">
             <!-- <td rowspan="7">Inspiration</td> -->
             <td colspan="5">

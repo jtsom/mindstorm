@@ -15,7 +15,7 @@
 	            <td><i><b>Exemplary</b></i></td>
 	        </tr>
 	        <tr>
-	            <td rowspan="9">
+	            <td rowspan="10">
 	                <div class="vertical">Research</div>
 	            </td>
 	            <td class="alt" colspan="2"><b>Problem Identification</b></td>
@@ -113,6 +113,9 @@
 	               <%= f.radio_button :r_review, "4" %> <%= f.label :r_review, "extensive study and analysis by team", :value => "4" %>
 	            </td>
 	        </tr>
+			<tr height="60px">
+				<td colspan="5"><%= f.check_box :award_research, {}, "Y", "N" %> <strong>Research Award Consideration<strong></td>
+			</tr>
 	        <tr valign="top">
 	            <td colspan="5" valign="top">
 	                Comments:<%= f.text_area :r_comments, :rows => 5, :cols => 100 %>
@@ -121,7 +124,7 @@
 	    </table>
 	    <table class="grid">
 	        <tr>
-	            <td rowspan="7">
+	            <td rowspan="8">
 	                <div class="vertical">Innovative&nbsp;Solution</div>
 	            </td>
 	            <td class="alt" colspan="2">
@@ -198,6 +201,9 @@
 	               <%= f.radio_button :i_implementation, "4" %><%= f.label :i_implementation, "factors well considered and feasible solution proposed", :value => "4" %> 
 	            </td>
 	        </tr>
+			<tr height="60px">
+				<td colspan="5"><%= f.check_box :award_innosolution, {}, "Y", "N" %> <strong>Innovative Solution Award Consideration<strong></td>
+			</tr>
 	        <tr valign="top">
 	            <td colspan="5">
 	                Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
@@ -206,7 +212,7 @@
 	    </table>
 	    <table class="grid">
 	        <tr>
-	            <td rowspan="7">
+	            <td rowspan="8">
 	                <div class="vertical">
 	                Presentation</div>
 	            </td>
@@ -276,6 +282,9 @@
 	            <td><%= f.radio_button :p_sharing, "3" %> <%= f.label :p_sharing, "shared with one individual or group who may benefit", :value => "3" %> </td>
 	            <td><%= f.radio_button :p_sharing, "4" %> <%= f.label :p_sharing, "shared with multiple individuals or groups who may benefit", :value => "4" %></td>
 	        </tr>
+			<tr height="60px">
+				<td colspan="5"><%= f.check_box :award_presentation, {}, "Y", "N" %> <strong>Presentation Award Consideration<strong></td>
+			</tr>
 	        <tr valign="top">
 	            <td colspan="5">
 	                Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>

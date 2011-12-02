@@ -24,6 +24,19 @@ class TeamsController < ApplicationController
     
     @qualifications = @team.qualifications.order(:match_number)
     @finals = @team.finals.order(:match_number)
+    
+    @r_count = 0
+    @p_count = 0
+    @c_count = 0
+    @team.robot_scores.each do |score|
+      @r_count += score.award_count
+    end
+    @team.project_scores.each do |score|
+      @p_count += score.award_count
+    end
+    @team.corevalue_scores.each do |score|
+      @c_count += score.award_count
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -251,6 +264,23 @@ class TeamsController < ApplicationController
       last_score = score
     end
     
+    # Total up awards considered
+    @teams.each do |team|
+      r_count = 0
+      p_count = 0
+      c_count = 0
+      team.robot_scores.each do |score|
+        r_count += score.award_count
+      end
+      team.project_scores.each do |score|
+        p_count += score.award_count
+      end
+      team.corevalue_scores.each do |score|
+        c_count += score.award_count
+      end
+      team.awards_count = r_count + p_count + c_count
+    end
+    
     #calculate champion score
     @teams.each do |team|
       team.champion_score = team.performance_rank + team.robot_scores_rank + team.project_rank + team.corevalue_rank
@@ -290,6 +320,8 @@ class TeamsController < ApplicationController
         @teams.sort! {|a,b| a.corevalue_rank <=> b.corevalue_rank}
       when "champion" || ""
         @teams.sort! {|a,b| a.champion_rank <=> b.champion_rank}
+      when "awards"
+        @teams.sort! {|a,b| b.awards_count <=> a.awards_count}
     end
     
     puts "type=" + params[:type] if params[:type]

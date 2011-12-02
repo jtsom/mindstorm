@@ -19,6 +19,10 @@ class ProjectScore < ActiveRecord::Base
   #   fields.inject(0) {|tot, fld| tot + (self.send("#{fld}") || 0) }
   # end
 
+  def award_count
+    ((self.award_research || "N") + (self.award_innosolution || "N") + (self.award_presentation || "N")).count("Y")
+  end
+  
   private
     def calculate_total_scores
       self.research = r_problemID + r_source + r_analysis + r_review
