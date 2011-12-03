@@ -217,7 +217,7 @@ challenge do
   end
   
   mission "Disinfect" do
-    item :dispensers_empty, "Dispensers Empty", 0..3, "12/7"
+    item :dispensers_empty, "Dispensers Empty", 0..4, "12/7"
     item :bacteria_outside_base, "Any bacteria outside base?", YN, ""
     score do |items|
       items[:dispensers_empty] * (items[:bacteria_outside_base] == 1 ? 7 : 12)
