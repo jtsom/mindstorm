@@ -132,7 +132,7 @@ class TeamsController < ApplicationController
   end
   
   def standings
-    @teams = @current_competition.teams.includes(:qualifications).sort {|a,b| b.average_qual_score <=> a.average_qual_score}
+    @teams = @current_competition.teams.includes(:qualifications).sort {|a,b| b.high_score <=> a.high_score}
     respond_to do |format|
       format.html
       format.xml { render :xml => @teams }

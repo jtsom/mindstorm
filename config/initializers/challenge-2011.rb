@@ -293,7 +293,7 @@ challenge do
      mission "Distant Travel" do
        item :touching_east_wall, "Robot touching East wall?", YN, "9"
        score do |items|
-         (items[:touching_east_wall] * 3)
+         (items[:touching_east_wall] * 9)
        end
      end
  
