@@ -66,12 +66,12 @@ td {
 
 tr.odd
 { 
-  background-color: #f0f0a0; 
+  background-color: #c0c0f0; 
 }
 
 tr.even
 {
- background-color: #a0f0a0;
+ background-color: #ffffff;
 }
 
 /* Match Results details */

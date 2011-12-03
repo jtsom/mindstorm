@@ -159,7 +159,9 @@ class TeamsController < ApplicationController
     @teams = @current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
     
     #sort by qualification score, highest first, and rank them
-    @teams.sort! {|a,b| b.average_qual_score <=> a.average_qual_score}
+    #@teams.sort! {|a,b| b.average_qual_score <=> a.average_qual_score}
+    
+    @teams.sort! {|a,b| b.high_score <=> a.high_score}
     last_score = -1
     last_rank = 1
     @teams.each_with_index do |team, index|

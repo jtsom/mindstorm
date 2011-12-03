@@ -81,7 +81,7 @@ class Team < ActiveRecord::Base
     #################################
     
     def high_score
-        matches.maximum(:score)|| 0
+        qualifications.maximum(:score)|| 0
     end
     
     def total_qual_score
