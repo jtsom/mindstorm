@@ -15,7 +15,6 @@ class MatchesController < ApplicationController
 		
 		@matches = []
 		teams.each do |team|
-      puts team.team_name
 		  case params[:controller]
     	  when "qualifications"
     	    all_matches = team.qualifications
