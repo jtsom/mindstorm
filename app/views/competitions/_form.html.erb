@@ -1,0 +1,36 @@
+<%= form_for(@competition) do |f| %>
+  <% if @competition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+
+      <ul>
+      <% @competition.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<p>
+		<%= f.label :name, "Name" %><br />
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :password, "Password" %><br />
+		<%= f.text_field :password %>
+	</p>
+	<p>
+		<%= f.label :full_name, "Full Name" %><br />
+		<%= f.text_field :full_name %>
+	</p>
+	<p>
+		<%= f.label :contact_name, "Contact Name" %><br />
+		<%= f.text_field :contact_name %>
+	</p>
+	<p>
+		<%= f.label :from_email, "From Email" %><br />
+		<%= f.text_field :from_email %>
+	</p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

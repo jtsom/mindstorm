@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div id="user_nav">
-	  <% if Wcurrent_competition %>
-	    <span class="teamTitle"><%= Wcurrent_competition.full_name %></span>.
+	  <% if @current_competition %>
+	    <span class="teamTitle"><%= @current_competition.full_name %></span>.
 	    <%= link_to "Log out", logout_path %>
 	  <% else %>
 	    <%= link_to "Log in", login_path %>

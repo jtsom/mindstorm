@@ -1,0 +1,24 @@
+<h1>Listing competitions</h1>
+
+<table>
+  <tr>
+    <th>Login Name</th>
+    <th>Competition Full Name</th>
+    <th>Contact Name</th>
+	<th>Contact Email</th>
+  </tr>
+
+<% @competitions.each do |competition| %>
+  <tr>
+    <td><%= link_to competition.name, edit_competition_path(competition) %></td>
+	<td><%= competition.full_name %></td>
+	<td><%= competition.contact_name %></td>
+	<td><%= competition.from_email %></td>
+    <td><%= link_to 'Destroy', competition, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Competition', new_competition_path %>
