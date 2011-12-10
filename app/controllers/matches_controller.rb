@@ -51,12 +51,17 @@ class MatchesController < ApplicationController
           all_matches = team.finals
       end
 	    if all_matches && !all_matches.empty?
-	      @matches.concat(all_matches)
+	      all_matches.each do |match|
+	        if match.match_number.to_s == params[:id].to_s
+	          @matches << match
+          end
+        end
+	      #@matches.concat(all_matches)
 	    end
 	  end
 
 	  @matches = @matches.sort {|a,b| a.match_number <=> b.match_number }
-    
+
     @match_number = params[:id]
     respond_to do |format|
       format.html {render "matches/show" }
