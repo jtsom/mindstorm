@@ -12,7 +12,8 @@ class MatchesController < ApplicationController
   def index
 		#@matches = @match_class.order(:match_number)
 		teams = @current_competition.teams
-		
+
+		# Get matches for teams in current competition		
 		@matches = []
 		teams.each do |team|
 		  case params[:controller]
@@ -37,7 +38,25 @@ class MatchesController < ApplicationController
   end
   
   def show
-    @matches = @match_class.match_list(params[:id])
+    
+    teams = @current_competition.teams
+		
+		# Get matches for teams in current competition
+		@matches = []
+		teams.each do |team|
+		  case params[:controller]
+    	  when "qualifications"
+    	    all_matches = team.qualifications
+        when "finals"
+          all_matches = team.finals
+      end
+	    if all_matches && !all_matches.empty?
+	      @matches.concat(all_matches)
+	    end
+	  end
+
+	  @matches = @matches.sort {|a,b| a.match_number <=> b.match_number }
+    
     @match_number = params[:id]
     respond_to do |format|
       format.html {render "matches/show" }
