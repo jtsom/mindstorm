@@ -11,6 +11,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
+def show
+  
+end
+
   # GET /competitions/new
   # GET /competitions/new.json
   def new

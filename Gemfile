@@ -14,6 +14,7 @@ group :production do
 	gem 'thin'
 end
 gem 'jquery-rails'
+gem 'json', '1.7.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'

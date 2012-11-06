@@ -1,5 +1,15 @@
 Mindstorm::Application.routes.draw do
 
+  namespace :api, defaults: {format: 'json'} do
+    resources :competitions do
+      resources :teams do
+        resources :qualifications
+        resources :finals
+        resources :robot_scores
+      end
+    end
+  end
+
   get "sessions/new"
 
   resources :finals

@@ -10,9 +10,11 @@
 		$challenge.missions.each do |mission| -%>
 	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description -%></b></td>
 	<% mission.items.each do |item|
+		max_length = 2
 		allowed_values=item.allowed_values
 		if allowed_values.class != Range
 			allowed_values = "Y/N"
+			max_length = 1
 		end
 		value = @match.results[item.label]
 		input_type = $challenge.type_of(item.label)
@@ -24,7 +26,7 @@
 		end
 		 -%>
 
-		<td><%= item.description %></td><td><%= match_fields.text_field item.label, { :value => value, :size  => 2, :maxlength => 2, :onkeypress => val_func } %> <%= allowed_values %></td>
+		<td><%= item.description %></td><td><%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %></td>
 	</tr>	
 		
 <%		end	
