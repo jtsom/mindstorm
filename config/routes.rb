@@ -2,6 +2,8 @@ Mindstorm::Application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     resources :competitions do
+      resources :qualifications
+      resources :finals
       resources :teams do
         resources :qualifications
         resources :finals

@@ -25,7 +25,7 @@
 <div>
 <%= form_for :csv_import, :url => {:action => :upload}, :html => { :multipart => true } do |f| -%>
       <p><label for="dump_file">
-        Select a CSV File :
+        Select a JSON File :
       </label>
 
       <%= f.file_field :file %></p>

@@ -1,4 +1,11 @@
 <h1>Complete Results</h1>
+
+<%= form_tag do %>
+	<%= label_tag(:judge, "Judge:") %>
+	<%= text_field_tag :judge %>
+	<%= submit_tag("Submit") %>
+<%	end %>
+
 <%
 	@teams.each do |team|
 %>

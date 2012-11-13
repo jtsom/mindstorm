@@ -110,26 +110,55 @@ class TeamsController < ApplicationController
   def upload
     uploaded = params[:csv_import][:file]
     raw = uploaded.read
-    if raw.split("\r").length > 1
-      data = raw.split("\r")
-    else
-      data = raw.split("\n")
-    end
-    
+   
+    teams = JSON.parse(raw)
+
     Team.destroy_all(:competition_id => @current_competition.id)
     
-    puts "size=" + data.length.to_s
-    data.each { |line| 
-      puts "line=" + line
-      fields = line.split("\t")
-      puts fields[0] + ' ' + fields[1]
-      @current_competition.teams.create(:fll_number => fields[0], :team_name => fields[1], :school => fields[2], :town => fields[3], :coach => fields[4], :coach_email => fields[5], :asst_coach => fields[6], :asst_coach_email => fields[7], :state => fields[8])
+    if teams.count > 0
+      teams.each { |team| 
+        puts team["Team Number"]
 
-    }
-    
-    flash[:notice] = 'Team list uploaded.'
+        @current_competition.teams.create(:fll_number => team["Team Number"],
+         :team_name => team["Team Name"],
+         :school => team["Organization Name"],
+         :town => team["City"],
+         :coach => team["Coach Name"],
+         :coach_email => team["Coach Email"],
+         :asst_coach => team["Assistant Coach"], 
+         :asst_coach_email => team["Assistant Coach Email"], 
+         :state => team["State"])
+      }
+      
+      flash[:notice] = 'Team list uploaded.'
+    end
+
     redirect_to :action => :index
   end
+
+  # def upload
+  #   uploaded = params[:csv_import][:file]
+  #   raw = uploaded.read
+  #   if raw.split("\r").length > 1
+  #     data = raw.split("\r")
+  #   else
+  #     data = raw.split("\n")
+  #   end
+    
+  #   Team.destroy_all(:competition_id => @current_competition.id)
+    
+  #   puts "size=" + data.length.to_s
+  #   data.each { |line| 
+  #     puts "line=" + line
+  #     fields = line.split("\t")
+  #     puts fields[0] + ' ' + fields[1]
+  #     @current_competition.teams.create(:fll_number => fields[0], :team_name => fields[1], :school => fields[2], :town => fields[3], :coach => fields[4], :coach_email => fields[5], :asst_coach => fields[6], :asst_coach_email => fields[7], :state => fields[8])
+
+  #   }
+    
+  #   flash[:notice] = 'Team list uploaded.'
+  #   redirect_to :action => :index
+  # end
   
   def standings
     @teams = @current_competition.teams.includes(:qualifications).sort {|a,b| b.high_score <=> a.high_score}
@@ -140,7 +169,38 @@ class TeamsController < ApplicationController
   end
   
   def all_teams
+    judge = params[:judge]
+
     @teams=@current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
+
+    if judge != ""
+      judge = judge.upcase
+      keep_teams = []
+      @teams.each do |team|
+        keep = false
+        team.robot_scores.each do |score|
+          if score.judge_name.upcase == judge
+            keep = true
+          end
+        end
+        team.project_scores.each do |score|
+          if score.judge_name.upcase == judge
+            keep = true
+          end
+        end
+        team.corevalue_scores.each do |score|
+          if score.judge_name.upcase == judge
+            keep = true
+          end
+        end
+        if keep
+          keep_teams << team
+        end
+      end
+
+      @teams = keep_teams
+    end
+    puts @teams.count
   end
   
   def sendresults
