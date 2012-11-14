@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   before_filter :get_class
 
   def new
+    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %> 
     @team = @current_competition.teams.find params[:team_id]
     @match = @match_class.new
 		render  "matches/new"
@@ -78,6 +79,7 @@ class MatchesController < ApplicationController
   end
   
   def edit
+    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %> 
     @team = @current_competition.teams.find(params[:team_id])
 		@match = @match_class.find(params[:id])
     render "matches/edit"

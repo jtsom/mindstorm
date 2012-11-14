@@ -62,6 +62,10 @@ td.alt
      border: thin solid #000000;
 }
 
+select 
+{
+  width: 65px;
+}
 @media screen
 {
 .page-break  { display:block; }

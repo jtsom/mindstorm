@@ -198,6 +198,30 @@ def validate_cardio(reading)
 end
 
 challenge do
+
+  mission "Flexibility" do
+      item :yellow_loops_in_base, "Yellow loops in base", 0..2, "20"
+      score do |items|
+        (items[:yellow_loops_in_base] * 20)
+      end
+    end
+  
+  mission "Medicine" do
+
+    item :green_bottle_in_base, "Green bottle in base?", YN, "25"
+    score do |items|
+      items[:green_bottle_in_base] * 25
+    end
+  end
+
+  mission "Service Animals" do
+
+    item :dog_in_base, "Dog in base?", YN, "20"
+    score do |items|
+       items[:dog_in_base] * 15
+    end
+  end
+
   mission "Wood Working" do
 
     item :chair_in_base, "Chair fixed and in base?", YN, "15"
@@ -209,22 +233,50 @@ challenge do
       (items[:chair_in_base] + items[:chair_under_table]) <= 1
     end
   end
-  
-  mission "Medicine" do
 
-    item :green_bottle_in_base, "Green bottle in base?", YN, "25"
+  mission "Video Call" do
+    item :flags_raised, "Flags Raised", 0..2, "25"
     score do |items|
-      items[:green_bottle_in_base] * 25
+      items[:flags_raised] * 25
     end
   end
-  
-  mission "Service Animals" do
 
-    item :dog_in_base, "Dog in base?", YN, "20"
+  mission "Quilting" do
+    item :orange_touching_quilts, "Blue squares touching quilt", 0..2, "15"
+    item :blue_touching_quilts, "Orange squares touching quilt", 0..2, "30"
     score do |items|
-       items[:dog_in_base] * 15
+      (items[:orange_touching_quilts] * 15) + (items[:blue_touching_quilts] * 30)
     end
-  end
+  end 
+
+  mission "Similarity Recognition and Cooperation" do
+      item :pointer_aligned, "Pointer aligned with other team?", YN, "45"
+      score do |items|
+        items[:pointer_aligned] * 45
+      end
+    end
+
+  mission "Ball Game" do
+       item :balls_on_rack, "Balls on the rack", 0..7, "10"
+       item :own_in_center, "Own color in center", YN, "60"
+       score do |items|
+         ball_game_score(items[:balls_on_rack], items[:own_in_center])
+       end
+     end 
+
+  mission "Gardening" do
+    item :plants_touching_mat, "Plants touching garden?", YN, "25"
+    score do |items|
+      items[:plants_touching_mat] * 25
+    end
+  end  
+
+  mission "Stove" do
+    item :black_burners, "All 4 burners black?", YN, "25"
+    score do |items|
+      items[:black_burners] * 25
+    end
+  end  
 
   mission "Bowling" do
     item :pins_knocked_down, "Pins knocked down", 0..6, "7"
@@ -236,7 +288,18 @@ challenge do
       end
     end
   end
-  
+
+  mission "Transitions" do
+      item :robot_on_tilted_center, "Robot on tilted center platform?", YN, "45"
+      item :robot_on_balanced_center, "Robot on balanced center platform?", YN, "65"
+      score do |items|
+        (items[:robot_on_tilted_center] * 20) + (items[:robot_on_balanced_center] * 65)
+      end
+      check "Robot can only be balanced or tilted" do |items|
+        (items[:robot_on_tilted_center] + items[:robot_on_balanced_center]) <= 1
+      end
+    end  
+
   mission "Strength Exercise" do
     item :weight_low, "Weight in low position", YN, "15"
     item :weight_high, "Weight in high position", YN, "25"
@@ -247,36 +310,7 @@ challenge do
       (items[:weight_low] + items[:weight_high]) <= 1
     end
   end
-  
-  mission "Stove" do
-    item :black_burners, "All 4 burners black?", YN, "25"
-    score do |items|
-      items[:black_burners] * 25
-    end
-  end
-  
-  mission "Gardening" do
-    item :plants_touching_mat, "Plants touching garden?", YN, "25"
-    score do |items|
-      items[:plants_touching_mat] * 25
-    end
-  end 
-  
-  mission "Video Call" do
-    item :flags_raised, "Flags Raised", 0..2, "25"
-    score do |items|
-      items[:flags_raised] * 25
-    end
-  end
-  
-  mission "Quilting" do
-    item :orange_touching_quilts, "Blue squares touching quilt", 0..2, "15"
-    item :blue_touching_quilts, "Orange squares touching quilt", 0..2, "30"
-    score do |items|
-      (items[:orange_touching_quilts] * 15) + (items[:blue_touching_quilts] * 30)
-    end
-  end  
-  
+
   mission "Cardiovascular Exercise" do
     item :high_number, "High number of wheel", 1..9, "*"
     item :low_number, "Low number of wheel", 0..4, "*"
@@ -287,39 +321,10 @@ challenge do
       validate_cardio(items[:high_number].to_s + '-' + items[:low_number].to_s)
     end
   end
-   
-  mission "Flexibility" do
-      item :yellow_loops_in_base, "Yellow loops in base", 0..2, "20"
-      score do |items|
-        (items[:yellow_loops_in_base] * 20)
-      end
-    end
-  
-  mission "Transitions" do
-      item :robot_on_tilted_center, "Robot on tilted center platform?", YN, "45"
-      item :robot_on_balanced_center, "Robot on balanced center platform?", YN, "65"
-      score do |items|
-        (items[:robot_on_tilted_center] * 20) + (items[:robot_on_balanced_center] * 65)
-      end
-      check "Robot can only be balanced or tilted" do |items|
-        (items[:robot_on_tilted_center] + items[:robot_on_balanced_center]) <= 1
-      end
-    end
-   
-    mission "Similarity Recognition and Cooperation" do
-      item :pointer_aligned, "Pointer aligned with other team?", YN, "45"
-      score do |items|
-        items[:pointer_aligned] * 45
-      end
-    end
 
-     mission "Ball Game" do
-       item :balls_on_rack, "Balls on the rack", 0..7, "10"
-       item :own_in_center, "Own color in center", YN, "60"
-       score do |items|
-         ball_game_score(items[:balls_on_rack], items[:own_in_center])
-       end
-     end   
+  
+
+     
 end
 
 class Challenge

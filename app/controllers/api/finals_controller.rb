@@ -4,7 +4,7 @@ module Api
 
 		def index
 			if params[:team_id]
-				respond_with Match.where('team_id = ?', params[:team_id])
+				respond_with Final.where('team_id = ?', params[:team_id])
 			end
 
 			if params[:competition_id] && !params[:team_id]

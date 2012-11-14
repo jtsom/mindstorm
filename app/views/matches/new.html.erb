@@ -1,4 +1,4 @@
-<h1>Enter <%= params[:controller].classify %> Match data for <%= "#{@team.fll_number} #{@team.team_name}" %></h1>
+<h2>Enter <%= params[:controller].classify %> Match data for <%= "#{@team.fll_number} #{@team.team_name}" %></h2>
 
 <%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
@@ -32,9 +32,16 @@
 		elsif input_type == :boolean
 			val_func = "return validate_boolean();"
 		end
+
+		select_tag = ""
+		if item.allowed_values.class == Range
+			select_tag = match_fields.select(item.label, item.allowed_values, {:include_blank => "--", :selected => value})
+		else
+			select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:include_blank => "--", :selected => value})
+		end
 		 -%>
 
-		<td><%= item.description %></td><td><%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %></td>
+		<td><%= item.description %></td><td><%=select_tag %> </td>
 	</tr>	
 		
 <%		end	
