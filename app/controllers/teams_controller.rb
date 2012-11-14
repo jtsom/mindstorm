@@ -173,7 +173,7 @@ class TeamsController < ApplicationController
 
     @teams=@current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores).order(:fll_number)
 
-    if judge != ""
+    if judge != nil
       judge = judge.upcase
       keep_teams = []
       @teams.each do |team|
