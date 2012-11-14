@@ -6,7 +6,7 @@
 	<th rowspan="2">Table</th>
 	<th rowspan="2">Points</th>	
 	<% $challenge.missions.each do |mission| -%>	
-		<th colspan=<%= mission.items.length %> ><%= mission.description -%></th>
+		<th colspan=<%= mission.items.length %> ><%= mission.description.html_safe -%></th>
 	<% end %>
 	</tr>
 

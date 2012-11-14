@@ -249,7 +249,7 @@ challenge do
     end
   end 
 
-  mission "Similarity Recognition and Cooperation" do
+  mission "Similarity Recognition<br />and Cooperation" do
       item :pointer_aligned, "Pointer aligned with other team?", YN, "45"
       score do |items|
         items[:pointer_aligned] * 45

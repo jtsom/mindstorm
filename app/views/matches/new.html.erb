@@ -8,7 +8,7 @@
 <table style="border-collapse:collapse;" border="1">
   <%= fields_for :results do |match_fields| 
 		$challenge.missions.each do |mission| -%>
-	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description -%></b></td>
+	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description.html_safe -%></b></td>
 	<% mission.items.each do |item|
 		max_length = 2
 		allowed_values=item.allowed_values
@@ -35,9 +35,9 @@
 
 		select_tag = ""
 		if item.allowed_values.class == Range
-			select_tag = match_fields.select(item.label, item.allowed_values, {:include_blank => "--", :selected => value})
+			select_tag = match_fields.select(item.label, item.allowed_values, {:selected => value})
 		else
-			select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:include_blank => "--", :selected => value})
+			select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:selected => value})
 		end
 		 -%>
 
