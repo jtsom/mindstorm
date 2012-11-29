@@ -1,14 +1,17 @@
 <% content_for :head do -%>
 <script>
 $(document).ready(function() {
-			$('div.scrollme').marquee().bind('stop',function() {
+/*			$('div.scrollme').marquee().bind('stop',function() {
 			reloadPage();
-			});
+			}); */
+		$("#scrollme").simplyScroll({speed:1,frameRate:30, orientation:'vertical', customClass:'standings', pauseOnHover:false});
+		setInterval( "reloadPage()", 120000 );
         });
 
 function reloadPage()
 {
 	window.location = window.location;
+	setInterval( "reloadPage()", 120000 );
 }
 </script>	
 <% end -%>
@@ -17,7 +20,8 @@ function reloadPage()
 
 <%= link_to 'Back', teams_path %>
 
-<div class="scrollme" behavior="scroll" direction="up" height="600"  scrollamount="1">
+<!-- <div class="scrollme" behavior="scroll" direction="up" height="600"  scrollamount="1"> -->
+<div id="scrollme">
 <table border="1" style="border-collapse:collapse" id="standings">
 	<tr><td>&nbsp;</td>
 		<td>#</td><td>Name</td><th>High</th>
