@@ -242,10 +242,10 @@ challenge do
   end
 
   mission "Quilting" do
-    item :orange_touching_quilts, "Blue squares touching quilt", 0..2, "15"
-    item :blue_touching_quilts, "Orange squares touching quilt", 0..2, "30"
+    item :orange_touching_quilts, "Orange squares touching quilt", 0..2, "30"
+    item :blue_touching_quilts, "Blue squares touching quilt", 0..2, "15"
     score do |items|
-      (items[:orange_touching_quilts] * 15) + (items[:blue_touching_quilts] * 30)
+      (items[:orange_touching_quilts] * 30) + (items[:blue_touching_quilts] * 15)
     end
   end 
 
@@ -304,7 +304,7 @@ challenge do
     item :weight_low, "Weight in low position", YN, "15"
     item :weight_high, "Weight in high position", YN, "25"
     score do |items|
-      (items[:weight_low] * 15) * (items[:weight_high] * 25)
+      (items[:weight_low] * 15) + (items[:weight_high] * 25)
     end
     check "Weight can be in High or Low position only" do |items|
       (items[:weight_low] + items[:weight_high]) <= 1
