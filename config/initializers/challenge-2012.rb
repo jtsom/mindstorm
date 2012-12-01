@@ -313,7 +313,7 @@ challenge do
 
   mission "Cardiovascular Exercise" do
     item :high_number, "High number of wheel", 1..9, "*"
-    item :low_number, "Low number of wheel", 0..4, "*"
+    item :low_number, "Low number of wheel", 0..5, "*"
     score do |items|
       score_cardio(items[:high_number].to_s + '-' + items[:low_number].to_s)
     end
