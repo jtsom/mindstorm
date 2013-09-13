@@ -27,17 +27,17 @@ Mindstorm::Application.routes.draw do
     resources :corevalue_scores
   end
   
-  match 'login', :to => 'sessions#new', :as => :login
-  match 'logout', :to => 'sessions#destroy', :as => :logout
+  get 'login', :to => 'sessions#new', :as => :login
+  get 'logout', :to => 'sessions#destroy', :as => :logout
   
-  match 'standings', :to =>  'teams#standings'
+  get 'standings', :to =>  'teams#standings'
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
-  match 'results', :to  => 'teams#results'
+  get 'results', :to  => 'teams#results'
   #map.results 'results', :controller => 'teams', :action => 'results'
-  match 'all_teams', :to => 'teams#all_teams'
+  get 'all_teams', :to => 'teams#all_teams'
   
-  match 'teams/upload', :to => 'teams#upload'
-  match 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
+  get 'teams/upload', :to => 'teams#upload'
+  get 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
   
   root :to  => 'sessions#new'
   

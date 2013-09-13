@@ -9,10 +9,10 @@ class Match < ActiveRecord::Base
     
     validates_exclusion_of :table_number, :in => [1..APP_CONFIG["max_matches"]], :message => "between 1 and #{APP_CONFIG["max_matches"]}"
     
-    scope :match_list, lambda { |match_number| {:conditions => ["match_number = ?", match_number ]}}
+    scope :match_list, -> (match_number) { where(match_number:  match_number ) }
     
-    scope :qual_matches, :conditions => {:type => "Qualification"}
-    scope :final_matches, :conditions => {:type => "Final"}
+    scope :qual_matches, -> { where(type:  'Qualification') }
+    scope :final_matches, -> { where(type: 'Final' ) }
     
     MATCH_TYPES = [['Qualification' , 'Q'], ['Final' , 'F']]
     

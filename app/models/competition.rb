@@ -7,7 +7,7 @@ class Competition < ActiveRecord::Base
   validates :contact_name, :presence => true
   
   def self.authenticate(competition_name, password)
-    competition = find_by_name(competition_name.downcase)
+    competition = find(name: competition_name.downcase)
     if competition && competition.password.downcase == password.downcase
       competition
     else

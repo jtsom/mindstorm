@@ -4,21 +4,17 @@ gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-  #gem 'mongrel','1.2.0.pre2'
-end
-group :production do
-	#gem 'mysql'
-	gem 'pg'
-	gem 'thin'
-end
+
+
+gem 'pg'
+# gem 'thin'
+
 gem 'jquery-rails'
 gem 'json', '1.7.3'
-
+gem 'rails_12factor', group: :production
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
