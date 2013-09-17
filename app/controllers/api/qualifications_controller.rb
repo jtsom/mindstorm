@@ -8,7 +8,7 @@ module Api
 			end
 
 			if params[:competition_id] && !params[:team_id]
-				teams = Team.where("competition_id = ?", params[:competition_id]).includes([:qualifications])
+				teams = Team.includes([:qualifications]).where("competition_id = ?", params[:competition_id])
 				matches = []
 				teams.each do |team|
 					all_matches = team.qualifications
