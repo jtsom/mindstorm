@@ -6,12 +6,12 @@ module ApplicationHelper
       html << "<div class='formErrors #{object.class.name.humanize.downcase}Errors'>\n"
       if message.blank?
         if object.new_record?
-          html << "\t\t<h5>There was a problem creating the #{object.class.name.humanize.downcase}</h5>\n"
+          html << "\t\t<h2>There was a problem creating the #{object.class.name.humanize.downcase}</h2>\n"
         else
-          html << "\t\t<h5>There was a problem updating the #{object.class.name.humanize.downcase}</h5>\n"
+          html << "\t\t<h2>There was a problem updating the #{object.class.name.humanize.downcase}</h2>\n"
         end    
       else
-        html << "<h5>#{message}</h5>"
+        html << "<h2>#{message}</h2>"
       end  
       html << "\t\t<ul>\n"
       object.errors.full_messages.each do |error|

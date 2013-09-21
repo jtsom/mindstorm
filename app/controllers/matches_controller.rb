@@ -98,7 +98,8 @@ class MatchesController < ApplicationController
        end
      end
      
-     @match.attributes = params[params[:controller].singularize.to_sym]
+     @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
+     @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
      @match.results = results
 
      if $challenge.check(results)
@@ -122,7 +123,10 @@ class MatchesController < ApplicationController
   def create
     @team = @current_competition.teams.find params[:team_id]
 
-    @match = @match_class.new(params[params[:controller].singularize.to_sym])
+    @match = @match_class.new()
+    @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
+    @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
+    @match.team_id = params[:team_id]
 
     if @match.valid?
       results = {}
@@ -168,5 +172,9 @@ private
     if current_competition == nil
       redirect_to root_url
     end
+  end
+
+  def match_params
+    params.permit(params[params[:controller].singularize.to_sym]).permit(params[params[:controller].singularize.to_sym])
   end
 end

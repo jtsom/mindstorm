@@ -39,7 +39,7 @@
 	</tr>
 
 	<tr>
-		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(team.qualifications.length, "Qualification")}" %> - Average score: <%= team.average_qual_score %> - High Score: <%= team.high_score %></td>
+		<td colspan="30" style="background-color: yellow"><%= "#{pluralize(team.qualifications.length, "Qualification")}" %> - Average score: <%= team.average_qual_score %> - High Score: <%= team.high_score %></td>
 	</tr>
 	<% 	team.qualifications.each do |match| -%>
 	<tr align="center">
@@ -63,7 +63,7 @@
 	<% end 	%>
 	
 	<tr>
-		<td colspan="24" style="background-color: yellow"><%= "#{pluralize(team.finals.length, "Final")}" %></td>
+		<td colspan="30" style="background-color: yellow"><%= "#{pluralize(team.finals.length, "Final")}" %></td>
 	</tr>
 		<% 	team.finals.each do |match| %>
 		<tr align="center">

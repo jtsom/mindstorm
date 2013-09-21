@@ -5,7 +5,7 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+# ARCHFLAGS="-arch x86_64" gem install pg
 gem 'pg'
 # gem 'thin'
 
