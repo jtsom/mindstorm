@@ -24,7 +24,7 @@ class RobotScoresController < ApplicationController
   
   def create
     @team = @current_competition.teams.find(params[:team_id])
-    @robotscore = @team.robot_scores.build(params[:robot_score])
+    @robotscore = @team.robot_scores.build(scores_params)
     flash[:notice] = "Robot score created" if @robotscore.save
     
     respond_with(@team, @robotscore, :location => @team)
@@ -38,7 +38,7 @@ class RobotScoresController < ApplicationController
   
   def update
     team = @current_competition.teams.find(params[:team_id])
-    robot_score = team.robot_scores.find(params[:id]).update_attributes(params[:robot_score])
+    robot_score = team.robot_scores.find(params[:id]).update_attributes(scores_params)
     flash[:notice] = "Robot score updated" if robot_score
     respond_with(team, robot_score, :location => team)
   end 
@@ -57,4 +57,13 @@ private
         redirect_to root_url
       end
     end
+
+    def scores_params
+      params.require(:robot_score).permit(:total_score, :m_durability, :m_efficiency, :m_mechanization, :m_comments,
+                                            :p_quality, :p_efficiency, :p_automation, :p_comments,
+                                            :i_designprocess, :i_strategy, :i_innovation, :i_comments,
+                                            :judge_name, :mechanical_design, :programming, :innovation_strategy,
+                                            :award_mechdesign, :award_programming, :award_strategy)
+    end
+
 end

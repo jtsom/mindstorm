@@ -20,7 +20,7 @@ class CorevalueScoresController < ApplicationController
   
   def create
     @team = @current_competition.teams.find(params[:team_id])
-    @corevalue_score = @team.corevalue_scores.build(params[:corevalue_score])
+    @corevalue_score = @team.corevalue_scores.build(scores_params)
     flash[:notice] = "Core Values score created" if @corevalue_score.save
     
     respond_with(@team, @corevalue_score, :location => @team)
@@ -35,7 +35,7 @@ class CorevalueScoresController < ApplicationController
   
   def update
     team = @current_competition.teams.find(params[:team_id])
-    corevalue_score = team.corevalue_scores.find(params[:id]).update_attributes(params[:corevalue_score])
+    corevalue_score = team.corevalue_scores.find(params[:id]).update_attributes(scores_params)
     flash[:notice] = "Core Values score updated" if corevalue_score
     respond_with(team, corevalue_score, :location => team)
   end
@@ -54,4 +54,12 @@ class CorevalueScoresController < ApplicationController
         redirect_to root_url
       end
     end  
+
+    def scores_params
+      params.require(:corevalue_score).permit(:i_discovery,:i_team_spirit, :i_integration, :i_comments,
+                    :t_effectiveness, :t_efficiency, :t_initiative, :t_comments,
+                    :g_inclusion, :g_respect, :g_coopertition, :g_comments,
+                    :total_score, :judge_name, :inspiration, :teamwork, :grac_prof,
+                    :award_inspiration, :award_teamwork, :award_gracprof)
+    end
 end

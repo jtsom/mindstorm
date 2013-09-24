@@ -3,7 +3,7 @@ module Api
 		respond_to :json
 
 		def index
-			respond_with Competition.all
+			respond_with Competition.all.sort! {|a,b| a.name <=> b.name}
 		end
 
 		def show

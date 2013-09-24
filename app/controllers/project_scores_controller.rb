@@ -22,7 +22,7 @@ class ProjectScoresController < ApplicationController
   
   def create
     @team = @current_competition.teams.find(params[:team_id])
-    @projectscore = @team.project_scores.build(params[:project_score])
+    @projectscore = @team.project_scores.build(scores_params)
     flash[:notice] = "Project score created" if @projectscore.save
     
     respond_with(@team, @projectscore, :location => @team)
@@ -37,7 +37,7 @@ class ProjectScoresController < ApplicationController
   
   def update
     @team = @current_competition.teams.find(params[:team_id])
-    @project_score = @team.project_scores.find(params[:id]).update_attributes(params[:project_score])
+    @project_score = @team.project_scores.find(params[:id]).update_attributes(scores_params)
     flash[:notice] = "Project score updated" if @project_score
     respond_with(@team, @project_score, :location => @team)
   end
@@ -56,4 +56,14 @@ class ProjectScoresController < ApplicationController
         redirect_to root_url
       end
     end
+
+    def scores_params
+      params.require(:project_score).permit(:total_score, :r_problemID, :r_source, :r_analysis, :r_review, :r_comments,
+                                      :i_teamsolution, :i_innovation, :i_implementation, :i_comments, 
+                                      :p_preseffective, :p_creativity, :p_sharing, :p_comments, 
+                                      :judge_name, :research, :innovative_solution, :presentation, 
+                                      :award_research, :award_innosolution, :award_presentation)
+    end
+
+
 end
