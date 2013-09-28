@@ -64,7 +64,7 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.xml
   def create
-    @team = @current_competition.teams.new(params[:team])
+    @team = @current_competition.teams.new(team_params)
 
     respond_to do |format|
       if @team.save
@@ -84,7 +84,7 @@ class TeamsController < ApplicationController
     @team = @current_competition.teams.find(params[:id])
 
     respond_to do |format|
-      if @team.update_attributes(params[:team])
+      if @team.update_attributes(team_params)
         flash[:notice] = 'Team was successfully updated.'
         format.html { redirect_to(@team) }
         format.xml  { head :ok }
@@ -394,5 +394,10 @@ private
     if current_competition == nil
       redirect_to root_url
     end
+  end
+
+  def team_params
+    params.require(:team).permit(:fll_number, :team_name, :school, :town, :coach, :coach_email,
+      :asst_coach, :asst_coach_email, :state)
   end
 end

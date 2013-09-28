@@ -272,7 +272,7 @@ challenge do
   end
 
   mission "Progress" do
-    item :pointer_progress, "Colors Reached", 0..14, "2"
+    item :pointer_progress, "Colors Reached", 0..16, "2"
     score do |items|
       items[:pointer_progress] * 2
     end
@@ -297,6 +297,9 @@ challenge do
     item :people_in_yellow, "People in yellow region", 0..3, "18"
     score do |items|
       (items[:people_in_red] * 12) + (items[:people_in_yellow] * 18)
+    end
+    check "There are only 3 people - check Safety category!" do |items|
+      (items[:people_in_red] + items[:people_in_yellow]) < 4
     end
   end
 

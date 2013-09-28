@@ -34,7 +34,7 @@ end
   # POST /competitions
   # POST /competitions.json
   def create
-    @competition = Competition.new(params[:competition])
+    @competition = Competition.new(comp_params)
 
     respond_to do |format|
       if @competition.save
@@ -53,7 +53,7 @@ end
     @competition = Competition.find(params[:id])
 
     respond_to do |format|
-      if @competition.update_attributes(params[:competition])
+      if @competition.update_attributes(comp_params)
         format.html { redirect_to competitions_url, notice: 'Competition was successfully updated.' }
         format.json { head :ok }
       else
@@ -73,5 +73,11 @@ end
       format.html { redirect_to competitions_url }
       format.json { head :ok }
     end
+  end
+
+  private
+
+  def comp_params
+    params.require(:competition).permit(:name, :email, :password, :from_email, :full_name ,:contact_name)
   end
 end
