@@ -236,7 +236,7 @@ challenge do
     end
   end
 
-  mission "Base Isolation Text" do
+  mission "Base Isolation Test" do
     item :buildings_scoring_positions, "Buildings are in scoring position?", YN, "30"
     score do |items|
       items[:lt_green_clear_buildings] * 30
@@ -304,7 +304,7 @@ challenge do
   end
 
   mission "Pets" do
-    item :pets_with_people, "Pets with People", 0..3, "15"
+    item :pets_with_people, "Pets with People", 0..2, "15"
     score do |items|
       (items[:pets_with_people] * 15)
     end
