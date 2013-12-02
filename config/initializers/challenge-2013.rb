@@ -175,97 +175,17 @@ YN = [1, 0]
 ################### The challenge definition -- READ THIS FIRST. It's the most important part of the project
 
 challenge do
-
-  mission "Supply Truck" do
-      item :truck_touching_yellow, "Supply truck touching yellow region", YN, "20"
-      score do |items|
-        (items[:truck_touching_yellow] * 20)
-      end
-    end
-  
-  mission "Evacuation Sign" do
-    item :evacuation_sign_up, "Evacuation sign up?", YN, "30"
-    score do |items|
-      items[:evacuation_sign_up] * 30
-    end
-  end
-
-  mission "Cargo Plane" do
-    item :cargo_plane_in_yellow_only, "Cargo plane in yellow region Only?", YN, "20"
-    item :cargo_plane_in_ltblue, "Cargo plane in Lt. Blue region?", YN, "30"
-    score do |items|
-       (items[:cargo_plane_in_yellow_only] * 20) + (items[:cargo_plane_in_ltblue] * 30)
-    end
-    check "Plane is in Yellow Only or Lt Blue" do |items|
-      (items[:cargo_plane_in_yellow_only] + items[:cargo_plane_in_ltblue]) <= 1
-    end
-  end
-  
   mission "Tree Branch" do
-    item :tree_branch_down, "Tree branch is down?", YN, "30"
-    score do |items|
-      items[:tree_branch_down] * 30
-    end
-  end
-
-  mission "Tsunami" do
-    item :tsunami, "Three tsunami waves touching mat?", YN, "20"
-    score do |items|
-      items[:tsunami] * 20
-    end
-  end
-
-  mission "Ambulance" do
-    item :ambulance_in_yellow, "Ambulance in yellow region?", YN, "25"
-    score do |items|
-      items[:ambulance_in_yellow] * 25
-    end
-  end
-
-  mission "Runway" do
-    item :runway_clear, "Runway clear (except water and plane)?", YN, "30"
-    score do |items|
-      items[:runway_clear] * 30
-    end
-  end
-
-  mission "Construction Relocation" do
-    item :lt_green_clear_buildings, "Lt Green region clear of building units?", YN, "20"
-    score do |items|
-      items[:lt_green_clear_buildings] * 20
-    end
-  end
-
-  mission "Base Isolation Test" do
-    item :buildings_scoring_positions, "Buildings are in scoring position?", YN, "30"
-    score do |items|
-      items[:lt_green_clear_buildings] * 30
-    end
-  end
-
-  mission "Code Construction" do
-    item :building_segments_in_pink, "Highest Multi Story Building Segments?", 0..5, "5"
-    score do |items|
-      items[:building_segments_in_pink] * 5
-    end
-  end
-
-  mission "Obstacles" do
-    item :crossed_dkblue, "Robot crossed dark blue?", YN, "10"
-    item :crossed_dkgreen, "Robot crossed dark green?", YN, "16"
-    item :crossed_purple, "Robot crossed purple?", YN, "23"
-    item :crossed_red, "Robot crossed red?", YN, "31"
+    item :tree_branch_down, "Tree branch closer to mat than cable?", YN, "30"
+    item :cables_upright, "Tree/electrical cable models upright?", YN, "30"
     
     score do |items|
-      (items[:crossed_dkblue] * 10) + (items[:crossed_dkgreen] * 16) + (items[:crossed_purple] * 23) + (items[:crossed_red] * 31)
-    end
-    check "Robot scores furthest crossing furthest segment only" do |items|
-      (items[:crossed_dkblue] + items[:crossed_dkgreen] + items[:crossed_purple] + items[:crossed_red]) <= 1
+      (items[:tree_branch_down] * items[:cables_upright]) * 30
     end
   end
 
   mission "House Lift" do
-    item :house_lifted, "House Lifted?", YN, "52"
+    item :house_lifted, "House locked in high position?", YN, "25"
     score do |items|
       items[:house_lifted] * 25
     end
@@ -278,41 +198,97 @@ challenge do
     end
   end
 
+  mission "Base Isolation Test" do
+    item :west_tan_buildings_undamaged, "West tan building undamaged?", YN, "30"
+    item :east_tan_buildings_damaged, "East tan building damaged?", YN, "30"
+    score do |items|
+      (items[:west_tan_buildings_undamaged] * items[:east_tan_buildings_damaged] ) * 30
+    end
+  end
+  
+  mission "Construction Relocation" do
+    item :building_segments_in_lt_green, "Any gray building segments in Lt Green?", YN, "20"
+    score do |items|
+      (1 - items[:building_segments_in_lt_green]) * 20
+    end
+  end
+    
+  mission "Supply Truck" do
+      item :truck_touching_yellow, "Supply truck touching yellow region", YN, "20"
+      score do |items|
+        (items[:truck_touching_yellow] * 20)
+      end
+    end
+
+  mission "Ambulance" do
+      item :ambulance_in_yellow, "Ambulance in yellow region?", YN, "25"
+      score do |items|
+        items[:ambulance_in_yellow] * 25
+      end
+    end
+
+  mission "Cargo Plane" do
+      item :cargo_plane_in_yellow_only, "Cargo plane in yellow region Only?", YN, "20"
+      item :cargo_plane_in_ltblue, "Cargo plane in Lt. Blue region?", YN, "30"
+      score do |items|
+         (items[:cargo_plane_in_yellow_only] * 20) + (items[:cargo_plane_in_ltblue] * 30)
+      end
+      check "Plane is in Yellow Only or Lt Blue" do |items|
+        (items[:cargo_plane_in_yellow_only] + items[:cargo_plane_in_ltblue]) <= 1
+      end
+    end
+
+  mission "Game Penalty" do
+    item :penalties, "Penalties Assessed", 0..8, "-13/-10"  
+    item :small_junk_penalties, "Small Junk Penalties (Debris pieces outside blue)", 0..4, "-10"
+    item :large_junk_penalties, "Large Junk Penalties (Debris pieces in blue)", 0..4, "-13"   
+    score do |items|
+      (items[:large_junk_penalties] * -13) + (items[:small_junk_penalties] * -10)
+    end
+
+    check "Max of 8 items!" do |items|
+      (items[:large_junk_penalties] + items[:small_junk_penalties]) <= 8
+    end
+  end
+
+  mission "Runway" do
+      item :runway_clear, "Runway clear (except water and plane)?", YN, "30"
+      score do |items|
+        items[:runway_clear] * 30
+      end
+    end
+                  
+  mission "Evacuation Sign" do
+    item :evacuation_sign_up, "Evacuation sign up?", YN, "30"
+    score do |items|
+      items[:evacuation_sign_up] * 30
+    end
+  end
+
+  mission "Code Construction" do
+    item :building_segments_in_pink, "Highest Multi Story Building Segments?", 0..5, "5"
+    score do |items|
+      items[:building_segments_in_pink] * 5
+    end
+  end
+  
   mission "Family" do
-    item :family_together, "Two or three family together?", 0..3, "33/66"
-    score do |items|
-      items[:family_together] <= 1 ? 0 : items[:family_together] == 2 ? 33 : 66
-    end
-  end
-
-  mission "Water" do
+    item :largest_group, "Two or three family together?", 0..3, "33/66"
     item :people_with_water, "People have water", 0..3, "15"
+    item :people_in_yellow, "People in yellow region", 0..3, "12"
+    item :people_in_red, "People in red region", 0..3, "18"
+    item :pets_with_people, "Pets with People", 0..2, "15"
     score do |items|
-      items[:people_with_water] * 15
+      (items[:largest_group] <= 1 ? 0 : items[:largest_group] == 2 ? 33 : 66) + (items[:people_with_water] * 15) + (items[:people_in_yellow] * 12) + (items[:people_in_red] * 18) + (items[:pets_with_people] * 15)
     end
-  end
-
-  mission "Safety" do
-    item :people_in_red, "People in red region", 0..3, "12"
-    item :people_in_yellow, "People in yellow region", 0..3, "18"
-    score do |items|
-      (items[:people_in_red] * 12) + (items[:people_in_yellow] * 18)
-    end
-    check "There are only 3 people - check Safety category!" do |items|
+    check "There are only 3 people - check Family category!" do |items|
       (items[:people_in_red] + items[:people_in_yellow]) < 4
     end
   end
 
-  mission "Pets" do
-    item :pets_with_people, "Pets with People", 0..2, "15"
-    score do |items|
-      (items[:pets_with_people] * 15)
-    end
-  end
-
   mission "Supplies & Equipment" do
-    item :supplies_in_yellow, "Supplies in yellow with People", 0..12, "3"
-    item :supplies_in_red, "Supplies in red with People", 0..12, "4"
+    item :supplies_in_yellow, "Non Water Supplies in yellow with People", 0..12, "3"
+    item :supplies_in_red, "Non WaterSupplies in red with People", 0..12, "4"
     score do |items|
       (items[:supplies_in_yellow] * 3) + (items[:supplies_in_red] * 4)
     end
@@ -329,16 +305,24 @@ challenge do
     end
   end
 
-
-  mission "Game Penalty" do
-    item :debris_in_blue, "Debris pieces in blue", 0..4, "-13"
-    item :debris_outside_blue, "Debris pieces outside blue", 0..4, "-10"
+  mission "Obstacles" do
+    item :crossed_dkblue, "Robot crossed dark blue?", YN, "10"
+    item :crossed_dkgreen, "Robot crossed dark green?", YN, "16"
+    item :crossed_purple, "Robot crossed purple?", YN, "23"
+    item :crossed_red, "Robot crossed red?", YN, "31"
+    
     score do |items|
-      (items[:debris_in_blue] * -13) + (items[:debris_outside_blue] * -10)
+      (items[:crossed_dkblue] * 10) + (items[:crossed_dkgreen] * 16) + (items[:crossed_purple] * 23) + (items[:crossed_red] * 31)
     end
-
-    check "Max of 8 items!" do |items|
-      (items[:debris_in_blue] + items[:debris_outside_blue]) <= 8
+    check "Robot scores furthest crossing furthest segment only" do |items|
+      (items[:crossed_dkblue] + items[:crossed_dkgreen] + items[:crossed_purple] + items[:crossed_red]) <= 1
+    end
+  end
+  
+  mission "Tsunami" do
+    item :tsunami, "Three tsunami waves touching mat?", YN, "20"
+    score do |items|
+      items[:tsunami] * 20
     end
   end
   
