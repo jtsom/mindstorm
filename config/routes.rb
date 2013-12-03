@@ -36,7 +36,7 @@ Mindstorm::Application.routes.draw do
   #map.results 'results', :controller => 'teams', :action => 'results'
   get 'all_teams', :to => 'teams#all_teams'
   
-  get 'teams/upload', :to => 'teams#upload'
+  post 'teams/upload', :to => 'teams#upload'
   get 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
   
   root :to  => 'sessions#new'

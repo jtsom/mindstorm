@@ -119,14 +119,14 @@ class TeamsController < ApplicationController
       teams.each { |team| 
         puts team["Team Number"]
 
-        @current_competition.teams.create(:fll_number => team["Team Number"],
-         :team_name => team["Team Name"],
-         :school => team["Organization Name"],
+        @current_competition.teams.create(:fll_number => team["TeamNumber"],
+         :team_name => team["TeamName"],
+         :school => team["OrganizationName"],
          :town => team["City"],
-         :coach => team["Coach Name"],
-         :coach_email => team["Coach Email"],
-         :asst_coach => team["Assistant Coach"], 
-         :asst_coach_email => team["Assistant Coach Email"], 
+         :coach => team["CoachName"],
+         :coach_email => team["CoachEmail"],
+         :asst_coach => team["AssistantCoach"], 
+         :asst_coach_email => team["AssistantCoachEmail"], 
          :state => team["State"])
       }
       

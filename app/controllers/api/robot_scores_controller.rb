@@ -6,5 +6,9 @@ module Api
 			respond_with RobotScore.where("team_id = ?", params[:team_id])
 			
 		end
+
+		def show
+			respond_with RobotScore.find(params[:id])
+		end
 	end
 end
