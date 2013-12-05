@@ -225,7 +225,7 @@ class TeamsController < ApplicationController
     last_score = -1
     last_rank = 1
     @teams.each_with_index do |team, index|
-      score = team.average_qual_score || 0
+      score = team.high_score || 0
       if last_score >= 0
         if score == last_score
           team_rank = last_rank
