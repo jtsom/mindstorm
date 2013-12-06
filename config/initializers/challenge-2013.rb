@@ -239,16 +239,14 @@ challenge do
     end
 
   mission "Game Penalty" do
-    item :penalties, "Penalties Assessed", 0..8, "-13/-10"  
-    item :small_junk_penalties, "Small Junk Penalties (Debris pieces outside blue)", 0..4, "-10"
-    item :large_junk_penalties, "Large Junk Penalties (Debris pieces in blue)", 0..4, "-13"   
+    item :penalties, "Touch/Sprawl Penalties", 0..8, "-13/-10"  
+    item :small_junk_penalties, "Small Junk Penalties", 0..16, "-10"
+    item :large_junk_penalties, "Large Junk Penalties", 0..16, "-13"   
     score do |items|
-      (items[:large_junk_penalties] * -13) + (items[:small_junk_penalties] * -10)
+      (items[:large_junk_penalties] * -13) + (items[:small_junk_penalties] * -5) +
+       (items[:penalties] <= 4 ? items[:penalties] * -10 : items[:penalties] * -13)
     end
 
-    check "Max of 8 items!" do |items|
-      (items[:large_junk_penalties] + items[:small_junk_penalties]) <= 8
-    end
   end
 
   mission "Runway" do
