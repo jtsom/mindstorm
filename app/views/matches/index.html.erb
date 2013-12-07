@@ -34,7 +34,7 @@
 		<td><%= match.team.fll_number %></td>
 		<td><%= link_to match.team.team_name, edit_link %></td>
 		<td><%= match.score %></td>
-		<td><%= link_to "(X)", delete_link, :confirm => 'Are you sure?', :method => :delete %>
+		<td><%= link_to "(X)", delete_link, data: { confirm: 'Are you sure?' }, method: :delete %>
 	</tr>
 	<% end %>
 <% end %>

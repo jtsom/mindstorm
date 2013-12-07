@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.simplyscroll.js
 //= require_self
 
 
