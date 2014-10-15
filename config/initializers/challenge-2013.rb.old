@@ -21,9 +21,9 @@ class Challenge
   end
 
   def mission_year
-    2010
+    2014
   end
-  
+
   def to_s
     @missions.inject("Missions") {|s, mission| s += "\n"+mission.to_s}
   end
@@ -43,19 +43,19 @@ class Challenge
     # puts "raw score is #{raw_score}"
     # if (result[:KitUsed] == :RCX)
     #   scaled_score = scale(raw_score)
-    # else 
+    # else
     #   scaled_score = raw_score
     # end
     # bonus = scaled_score - raw_score
     # result[:bonus] = bonus
     # scaled_score
-    
+
     if raw_score < 0
       raw_score = 0
     end
-    
+
     raw_score
-    
+
   end
   def check(result)
     $errors = []
@@ -178,7 +178,7 @@ challenge do
   mission "Tree Branch" do
     item :tree_branch_down, "Tree branch closer to mat than cable?", YN, "30"
     item :cables_upright, "Tree/electrical cable models upright?", YN, "30"
-    
+
     score do |items|
       (items[:tree_branch_down] * items[:cables_upright]) * 30
     end
@@ -205,14 +205,14 @@ challenge do
       (items[:west_tan_buildings_undamaged] * items[:east_tan_buildings_damaged] ) * 30
     end
   end
-  
+
   mission "Construction Relocation" do
     item :building_segments_in_lt_green, "Any gray building segments in Lt Green?", YN, "20"
     score do |items|
       (1 - items[:building_segments_in_lt_green]) * 20
     end
   end
-    
+
   mission "Supply Truck" do
       item :truck_touching_yellow, "Supply truck touching yellow region", YN, "20"
       score do |items|
@@ -239,9 +239,9 @@ challenge do
     end
 
   mission "Game Penalty" do
-    item :penalties, "Touch/Sprawl Penalties", 0..8, "-13/-10"  
+    item :penalties, "Touch/Sprawl Penalties", 0..8, "-13/-10"
     item :small_junk_penalties, "Small Junk Penalties", 0..16, "-10"
-    item :large_junk_penalties, "Large Junk Penalties", 0..16, "-13"   
+    item :large_junk_penalties, "Large Junk Penalties", 0..16, "-13"
     score do |items|
       (items[:large_junk_penalties] * -13) + (items[:small_junk_penalties] * -5) +
        (items[:penalties] <= 4 ? items[:penalties] * -10 : items[:penalties] * -13)
@@ -255,7 +255,7 @@ challenge do
         items[:runway_clear] * 30
       end
     end
-                  
+
   mission "Evacuation Sign" do
     item :evacuation_sign_up, "Evacuation sign up?", YN, "30"
     score do |items|
@@ -269,7 +269,7 @@ challenge do
       items[:building_segments_in_pink] * 5
     end
   end
-  
+
   mission "Family" do
     item :largest_group, "Two or three family together?", 0..3, "33/66"
     item :people_with_water, "People have water", 0..3, "15"
@@ -308,7 +308,7 @@ challenge do
     item :crossed_dkgreen, "Robot crossed dark green?", YN, "16"
     item :crossed_purple, "Robot crossed purple?", YN, "23"
     item :crossed_red, "Robot crossed red?", YN, "31"
-    
+
     score do |items|
       (items[:crossed_dkblue] * 10) + (items[:crossed_dkgreen] * 16) + (items[:crossed_purple] * 23) + (items[:crossed_red] * 31)
     end
@@ -316,12 +316,12 @@ challenge do
       (items[:crossed_dkblue] + items[:crossed_dkgreen] + items[:crossed_purple] + items[:crossed_red]) <= 1
     end
   end
-  
+
   mission "Tsunami" do
     item :tsunami, "Three tsunami waves touching mat?", YN, "20"
     score do |items|
       items[:tsunami] * 20
     end
   end
-  
+
 end
