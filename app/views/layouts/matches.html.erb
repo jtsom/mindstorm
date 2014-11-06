@@ -9,6 +9,9 @@
 <%= stylesheet_link_tag 'application' %>
 <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
+
+  <%= yield :head_script %>
+
 </head>
 <body>
 	<div id="user_nav">
@@ -20,8 +23,8 @@
 	  <% end %>
 	</div>
 <p style="color: green"><%= flash[:notice] %></p>
-
+<div class="container">
 <%= yield  %>
-
+</div>
 </body>
 </html>

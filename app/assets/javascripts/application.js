@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.simplyscroll.js
+//= require bootstrap.min.js
 //= require_self
 
 

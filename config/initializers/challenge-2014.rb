@@ -21,7 +21,7 @@ class Challenge
   end
 
   def mission_year
-    2010
+    2014
   end
 
   def to_s
@@ -116,12 +116,14 @@ class Mission
 end
 
 class Item
-  attr_reader :label, :description, :allowed_values, :scoring
-  def initialize(label, description, allowed_values, scoring)
+  attr_reader :label, :description, :allowed_values, :scoring, :labels, :values
+  def initialize(label, description, allowed_values, scoring, labels, values)
     @label = label
     @description = description
     @allowed_values = allowed_values
     @scoring = scoring
+    @labels = labels
+    @values = values
   end
   def to_s
     @description
@@ -149,8 +151,8 @@ def mission(title)
   yield
 end
 
-def item(label, description, allowed_values, scoring_label)
-  $item = Item.new(label, description, allowed_values, scoring_label)
+def item(label, description, allowed_values, scoring_label, labels, values)
+  $item = Item.new(label, description, allowed_values, scoring_label, labels, values)
   $mission.addItem $item
 end
 
@@ -172,156 +174,135 @@ end
 
 YN = [1, 0]
 
+def rev_engineering_score(items)
+  score = ((items[:basket_in_base] || 0 )* 15)
+  score += (items[:basket_in_base] || 0) * ((items[:model_identical] || 0 )* 30)
+end
+
 ################### The challenge definition -- READ THIS FIRST. It's the most important part of the project
 
 challenge do
-  mission "Tree Branch" do
-    item :tree_branch_down, "Tree branch closer to mat than cable?", YN, "30"
-    item :cables_upright, "Tree/electrical cable models upright?", YN, "30"
+  mission "Reverse Engineering" do
+    item :basket_in_base, "Basket in base?", YN, "30", ["No", "Yes"], [0, 1]
+    item :model_identical, "Your model is in Base, and is \"identical\"", YN, "45", ["No", "Yes"], [0, 1]
 
     score do |items|
-      (items[:tree_branch_down] * items[:cables_upright]) * 30
+      rev_engineering_score(items)
     end
   end
 
-  mission "House Lift" do
-    item :house_lifted, "House locked in high position?", YN, "25"
+  mission "Opening Doors" do
+    item :door_open, "Door opened by pushing handle down", YN, "15", ["No", "Yes"], [0, 1]
     score do |items|
-      items[:house_lifted] * 25
+      (items[:door_open] || 0) * 15
     end
   end
 
-  mission "Progress" do
-    item :pointer_progress, "Colors Reached", 0..16, "2"
-    score do |items|
-      items[:pointer_progress] * 2
-    end
-  end
-
-  mission "Base Isolation Test" do
-    item :west_tan_buildings_undamaged, "West tan building undamaged?", YN, "30"
-    item :east_tan_buildings_damaged, "East tan building damaged?", YN, "30"
-    score do |items|
-      (items[:west_tan_buildings_undamaged] * items[:east_tan_buildings_damaged] ) * 30
-    end
-  end
-
-  mission "Construction Relocation" do
-    item :building_segments_in_lt_green, "Any gray building segments in Lt Green?", YN, "20"
-    score do |items|
-      (1 - items[:building_segments_in_lt_green]) * 20
-    end
-  end
-
-  mission "Supply Truck" do
-      item :truck_touching_yellow, "Supply truck touching yellow region", YN, "20"
+  mission "Project-Based Learning" do
+      item :loops_on_scale, "Loops on scale", 0..8, "10", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
       score do |items|
-        (items[:truck_touching_yellow] * 20)
+        (items[:loops_on_scale] || 0) == 0 ? (items[:loops_on_scale] || 0) * 10 + 10 : 0
+      end
+      check "Cannot use more than 8 loops!" do |items|
+        ((1 - (items[:loop_touch] || 0)) + 
+         (1 - (items[:senses_touch] || 0)) + 
+         ((items[:engine_loop] || 0) * 2) +
+         (1 - (items[:community_touch] || 0)) +
+         (items[:project] || 0)) <= 8
       end
     end
 
-  mission "Ambulance" do
-      item :ambulance_in_yellow, "Ambulance in yellow region?", YN, "25"
+  mission "Apprenticeship" do
+    item :model_presented, "Model presented to Referee?", YN, "20", ["No", "Yes"], [0, 1]
+    item :model_touching_circle, "Touching circle, not in Base, people bound?", YN, "35", ["No", "Yes"], [0, 1]
+    score do |items|
+      ((items[:model_presented] || 0) * 15) + ((items[:model_presented] || 0) * ((items[:model_touching_circle] || 0) * 15))
+    end
+  end
+
+  mission "Search Engine" do
+    item :slider_wheel_spin, "Only Slider caused wheel to spin 1+ times?", YN, "15", ["No", "Yes"], [0, 1]
+    item :correct_loop_removed, "Only correct loop removed?", YN, "45", ["No", "Yes"], [0, 1]
+    score do |items|
+      ((items[:slider_wheel_spin] || 0) * 15) + (((items[:slider_wheel_spin] || 0 ) * (items[:correct_loop_removed] || 0)) * 45)
+    end
+  end
+
+  mission "Sports" do
+      item :ball_shot, "Ball shot from East/North of \"Shot Lines\" to Net", YN, "30", ["No", "Yes"], [0, 1]
+      item :ball_in_net, "Ball touching mat in Net at end of match", YN, "30", ["No", "Yes"], [0, 1]
       score do |items|
-        items[:ambulance_in_yellow] * 25
+        ((items[:ball_shot] || 0) * 30) + (((items[:ball_shot] || 0) * (items[:ball_in_net] || 0)) * 30)
       end
     end
 
-  mission "Cargo Plane" do
-      item :cargo_plane_in_yellow_only, "Cargo plane in yellow region Only?", YN, "20"
-      item :cargo_plane_in_ltblue, "Cargo plane in Lt. Blue region?", YN, "30"
+  mission "Robotics Competition" do
+      item :robotics_installed, "Only Robotics Insert installed?", YN, "25", ["No", "Yes"], [0, 1]
+      item :robotics_loop_touch, "Loop no longer touching model?", YN, "30", ["No", "Yes"], [0, 1]
       score do |items|
-         (items[:cargo_plane_in_yellow_only] * 20) + (items[:cargo_plane_in_ltblue] * 30)
-      end
-      check "Plane is in Yellow Only or Lt Blue" do |items|
-        (items[:cargo_plane_in_yellow_only] + items[:cargo_plane_in_ltblue]) <= 1
+        (items[:robotics_installed] || 0) * 25 + (((items[:robotics_installed] || 0) * (items[:robotics_loop_touch] || 0)) * 30)
       end
     end
 
-  mission "Game Penalty" do
-    item :penalties, "Touch/Sprawl Penalties", 0..8, "-13/-10"
-    item :small_junk_penalties, "Small Junk Penalties", 0..16, "-10"
-    item :large_junk_penalties, "Large Junk Penalties", 0..16, "-13"
-    score do |items|
-      (items[:large_junk_penalties] * -13) + (items[:small_junk_penalties] * -5) +
-       (items[:penalties] <= 4 ? items[:penalties] * -10 : items[:penalties] * -13)
-    end
-
-  end
-
-  mission "Runway" do
-      item :runway_clear, "Runway clear (except water and plane)?", YN, "30"
+  mission "Using the Right Senses" do
+      item :senses_touch, "Loop no longer touching model?", YN, "40", ["No", "Yes"], [0, 1]
       score do |items|
-        items[:runway_clear] * 30
+         ((items[:senses_touch] || 0) * 40)
       end
     end
 
-  mission "Evacuation Sign" do
-    item :evacuation_sign_up, "Evacuation sign up?", YN, "30"
+  mission "Remote Communication/Learning" do
+      item :senses_touch, "Referee saw robot pull slider west?", YN, "40", ["No", "Yes"], [0, 1]
+      score do |items|
+         ((items[:senses_touch] || 0) * 40)
+      end
+    end
+
+  mission "Thinking Outside the Box" do
+      item :senses_touch, "Idea model not touching Box, Box never in Base?", YN, "25", ["No", "Yes"], [0, 1]
+      item :senses_bulb_up, "Bulb faces UP?", YN, "40", ["No", "Yes"], [0, 1]
+      score do |items|
+         ((items[:senses_touch] || 0) * 40)
+      end
+    end
+
+  mission "Community Learning" do
+    item :community_touch, "Loop no longer touching model?", YN, "25", ["No", "Yes"], [0, 1]
     score do |items|
-      items[:evacuation_sign_up] * 30
+       ((items[:community_touch] || 0) * 25)
     end
   end
 
-  mission "Code Construction" do
-    item :building_segments_in_pink, "Highest Multi Story Building Segments?", 0..5, "5"
+  mission "Cloud Access" do
+    item :key_up, "SD card is UP due to inserted \"key\"?", YN, "25", ["No", "Yes"], [0, 1]
     score do |items|
-      items[:building_segments_in_pink] * 5
+       ((items[:key_up] || 0) * 30)
     end
   end
 
-  mission "Family" do
-    item :largest_group, "Two or three family together?", 0..3, "33/66"
-    item :people_with_water, "People have water", 0..3, "15"
-    item :people_in_yellow, "People in yellow region", 0..3, "12"
-    item :people_in_red, "People in red region", 0..3, "18"
-    item :pets_with_people, "Pets with People", 0..2, "15"
+  mission "Engagement" do
+    item :bar_south, "Yellow section moved south?", YN, "20", ["No", "Yes"], [0, 1]
+    item :marker_color, "Dial major marker Color", YN, "20", ["N/A", "Red 10%", "Orange 16%", "Green 22%", "Blue 28%", "Red 34%", "Blue 40%", "Green 46%", "Orange 52%", "Red 58%"], [0, 10, 16, 22, 28, 34, 40, 46, 52, 58]
+    item :marker_ticks, "Ticks past major marker", YN, "20", ["N/A", "0", "1", "2", "3", "4", "5"], [0, 0, 1, 2, 3, 4, 5]
     score do |items|
-      (items[:largest_group] <= 1 ? 0 : items[:largest_group] == 2 ? 33 : 66) + (items[:people_with_water] * 15) + (items[:people_in_yellow] * 12) + (items[:people_in_red] * 18) + (items[:pets_with_people] * 15)
-    end
-    check "There are only 3 people - check Family category!" do |items|
-      (items[:people_in_red] + items[:people_in_yellow]) < 4
+       ((items[:key_up] || 0) * 30)
     end
   end
 
-  mission "Supplies & Equipment" do
-    item :supplies_in_yellow, "Non Water Supplies in yellow with People", 0..12, "3"
-    item :supplies_in_red, "Non WaterSupplies in red with People", 0..12, "4"
+  mission "Adapting to Changing Conditions" do
+    item :model_rotated, "Model rotated 90-ish degrees CCW?", YN, "15", ["No", "Yes"], [0, 1]
     score do |items|
-      (items[:supplies_in_yellow] * 3) + (items[:supplies_in_red] * 4)
-    end
-
-    check "Max of 12 items!" do |items|
-      (items[:supplies_in_yellow] + items[:supplies_in_red]) <= 12
+       ((items[:model_rotated] || 0) * 15)
     end
   end
 
-  mission "Safe Place" do
-    item :robot_in_red, "Robot in red region", YN, "25"
+  mission "Penalties" do
+    item :penalties, "Robot, Sprawl, Junk Penalties", YN, "15", ["0", "1", "2", "3", "4", "5", "6", "7", "0"], [0, 10, 20, 30, 40, 50 ,60, 70, 80]
     score do |items|
-      (items[:robot_in_red] * 25)
+       ((items[:penalties] || 0) * -10)
     end
   end
-
-  mission "Obstacles" do
-    item :crossed_dkblue, "Robot crossed dark blue?", YN, "10"
-    item :crossed_dkgreen, "Robot crossed dark green?", YN, "16"
-    item :crossed_purple, "Robot crossed purple?", YN, "23"
-    item :crossed_red, "Robot crossed red?", YN, "31"
-
-    score do |items|
-      (items[:crossed_dkblue] * 10) + (items[:crossed_dkgreen] * 16) + (items[:crossed_purple] * 23) + (items[:crossed_red] * 31)
-    end
-    check "Robot scores furthest crossing furthest segment only" do |items|
-      (items[:crossed_dkblue] + items[:crossed_dkgreen] + items[:crossed_purple] + items[:crossed_red]) <= 1
-    end
-  end
-
-  mission "Tsunami" do
-    item :tsunami, "Three tsunami waves touching mat?", YN, "20"
-    score do |items|
-      items[:tsunami] * 20
-    end
-  end
+              
+  
 
 end

@@ -127,7 +127,7 @@ class MatchesController < ApplicationController
     @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
     @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
     @match.team_id = params[:team_id]
-
+    
     if @match.valid?
       results = {}
       params[:results].each_pair do |key, value|
@@ -150,11 +150,13 @@ class MatchesController < ApplicationController
           when "finals"
             @team.finals << @match
         end
+        debugger
         redirect_to :controller => "teams"
       else
         err = "Please correct the following: <br>"
         $errors.each { |error| err += error + "<br>" }
         flash[:notice] = err.html_safe
+        debugger
         render  "matches/new"
       end
     else

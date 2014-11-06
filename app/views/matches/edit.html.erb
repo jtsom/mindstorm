@@ -33,7 +33,7 @@
 		end
 		 -%>
 
-		<td><%= item.description %></td><td><%= select_tag %></td>
+		<td><%= item.description %></td><td><%= select_tag %><%= render partial: "choices" , object: item %> </td>
 	</tr>	
 		
 <%		end	
