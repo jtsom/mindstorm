@@ -1,13 +1,35 @@
-<h1>Log in</h1>
-
 <%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :competition_name %><br />
-    <%= text_field_tag :competition_name, params[:competition_name] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
+     <div class="container">
+       <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign In</div>
+                </div>
+
+                <div style="padding-top:30px" class="panel-body">
+                    <form id="loginform" class="form-horizontal" role="form">
+                        <div style="margin-bottom: 25px" class="input-group" ng-show="isStep(1)">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <!-- <input id="login-username" type="text" ng-model="username" class="form-control" name="username" value="" placeholder="username"> -->
+							<%= text_field_tag :competition_name, params[:competition_name], class: 'form-control' %>
+                        </div>
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <!-- <input id="login-password" type="password" ng-model="password" class="form-control" name="password" placeholder="password"> -->
+							<%= password_field_tag :password,'' ,class: 'form-control' %>
+                        </div>
+
+                        <div style="margin-top:10px" class="form-group">
+                            <!-- Button -->
+                            <div class="col-sm-12 controls">  
+								<%= submit_tag "Log in", class: 'btn btn-lg btn-success btn-block' %>                              
+                              	
+                            </div>
+                        </div>
+                    </form>                    
+                </div>
+            </div>
+        </div> 
+    </div>
+	
 <% end %>

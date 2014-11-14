@@ -1,14 +1,8 @@
-<% content_for :head_script do %>
-	<script>
-	function check_valid() {
-		
-	}
-	</script>
-<% end %>
 
+<% labels = [] %>
 <h2>Enter <%= params[:controller].classify %> Match data for <%= "#{@team.fll_number} #{@team.team_name}" %></h2>
 
-<%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
+<%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
 <div class="row"><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></div>
 <div class="row" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 1, :onchange => "change_color();" } %></div>
@@ -18,45 +12,140 @@
 		$challenge.missions.each do |mission| -%>
 	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description.html_safe -%></b></td>
 	<% mission.items.each do |item|
-		max_length = 2
-		allowed_values=item.allowed_values
-		if allowed_values.class != Range
-			allowed_values = "Y/N"
-			max_length = 1
-		end
+		# max_length = 2
+		# allowed_values=item.allowed_values
+		# if allowed_values.class != Range
+		# 	allowed_values = "Y/N"
+		# 	max_length = 1
+		# end
 		if @match.results
 			value=@match.results[item.label]
-			input_type = $challenge.type_of(item.label)
-			if input_type == :boolean
-				value = ["N","Y"][value]
-			end
 		else
 			value=""
 		end
+		
+		# input_type = $challenge.type_of(item.label)
+		# if input_type == :range
+		# 	val_func = "return validate_range(#{allowed_values.max});"
+		# elsif input_type == :boolean
+		# 	val_func = "return validate_boolean();"
+		# end
 
-		input_type = $challenge.type_of(item.label)
-		if input_type == :range
-			val_func = "return validate_range(#{allowed_values.max});"
-		elsif input_type == :boolean
-			val_func = "return validate_boolean();"
-		end
-
-		select_tag = ""
-		if item.allowed_values.class == Range
-			select_tag = match_fields.select(item.label, item.allowed_values, {:selected => value})
-		else
-			select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:selected => value})
-		end
+		# select_tag = ""
+		# if item.allowed_values.class == Range
+		# 	select_tag = match_fields.select(item.label, item.allowed_values, {:selected => value})
+		# else
+		# 	select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:selected => value})
+		# end
+		
+		labels.push(item.label)
 		 -%>
 
-		<td><%= item.description %></td><td><!-- <%=select_tag %>  --><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields } %> </td>
+		<td><%= item.description %></td>
+		<td>
+			<div id="<%= item.label %>"><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %></div> 
+		</td>
 	</tr>	
 		
 <%		end	
 	end
-  end %>
+  end 
+  allLabels = labels.join("', '").html_safe  %>
 </table>
 </div>
+
+<% content_for :head_script do %>
+	<script>
+	function check_valid() {
+		var labels = ['<%= allLabels -%>'] ;
+		var valid = true;
+		var invalid = "";
+		
+		$("input[type=radio]").removeClass('invalid'); // clear errors first
+		
+		for (var i = 0; i < labels.length; i++) {
+			var selector = 'input[data-tag=' + labels[i] + ']';
+			
+			if (!($(selector).is(':checked'))) {
+				valid = false;
+				invalid += " " + labels[i];
+				$("#" + labels[i]).addClass('invalid');
+			}
+		}
+		
+		if ($("#qualification_match_number").val() == "") {
+			valid = false;
+			$("#qualification_match_number").addClass('invalid');
+		}
+		if ($("#qualification_table_number").val() == "") {
+			valid = false;
+			$("#qualification_table_number").addClass('invalid');
+		}
+		
+		if (!valid) {
+			alert("Invalid " + invalid);
+		} else {
+			var special = special_validation();
+			if (special != "") {
+				alert(special);
+				valid = false;
+			}
+		}
+		
+		return valid;
+	}
+	
+	function special_validation() {
+		if (input_value('bar_south') == 1) {
+			if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
+				$("#marker_color").addClass('invalid');
+				return "Must select dial location!";
+			} 
+			if (input_value('marker_color') != 0 && input_value('marker_ticks') == 0) {
+				$("#marker_ticks").addClass('invalid');
+				return "Must select dial location!";
+			}
+		}
+		
+		var totalLoops = (input_value('loop_touch') == 0 ? 1 : 0) +
+						 (input_value('senses_touch') == 0 ? 1 : 0) + 
+						 (input_value('engine_loop') == 1 ? 2 : 0) +
+						 (input_value('community_touch') == 0 ? 1 : 0) +
+						 (input_value('project'));
+						 
+		if (totalLoops > 8) {
+			$("#loop_touch").addClass('invalid');
+			$("#senses_touch").addClass('invalid');
+			$("#engine_loop").addClass('invalid');
+			$("#community_touch").addClass('invalid');
+			$("#project").addClass('invalid');
+			return "Can't use more than 8 loops";
+		}
+		
+		return "";
+	}
+	
+	function input_value(tag) {
+		return $('input:checked[data-tag=' + tag + ']').val().parseInt();
+	}
+	
+	</script>
+	
+	<script>
+	$(document).ready(function () {
+		$("input[type=radio]").on('change', function (evt, myName) {			
+			var tag = $(evt.currentTarget).data('tag');
+			$('#' + tag).removeClass('invalid');
+			
+		});
+		
+		$("input[type=text]").on('change', function (evt, element) {
+			$(evt.currentTarget).removeClass('invalid');
+		});
+	});
+
+	</script>
+<% end %>
 
 <div class="row">
 <%= f.submit "Submit", class: 'btn btn-primary' %>

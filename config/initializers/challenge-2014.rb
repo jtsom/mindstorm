@@ -104,9 +104,9 @@ class Mission
     @scoringFunction.call(result)
   end
   def check(result)
-    @items.inject(true) {|valid, item|
-      item.check(result) && valid
-    } &&
+    # @items.inject(true) {|valid, item|
+    #   item.check(result) && valid
+    # } &&
     @checks.inject(true) {|valid, pair|
       c = pair[1].call(result)
       $errors << pair[0] if !c
@@ -116,11 +116,10 @@ class Mission
 end
 
 class Item
-  attr_reader :label, :description, :allowed_values, :scoring, :labels, :values
-  def initialize(label, description, allowed_values, scoring, labels, values)
+  attr_reader :label, :description, :scoring, :labels, :values
+  def initialize(label, description, scoring, labels, values)
     @label = label
     @description = description
-    @allowed_values = allowed_values
     @scoring = scoring
     @labels = labels
     @values = values
@@ -128,14 +127,14 @@ class Item
   def to_s
     @description
   end
-  def check(result)
-    if @allowed_values.include?(result[@label])
-      true
-    else
-      $errors << "#{@description} must be one of the following values: #{@allowed_values.join(",")}."
-      false
-    end
-  end
+  # def check(result)
+  #   if @allowed_values.include?(result[@label])
+  #     true
+  #   else
+  #     $errors << "#{@description} must be one of the following values: #{@allowed_values.join(",")}."
+  #     false
+  #   end
+  # end
 end
 
 ################### The DSL declarations, skip this section on first reading
@@ -151,8 +150,8 @@ def mission(title)
   yield
 end
 
-def item(label, description, allowed_values, scoring_label, labels, values)
-  $item = Item.new(label, description, allowed_values, scoring_label, labels, values)
+def item(label, description, scoring_label, labels, values)
+  $item = Item.new(label, description, scoring_label, labels, values)
   $mission.addItem $item
 end
 
@@ -183,23 +182,27 @@ end
 
 challenge do
   mission "Reverse Engineering" do
-    item :basket_in_base, "Basket in base?", YN, "30", ["No", "Yes"], [0, 1]
-    item :model_identical, "Your model is in Base, and is \"identical\"", YN, "45", ["No", "Yes"], [0, 1]
+    item :basket_in_base, "Basket in base?", "30", ["No", "Yes"], [0, 1]
+    item :model_identical, "Your model is in Base, and is \"identical\"", "45", ["No", "Yes"], [0, 1]
 
     score do |items|
       rev_engineering_score(items)
     end
+    
+    check "It is invalid" do |items|
+		false
+    end
   end
 
   mission "Opening Doors" do
-    item :door_open, "Door opened by pushing handle down", YN, "15", ["No", "Yes"], [0, 1]
+    item :door_open, "Door opened by pushing handle down", "15", ["No", "Yes"], [0, 1]
     score do |items|
       (items[:door_open] || 0) * 15
     end
   end
 
   mission "Project-Based Learning" do
-      item :loops_on_scale, "Loops on scale", 0..8, "10", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+      item :loops_on_scale, "Loops on scale", "10", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
       score do |items|
         (items[:loops_on_scale] || 0) == 0 ? (items[:loops_on_scale] || 0) * 10 + 10 : 0
       end
@@ -213,91 +216,91 @@ challenge do
     end
 
   mission "Apprenticeship" do
-    item :model_presented, "Model presented to Referee?", YN, "20", ["No", "Yes"], [0, 1]
-    item :model_touching_circle, "Touching circle, not in Base, people bound?", YN, "35", ["No", "Yes"], [0, 1]
+    item :model_presented, "Model presented to Referee?", "20", ["No", "Yes"], [0, 1]
+    item :model_touching_circle, "Touching circle, not in Base, people bound?", "35", ["No", "Yes"], [0, 1]
     score do |items|
       ((items[:model_presented] || 0) * 15) + ((items[:model_presented] || 0) * ((items[:model_touching_circle] || 0) * 15))
     end
   end
 
   mission "Search Engine" do
-    item :slider_wheel_spin, "Only Slider caused wheel to spin 1+ times?", YN, "15", ["No", "Yes"], [0, 1]
-    item :correct_loop_removed, "Only correct loop removed?", YN, "45", ["No", "Yes"], [0, 1]
+    item :slider_wheel_spin, "Only Slider caused wheel to spin 1+ times?", "15", ["No", "Yes"], [0, 1]
+    item :correct_loop_removed, "Only correct loop removed?", "45", ["No", "Yes"], [0, 1]
     score do |items|
       ((items[:slider_wheel_spin] || 0) * 15) + (((items[:slider_wheel_spin] || 0 ) * (items[:correct_loop_removed] || 0)) * 45)
     end
   end
 
   mission "Sports" do
-      item :ball_shot, "Ball shot from East/North of \"Shot Lines\" to Net", YN, "30", ["No", "Yes"], [0, 1]
-      item :ball_in_net, "Ball touching mat in Net at end of match", YN, "30", ["No", "Yes"], [0, 1]
+      item :ball_shot, "Ball shot from East/North of \"Shot Lines\" to Net",  "30", ["No", "Yes"], [0, 1]
+      item :ball_in_net, "Ball touching mat in Net at end of match", "30", ["No", "Yes"], [0, 1]
       score do |items|
         ((items[:ball_shot] || 0) * 30) + (((items[:ball_shot] || 0) * (items[:ball_in_net] || 0)) * 30)
       end
     end
 
   mission "Robotics Competition" do
-      item :robotics_installed, "Only Robotics Insert installed?", YN, "25", ["No", "Yes"], [0, 1]
-      item :robotics_loop_touch, "Loop no longer touching model?", YN, "30", ["No", "Yes"], [0, 1]
+      item :robotics_installed, "Only Robotics Insert installed?", "25", ["No", "Yes"], [0, 1]
+      item :robotics_loop_touch, "Loop no longer touching model?", "30", ["No", "Yes"], [0, 1]
       score do |items|
         (items[:robotics_installed] || 0) * 25 + (((items[:robotics_installed] || 0) * (items[:robotics_loop_touch] || 0)) * 30)
       end
     end
 
   mission "Using the Right Senses" do
-      item :senses_touch, "Loop no longer touching model?", YN, "40", ["No", "Yes"], [0, 1]
+      item :senses_touch, "Loop no longer touching model?", "40", ["No", "Yes"], [0, 1]
       score do |items|
          ((items[:senses_touch] || 0) * 40)
       end
     end
 
   mission "Remote Communication/Learning" do
-      item :senses_touch, "Referee saw robot pull slider west?", YN, "40", ["No", "Yes"], [0, 1]
+      item :robot_pull, "Referee saw robot pull slider west?", "40", ["No", "Yes"], [0, 1]
       score do |items|
-         ((items[:senses_touch] || 0) * 40)
+         ((items[:robot_pull] || 0) * 40)
       end
     end
 
   mission "Thinking Outside the Box" do
-      item :senses_touch, "Idea model not touching Box, Box never in Base?", YN, "25", ["No", "Yes"], [0, 1]
-      item :senses_bulb_up, "Bulb faces UP?", YN, "40", ["No", "Yes"], [0, 1]
+      item :idea_touch, "Idea model not touching Box, Box never in Base?", "25", ["No", "Yes"], [0, 1]
+      item :bulb_up, "Bulb faces UP?", "40", ["No", "Yes"], [0, 1]
       score do |items|
-         ((items[:senses_touch] || 0) * 40)
+         ((items[:idea_touch] || 0) * 25) + (((items[:idea_touch] || 0) * (items[:bulb_up] || 0)) * 15)
       end
     end
 
   mission "Community Learning" do
-    item :community_touch, "Loop no longer touching model?", YN, "25", ["No", "Yes"], [0, 1]
+    item :community_touch, "Loop no longer touching model?", "25", ["No", "Yes"], [0, 1]
     score do |items|
        ((items[:community_touch] || 0) * 25)
     end
   end
 
   mission "Cloud Access" do
-    item :key_up, "SD card is UP due to inserted \"key\"?", YN, "25", ["No", "Yes"], [0, 1]
+    item :key_up, "SD card is UP due to inserted \"key\"?",  "25", ["No", "Yes"], [0, 1]
     score do |items|
        ((items[:key_up] || 0) * 30)
     end
   end
 
   mission "Engagement" do
-    item :bar_south, "Yellow section moved south?", YN, "20", ["No", "Yes"], [0, 1]
-    item :marker_color, "Dial major marker Color", YN, "20", ["N/A", "Red 10%", "Orange 16%", "Green 22%", "Blue 28%", "Red 34%", "Blue 40%", "Green 46%", "Orange 52%", "Red 58%"], [0, 10, 16, 22, 28, 34, 40, 46, 52, 58]
-    item :marker_ticks, "Ticks past major marker", YN, "20", ["N/A", "0", "1", "2", "3", "4", "5"], [0, 0, 1, 2, 3, 4, 5]
+    item :bar_south, "Yellow section moved south?", "20", ["No", "Yes"], [0, 1]
+    item :marker_color, "Dial major marker Color", "20", ["N/A", "Red 10%", "Orange 16%", "Green 22%", "Blue 28%", "Red 34%", "Blue 40%", "Green 46%", "Orange 52%", "Red 58%"], [0, 10, 16, 22, 28, 34, 40, 46, 52, 58]
+    item :marker_ticks, "Ticks past major marker", "20", ["N/A", "0", "1", "2", "3", "4", "5"], [0, 0, 1, 2, 3, 4, 5]
     score do |items|
        ((items[:key_up] || 0) * 30)
     end
   end
 
   mission "Adapting to Changing Conditions" do
-    item :model_rotated, "Model rotated 90-ish degrees CCW?", YN, "15", ["No", "Yes"], [0, 1]
+    item :model_rotated, "Model rotated 90-ish degrees CCW?", "15", ["No", "Yes"], [0, 1]
     score do |items|
        ((items[:model_rotated] || 0) * 15)
     end
   end
 
   mission "Penalties" do
-    item :penalties, "Robot, Sprawl, Junk Penalties", YN, "15", ["0", "1", "2", "3", "4", "5", "6", "7", "0"], [0, 10, 20, 30, 40, 50 ,60, 70, 80]
+    item :penalties, "Robot, Sprawl, Junk Penalties", "15", ["0", "1", "2", "3", "4", "5", "6", "7", "0"], [0, 10, 20, 30, 40, 50 ,60, 70, 80]
     score do |items|
        ((items[:penalties] || 0) * -10)
     end

@@ -77,9 +77,9 @@
 	
 </table>
 
-<p>Add: <%= link_to 'Robot Score', new_team_robot_score_path(@team) %> |
-	<%= link_to 'Project Score', new_team_project_score_path(@team)  %> | 
-	<%= link_to 'Core Value Score', new_team_corevalue_score_path(@team)  %></p>
+<p>Add: <%= link_to 'Robot Score', new_team_robot_score_path(@team), class: "btn btn-primary btn-xs" %> |
+	<%= link_to 'Project Score', new_team_project_score_path(@team), class: "btn btn-primary btn-xs" %> | 
+	<%= link_to 'Core Value Score', new_team_corevalue_score_path(@team), class: "btn btn-primary btn-xs"  %></p>
 		
 <%= link_to 'Edit', edit_team_path(@team) -%> |
 <%= link_to 'Team List', teams_path -%>

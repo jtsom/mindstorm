@@ -10,9 +10,9 @@
     <td><%= link_to team.team_name, team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
 	<td><%= team.qualifications.length %></td>
-	<td><%= link_to "Enter Qual Match Data", new_team_qualification_path(team) unless team.qualifications.length > APP_CONFIG["max_matches"] - 1 %></td>
+	<td><%= link_to"Enter Qual Match Data", new_team_qualification_path(team), class: "btn btn-primary btn-xs" unless team.qualifications.length > APP_CONFIG["max_matches"] - 1 %></td>
 	<td><%= team.finals.length %></td>
-	<td><%= link_to "Enter Final Match Data", new_team_final_path(team) %></td>
+	<td><%= link_to "Enter Final Match Data", new_team_final_path(team), class: "btn btn-primary btn-xs" %></td>
 	<td style="padding-left: 2em;"><%= link_to "Email Team Data to " + "#{team.coach} <#{team.coach_email}>", sendresults_path(team)%></td>
   </tr>
 <% end %>
