@@ -1,6 +1,6 @@
 <h2>Editing <%= params[:controller].classify.to_s %> Match <%= @match.match_number %> for <%= @team.team_name %></h2>
 
-<%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return validate();"}) do |f| %>
+<%=  form_for([@team, @match], :html => {:autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
 <p><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></p>
 <p><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></p>
@@ -36,7 +36,13 @@
 		labels.push(item.label)
 		 -%>
 		
-		<td><%= item.description %></td><td><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %></td>
+		<td>
+		<%= item.description %></td>
+		<td>
+			<div id="<%= item.label %>">
+				<%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %>
+			</div>
+		</td>
 	</tr>	
 		
 <%		end	
@@ -74,7 +80,7 @@
 		}
 		
 		if (!valid) {
-			alert("Invalid " + invalid);
+			alert("Make a selection for all items!");
 		} else {
 			var special = special_validation();
 			if (special != "") {
@@ -117,7 +123,7 @@
 	}
 	
 	function input_value(tag) {
-		return $('input:checked[data-tag=' + tag + ']').val().parseInt();
+		return parseInt($('input:checked[data-tag=' + tag + ']').val());
 	}
 	
 	</script>

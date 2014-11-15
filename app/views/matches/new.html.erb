@@ -83,7 +83,7 @@
 		}
 		
 		if (!valid) {
-			alert("Invalid " + invalid);
+			alert("Make a selection for all items!");
 		} else {
 			var special = special_validation();
 			if (special != "") {
@@ -126,7 +126,7 @@
 	}
 	
 	function input_value(tag) {
-		return $('input:checked[data-tag=' + tag + ']').val().parseInt();
+		return parseInt($('input:checked[data-tag=' + tag + ']').val());
 	}
 	
 	</script>

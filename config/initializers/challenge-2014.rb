@@ -189,9 +189,6 @@ challenge do
       rev_engineering_score(items)
     end
     
-    check "It is invalid" do |items|
-		false
-    end
   end
 
   mission "Opening Doors" do
