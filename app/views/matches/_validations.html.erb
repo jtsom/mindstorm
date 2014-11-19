@@ -1,0 +1,91 @@
+<script>
+	function check_valid() {
+		var labels = ['<%= all_labels -%>'] ;
+		var valid = true;
+		var invalid = "";
+		
+		$("input[type=radio]").removeClass('invalid'); // clear errors first
+		
+		//check if any input groups are not checked
+		for (var i = 0; i < labels.length; i++) {
+			var selector = 'input[data-tag=' + labels[i] + ']';
+			
+			if (!($(selector).is(':checked'))) {
+				valid = false;
+				invalid += " " + labels[i];
+				$("#" + labels[i]).addClass('invalid');
+			}
+		}
+		
+		if ($("#qualification_match_number").val() == "") {
+			valid = false;
+			$("#qualification_match_number").addClass('invalid');
+		}
+		if ($("#qualification_table_number").val() == "") {
+			valid = false;
+			$("#qualification_table_number").addClass('invalid');
+		}
+		
+		if (!valid) {
+			alert("Make a selection for all items!");
+		} else {
+			var special = special_validation();
+			if (special != "") {
+				alert(special);
+				valid = false;
+			}
+		}
+		
+		return valid;
+	}
+	
+	function special_validation() {
+		if (input_value('bar_south') == 1) {
+			if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
+				$("#marker_color").addClass('invalid');
+				return "Must select dial location!";
+			} 
+			if (input_value('marker_color') != 0 && input_value('marker_ticks') == 0) {
+				$("#marker_ticks").addClass('invalid');
+				return "Must select dial location!";
+			}
+		}
+		
+		var totalLoops = (input_value('loop_touch') == 0 ? 1 : 0) +
+						 (input_value('senses_touch') == 0 ? 1 : 0) + 
+						 (input_value('engine_loop') == 1 ? 2 : 0) +
+						 (input_value('community_touch') == 0 ? 1 : 0) +
+						 (input_value('project'));
+						 
+		if (totalLoops > 8) {
+			$("#loop_touch").addClass('invalid');
+			$("#senses_touch").addClass('invalid');
+			$("#engine_loop").addClass('invalid');
+			$("#community_touch").addClass('invalid');
+			$("#project").addClass('invalid');
+			return "Can't use more than 8 loops";
+		}
+		
+		return "";
+	}
+	
+	function input_value(tag) {
+		return parseInt($('input:checked[data-tag=' + tag + ']').val());
+	}
+	
+</script>
+	
+<script>
+	$(document).ready(function () {
+		$("input[type=radio]").on('change', function (evt, myName) {			
+			var tag = $(evt.currentTarget).data('tag');
+			$('#' + tag).removeClass('invalid');
+			
+		});
+		
+		$("input[type=text]").on('change', function (evt, element) {
+			$(evt.currentTarget).removeClass('invalid');
+		});
+	});
+
+</script>

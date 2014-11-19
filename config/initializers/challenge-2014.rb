@@ -38,6 +38,16 @@ class Challenge
       $number_of_missions_scored += 1 if (mission.scoringCondition ? mission.scoringCondition.call(result) : (mission_score > 0))
       total += mission_score
     }
+    
+    #hack but....
+    marker_color_values = @missions[12].items[1]
+    
+    mcv = marker_color_values.values[result[:marker_color]]
+    marker_ticks_values = @missions[12].items[2]
+    mtv = marker_ticks_values.values[result[:marker_ticks]]
+    
+    debugger
+    
     # correct for fairness bonus  need to condition this with :KitUsed == :RCX
     # puts "result kit used is #{result[:KitUsed]}"
     # puts "raw score is #{raw_score}"
@@ -285,7 +295,7 @@ challenge do
     item :marker_color, "Dial major marker Color", "20", ["N/A", "Red 10%", "Orange 16%", "Green 22%", "Blue 28%", "Red 34%", "Blue 40%", "Green 46%", "Orange 52%", "Red 58%"], [0, 10, 16, 22, 28, 34, 40, 46, 52, 58]
     item :marker_ticks, "Ticks past major marker", "20", ["N/A", "0", "1", "2", "3", "4", "5"], [0, 0, 1, 2, 3, 4, 5]
     score do |items|
-       ((items[:key_up] || 0) * 30)
+		0
     end
   end
 
