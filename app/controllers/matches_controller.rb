@@ -150,7 +150,7 @@ class MatchesController < ApplicationController
           when "finals"
             @team.finals << @match
         end
-        debugger
+        
         redirect_to :controller => "teams"
       else
         err = "Please correct the following: <br>"

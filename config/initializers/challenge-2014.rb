@@ -46,19 +46,13 @@ class Challenge
     marker_ticks_values = @missions[12].items[2]
     mtv = marker_ticks_values.values[result[:marker_ticks]]
     
-    debugger
+    bar_south = result[:bar_south]
+
+    bonus = (mcv + mtv) * bar_south
+        
+    raw_score += ((raw_score * bonus) / 100.0).ceil
     
-    # correct for fairness bonus  need to condition this with :KitUsed == :RCX
-    # puts "result kit used is #{result[:KitUsed]}"
-    # puts "raw score is #{raw_score}"
-    # if (result[:KitUsed] == :RCX)
-    #   scaled_score = scale(raw_score)
-    # else
-    #   scaled_score = raw_score
-    # end
-    # bonus = scaled_score - raw_score
-    # result[:bonus] = bonus
-    # scaled_score
+    raw_score += (bar_south * 20)
 
     if raw_score < 0
       raw_score = 0
@@ -211,7 +205,7 @@ challenge do
   mission "Project-Based Learning" do
       item :loops_on_scale, "Loops on scale", "10", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
       score do |items|
-        (items[:loops_on_scale] || 0) == 0 ? (items[:loops_on_scale] || 0) * 10 + 10 : 0
+        (items[:loops_on_scale] || 0) != 0 ? (items[:loops_on_scale] || 0) * 10 + 10 : 0
       end
       check "Cannot use more than 8 loops!" do |items|
         ((1 - (items[:loop_touch] || 0)) + 
@@ -226,7 +220,7 @@ challenge do
     item :model_presented, "Model presented to Referee?", "20", ["No", "Yes"], [0, 1]
     item :model_touching_circle, "Touching circle, not in Base, people bound?", "35", ["No", "Yes"], [0, 1]
     score do |items|
-      ((items[:model_presented] || 0) * 15) + ((items[:model_presented] || 0) * ((items[:model_touching_circle] || 0) * 15))
+      ((items[:model_presented] || 0) * 20) + ((items[:model_presented] || 0) * ((items[:model_touching_circle] || 0) * 15))
     end
   end
 
@@ -284,7 +278,7 @@ challenge do
   end
 
   mission "Cloud Access" do
-    item :key_up, "SD card is UP due to inserted \"key\"?",  "25", ["No", "Yes"], [0, 1]
+    item :key_up, "SD card is UP due to inserted \"key\"?",  "30", ["No", "Yes"], [0, 1]
     score do |items|
        ((items[:key_up] || 0) * 30)
     end

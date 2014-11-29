@@ -22,7 +22,7 @@ end
 # Use unicorn as the web server
 gem 'unicorn'
 
-gem 'debugger', :group => :development
+gem 'debugger', group: :development
 
 # Deploy with Capistrano
 # gem 'capistrano'

@@ -12,6 +12,10 @@ pre {
 }
 
 a { color: #000; }
+
+a:not(.btn) {
+	text-decoration: underline;
+}
 /* a:visited { color: #666; } */
 a:hover { color: #fff; background-color:#000; }
 
