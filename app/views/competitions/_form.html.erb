@@ -10,27 +10,27 @@
       </ul>
     </div>
   <% end %>
-	<p>
+	<div class="form-group">
 		<%= f.label :name, "Name" %><br />
-		<%= f.text_field :name %>
-	</p>
-	<p>
+		<%= f.text_field :name, class: 'form-control' %>
+	</div>
+	<div class="form-group">
 		<%= f.label :password, "Password" %><br />
-		<%= f.text_field :password %>
-	</p>
-	<p>
+		<%= f.text_field :password, class: 'form-control' %>
+	</div>
+	<div class="form-group">
 		<%= f.label :full_name, "Full Name" %><br />
-		<%= f.text_field :full_name %>
-	</p>
-	<p>
+		<%= f.text_field :full_name, class: 'form-control' %>
+	</div>
+	<div class="form-group">
 		<%= f.label :contact_name, "Contact Name" %><br />
-		<%= f.text_field :contact_name %>
-	</p>
-	<p>
+		<%= f.text_field :contact_name, class: 'form-control' %>
+	</div>
+	<div class="form-group">
 		<%= f.label :from_email, "From Email" %><br />
-		<%= f.text_field :from_email %>
-	</p>
+		<%= f.text_field :from_email, class: 'form-control' %>
+	</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
