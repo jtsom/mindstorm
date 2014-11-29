@@ -107,7 +107,7 @@ class MatchesController < ApplicationController
        @match.score = $challenge.score(results)
        if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
-         redirect_to teams_path
+         redirect_to team_path @team
        else
           render "matches/edit"
        end

@@ -178,8 +178,8 @@ end
 YN = [1, 0]
 
 def rev_engineering_score(items)
-  score = ((items[:basket_in_base] || 0 )* 15)
-  score += (items[:basket_in_base] || 0) * ((items[:model_identical] || 0 )* 30)
+  score = ((items[:basket_in_base] || 0 )* 30)
+  score += (items[:basket_in_base] || 0) * ((items[:model_identical] || 0 )* 15)
 end
 
 ################### The challenge definition -- READ THIS FIRST. It's the most important part of the project
