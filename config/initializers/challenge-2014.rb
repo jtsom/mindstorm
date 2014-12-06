@@ -208,11 +208,11 @@ challenge do
         (items[:loops_on_scale] || 0) != 0 ? (items[:loops_on_scale] || 0) * 10 + 10 : 0
       end
       check "Cannot use more than 8 loops!" do |items|
-        ((1 - (items[:loop_touch] || 0)) + 
+        ((1 - (items[:robotics_loop_touch] || 0)) + 
          (1 - (items[:senses_touch] || 0)) + 
-         ((items[:engine_loop] || 0) * 2) +
+         ((items[:correct_engine_loop_removed] || 0) * 2) +
          (1 - (items[:community_touch] || 0)) +
-         (items[:project] || 0)) <= 8
+         (items[:loops_on_scale] || 0)) <= 8
       end
     end
 
@@ -226,9 +226,9 @@ challenge do
 
   mission "Search Engine" do
     item :slider_wheel_spin, "Only Slider caused wheel to spin 1+ times?", "15", ["No", "Yes"], [0, 1]
-    item :correct_loop_removed, "Only correct loop removed?", "45", ["No", "Yes"], [0, 1]
+    item :correct_engine_loop_removed, "Only correct loop removed?", "45", ["No", "Yes"], [0, 1]
     score do |items|
-      ((items[:slider_wheel_spin] || 0) * 15) + (((items[:slider_wheel_spin] || 0 ) * (items[:correct_loop_removed] || 0)) * 45)
+      ((items[:slider_wheel_spin] || 0) * 15) + (((items[:slider_wheel_spin] || 0 ) * (items[:correct_engine_loop_removed] || 0)) * 45)
     end
   end
 

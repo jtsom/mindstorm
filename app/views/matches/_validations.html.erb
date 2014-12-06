@@ -51,18 +51,18 @@
 			}
 		}
 		
-		var totalLoops = (input_value('loop_touch') == 0 ? 1 : 0) +
+		var totalLoops = (input_value('robotics_loop_touch') == 0 ? 1 : 0) +
 						 (input_value('senses_touch') == 0 ? 1 : 0) + 
-						 (input_value('engine_loop') == 1 ? 2 : 0) +
+						 (input_value('correct_engine_loop_removed') == 1 ? 2 : 0) +
 						 (input_value('community_touch') == 0 ? 1 : 0) +
-						 (input_value('project'));
+						 (input_value('loops_on_scale'));
 						 
 		if (totalLoops > 8) {
-			$("#loop_touch").addClass('invalid');
+			$("#robotics_loop_touch").addClass('invalid');
 			$("#senses_touch").addClass('invalid');
-			$("#engine_loop").addClass('invalid');
+			$("#correct_engine_loop_removed").addClass('invalid');
 			$("#community_touch").addClass('invalid');
-			$("#project").addClass('invalid');
+			$("#loops_on_scale").addClass('invalid');
 			return "Can't use more than 8 loops";
 		}
 		
