@@ -162,8 +162,8 @@ class TeamsController < ApplicationController
   
   def standings
     @teams = @current_competition.teams.includes(:qualifications).sort do |a,b| 
-      comp = (b.high_score <=> a.high_score)
-      comp.zero? ? (a.fll_number <=> b.fll_number) : comp
+      (b.high_score <=> a.high_score)
+      #comp.zero? ? (a.fll_number <=> b.fll_number) : comp
     end
     
     respond_to do |format|
