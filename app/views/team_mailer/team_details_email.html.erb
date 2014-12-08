@@ -92,13 +92,14 @@ There are sometimes typos when entering the information into the feedback form, 
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
 					value = match.results[item.label]
+					disp = item.labels[value]
 					#score = value.to_i * item.scoring.to_i
-					score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
-					if value != " " and $challenge.type_of(item.label) == :boolean
-				        value = ["N","Y"][value]
-				    end
+					#score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
+					# if value != " " and $challenge.type_of(item.label) == :boolean
+					# 				        value = ["N","Y"][value]
+					# 				    end
 		%>
-					<td><%= value.to_s + " " + score  %></td>
+					<td><%= disp  %></td>
 		<%		end
 			end	%>
 		</tr>	
@@ -116,12 +117,13 @@ There are sometimes typos when entering the information into the feedback form, 
 			<%	$challenge.missions.each do |mission|
 					mission.items.each do |item|
 						value = match.results[item.label]
-						score = value.to_i * item.scoring.to_i
-						if value != " " and $challenge.type_of(item.label) == :boolean
-					        value = ["N","Y"][value]
-					    end
+						disp = item.labels[value]
+						# score = value.to_i * item.scoring.to_i
+						# if value != " " and $challenge.type_of(item.label) == :boolean
+						# 					        value = ["N","Y"][value]
+						# 					    end
 			%>
-						<td><%= value.to_s + " (" + score.to_s + ")" %></td>
+						<td><%= disp %></td>
 			<%		end
 				end	%>
 			</tr>	
