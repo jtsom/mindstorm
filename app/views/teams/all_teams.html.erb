@@ -49,7 +49,7 @@
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
-				value = match.results[item.label]
+				value = match.results[item.label] || 0
 				#score = value.to_i * item.scoring.to_i
 				disp = item.labels[value]
 	%>
@@ -70,7 +70,7 @@
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
-					value = match.results[item.label]
+					value = match.results[item.label] || 0
 					disp = item.labels[value]
 		%>
 					<td><%= disp %></td>
