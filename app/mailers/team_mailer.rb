@@ -19,7 +19,7 @@ class TeamMailer < ActionMailer::Base
       end
       
       cc_email = competition.from_email
-      if team.asst_coach_email != ''
+      if team.asst_coach_email != nil && team.asst_coach_email != ''
         cc_email += ', ' + team.asst_coach_email
       end
 
