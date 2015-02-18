@@ -9,5 +9,11 @@ module Api
 		def show
 			respond_with Competition.find(params[:id])
 		end
+
+		def standings
+			teams = Competition.find(params[:id]).teams.includes(:qualifications).sort do |a,b| 
+      			(b.high_score <=> a.high_score)
+    		end
+		end
 	end
 end
