@@ -14,7 +14,7 @@
 	<td><%= competition.full_name %></td>
 	<td><%= competition.contact_name %></td>
 	<td><%= competition.from_email %></td>
-    <td><%= link_to 'Destroy', competition, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', competition, data: { confirm: 'Are you sure?' }, method: :delete %></td>
   </tr>
 <% end %>
 </table>

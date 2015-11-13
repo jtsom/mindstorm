@@ -35,6 +35,7 @@ class Challenge
     $number_of_missions_scored = 0
     raw_score = @missions.inject(0) {|total, mission|
       mission_score = mission.score(result)
+      puts mission.description + " " + mission_score.to_s
       $number_of_missions_scored += 1 if (mission.scoringCondition ? mission.scoringCondition.call(result) : (mission_score > 0))
       total += mission_score
     }
@@ -158,75 +159,68 @@ end
 
 YN = [1, 0]
 
-def rev_engineering_score(items)
-  score = ((items[:basket_in_base] || 0 )* 30)
-  score += (items[:basket_in_base] || 0) * ((items[:model_identical] || 0 )* 15)
-end
-
 ################### The challenge definition -- READ THIS FIRST. It's the most important part of the project
 
 challenge do
-  mission "Using Recycled Material" do
-    item :bin_in_either_safety, "Bin in either Safety?", "60", ["0", "1", "2"], [0, 1, 2]
 
+  mission "M04 Sorting - Yellow/Blue Bars in Matching Green Bin" do
+    # Yellow/Blue Bars in Matching Green Bin
+    
+     item :bars_in_w_transfer, "Bars in Bins completely on/in West Transfer", "7", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+     item :bars_not_in_w_transfer, "Bars in Bins NEVER completely in W. Transfer", "6", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     score do |items|
-      (items[:bin_in_either_safety] || 0) * 60
+      ((items[:bars_in_w_transfer] || 0) * 7) + ((items[:bars_not_in_w_transfer] || 0) * 6)
     end
-
-  end
-
-  mission "Methane" do
-    item :in_truck, "Methane in truck", "40", ["No", "Yes"], [0, 1]
-    item :in_power_station, "Methane in power station", "40", ["No", "Yes"], [0, 1]
-    score do |items|
-      ((items[:in_truck] || 0) * 40) + ((items[:in_power_station] || 0) * 40)
+    check "Too many blue/yellow bars!" do |items|
+      ((items[:bars_in_w_transfer] || 0) + (items[:bars_not_in_w_transfer] || 0)) < 15
     end
   end
 
-  mission "Transport" do
+  mission "M04 Sorting - Black Bars Only" do
+    item :bars_in_original_position, "Bars in original position / scoring Flower Box", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    item :bars_in_green_bin_or_landfill, "Bars in matching Green Bin or Landfill", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    item :bars_elsewhere, "Bars elsewhere in play", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    score do |items|
+      ((items[:bars_in_original_position] || 0) * 8) + ((items[:bars_in_green_bin_or_landfill] || 0) * 3) + ((items[:bars_elsewhere] || 0) * -8)
+    end
+  end
+
+  mission "M02 Methane" do
+    item :in_truck_or_factory, "Methane in truck or factory", "40", ["0", "1", "2"], [0, 1, 2]
+    score do |items|
+      ((items[:in_truck_or_factory] || 0) * 40)
+    end
+  end
+
+  mission "M03 Transport" do
     item :truck_supporting_yellow_bin, "Truck supporting yellow bin", "50", ["No", "Yes"], [0, 1]
-    item :yellow_bin_east_of_truck_guide, "Yellow bin east of truck guide", "40", ["No", "Yes"], [0, 1]
+    item :yellow_bin_east_of_truck_guide, "Yellow bin east of truck guide", "60", ["No", "Yes"], [0, 1]
     score do |items|
-      ((items[:truck_supporting_yellow_bin] || 0) * 50) + ((items[:yellow_bin_east_of_truck_guide] || 0) * 40)
+      ((items[:truck_supporting_yellow_bin] || 0) * 50) + ((items[:yellow_bin_east_of_truck_guide] || 0) * 60)
     end
   end
 
-  mission "Sorting" do
-    # item :model_presented, "Model presented to Referee?", "20", ["No", "Yes"], [0, 1]
-    # item :model_touching_circle, "Touching circle, not in Base, people bound?", "35", ["No", "Yes"], [0, 1]
-    # score do |items|
-    #   ((items[:model_presented] || 0) * 20) + ((items[:model_presented] || 0) * ((items[:model_touching_circle] || 0) * 15))
-    # end
-  end
-
-  mission "Careers" do
+  mission "M05 Careers" do
     item :one_peron_in_sorter_ares, "At least one person in sorter area?", "60", ["No", "Yes"], [0, 1]
     score do |items|
       ((items[:one_peron_in_sorter_ares] || 0) * 60)
     end
   end
 
-  mission "Scrap Cars" do
+  #check
+  mission "M06 Scrap Cars" do
       item :engine_installed, "Engine correctly installed",  "65", ["No", "Yes"], [0, 1]
       item :car_folded_east_area, "Car folded and in East Transit Area?", "50", ["No", "Yes"], [0, 1]
+      item :car_never_in_safety, "Car NEVER even partly in Safety", "0", ["No", "Yes"], [0, 1]
       score do |items|
-        ((items[:engine_installed] || 0) * 65) + ((items[:car_folded_east_area] || 0) * 50)
+        ((items[:engine_installed] || 0) * 65) + ((items[:car_folded_east_area] || 0) * 50) * (items[:car_never_in_safety] || 0)
       end
       check "Engine installed OR Car folded, not both" do |items|
         (items[:engine_installed] + items[:car_folded_east_area]) <= 1
       end
     end
 
-  mission "Cleanup" do
-      item :plastic_bad_in_safety, "Plastic bags in Safety?", "30", ["0", "1", "2"], [0, 1, 2]
-      item :animals_in_circle, "Animals in circles without plastic bags?", "20", ["0", "1", "2"], [0, 1, 2]
-      item :checken_bonus, "Chicken in small circle?", "35", ["No", "Yes"], [0, 1]
-      score do |items|
-        ((items[:robotics_installed] || 0) * 30) + ((items[:robotics_loop_touch] || 0) * 20) + ((items[:checken_bonus] || 0) * 35)
-      end
-    end
-
-  mission "Composting" do
+  mission "M08 Composting" do
     item :compost_ejected, "Compost ejected and not in Safety?", "60", ["No", "Yes"], [0, 1]
     item :compost_in_safety, "Compost ejected and In Safety?", "80", ["No", "Yes"], [0, 1]
     score do |items|
@@ -236,32 +230,53 @@ challenge do
       (items[:compost_ejected] + items[:compost_in_safety]) <= 1
     end
   end
+    
+  mission "M07 Cleanup" do
+      item :plastic_bad_in_safety, "Plastic bags in Safety?", "30", ["0", "1", "2"], [0, 1, 2]
+      item :animals_in_circle, "Animals in circles without plastic bags?", "20", ["0", "1", "2", "3"], [0, 1, 2, 3]
+      item :chicken_bonus, "Chicken in small circle?", "35", ["No", "Yes"], [0, 1]
+      score do |items|
+        ((items[:plastic_bad_in_safety] || 0) * 30) + ((items[:animals_in_circle] || 0) * 20) + ((items[:chicken_bonus] || 0) * 35)
+      end
+    end
 
-  mission "Salvage" do
+  mission "M10 Demolition" do
+      item :no_beams_standing, "All beams no longer in setup position?", "85", ["No", "Yes"], [0, 1]
+      score do |items|
+         ((items[:no_beams_standing] || 0) * 85)
+      end
+    end
+  
+    mission "M01 Using Recycled Material" do
+      item :your_bin_in_opp_safety, "Your Green Bins w/ Matching Yel/Blu bar in Opp Safety?", "60", ["0", "1", "2"], [0, 1, 2]
+      item :opp_bin_in_your_safety, "Opp Green Bins w/ Matching Yel/Blu bar in Your Safety?", "60", ["0", "1", "2"], [0, 1, 2]
+
+      score do |items|
+        ((items[:your_bin_in_opp_safety] || 0) * 60) + ((items[:opp_bin_in_your_safety] || 0) * 60)
+      end
+    end
+    
+  mission "M09 Salvage" do
       item :valueable_in_safety, "Valuables in Safety?", "60", ["No", "Yes"], [0, 1]
       score do |items|
          ((items[:valueable_in_safety] || 0) * 60)
       end
     end
-
-  mission "Demolition" do
-      item :no_beams_standing, "All beams knocked down?", "85", ["No", "Yes"], [0, 1]
-      score do |items|
-         ((items[:no_beams_standing] || 0) * 25)
-      end
-    end
-
-  mission "Purchasing Decisions" do
+  
+  mission "M11 Purchasing Decisions" do
     item :planes_in_safety, "Planes completely in Safety?", "40", ["0", "1", "2"], [0, 1, 2]
     score do |items|
-       ((items[:planes_in_safety] || 0) * 25)
+       ((items[:planes_in_safety] || 0) * 40)
     end
   end
 
-  mission "Repurposing" do
-    item :compost_in_package, "Compost placed in package?", "40", ["No", "Yes"], [0, 1]
+  #check
+  mission "M12 Repurposing" do
+    item :compost_in_package, "Compost perfectly nested in empty Toy Package?", "40", ["No", "Yes"], [0, 1]
+    item :package_in_original_condition, "Package in original condition?", "40", ["No", "Yes"], [0, 1]
+    
     score do |items|
-       ((items[:compost_in_package] || 0) * 40)
+       ((items[:compost_in_package] || 0) * (items[:package_in_original_condition] || 0)) * 40
     end
   end
 
