@@ -40,31 +40,31 @@
 	}
 	
 	function special_validation() {
-		if (input_value('bar_south') == 1) {
-			if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
-				$("#marker_color").addClass('invalid');
-				return "Must select dial location!";
-			} 
-			if (input_value('marker_color') != 0 && input_value('marker_ticks') == 0) {
-				$("#marker_ticks").addClass('invalid');
-				return "Must select dial location!";
-			}
-		}
-		
-		var totalLoops = (input_value('robotics_loop_touch') == 0 ? 1 : 0) +
-						 (input_value('senses_touch') == 0 ? 1 : 0) + 
-						 (input_value('correct_engine_loop_removed') == 1 ? 2 : 0) +
-						 (input_value('community_touch') == 0 ? 1 : 0) +
-						 (input_value('loops_on_scale'));
-						 
-		if (totalLoops > 8) {
-			$("#robotics_loop_touch").addClass('invalid');
-			$("#senses_touch").addClass('invalid');
-			$("#correct_engine_loop_removed").addClass('invalid');
-			$("#community_touch").addClass('invalid');
-			$("#loops_on_scale").addClass('invalid');
-			return "Can't use more than 8 loops";
-		}
+		// if (input_value('bar_south') == 1) {
+		// 	if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
+		// 		$("#marker_color").addClass('invalid');
+		// 		return "Must select dial location!";
+		// 	}
+		// 	if (input_value('marker_color') != 0 && input_value('marker_ticks') == 0) {
+		// 		$("#marker_ticks").addClass('invalid');
+		// 		return "Must select dial location!";
+		// 	}
+		// }
+		//
+		// var totalLoops = (input_value('robotics_loop_touch') == 0 ? 1 : 0) +
+		// 				 (input_value('senses_touch') == 0 ? 1 : 0) +
+		// 				 (input_value('correct_engine_loop_removed') == 1 ? 2 : 0) +
+		// 				 (input_value('community_touch') == 0 ? 1 : 0) +
+		// 				 (input_value('loops_on_scale'));
+		//
+		// if (totalLoops > 8) {
+		// 	$("#robotics_loop_touch").addClass('invalid');
+		// 	$("#senses_touch").addClass('invalid');
+		// 	$("#correct_engine_loop_removed").addClass('invalid');
+		// 	$("#community_touch").addClass('invalid');
+		// 	$("#loops_on_scale").addClass('invalid');
+		// 	return "Can't use more than 8 loops";
+		// }
 		
 		return "";
 	}
