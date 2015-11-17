@@ -23,7 +23,7 @@ end
 gem 'unicorn'
 
 gem 'debugger', group: :development
-
+gem 'responders', '~> 2.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
