@@ -16,7 +16,7 @@ gem 'json', '1.7.3'
 gem 'rails_12factor', group: :production
 
 group :assets do
-  gem 'uglifier'
+  gem 'uglifier', '~> 2.7'
 end
 
 # Use unicorn as the web server
