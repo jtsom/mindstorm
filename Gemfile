@@ -12,7 +12,7 @@ gem 'pg'
 # gem 'thin'
 
 gem 'jquery-rails'
-gem 'json', '1.7.3'
+gem 'json'
 gem 'rails_12factor', group: :production
 
 group :assets do
