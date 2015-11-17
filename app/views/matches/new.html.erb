@@ -8,9 +8,10 @@
 <div class="row" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 1, :onchange => "change_color();" } %></div>
 <div class="row">
 <table style="border-collapse:collapse;" border="1">
-  <%= fields_for :results do |match_fields| 
+  <%= fields_for :results do |match_fields|
 		$challenge.missions.each do |mission| -%>
-	<tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description.html_safe -%></b></td>
+	<!-- <tr><td rowspan="<%= mission.items.length %>"><b><%= mission.description.html_safe -%></b></td> -->
+  <tr><td colspan="2"><b><%= mission.description.html_safe -%></b></td></tr>
 	<% mission.items.each do |item|
 		# max_length = 2
 		# allowed_values=item.allowed_values
@@ -23,7 +24,7 @@
 		else
 			value=""
 		end
-		
+
 		# input_type = $challenge.type_of(item.label)
 		# if input_type == :range
 		# 	val_func = "return validate_range(#{allowed_values.max});"
@@ -37,21 +38,21 @@
 		# else
 		# 	select_tag = match_fields.select(item.label, {"No" => "N", "Yes" => "Y"}, {:selected => value})
 		# end
-		
+
 		labels.push(item.label)
 		 -%>
+    <tr>
+		  <td><%= item.description %></td>
+  		<td>
+  			<div id="<%= item.label %>"><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %></div>
+  		</td>
+	  </tr>
 
-		<td><%= item.description %></td>
-		<td>
-			<div id="<%= item.label %>"><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %></div> 
-		</td>
-	</tr>	
-		
-<%		end	
+<%		end
 	end
-  end 
+  end
   all_labels = labels.join("', '").html_safe  %>
-</table>
+  </table>
 </div>
 
 <% content_for :head_script do %>
@@ -59,6 +60,6 @@
 <% end %>
 
 <div class="row">
-<%= f.submit "Submit", class: 'btn btn-primary' %>
+<%= f.submit "Submit", class: 'btn btn-primary btn-lg' %>
 </div>
 <%  end -%>

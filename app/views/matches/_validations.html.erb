@@ -3,43 +3,60 @@
 		var labels = ['<%= all_labels -%>'] ;
 		var valid = true;
 		var invalid = "";
-		
+
 		$("input[type=radio]").removeClass('invalid'); // clear errors first
-		
+
 		//check if any input groups are not checked
 		for (var i = 0; i < labels.length; i++) {
 			var selector = 'input[data-tag=' + labels[i] + ']';
-			
+
 			if (!($(selector).is(':checked'))) {
 				valid = false;
 				invalid += " " + labels[i];
 				$("#" + labels[i]).addClass('invalid');
+				window.scrollTo(0, 0);
 			}
 		}
-		
+
 		if ($("#qualification_match_number").val() == "") {
 			valid = false;
 			$("#qualification_match_number").addClass('invalid');
+			window.scrollTo(0, $("#qualification_match_number").position().top);
 		}
 		if ($("#qualification_table_number").val() == "") {
 			valid = false;
 			$("#qualification_table_number").addClass('invalid');
+			window.scrollTo(0, $("#qualification_table_number").position().top);
 		}
-		
+
 		if (!valid) {
-			alert("Make a selection for all items!");
+			BootstrapDialog.alert({
+									title: 'ERRORS!',
+									message: "Make a selection for all items!",
+									type: BootstrapDialog.TYPE_DANGER // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+							});
 		} else {
 			var special = special_validation();
 			if (special != "") {
-				alert(special);
+				//alert(special);
+				BootstrapDialog.alert({
+				            title: 'ERRORS!',
+				            message: special,
+				            type: BootstrapDialog.TYPE_DANGER // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+				            // callback: function(result) {
+				            //     // result will be true if button was click, while it will be false if users close the dialog directly.
+				            //     alert('Result is: ' + result);
+				            // }
+				        });
 				valid = false;
 			}
 		}
-		
+
 		return valid;
 	}
-	
+
 	function special_validation() {
+
 		// if (input_value('bar_south') == 1) {
 		// 	if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
 		// 		$("#marker_color").addClass('invalid');
@@ -65,24 +82,53 @@
 		// 	$("#loops_on_scale").addClass('invalid');
 		// 	return "Can't use more than 8 loops";
 		// }
-		
+
+		if (input_value('engine_installed') == 1 && input_value('car_folded_east_area') == 1) {
+			make_all_invalid("engine_installed", "car_folded_east_area");
+			return "Car can either be folded or have it's engine installed!";
+		}
+
+		if (input_value('bars_in_w_transfer') + input_value('bars_not_in_w_transfer') > 15 ) {
+			make_all_invalid('bars_in_w_transfer', 'bars_not_in_w_transfer');
+			return "Too many Blue / Yellow bars!";
+		}
+
+		if (input_value('bars_in_original_position') + input_value('bars_in_green_bin_or_landfill') + input_value('bars_elsewhere') > 12 ) {
+			make_all_invalid('bars_in_original_position', 'bars_in_green_bin_or_landfill', 'bars_elsewhere');
+			return "Too many Black bars!";
+		}
+
+		if (input_value('compost_ejected') == 1 && input_value('compost_in_safety') == 1) {
+			make_all_invalid('compost_ejected','compost_in_safety');
+			return "Compost can be in or out of Safety!";
+		}
+
 		return "";
 	}
-	
+
 	function input_value(tag) {
 		return parseInt($('input:checked[data-tag=' + tag + ']').val());
 	}
-	
-</script>
-	
-<script>
+
+	function make_invalid(tag) {
+		$('#' + tag).addClass('invalid');
+	}
+
+	function make_all_invalid() {
+		for (var i = 0; i < arguments.length; i++) {
+			$('#' + arguments[i]).addClass('invalid');
+		}
+		window.scrollTo(0, $("#" + arguments[0]).position().top);
+	}
+
+
 	$(document).ready(function () {
-		$("input[type=radio]").on('change', function (evt, myName) {			
+		$("input[type=radio]").on('change', function (evt, myName) {
 			var tag = $(evt.currentTarget).data('tag');
 			$('#' + tag).removeClass('invalid');
-			
+
 		});
-		
+
 		$("input[type=text]").on('change', function (evt, element) {
 			$(evt.currentTarget).removeClass('invalid');
 		});

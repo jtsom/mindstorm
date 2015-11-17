@@ -165,14 +165,14 @@ challenge do
 
   mission "M04 Sorting - Yellow/Blue Bars in Matching Green Bin" do
     # Yellow/Blue Bars in Matching Green Bin
-    
+
      item :bars_in_w_transfer, "Bars in Bins completely on/in West Transfer", "7", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
      item :bars_not_in_w_transfer, "Bars in Bins NEVER completely in W. Transfer", "6", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     score do |items|
       ((items[:bars_in_w_transfer] || 0) * 7) + ((items[:bars_not_in_w_transfer] || 0) * 6)
     end
     check "Too many blue/yellow bars!" do |items|
-      ((items[:bars_in_w_transfer] || 0) + (items[:bars_not_in_w_transfer] || 0)) < 15
+      ((items[:bars_in_w_transfer] || 0) + (items[:bars_not_in_w_transfer] || 0)) <= 15
     end
   end
 
@@ -182,6 +182,9 @@ challenge do
     item :bars_elsewhere, "Bars elsewhere in play", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     score do |items|
       ((items[:bars_in_original_position] || 0) * 8) + ((items[:bars_in_green_bin_or_landfill] || 0) * 3) + ((items[:bars_elsewhere] || 0) * -8)
+    end
+    check "Too many Black bars!" do |items|
+      ((items[:bars_in_original_position] || 0) + (items[:bars_in_green_bin_or_landfill] || 0) + (items[:bars_elsewhere] || 0)) <= 12
     end
   end
 
@@ -230,7 +233,7 @@ challenge do
       (items[:compost_ejected] + items[:compost_in_safety]) <= 1
     end
   end
-    
+
   mission "M07 Cleanup" do
       item :plastic_bad_in_safety, "Plastic bags in Safety?", "30", ["0", "1", "2"], [0, 1, 2]
       item :animals_in_circle, "Animals in circles without plastic bags?", "20", ["0", "1", "2", "3"], [0, 1, 2, 3]
@@ -246,7 +249,7 @@ challenge do
          ((items[:no_beams_standing] || 0) * 85)
       end
     end
-  
+
     mission "M01 Using Recycled Material" do
       item :your_bin_in_opp_safety, "Your Green Bins w/ Matching Yel/Blu bar in Opp Safety?", "60", ["0", "1", "2"], [0, 1, 2]
       item :opp_bin_in_your_safety, "Opp Green Bins w/ Matching Yel/Blu bar in Your Safety?", "60", ["0", "1", "2"], [0, 1, 2]
@@ -255,14 +258,14 @@ challenge do
         ((items[:your_bin_in_opp_safety] || 0) * 60) + ((items[:opp_bin_in_your_safety] || 0) * 60)
       end
     end
-    
+
   mission "M09 Salvage" do
       item :valueable_in_safety, "Valuables in Safety?", "60", ["No", "Yes"], [0, 1]
       score do |items|
          ((items[:valueable_in_safety] || 0) * 60)
       end
     end
-  
+
   mission "M11 Purchasing Decisions" do
     item :planes_in_safety, "Planes completely in Safety?", "40", ["0", "1", "2"], [0, 1, 2]
     score do |items|
@@ -274,7 +277,7 @@ challenge do
   mission "M12 Repurposing" do
     item :compost_in_package, "Compost perfectly nested in empty Toy Package?", "40", ["No", "Yes"], [0, 1]
     item :package_in_original_condition, "Package in original condition?", "40", ["No", "Yes"], [0, 1]
-    
+
     score do |items|
        ((items[:compost_in_package] || 0) * (items[:package_in_original_condition] || 0)) * 40
     end

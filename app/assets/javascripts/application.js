@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require jquery.simplyscroll.js
 //= require bootstrap.min.js
+//= require bootstrap-dialog.min.js
 //= require_self
 
 
