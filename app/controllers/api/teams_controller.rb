@@ -3,8 +3,7 @@ module Api
 		respond_to :json
 
 		def index
-			@teams = Team.includes(:qualifications).where("competition_id = ?", params[:competition_id])
-			@teams.sort! {|a,b| a.fll_number <=> b.fll_number}
+			@teams = Team.includes(:qualifications).where("competition_id = ?", params[:competition_id]).order(:fll_number)
 			respond_with @teams, :include => :qualifications
 		end
 
