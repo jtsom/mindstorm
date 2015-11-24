@@ -17,7 +17,7 @@ label.btn.btn-default.active {
 	width: 20px;
 	margin-top:170px;
 	font-weight: bold;
-	
+
 }
 .category
 	{
@@ -66,7 +66,8 @@ td.alt
      border: thin solid #000000;
 }
 
-select 
+
+select
 {
   width: 65px;
 }
@@ -78,4 +79,4 @@ select
 @media all
 {
   .page-break  { display:block; page-break-after:always;}
-} 
+}

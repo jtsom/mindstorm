@@ -9,7 +9,7 @@
 	</table>
 <% @matches.group_by(&:table_number).sort.each do |table_number, matches| %>
 
-	<div class="table table<%= table_number%>">
+	<div class="matchtable table<%= table_number%>">
 		<div class="tabletitle">Table <%= table_number %></div>
 		<div class="results">
 			<p class="teamresults">
@@ -29,9 +29,9 @@
 		</div>
 	</div>
 
-<% end %>	
+<% end %>
 	<div id="bottom">
 		<%= image_tag("worldclass.png", :size => "200x100" ) %>
-		
+
 	</div>
 </div>

@@ -13,7 +13,7 @@ function reloadPage()
 	window.location = window.location;
 	setInterval( "reloadPage()", 120000 );
 }
-</script>	
+</script>
 <% end -%>
 
 <h1>Team Standings</h1>
@@ -22,9 +22,9 @@ function reloadPage()
 
 <!-- <div class="scrollme" behavior="scroll" direction="up" height="600"  scrollamount="1"> -->
 <div id="scrollme">
-<table border="1" style="border-collapse:collapse" id="standings">
+<table class="standings-table table table-condensed table-striped" id="standings">
 	<tr><td>&nbsp;</td>
-		<td>#</td><td>Name</td><th>High</th>
+		<td>#</td><td>Name</td><td>High</td>
 		<% (1..APP_CONFIG["max_matches"]).each do |col| %>
 			<td width="25px"><%= col %></td>
 		<% end %>
@@ -39,7 +39,7 @@ function reloadPage()
 	<% if team.qualifications.length < APP_CONFIG["max_matches"]
 		(team.qualifications.length+1..APP_CONFIG["max_matches"]).each do %>
 		<td>&nbsp;</td>
-		<% end 
+		<% end
 	   end -%>
 	</tr>
 <% end -%>
