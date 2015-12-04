@@ -8,10 +8,10 @@ module Api
 			end
 
 			if params[:competition_id] && !params[:team_id]
-				teams = Team.includes([:qualifications]).where("competition_id = ?", params[:competition_id]).order(['matches.match_number', 'matches.table_number'])
+				teams = Team.includes([:qualifications]).where("competition_id = ?", params[:competition_id])
 				matches = []
 				teams.each do |team|
-					all_matches = team.qualifications
+					all_matches = team.qualifications.order([:match_number, :table_number])
 					if all_matches && !all_matches.empty?
 	      				matches.concat(all_matches)
 	      			end
