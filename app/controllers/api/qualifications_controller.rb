@@ -11,12 +11,12 @@ module Api
 				teams = Team.includes([:qualifications]).where("competition_id = ?", params[:competition_id])
 				matches = []
 				teams.each do |team|
-					all_matches = team.qualifications.order([:match_number, :table_number])
+					all_matches = team.qualifications
 					if all_matches && !all_matches.empty?
 	      				matches.concat(all_matches)
 	      			end
 	    		end
-	    		respond_with matches
+	    		respond_with matches.sort_by {|t| [t[:match_number], t[:table_number]] }
 			end
 		end
 	end
