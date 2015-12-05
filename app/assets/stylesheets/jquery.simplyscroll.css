@@ -11,7 +11,7 @@
  *
  */
 
-/* Default/Master classes 
+/* Default/Master classes
 
 Example markup format (for horizontal scroller)
 Note all DIVs are generated and should not be hard-coded
@@ -45,18 +45,18 @@ Note all DIVs are generated and should not be hard-coded
 		padding: 0;
 		list-style: none;
 	}
-	
+
 		.simply-scroll-list li {
 			padding: 0;
 			margin: 0;
 			list-style: none;
 		}
-	
+
 		.simply-scroll-list li img {
 			border: none;
 			display: block;
 		}
-	
+
 	.simply-scroll-btn {
 		position: absolute;
 		background-image: url(buttons.png);
@@ -65,7 +65,7 @@ Note all DIVs are generated and should not be hard-coded
 		z-index:3;
 		cursor: pointer;
 	}
-	
+
 	.simply-scroll-btn-left {
 		left: 6px;
 		bottom: 6px;
@@ -77,7 +77,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-left:hover, .simply-scroll-btn-left:focus {
 		background-position: 0 -88px;
 	}
-	
+
 	.simply-scroll-btn-right {
 		right: 6px;
 		bottom: 6px;
@@ -89,7 +89,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-right:hover, .simply-scroll-btn-right:focus {
 		background-position: -84px -88px;
 	}
-	
+
 	.simply-scroll-btn-up {
 		right: 6px;
 		top: 6px;
@@ -101,7 +101,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-up:hover, .simply-scroll-btn-up:focus {
 		background-position: -126px -88px;
 	}
-	
+
 	.simply-scroll-btn-down {
 		right: 6px;
 		bottom: 6px;
@@ -113,7 +113,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-down:hover, .simply-scroll-btn-down:focus {
 		background-position: -42px -88px;
 	}
-	
+
 	.simply-scroll-btn-pause {
 		right: 6px;
 		bottom: 6px;
@@ -122,7 +122,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-pause:hover, .simply-scroll-btn-pause:focus {
 		background-position: -168px -88px;
 	}
-	
+
 	.simply-scroll-btn-pause.active {
 		background-position: -84px -44px;
 	}
@@ -146,34 +146,34 @@ Note all DIVs are generated and should not be hard-coded
 		width: 576px;
 		height: 200px;
 	}
-	
+
 		.simply-scroll .simply-scroll-list {}
-		
+
 		.simply-scroll .simply-scroll-list li {
 			float: left;
 			width: 290px;
 			height: 200px;
 		}
 		.simply-scroll .simply-scroll-list li img {}
-	
+
 	.simply-scroll .simply-scroll-btn {}
-	
+
 	.simply-scroll .simply-scroll-btn-left {}
 	.simply-scroll .simply-scroll-btn-left.disabled {}
 	.simply-scroll .simply-scroll-btn-left:hover {}
-	
+
 	.simply-scroll .simply-scroll-btn-right {}
 	.simply-scroll .simply-scroll-btn-right.disabled {}
 	.simply-scroll .simply-scroll-btn-right:hover {}
-	
+
 	.simply-scroll .simply-scroll-btn-up {}
 	.simply-scroll .simply-scroll-btn-up.disabled {}
 	.simply-scroll .simply-scroll-btn-up:hover {}
-	
+
 	.simply-scroll .simply-scroll-btn-down {}
 	.simply-scroll .simply-scroll-btn-down.disabled {}
 	.simply-scroll .simply-scroll-btn-down:hover {}
-	
+
 
 
 /* Vertical scroller example */
@@ -188,15 +188,15 @@ Note all DIVs are generated and should not be hard-coded
 		width: 290px;
 		height: 400px;
 	}
-	
+
 		.vert .simply-scroll-list {}
-		
+
 		.vert .simply-scroll-list li {
 			width: 290px;
 			height: 200px;
 		}
 		.vert .simply-scroll-list li img {}
-	
+
 	.vert .simply-scroll-btn {}
 
 	.vert .simply-scroll-btn-up { /* modified btn pos */
@@ -205,37 +205,32 @@ Note all DIVs are generated and should not be hard-coded
 	}
 	.vert .simply-scroll-btn-up.disabled {}
 	.vert .simply-scroll-btn-up:hover {}
-	
+
 	.vert .simply-scroll-btn-down { /* modified btn pos */
 		right: 0;
 		top: 52px;
 	}
 	.vert .simply-scroll-btn-down.disabled {}
 	.vert .simply-scroll-btn-down:hover {}
-	
+
 	/* NOTE left-right classes wouldn't be needed on vertical scroller */
-
-
-	
-	
-	
-.standings { /* wider than clip to position buttons to side */
-	width: 1000px;
-	height: 600px;
-/*	margin-bottom: 1.5em;*/
-}
-
-	.standings .simply-scroll-clip {
-		width:  1000px;
-		height: 600px; /*720px window height*/
+	.standings { /* wider than clip to position buttons to side */
+		/*width: 1000px;*/
+		height: 600px;
+	/*	margin-bottom: 1.5em;*/
 	}
-	
-	.standings .simply-scroll-list {
-		width:800px;
-		height:200px;
-	}
-		
-	.standings .simply-scroll-list li {
-		width: 800px;
-		height: 35px;
-	}
+
+		.standings .simply-scroll-clip {
+			/*width:  1000px;*/
+			height: 600px; /*720px window height*/
+		}
+
+		.standings .simply-scroll-list {
+			/*width:800px;*/
+			height:200px;
+		}
+
+		.standings .simply-scroll-list li {
+			/*width: 800px;*/
+			height: 35px;
+		}

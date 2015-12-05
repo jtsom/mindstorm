@@ -84,6 +84,16 @@ class Team < ActiveRecord::Base
         qualifications.maximum(:score)|| 0
     end
 
+    # def second_highest_score
+    #     qual = qualifications.sort_by { |a,b| b.score <=> a.score }
+    #     qual.count > 1 ? qual[1].score : 0
+    # end
+    #
+    # def third_highest_score
+    #     qual = qualifications.sort { |a,b| b.score <=> a.score }
+    #     qual.count > 2 ? qual[2].score : 0
+    # end
+
     def total_qual_score
         qualifications.sum(:score)
     end

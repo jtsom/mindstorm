@@ -21,10 +21,14 @@ function reloadPage()
 <%= link_to 'Back', teams_path %>
 
 <!-- <div class="scrollme" behavior="scroll" direction="up" height="600"  scrollamount="1"> -->
-<div id="scrollme">
+
+<div id="scrollme" class="col-sm-12">
+	<!--  <div style="height: overflow auto;">-->
 <table class="standings-table table table-condensed table-striped" id="standings">
 	<tr><td>&nbsp;</td>
-		<td>#</td><td>Name</td><td>High</td>
+		<td>Rank</td>
+		<td>Name</td>
+		<td>High</td>
 		<% (1..APP_CONFIG["max_matches"]).each do |col| %>
 			<td width="25px"><%= col %></td>
 		<% end %>
@@ -44,4 +48,6 @@ function reloadPage()
 	</tr>
 <% end -%>
 </table>
+
+<!--</div>-->
 </div>
