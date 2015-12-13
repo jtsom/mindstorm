@@ -16,7 +16,7 @@ module Api
 	      				matches.concat(all_matches)
 	      			end
 	    		end
-	    		respond_with matches
+	    		respond_with matches.sort_by {|t| [t[:match_number], t[:table_number]] }
 			end
 		end
 	end
