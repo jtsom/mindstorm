@@ -4,17 +4,17 @@ class MatchesController < ApplicationController
   before_filter :get_class
 
   def new
-    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %> 
+    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %>
     @team = @current_competition.teams.find params[:team_id]
     @match = @match_class.new
 		render  "matches/new"
   end
-  
+
   def index
 		#@matches = @match_class.order(:match_number)
 		teams = @current_competition.teams
 
-		# Get matches for teams in current competition		
+		# Get matches for teams in current competition
 		@matches = []
 		teams.each do |team|
 		  case params[:controller]
@@ -28,8 +28,8 @@ class MatchesController < ApplicationController
 	    end
 	  end
 
-	  @matches = @matches.sort {|a,b| a.match_number <=> b.match_number }
-    
+	  @matches = @matches.sort_by {|t| [t[:match_number], t[:table_number]] }
+
 		respond_to do |wants|
        wants.html { render "matches/index" }
        wants.xml {render :xml => @matches }
@@ -37,11 +37,11 @@ class MatchesController < ApplicationController
      end
 		#render "matches/index"
   end
-  
+
   def show
-    
+
     teams = @current_competition.teams
-		
+
 		# Get matches for teams in current competition
 		@matches = []
 		teams.each do |team|
@@ -69,7 +69,7 @@ class MatchesController < ApplicationController
       format.xml {render :xml => @matches }
     end
   end
-  
+
   def destroy
     team = @current_competition.teams.find(params[:team_id])
     match = @match_class.find(params[:id])
@@ -77,14 +77,14 @@ class MatchesController < ApplicationController
     flash[:notice] = "Match #{match.match_number} for team #{team.fll_number} deleted."
     redirect_to :action => "index"
   end
-  
+
   def edit
-    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %> 
+    # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %>
     @team = @current_competition.teams.find(params[:team_id])
 		@match = @match_class.find(params[:id])
     render "matches/edit"
   end
-  
+
   def update
      @team = @current_competition.teams.find(params[:team_id])
      @match = @match_class.find(params[:id])
@@ -97,13 +97,13 @@ class MatchesController < ApplicationController
          else value.to_i
        end
      end
-     
+
      @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
      @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
      @match.results = results
 
      if $challenge.check(results)
-       
+
        @match.score = $challenge.score(results)
        if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
@@ -119,7 +119,7 @@ class MatchesController < ApplicationController
      end
 
    end
-  
+
   def create
     @team = @current_competition.teams.find params[:team_id]
 
@@ -127,7 +127,7 @@ class MatchesController < ApplicationController
     @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
     @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
     @match.team_id = params[:team_id]
-    
+
     if @match.valid?
       results = {}
       params[:results].each_pair do |key, value|
@@ -137,9 +137,9 @@ class MatchesController < ApplicationController
           else value.to_i
         end
       end
-    
+
       @match.results = results
-    
+
       if $challenge.check(results)
         flash[:notice] = "Results for match #{@match.match_number} saved."
         @match.score = $challenge.score(results)
@@ -150,7 +150,7 @@ class MatchesController < ApplicationController
           when "finals"
             @team.finals << @match
         end
-        
+
         redirect_to :controller => "teams"
       else
         err = "Please correct the following: <br>"
@@ -169,7 +169,7 @@ private
 	def get_class
 		@match_class=params[:controller].classify.constantize
 	end
-  
+
   def authenticate
     if current_competition == nil
       redirect_to root_url
