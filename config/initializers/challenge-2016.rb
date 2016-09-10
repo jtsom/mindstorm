@@ -21,7 +21,7 @@ class Challenge
   end
 
   def mission_year
-    2015
+    2016
   end
 
   def to_s
