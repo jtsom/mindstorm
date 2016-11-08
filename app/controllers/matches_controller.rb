@@ -105,6 +105,7 @@ class MatchesController < ApplicationController
      if $challenge.check(results)
 
        @match.score = $challenge.score(results)
+       @match.challenge_year = $challenge.mission_year
        if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
          redirect_to team_path @team
@@ -143,6 +144,7 @@ class MatchesController < ApplicationController
       if $challenge.check(results)
         flash[:notice] = "Results for match #{@match.match_number} saved."
         @match.score = $challenge.score(results)
+        @match.challenge_year = $challenge.mission_year
         @match.save
         case params[:controller]
           when "qualifications"

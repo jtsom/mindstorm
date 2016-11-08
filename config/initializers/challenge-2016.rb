@@ -163,125 +163,166 @@ YN = [1, 0]
 
 challenge do
 
-  mission "M04 Sorting - Yellow/Blue Bars in Matching Green Bin" do
-    # Yellow/Blue Bars in Matching Green Bin
+  mission "M01 Shark Shipment" do
+    item :tank_and_shark_in_target, "Tank and Shark are completely in Target", "7/10", ["None", "T1", "T2"], ["None", "T1", "T2"]
+    item :shark_touching_tank_only, "Shark touching only tank floor (NOT wall)?", "20", ["No", "Yes"], ["0", "1"]
+    item :nothing_touched_shark, "Nothing touched the Shark except the tank?", "20", ["No", "Yes"], ["0", "1"]
 
-     item :bars_in_w_transfer, "Bars in Bins completely on/in West Transfer", "7", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-     item :bars_not_in_w_transfer, "Bars in Bins NEVER completely in W. Transfer", "6", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     score do |items|
-      ((items[:bars_in_w_transfer] || 0) * 7) + ((items[:bars_not_in_w_transfer] || 0) * 6)
-    end
-    check "Too many blue/yellow bars!" do |items|
-      ((items[:bars_in_w_transfer] || 0) + (items[:bars_not_in_w_transfer] || 0)) <= 15
+      s = 0
+      if (items[nothing_touched_shark] || 0) == 1
+        case items[:tank_and_shark_in_target]
+        when "None"
+        when "T1"
+          s += 7
+        when "T2"
+          s += 10
+        end
+        s += ((items[shark_touching_tank_only] || 0) * 20)
+      end
+      s
     end
   end
 
-  mission "M04 Sorting - Black Bars Only" do
-    item :bars_in_original_position, "Bars in original position / scoring Flower Box", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    item :bars_in_green_bin_or_landfill, "Bars in matching Green Bin or Landfill", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    item :bars_elsewhere, "Bars elsewhere in play", "20", ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  mission "M02 Service Dog Action" do
+
+    item :warning_fence_down, "Warning Fence is down", "15", ["No", "Yes"], [0, 1]
+    item :robot_crossed_fence, "Robot completely crossed fence", "0", ["No", "Yes"], [0, 1]
     score do |items|
-      ((items[:bars_in_original_position] || 0) * 8) + ((items[:bars_in_green_bin_or_landfill] || 0) * 3) + ((items[:bars_elsewhere] || 0) * -8)
-    end
-    check "Too many Black bars!" do |items|
-      ((items[:bars_in_original_position] || 0) + (items[:bars_in_green_bin_or_landfill] || 0) + (items[:bars_elsewhere] || 0)) <= 12
+      s = 0
+      if (items[:robot_crossed_fence] || 0) == 1
+        s += ((items[:warning_fence_down] || 0) * 15)
+      end
+      s
     end
   end
 
-  mission "M02 Methane" do
-    item :in_truck_or_factory, "Methane in truck or factory", "40", ["0", "1", "2"], [0, 1, 2]
+  mission "M03 Animal Conservation" do
+  item :pairs_of_identical_animals, "Pairs of Identical Animals completely on same side", "20", ["0", "1", "2", "3", "4", "5", "6"], [0, 1, 2, 3, 4, 5, 6]
     score do |items|
-      ((items[:in_truck_or_factory] || 0) * 40)
+      ((items[:pairs_of_identical_animals] || 0) * 20)
     end
   end
 
-  mission "M03 Transport" do
-    item :truck_supporting_yellow_bin, "Truck supporting yellow bin", "50", ["No", "Yes"], [0, 1]
-    item :yellow_bin_east_of_truck_guide, "Yellow bin east of truck guide", "60", ["No", "Yes"], [0, 1]
+  mission "M04 Feeding" do
+    item :pieces_of_food, "Pieces of food completely in Animal Areas", "10", ["0", "1", "2", "3", "4", "5", "6", "7", "8"], [0, 1, 2, 3, 4, 5, 6 ,7, 8]
     score do |items|
-      ((items[:truck_supporting_yellow_bin] || 0) * 50) + ((items[:yellow_bin_east_of_truck_guide] || 0) * 60)
+      ((items[:pieces_of_food] || 0) * 10)
     end
   end
 
-  mission "M05 Careers" do
-    item :one_peron_in_sorter_ares, "At least one person in sorter area?", "60", ["No", "Yes"], [0, 1]
+  mission "M05 Biomimicry" do
+    item :wall_supports_gecko, "Wall supports complete weight of White Gecko", "15", ["No", "Yes"], [0, 1]
+    item :wall_supports_robot, "Wall supports complete weight of Robot", "32", ["No", "Yes"], [0, 1]
     score do |items|
-      ((items[:one_peron_in_sorter_ares] || 0) * 60)
+      ((items[:wall_supports_gecko] || 0) * 15) + ((items[:wall_supports_robot] || 0) * 32)
+    end
+  end
+
+  mission "M06 Milking Automation" do
+    item :milk_and_manure, "Milk AND Manure have all rolled out?", "15", ["No", "Yes"], [0, 1]
+    item :milk_only, "Milk has all rolled out, but NOT Manure?", "20", ["No", "Yes"], [0, 1]
+    score do |items|
+      ((items[:milk_and_manure] || 0) * 15) + ((items[:milk_only] || 0) * 20)
+    end
+
+    check "Milk AND Manure OR Milk ONLY" do |items|
+      (items[:milk_and_manure] + items[:milk_only]) <= 1
+    end
+  end
+
+  mission "M07 Panda Release" do
+    item :slider_opened, "Slider appears fully opened clockwise installed",  "10", ["No", "Yes"], [0, 1]
+    score do |items|
+      ((items[:slider_opened] || 0) * 10)
+    end
+  end
+
+  mission "M08 Camera Recovery" do
+    item :camera_in_base, "Camera is completely in Base?", "15", ["No", "Yes"], [0, 1]
+    score do |items|
+       ((items[:camera_in_base] || 0) * 15)
+    end
+  end
+
+  mission "M09 Training and Research" do
+      item :dog_trainer_in_research, "Dog, Trainer completely in Training/Research Area?", "12", ["No", "Yes"], [0, 1]
+      item :zoologist_in_research, "Zoologist completely in Training/Research Area?", "15", ["No", "Yes"], [0, 1]
+      item :manure_in_research, "Manure completely in Training/Research Area", "5", ["0", "1", "2", "3", "4", "5", "6", "7"], [0, 1, 2, 3, 4, 5, 6 ,7]
+      score do |items|
+        ((items[:dog_trainer_in_research] || 0) * 12) + ((items[:zoologist_in_research] || 0) * 15) + ((items[:manure_in_research] || 0) * 5)
+      end
+    end
+
+  mission "M10 Bee Keeping" do
+    item :bee_no_honey, "Bee is on Beehive with NO Honey in Beehive?", "12", ["No", "Yes"], [0, 1]
+    item :bee_honey_in_base, "Bee is on Beehive and Honey in Base?", "15", ["No", "Yes"], [0, 1]
+    score do |items|
+       ((items[:bee_no_honey] || 0) * 12) + ((items[:bee_no_honey] || 0) * 15)
+    end
+    check "No Honey in Beehive OR honey in Base" do |items|
+      (items[:bee_no_honey] + items[:bee_honey_in_base]) <= 1
+    end
+  end
+
+  mission "M11 Prosthesis" do
+    item :prosthesis_not_held_by_ref, "Prosthesis fitted to Pet, NOT held by Ref?", "9", ["No", "Yes"], [0, 1]
+    item :prostheses_in_farm, "Prosthesis fitted to Pet and completely in Farm?", "15", ["No", "Yes"], [0, 1]
+    score do |items|
+       ((items[:prosthesis_not_held_by_ref] || 0) * 9) + ((items[:prostheses_in_farm] || 0) * 15)
+    end
+    check "Prosthesis on pet and not held by ref OR completely in Farm" do |items|
+      (items[:prosthesis_not_held_by_ref] + items[:prostheses_in_farm]) <= 1
+    end
+  end
+
+  mission "M12 Seal In Base" do
+    item :seal_in_base, "Seal is completely in Base, NOT broken?", "1", ["No", "Yes"], [0, 1]
+    score do |items|
+       ((items[:seal_in_base] || 0) * 1)
     end
   end
 
   #check
-  mission "M06 Scrap Cars" do
-      item :engine_installed, "Engine correctly installed",  "65", ["No", "Yes"], [0, 1]
-      item :car_folded_east_area, "Car folded and in East Transit Area?", "50", ["No", "Yes"], [0, 1]
-      item :car_never_in_safety, "Car NEVER even partly in Safety", "0", ["No", "Yes"], [0, 1]
-      score do |items|
-        ((items[:engine_installed] || 0) * 65) + ((items[:car_folded_east_area] || 0) * 50) * (items[:car_never_in_safety] || 0)
-      end
-      check "Engine installed OR Car folded, not both" do |items|
-        (items[:engine_installed] + items[:car_folded_east_area]) <= 1
-      end
-    end
-
-  mission "M08 Composting" do
-    item :compost_ejected, "Compost ejected and not in Safety?", "60", ["No", "Yes"], [0, 1]
-    item :compost_in_safety, "Compost ejected and In Safety?", "80", ["No", "Yes"], [0, 1]
+  mission "M13 Milk In Base" do
+    item :three_milk_in_base, "All three Milk are completely in Base?", "40", ["No", "Yes"], [0, 1]
     score do |items|
-       ((items[:compost_ejected] || 0) * 60) + ((items[:compost_in_safety] || 0) * 80)
-    end
-    check "Compost can be in or out of Safety" do |items|
-      (items[:compost_ejected] + items[:compost_in_safety]) <= 1
+       ((items[:three_milk_in_base] || 0) * 1)
     end
   end
 
-  mission "M07 Cleanup" do
-      item :plastic_bad_in_safety, "Plastic bags in Safety?", "30", ["0", "1", "2"], [0, 1, 2]
-      item :animals_in_circle, "Animals in circles without plastic bags?", "20", ["0", "1", "2", "3"], [0, 1, 2, 3]
-      item :chicken_bonus, "Chicken in small circle?", "35", ["No", "Yes"], [0, 1]
-      score do |items|
-        ((items[:plastic_bad_in_safety] || 0) * 30) + ((items[:animals_in_circle] || 0) * 20) + ((items[:chicken_bonus] || 0) * 35)
-      end
-    end
+  mission "M14 Milk On Ramp" do
+    item :milk_on_ramp_option, "Select Best Option", "40", ["None", "A", "B", "C"], ["None", "A", "B", "C"]
 
-  mission "M10 Demolition" do
-      item :no_beams_standing, "All beams no longer in setup position?", "85", ["No", "Yes"], [0, 1]
-      score do |items|
-         ((items[:no_beams_standing] || 0) * 85)
-      end
-    end
-
-    mission "M01 Using Recycled Material" do
-      item :your_bin_in_opp_safety, "Your Green Bins w/ Matching Yel/Blu bar in Opp Safety?", "60", ["0", "1", "2"], [0, 1, 2]
-      item :opp_bin_in_your_safety, "Opp Green Bins w/ Matching Yel/Blu bar in Your Safety?", "60", ["0", "1", "2"], [0, 1, 2]
-
-      score do |items|
-        ((items[:your_bin_in_opp_safety] || 0) * 60) + ((items[:opp_bin_in_your_safety] || 0) * 60)
-      end
-    end
-
-  mission "M09 Salvage" do
-      item :valueable_in_safety, "Valuables in Safety?", "60", ["No", "Yes"], [0, 1]
-      score do |items|
-         ((items[:valueable_in_safety] || 0) * 60)
-      end
-    end
-
-  mission "M11 Purchasing Decisions" do
-    item :planes_in_safety, "Planes completely in Safety?", "40", ["0", "1", "2"], [0, 1, 2]
     score do |items|
-       ((items[:planes_in_safety] || 0) * 40)
+      s = 0
+      if items[:milk_on_ramp_option] != "None"
+        case items[:milk_on_ramp_option]
+        when "A"
+          s += 2
+        when "B"
+          s += 3
+        when "C"
+          s += 4
+        end
+      end
+      s
     end
   end
 
-  #check
-  mission "M12 Repurposing" do
-    item :compost_in_package, "Compost perfectly nested in empty Toy Package?", "40", ["No", "Yes"], [0, 1]
-    item :package_in_original_condition, "Package in original condition?", "40", ["No", "Yes"], [0, 1]
+  mission "M15 All Samples" do
+    item :all_manure_in_research, "All seven Manure Samples completely in Training/Research Area?", "5", ["No", "Yes"], [0, 1]
 
     score do |items|
-       ((items[:compost_in_package] || 0) * (items[:package_in_original_condition] || 0)) * 40
+       ((items[:all_manure_in_research] || 0)) * 5
     end
   end
 
+  mission "P Penalties" do
+    item :penalties, "Number of Manure Samples in the white triangle area", "-6", ["0", "1", "2", "3", "4", "5"], [0, 1, 2, 3, 4, 5]
 
+    score do |items|
+       ((items[:penalties] || 0)) * -6
+    end
+  end
 end

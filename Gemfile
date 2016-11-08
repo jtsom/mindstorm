@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.0.0'
+# ruby '2.0.0'
 
 gem 'rails'
 
@@ -22,7 +22,7 @@ end
 # Use unicorn as the web server
 gem 'unicorn'
 
-gem 'debugger', group: :development
+gem 'byebug', group: :development
 gem 'responders', '~> 2.0'
 # Deploy with Capistrano
 # gem 'capistrano'
