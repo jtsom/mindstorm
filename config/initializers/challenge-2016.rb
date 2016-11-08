@@ -39,8 +39,8 @@ class Challenge
       $number_of_missions_scored += 1 if (mission.scoringCondition ? mission.scoringCondition.call(result) : (mission_score > 0))
       total += mission_score
     }
-
-
+    puts "raw score " + raw_score.to_s
+    return raw_score
   end
 
   def check(result)
@@ -170,15 +170,14 @@ challenge do
 
     score do |items|
       s = 0
-      if (items[nothing_touched_shark] || 0) == 1
-        case items[:tank_and_shark_in_target]
-        when "None"
-        when "T1"
-          s += 7
-        when "T2"
-          s += 10
+      if (items[:nothing_touched_shark] == 1)
+        s = case items[:tank_and_shark_in_target].to_s
+          when "0" then 0
+          when "1" then 7
+          when "2" then 10
+          else 0
         end
-        s += ((items[shark_touching_tank_only] || 0) * 20)
+        s += ((items[:shark_touching_tank_only] || 0) * 20)
       end
       s
     end
@@ -292,18 +291,16 @@ challenge do
   end
 
   mission "M14 Milk On Ramp" do
-    item :milk_on_ramp_option, "Select Best Option", "40", ["None", "A", "B", "C"], ["None", "A", "B", "C"]
+    item :milk_on_ramp_option, "Select Best Option", "2/3/4", ["None", "A", "B", "C"], ["None", "A", "B", "C"]
 
     score do |items|
       s = 0
-      if items[:milk_on_ramp_option] != "None"
-        case items[:milk_on_ramp_option]
-        when "A"
-          s += 2
-        when "B"
-          s += 3
-        when "C"
-          s += 4
+      if items[:milk_on_ramp_option] != 0
+        s = case items[:milk_on_ramp_option].to_s
+          when "1" then 2
+          when "2" then 3
+          when "3" then 4
+          else 0
         end
       end
       s

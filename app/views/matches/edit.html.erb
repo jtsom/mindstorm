@@ -1,6 +1,6 @@
 <h2>Editing <%= params[:controller].classify.to_s %> Match <%= @match.match_number %> for <%= @team.team_name %></h2>
 
-<%=  form_for([@team, @match], :html => {:class=> "form-horizontal" :autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
+<%=  form_for([@team, @match], :html => {:class=> "form-horizontal", :autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
 <p><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></p>
 <p><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></p>
