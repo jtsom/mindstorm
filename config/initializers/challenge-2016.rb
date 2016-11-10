@@ -40,6 +40,9 @@ class Challenge
       total += mission_score
     }
     puts "raw score " + raw_score.to_s
+    if raw_score < 0
+      raw_score = 0
+    end
     return raw_score
   end
 
