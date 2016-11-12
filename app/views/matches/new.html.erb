@@ -5,9 +5,11 @@
 <%=  form_for([@team, @match], :html => {:class=> "form-horizontal", :autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
  <div class="form-group">
-  <div class="row"><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></div>
-  <div class="row" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 2, :onchange => "change_color();" } %></div>
-</div>
+  <div class="row">
+    <div class="col-md-3"><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></div>
+
+    <div class="col-md-3>" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 2, :onchange => "change_color();" } %></div>
+  </div>
 <div class="row">
 <table style="border-collapse:collapse;" border="1">
   <%= fields_for :results do |match_fields|
@@ -61,6 +63,6 @@
 <% end %>
 
 <div class="row">
-<%= f.submit "Submit", class: 'btn btn-primary btn-lg' %>
+<%= f.submit "Submit", class: 'btn btn-primary btn-block btn-lg' %>
 </div>
 <%  end -%>

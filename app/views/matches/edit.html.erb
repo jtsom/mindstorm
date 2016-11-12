@@ -2,8 +2,10 @@
 
 <%=  form_for([@team, @match], :html => {:class=> "form-horizontal", :autocomplete => :off, :onsubmit => "return check_valid();"}) do |f| %>
 <%= errors_for(@match).html_safe %>
-<p><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></p>
-<p><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></p>
+<div class="row">
+  <div class="col-md-3"><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></div>
+  <div class="col-md-3"><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></div>
+</div>
 
 <% labels = [] %>
 <div class="row">
@@ -56,6 +58,6 @@
 <% end %>
 
 <div class="row">
-<%= f.submit "Submit", class: 'btn btn-primary btn-lg' %>
+<%= f.submit "Submit", class: 'btn btn-primary btn-block btn-lg' %>
 </div>
 <%  end -%>
