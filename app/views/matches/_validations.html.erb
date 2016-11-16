@@ -118,11 +118,20 @@
 			return "Prosthesis on pet and not held by ref OR completely in Farm!";
 		}
 
+		if (input_value('three_milk_in_base') == 1 && input_text('milk_on_ramp_option') !== 'None') {
+			make_all_invalid('three_milk_in_base', 'milk_on_ramp_option');
+			return "Milk must be IN BASE or ON RAMP - cannot be both!";
+		}
+
 		return "";
 	}
 
 	function input_value(tag) {
 		return parseInt($('input:checked[data-tag=' + tag + ']').val());
+	}
+
+	function input_text(tag) {
+		return $('input:checked[data-tag=' + tag + ']').val();
 	}
 
 	function make_invalid(tag) {

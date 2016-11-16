@@ -94,7 +94,7 @@ class MatchesController < ApplicationController
        results[key.to_sym] = case value
          when "y", "Y" then 1
          when "n", "N" then 0
-         else value.to_i
+         else value
        end
      end
 
@@ -135,7 +135,7 @@ class MatchesController < ApplicationController
         results[key.to_sym] = case value
           when "y", "Y" then 1
           when "n", "N" then 0
-          else value.to_i
+          else value
         end
       end
 
