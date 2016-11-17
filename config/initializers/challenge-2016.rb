@@ -169,18 +169,17 @@ challenge do
   mission "M01 Shark Shipment" do
     item :tank_and_shark_in_target, "Tank and Shark are completely in Target", "7/10", ["None", "T1", "T2"], ["None", "T1", "T2"]
     item :shark_touching_tank_only, "Shark touching only tank floor (NOT wall)?", "20", ["Yes", "No"], ["1", "0"]
-    item :nothing_touched_shark, "Nothing touched the Shark except the tank?", "20", ["Yes", "No"], ["1", "0"]
+    item :nothing_touched_shark, "Nothing touched the Shark except the tank?", "-", ["Yes", "No"], ["1", "0"]
 
     score do |items|
       s = 0
       if (items[:nothing_touched_shark] == "1")
         s = case items[:tank_and_shark_in_target].to_s
             when "None" then 0
-            when "T1" then 7
-            when "T2" then 10
+            when "T1" then (7 + (items[:shark_touching_tank_only].to_i) * 20)
+            when "T2" then (10 + (items[:shark_touching_tank_only].to_i) * 20)
             else 0
         end
-        s += ((items[:shark_touching_tank_only].to_i) * 20)
       end
       s
     end
@@ -260,7 +259,7 @@ challenge do
     item :bee_no_honey, "Bee is on Beehive with NO Honey in Beehive?", "12", ["Yes", "No"], ["1", "0"]
     item :bee_honey_in_base, "Bee is on Beehive and Honey in Base?", "15", ["Yes", "No"], ["1", "0"]
     score do |items|
-       (items[:bee_no_honey].to_i) + (items[:bee_no_honey].to_i * 15)
+       (items[:bee_no_honey].to_i * 12) + (items[:bee_honey_in_base].to_i * 15)
     end
     check "No Honey in Beehive OR honey in Base" do |items|
       (items[:bee_no_honey].to_i + items[:bee_honey_in_base].to_i) <= 1
