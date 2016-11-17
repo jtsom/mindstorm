@@ -252,7 +252,7 @@ challenge do
       item :zoologist_in_research, "Zoologist completely in Training/Research Area?", "15", ["Yes", "No"], ["1", "0"]
       item :manure_in_research, "Manure completely in Training/Research Area", "5", ["0", "1", "2", "3", "4", "5", "6", "7"], ["0", "1", "2", "3", "4", "5", "6", "7"]
       score do |items|
-        ((items[:dog_trainer_in_research].to_i) * 12) + ((items[:zoologist_in_research].to_i) * 15) + ((items[:manure_in_research] .to_i) * 5)
+        ((items[:dog_trainer_in_research].to_i) * 12) + ((items[:zoologist_in_research].to_i) * 15) + ((items[:manure_in_research].to_i) * 5)
       end
     end
 
@@ -314,6 +314,9 @@ challenge do
     item :all_manure_in_research, "All seven Manure Samples completely in Training/Research Area?", "5", ["Yes", "No"], ["1", "0"]
 
     score do |items|
+      if items[:manure_in_research].to_i == 7
+        items[:all_manure_in_research] == "1"
+      end
        ((items[:all_manure_in_research].to_i)) * 5
     end
   end
