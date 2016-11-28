@@ -119,7 +119,7 @@ class TeamsController < ApplicationController
       teams.each { |team|
         puts team["TeamNumber"]
         teamName = team["TeamName"]
-        if teamName.nil?
+        if teamName.nil? || teamName.empty?
           teamName = "Team #{team["TeamNumber"]}"
         end
         @current_competition.teams.create(:fll_number => team["TeamNumber"],
