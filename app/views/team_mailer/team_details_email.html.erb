@@ -117,8 +117,9 @@ There are sometimes typos when entering the information into the feedback form, 
 			<td><%= match.score %></td>
 			<%	$challenge.missions.each do |mission|
 					mission.items.each do |item|
-						value = match.results[item.label] || 0
-						disp = item.labels[value]
+            value = match.results[item.label]
+    				idx = item.values.index(value)
+    				disp = item.labels[idx]
 						# score = value.to_i * item.scoring.to_i
 						# if value != " " and $challenge.type_of(item.label) == :boolean
 						# 					        value = ["N","Y"][value]
