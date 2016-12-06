@@ -175,6 +175,18 @@ class TeamsController < ApplicationController
     end
   end
 
+  def text_standings
+    @teams = @current_competition.teams.sort do |a,b|
+      (b.high_score <=> a.high_score)
+      #comp.zero? ? (a.fll_number <=> b.fll_number) : comp
+    end
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @teams }
+    end
+  end
+
   def all_teams
     judge = params[:judge]
 

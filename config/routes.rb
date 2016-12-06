@@ -26,20 +26,22 @@ Mindstorm::Application.routes.draw do
     resources :robot_scores
     resources :corevalue_scores
   end
-  
+
   get 'login', :to => 'sessions#new', :as => :login
   get 'logout', :to => 'sessions#destroy', :as => :logout
-  
+
   get 'standings', :to =>  'teams#standings'
+  get 'textstandings', :to => 'teams#text_standings'
+  
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
   get 'results', :to  => 'teams#results'
   #map.results 'results', :controller => 'teams', :action => 'results'
   get 'all_teams', :to => 'teams#all_teams'
-  
+
   post 'teams/upload', :to => 'teams#upload'
   get 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
-  
+
   root :to  => 'sessions#new'
-  
-  
+
+
 end
