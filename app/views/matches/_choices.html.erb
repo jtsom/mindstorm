@@ -1,9 +1,10 @@
 <div class="btn-group btn-group-sm" data-toggle="buttons">
 <% choices.labels.each_index do |idx|
-	active = (value == idx ? "active" : "")
+	active = (value.to_s == choices.values[idx].to_s ? "active" : "")
+
 	%>
 	<label class="btn btn-default btn-sm <%= active %>"><%= choices.labels[idx].to_s -%>
-		<%= match_fields.radio_button(choices.label, idx, {"data-tag" => choices.label.to_s, checked: value == idx}) %>
+		<%= match_fields.radio_button(choices.label, choices.values[idx], {"data-tag" => choices.label.to_s, checked: value.to_s == choices.values[idx].to_s}) %>
 	</label>
 
 <% end %>

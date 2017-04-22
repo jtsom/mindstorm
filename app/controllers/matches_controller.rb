@@ -94,8 +94,14 @@ class MatchesController < ApplicationController
        results[key.to_sym] = case value
          when "y", "Y" then 1
          when "n", "N" then 0
-         else value.to_i
+         else value
        end
+     end
+
+     if results[:manure_in_research] == "7"
+       results[:all_manure_in_research] = "1"
+     else
+       results[:all_manure_in_research] = "0"
      end
 
      @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
@@ -105,6 +111,7 @@ class MatchesController < ApplicationController
      if $challenge.check(results)
 
        @match.score = $challenge.score(results)
+       @match.challenge_year = $challenge.mission_year
        if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
          redirect_to team_path @team
@@ -134,15 +141,22 @@ class MatchesController < ApplicationController
         results[key.to_sym] = case value
           when "y", "Y" then 1
           when "n", "N" then 0
-          else value.to_i
+          else value
         end
       end
 
+      if results[:manure_in_research] == "7"
+        results[:all_manure_in_research] = "1"
+      else
+        results[:all_manure_in_research] = "0"
+      end
+      
       @match.results = results
 
       if $challenge.check(results)
         flash[:notice] = "Results for match #{@match.match_number} saved."
         @match.score = $challenge.score(results)
+        @match.challenge_year = $challenge.mission_year
         @match.save
         case params[:controller]
           when "qualifications"

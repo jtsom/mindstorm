@@ -4,8 +4,8 @@
 <table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
 	<th rowspan="2">Table</th>
-	<th rowspan="2">Points</th>	
-	<% $challenge.missions.each do |mission| -%>	
+	<th rowspan="2">Points</th>
+	<% $challenge.missions.each do |mission| -%>
 		<th colspan=<%= mission.items.length %> ><%= mission.description.html_safe -%></th>
 	<% end %>
 	</tr>
@@ -17,10 +17,10 @@
 	<%   end
 	   end %>
 	</tr>
-	
+
 	<tr>
 	<th colspan="3"></th>
-	<% $challenge.missions.each do |mission| 
+	<% $challenge.missions.each do |mission|
 		mission.items.each do |item| -%>
 	<th><%= item.scoring -%></th>
 	<% 	end
@@ -32,16 +32,17 @@
 	</tr>
 	<% 	@qualifications.each do |match| -%>
 	<tr align="center">
-	
+
 	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
 	<td><%= match.table_number %></td>
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
-				value = match.results[item.label] || 0
-				disp = item.labels[value]
+				value = match.results[item.label]
+				idx = item.values.index(value)
+				disp = item.labels[idx]
 				#score = value.to_i * item.scoring.to_i
-				
+
 				#score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
 # 				if value != " " and $challenge.type_of(item.label) == :boolean
 # 			        value = ["N","Y"][value]
@@ -50,22 +51,23 @@
 				<td><%= disp  %></td>
 	<%		end
 		end	%>
-	</tr>	
+	</tr>
 	<% end 	%>
-	
+
 	<tr>
 		<td colspan="33" style="background-color: #dddddd"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 	</tr>
 		<% 	@finals.each do |match| %>
 		<tr align="center">
-	
+
 		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
 		<td><%= match.table_number %></td>
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
-					value = match.results[item.label] || 0
-					disp = item.labels[value]
+					value = match.results[item.label]
+					idx = item.values.index(value)
+					disp = item.labels[idx]
 #					score = value.to_i * item.scoring.to_i
 					#score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
 # 					if value != " " and $challenge.type_of(item.label) == :boolean
@@ -75,15 +77,15 @@
 					<td><%= disp %></td>
 		<%		end
 			end	%>
-		</tr>	
+		</tr>
 	<% end 	%>
-	
+
 </table>
 
 <p>Add: <%= link_to 'Robot Score', new_team_robot_score_path(@team), class: "btn btn-primary btn-xs" %> |
-	<%= link_to 'Project Score', new_team_project_score_path(@team), class: "btn btn-primary btn-xs" %> | 
+	<%= link_to 'Project Score', new_team_project_score_path(@team), class: "btn btn-primary btn-xs" %> |
 	<%= link_to 'Core Value Score', new_team_corevalue_score_path(@team), class: "btn btn-primary btn-xs"  %></p>
-		
+
 <%= link_to 'Edit', edit_team_path(@team) -%> |
 <%= link_to 'Team List', teams_path -%>
 
@@ -93,10 +95,10 @@
 		<td width="33%">
 <h2>Robot Scores</h2>
 
-<%	
+<%
 	@team.robot_scores.each do |robot_score|
 %>
-	<p>Judge: <%= robot_score.judge_name %> <%= link_to "Update Entry", edit_team_robot_score_path(@team, robot_score)%> | 
+	<p>Judge: <%= robot_score.judge_name %> <%= link_to "Update Entry", edit_team_robot_score_path(@team, robot_score)%> |
 		<%= link_to "Remove Entry", team_robot_score_path(@team, robot_score), :confirm => 'Are you sure?', :method => :delete %></p>
 	<%= render :partial => "robot", :object => robot_score %>
 <%	end %>
@@ -107,7 +109,7 @@
 <%
 	@team.project_scores.each do |project_score|
 %>
-		<p>Judge: <%= project_score.judge_name %> <%= link_to "Update Entry", edit_team_project_score_path(@team, project_score) %> | 
+		<p>Judge: <%= project_score.judge_name %> <%= link_to "Update Entry", edit_team_project_score_path(@team, project_score) %> |
 			<%= link_to "Remove Entry", team_project_score_path(@team, project_score), :confirm => 'Are you sure?', :method => :delete %></p>
 		<%= render :partial => "project", :object => project_score %>
 <%	end %>
@@ -119,7 +121,7 @@
 <%
 	@team.corevalue_scores.each do |corevalue_score|
 %>
-		<p>Judge: <%= corevalue_score.judge_name %> <%= link_to "Update Entry", edit_team_corevalue_score_path(@team, corevalue_score) %> | 
+		<p>Judge: <%= corevalue_score.judge_name %> <%= link_to "Update Entry", edit_team_corevalue_score_path(@team, corevalue_score) %> |
 			<%= link_to "Remove Entry", team_corevalue_score_path(@team, corevalue_score), :confirm => 'Are you sure?', :method => :delete %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>
 <%	end %>

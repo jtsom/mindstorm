@@ -15,8 +15,8 @@
 <table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
 	<th rowspan="2">Table</th>
-	<th rowspan="2">Points</th>	
-	<% $challenge.missions.each do |mission| -%>	
+	<th rowspan="2">Points</th>
+	<% $challenge.missions.each do |mission| -%>
 		<th colspan=<%= mission.items.length %> ><%= mission.description.html_safe -%></th>
 	<% end %>
 	</tr>
@@ -28,10 +28,10 @@
 	<%   end
 	   end %>
 	</tr>
-	
+
 	<tr>
 	<th colspan="3"></th>
-	<% $challenge.missions.each do |mission| 
+	<% $challenge.missions.each do |mission|
 		mission.items.each do |item| -%>
 	<th><%= item.scoring -%></th>
 	<% 	end
@@ -43,49 +43,50 @@
 	</tr>
 	<% 	team.qualifications.each do |match| -%>
 	<tr align="center">
-	
+
 	<td><%= match.match_number -%></td>
 	<td><%= match.table_number %></td>
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
-				value = match.results[item.label] || 0
-				#score = value.to_i * item.scoring.to_i
-				disp = item.labels[value]
+				value = match.results[item.label]
+				idx = item.values.index(value)
+				disp = item.labels[idx]
 	%>
 				<td><%= disp  %></td>
 	<%		end
 		end	%>
-	</tr>	
+	</tr>
 	<% end 	%>
-	
+
 	<tr>
 		<td colspan="33" style="background-color: yellow"><%= "#{pluralize(team.finals.length, "Final")}" %></td>
 	</tr>
 		<% 	team.finals.each do |match| %>
 		<tr align="center">
-	
+
 		<td><%= match.match_number %></td>
 		<td><%= match.table_number %></td>
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
 				mission.items.each do |item|
-					value = match.results[item.label] || 0
-					disp = item.labels[value]
+					value = match.results[item.label]
+					idx = item.values.index(value)
+					disp = item.labels[idx]
 		%>
 					<td><%= disp %></td>
 		<%		end
 			end	%>
-		</tr>	
+		</tr>
 	<% end 	%>
-	
+
 </table>
 <table width="1024" border="1" style="border-collapse:collapse">
 	<tr>
 		<td width="33%">
 <h2>Robot Scores</h2>
 
-<%	
+<%
 	team.robot_scores.each do |robot_score|
 %>
 	<p>Judge: <%= robot_score.judge_name %></p>
@@ -119,4 +120,3 @@
 <%
 	end
 %>
-

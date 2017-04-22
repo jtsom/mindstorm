@@ -117,10 +117,13 @@ class TeamsController < ApplicationController
 
     if teams.count > 0
       teams.each { |team|
-        puts team["Team Number"]
-
+        puts team["TeamNumber"]
+        teamName = team["TeamName"]
+        if teamName.nil? || teamName.empty?
+          teamName = "Team #{team["TeamNumber"]}"
+        end
         @current_competition.teams.create(:fll_number => team["TeamNumber"],
-         :team_name => team["TeamName"],
+         :team_name => teamName,
          :school => team["OrganizationName"],
          :town => team["City"],
          :coach => team["CoachName"],
@@ -162,6 +165,18 @@ class TeamsController < ApplicationController
 
   def standings
     @teams = @current_competition.teams.includes(:qualifications).sort do |a,b|
+      (b.high_score <=> a.high_score)
+      #comp.zero? ? (a.fll_number <=> b.fll_number) : comp
+    end
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @teams }
+    end
+  end
+
+  def text_standings
+    @teams = @current_competition.teams.sort do |a,b|
       (b.high_score <=> a.high_score)
       #comp.zero? ? (a.fll_number <=> b.fll_number) : comp
     end
