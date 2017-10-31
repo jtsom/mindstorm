@@ -1,8 +1,8 @@
 <%= form_for [@team, @corevalue_score] do |f| %>
 	<%= errors_for(@corevalue_score) %>
-	
+
 	<p>Judge: <%= f.text_field :judge_name %></p>
-	
+
 	<table class="grid" >
         <tr style="border: none;">
             <td style="border: none;">
@@ -28,12 +28,12 @@
             <td rowspan="8" >
                 <div class="vertical">Inspiration</div>
             </td>
-            <td class="alt" colspan="2">
+            <td class="altCV" colspan="2">
                 <b>Discovery</b>
             </td>
-            <td class="alt" colspan="3">
-                <i>Balanced emphasis on all three aspects (Robot, Project, Core Values) of FLL ; it's
-                    not just about winning awards</i>
+            <td class="altCV" colspan="3">
+              	Balanced emphasis on all three aspects (Robot, Project, Core Values) of <i>FIRST</i> LEGO League; it's
+                    not just about winning awards
             </td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
 				<%= f.radio_button :i_discovery, "0", :default => true %>
 			</td>
             <td>
-                <%= f.radio_button :i_discovery, "1" %><%= f.label :i_discovery, "emphasis on only one aspect; others neglected", :value => "1" %> 
+                <%= f.radio_button :i_discovery, "1" %><%= f.label :i_discovery, "emphasis on only one aspect; others neglected", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :i_discovery, "2" %> <%= f.label :i_discovery, "emphasis on two aspects; one aspect neglected" , :value => "2" %>
@@ -53,12 +53,12 @@
                 <%= f.radio_button :i_discovery, "4" %> <%= f.label :i_discovery, "balanced emphasis on all three aspects", :value => "4" %>
             </td>
         </tr>
-        <tr class="alt">
+        <tr class="altCV">
             <td colspan="2">
                 <b>Team Spirit</b>
             </td>
             <td colspan="3">
-                <i>Enthusiastic and fun expression of the team identity</i>
+                Enthusiastic and fun expression of the team identity
             </td>
         </tr>
         <tr>
@@ -78,13 +78,13 @@
                 <%= f.radio_button :i_team_spirit, "4" %> <%= f.label :i_team_spirit, "team engages others in their enthusiasm and fun; clear identity", :value => "4" %>
             </td>
         </tr>
-        <tr class="alt">
+        <tr class="altCV">
             <td colspan="2">
                 <b>Integration</b>
             </td>
             <td colspan="3">
-                <i>Application of FLL values and skills outside FLL (ability to describe current and potential
-                    examples from daily life)</i>
+                Application of <i>FIRST</i> LEGO League values and skills outside <i>FIRST</i> LEGO League (ability to describe current and potential
+                    examples from daily life)
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@
 				<%= f.radio_button :i_integration, "0", :default => true %>
 			</td>
             <td>
-                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "team does not apply FLL values and skills outside FLL", :value => "1"  %>
+                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "team does not apply <i>FIRST</i> LEGO League values and skills outside <i>FIRST</i> LEGO League", :value => "1"  %>
             </td>
             <td>
                 <%= f.radio_button :i_integration, "2" %> <%= f.label :i_integration, "team able to describe at least one example", :value => "2"  %>
@@ -140,11 +140,11 @@
                 <div class="vertical">
                     Teamwork</div>
             </td>
-            <td class="alt" colspan="2">
+            <td class="altCV" colspan="2">
                 <b>Effectiveness</b>
             </td>
-            <td class="alt" colspan="3">
-                <i>Problem solving and decision making processes help team achieve their goals</i>
+            <td class="altCV" colspan="3">
+                Problem solving and decision making processes help team achieve their goals
             </td>
         </tr>
         <tr>
@@ -162,15 +162,15 @@
             </td>
             <td>
                 <%= f.radio_button :t_effectiveness, "4" %> <%= f.label :t_effectiveness, "clear processes enable team to accomplish well defined goals", :value => "4" %>
-            </td>           
-        </tr>       
-        <tr class="alt">
+            </td>
+        </tr>
+        <tr class="altCV">
             <td colspan="2">
                 <b>Efficiency</b>
             </td>
             <td colspan="3">
-                <i>Resources used relative to what the team accomplishes (time management, distribution
-                    of roles and responsibilities)</i>
+              	Resources used relative to what the team accomplishes (time management, distribution
+                    of roles and responsibilities)
             </td>
         </tr>
         <tr>
@@ -190,12 +190,12 @@
                 <%= f.radio_button :t_efficiency, "4" %> <%= f.label :t_efficiency, "excellent time management and role definition allows teams to accomplish all goals", :value => "4" %>
             </td>
         </tr>
-        <tr class="alt">
+        <tr class="altCV">
             <td colspan="2">
                 <b>Kids Do The Work</b>
             </td>
             <td colspan="3">
-                <i>Appropriate balance between team responsibility and coach guidance</i>
+                Appropriate balance between team responsibility and coach guidance
             </td>
         </tr>
         <tr>
@@ -251,12 +251,12 @@
                 <div class="vertical">
                     Gracious&nbsp;Professionalism&trade;</div>
             </td>
-            <td class="alt" colspan="2">
+            <td class="altCV" colspan="2">
                 <b>Inclusion</b>
             </td>
-            <td class="alt" colspan="3">
-                <i>Consideration and appreciation for the contributions (ideas and skills) of all team
-                    members, with balanced involvement</i>
+            <td class="altCV" colspan="3">
+                Consideration and appreciation for the contributions (ideas and skills) of all team
+                    members, with balanced involvement
             </td>
         </tr>
         <tr>
@@ -276,13 +276,13 @@
                 <%= f.radio_button :g_inclusion, "4" %> <%= f.label :g_inclusion, "balanced team involvement AND appreciation for contributions of all team members", :value => "4" %>
             </td>
         </tr>
-        <tr class="alt">
+        <tr class="altCV">
             <td colspan="2">
                 <b>Respect</b>
             </td>
             <td colspan="3">
-                <i>Team members act and speak with integrity and sensitivity, so that others feel valued&mdash;especially
-                    when solving problmes or resolving conflicts</i>
+                Team members act and speak with integrity and sensitivity, so that others feel valued&mdash;especially
+                    when solving problmes or resolving conflicts
             </td>
         </tr>
         <tr>
@@ -302,12 +302,12 @@
                  <%= f.radio_button :g_respect, "4" %> <%= f.label :g_respect, "always evident, even in the most difficult situations", :value => "4" %>
             </td>
         </tr>
-        <tr class="alt">
+        <tr class="altCV">
             <td colspan="2">
                 <b>Coopertition&trade;</b>
             </td>
             <td colspan="3">
-                <i>Team competes in the spirit of friendly competition and cooperation with others</i>
+                Team competes in the spirit of friendly competition and cooperation with others
             </td>
         </tr>
         <tr>

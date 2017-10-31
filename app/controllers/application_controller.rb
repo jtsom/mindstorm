@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   #require "challenge-2010.rb"
   helper_method :current_competition
-  before_filter :cors_preflight_check
-  after_filter :cors_set_access_control_headers
+  before_action :cors_preflight_check
+  after_action :cors_set_access_control_headers
 
   def cors_set_access_control_headers
    headers['Access-Control-Allow-Origin'] = '*'

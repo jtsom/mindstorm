@@ -55,16 +55,31 @@ td
     border: thin solid #000000;
 	margin-bottom:40px;
 }
-tr.alt
+.alt
+{
+    background: #C0C0C0;
+    border: thin solid #000000;
+}
+.altCV
+{
+    background: #EB9C8A;
+    border: thin solid #000000;
+}
+.altRC
+{
+    background: #B8CDEA;
+    border: thin solid #000000;
+}
+.altPR
+{
+    background: #FFFECE;
+    border: thin solid #000000;
+}
+/*td.alt
 {
     background: #C0C0C0;
      border: thin solid #000000;
-}
-td.alt
-{
-    background: #C0C0C0;
-     border: thin solid #000000;
-}
+}*/
 
 
 select

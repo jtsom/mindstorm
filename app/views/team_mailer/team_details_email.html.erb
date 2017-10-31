@@ -81,7 +81,7 @@ There are sometimes typos when entering the information into the feedback form, 
 		</tr>
 
 		<tr>
-			<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
+			<td colspan="34" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
 		</tr>
 		<% 	@qualifications.each do |match| -%>
 		<tr align="center">
@@ -107,7 +107,7 @@ There are sometimes typos when entering the information into the feedback form, 
 		<% end 	%>
 
 		<tr>
-			<td colspan="24" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+			<td colspan="34" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 		</tr>
 			<% 	@finals.each do |match| %>
 			<tr align="center">

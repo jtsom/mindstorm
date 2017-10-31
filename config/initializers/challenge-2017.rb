@@ -217,7 +217,7 @@ challenge do
 
   mission "M08 Manhole Covers" do
     item :manholes_flipped, "Manhole Cover(s) are flipped over past vertical", "15", ["0", "1", "2"], ["0", "1", "2"]
-    item :both_manholes_flipped, "Both Manhole Covers are flipped over?", "30", ["Yes", "No"], ["1", "0"]
+    item :both_manholes_flipped, "Both Manhole Covers are flipped over in separate Tripod Target?", "30", ["Yes", "No"], ["1", "0"]
     score do |items|
        ((items[:manholes_flipped].to_i) * 15) + ((items[:both_manholes_flipped].to_i) * 30)
     end
@@ -225,8 +225,8 @@ challenge do
 
   mission "M09 Tripod" do
       item :all_tripod_feet_touching, "All the Tripod’s feet are touching the mat?", "15", ["Yes", "No"], ["1", "0"]
-      item :tripod_partial "Tripod is partially in a Tripod Target?", "15", ["Yes", "No"], ["1", "0"]
-      item :tripod_complete "Tripod is completely in a Tripod Target?", "20", ["Yes", "No"], ["1", "0"]
+      item :tripod_partial, "Tripod is partially in a Tripod Target?", "15", ["Yes", "No"], ["1", "0"]
+      item :tripod_complete, "Tripod is completely in a Tripod Target?", "20", ["Yes", "No"], ["1", "0"]
       score do |items|
         ((items[:all_tripod_feet_touching].to_i) * 1) * ( ((items[:tripod_partial].to_i) * 15) + ((items[:tripod_complete].to_i) * 20) )
       end
@@ -245,8 +245,8 @@ challenge do
 
   mission "M11 Pipe Construction" do
     item :new_pipe_mat_contact, "New Pipe has full/flat contact with the mat?", "12", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_partial "This new pipe is partially in its target?", "15", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_complete "This new pipe is completely in its target?", "20", ["Yes", "No"], ["1", "0"]
+    item :new_pipe_partial, "This new pipe is partially in its target?", "15", ["Yes", "No"], ["1", "0"]
+    item :new_pipe_complete, "This new pipe is completely in its target?", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:new_pipe_mat_contact].to_i) * 1) * (((items[:new_pipe_partial].to_i) * 15) + ((items[:new_pipe_complete].to_i) * 20))
     end
@@ -272,8 +272,8 @@ challenge do
   end
 
   mission "M14 Water Well" do
-    item :water_well_partial "Water Well contacting mat PARTIALLY inside target area?", "15", ["Yes", "No"], ["1", "0"]
-    item :water_well_complete "Water Well contacting mat COMPLETELY inside target area?", "25", ["Yes", "No"], ["1", "0"]
+    item :water_well_partial, "Water Well contacting mat PARTIALLY inside target area?", "15", ["Yes", "No"], ["1", "0"]
+    item :water_well_complete, "Water Well contacting mat COMPLETELY inside target area?", "25", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:water_well_partial].to_i) * 15) + ((items[:water_well_complete].to_i) * 25)
     end

@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
 
-  before_filter :authenticate
-  before_filter :get_class
+  before_action :authenticate
+  before_action :get_class
 
   def new
     # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %>
@@ -150,7 +150,7 @@ class MatchesController < ApplicationController
       else
         results[:all_manure_in_research] = "0"
       end
-      
+
       @match.results = results
 
       if $challenge.check(results)

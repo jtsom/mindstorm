@@ -103,25 +103,25 @@
 		// 	return "Compost can be in or out of Safety!";
 		// }
 
-		if (input_value('milk_and_manure') == 1 && input_value('milk_only') == 1) {
-			make_all_invalid('milk_and_manure', 'milk_only');
-			return "Milk and manure OR Milk only allowed!";
-		}
-
-		if (input_value('bee_no_honey') == 1 && input_value('bee_honey_in_base') == 1) {
-			make_all_invalid('bee_no_honey', 'bee_honey_in_base');
-			return "No Honey in Beehive OR honey in Base!";
-		}
-
-		if (input_value('prosthesis_not_held_by_ref') == 1 && input_value('prostheses_in_farm') == 1) {
-			make_all_invalid('prosthesis_not_held_by_ref', 'prostheses_in_farm');
-			return "Prosthesis on pet and not held by ref OR completely in Farm!";
-		}
-
-		if (input_value('three_milk_in_base') == 1 && input_text('milk_on_ramp_option') !== 'None') {
-			make_all_invalid('three_milk_in_base', 'milk_on_ramp_option');
-			return "Milk must be IN BASE or ON RAMP - cannot be both!";
-		}
+		// if (input_value('milk_and_manure') == 1 && input_value('milk_only') == 1) {
+		// 	make_all_invalid('milk_and_manure', 'milk_only');
+		// 	return "Milk and manure OR Milk only allowed!";
+		// }
+    //
+		// if (input_value('bee_no_honey') == 1 && input_value('bee_honey_in_base') == 1) {
+		// 	make_all_invalid('bee_no_honey', 'bee_honey_in_base');
+		// 	return "No Honey in Beehive OR honey in Base!";
+		// }
+    //
+		// if (input_value('prosthesis_not_held_by_ref') == 1 && input_value('prostheses_in_farm') == 1) {
+		// 	make_all_invalid('prosthesis_not_held_by_ref', 'prostheses_in_farm');
+		// 	return "Prosthesis on pet and not held by ref OR completely in Farm!";
+		// }
+    //
+		// if (input_value('three_milk_in_base') == 1 && input_text('milk_on_ramp_option') !== 'None') {
+		// 	make_all_invalid('three_milk_in_base', 'milk_on_ramp_option');
+		// 	return "Milk must be IN BASE or ON RAMP - cannot be both!";
+		// }
 
 		// if (input_value('all_manure_in_research') == 1 && input_value('manure_in_research') != 7) {
 		// 	make_all_invalid('all_manure_in_research', 'manure_in_research');
