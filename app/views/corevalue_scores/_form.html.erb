@@ -92,7 +92,7 @@
 				<%= f.radio_button :i_integration, "0", :default => true %>
 			</td>
             <td>
-                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "team does not apply <i>FIRST</i> LEGO League values and skills outside <i>FIRST</i> LEGO League", :value => "1"  %>
+                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "team does not apply <i>FIRST</i> LEGO League values and skills outside <i>FIRST</i> LEGO League".html_safe, :value => "1"  %>
             </td>
             <td>
                 <%= f.radio_button :i_integration, "2" %> <%= f.label :i_integration, "team able to describe at least one example", :value => "2"  %>
