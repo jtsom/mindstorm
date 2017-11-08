@@ -170,7 +170,7 @@ class MatchesController < ApplicationController
         err = "Please correct the following: <br>"
         $errors.each { |error| err += error + "<br>" }
         flash[:notice] = err.html_safe
-        debugger
+        # debugger
         render  "matches/new"
       end
     else
