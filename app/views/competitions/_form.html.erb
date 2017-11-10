@@ -30,6 +30,10 @@
 		<%= f.label :from_email, "From Email" %><br />
 		<%= f.text_field :from_email, class: 'form-control' %>
 	</div>
+  <div class="form-group">
+    <%= f.check_box :send_email, class: 'form-check-input' %>
+    <%= f.label :send_email, "Enable Email Sending" %>
+  </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>

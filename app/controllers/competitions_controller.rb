@@ -12,7 +12,7 @@ class CompetitionsController < ApplicationController
   end
 
 def show
-  
+
 end
 
   # GET /competitions/new
@@ -78,6 +78,6 @@ end
   private
 
   def comp_params
-    params.require(:competition).permit(:name, :email, :password, :from_email, :full_name ,:contact_name)
+    params.require(:competition).permit(:name, :email, :password, :from_email, :full_name ,:contact_name, :send_email)
   end
 end

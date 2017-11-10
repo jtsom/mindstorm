@@ -6,6 +6,7 @@
     <th>Competition Full Name</th>
     <th>Contact Name</th>
 	<th>Contact Email</th>
+  <th>Email Enabled</th>
   </tr>
 
 <% @competitions.each do |competition| %>
@@ -14,6 +15,7 @@
 	<td><%= competition.full_name %></td>
 	<td><%= competition.contact_name %></td>
 	<td><%= competition.from_email %></td>
+  <td><%= competition.send_email %></td>
     <td><%= link_to 'Destroy', competition, data: { confirm: 'Are you sure?' }, method: :delete %></td>
   </tr>
 <% end %>
