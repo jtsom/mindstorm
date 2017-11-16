@@ -113,7 +113,7 @@ class TeamsController < ApplicationController
 
     teams = JSON.parse(raw)
     puts @current_competition.id
-    Team.destroy_all(competition_id: @current_competition.id)
+    Team.where(competition_id: @current_competition.id).destroy_all
 
     if teams.count > 0
       teams.each { |team|
