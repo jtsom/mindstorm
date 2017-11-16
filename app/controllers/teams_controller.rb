@@ -112,7 +112,7 @@ class TeamsController < ApplicationController
     raw = uploaded.read
 
     teams = JSON.parse(raw)
-
+    puts @current_competition.id
     Team.destroy_all(competition_id: @current_competition.id)
 
     if teams.count > 0
