@@ -128,10 +128,10 @@
 		// 	return "M15 cannot be YES, if M09 less than 7!";
 		// }
 
-		// if (input_value('all_manure_in_research') == 0 && input_value('manure_in_research') == 7) {
-		// 	make_all_invalid('all_manure_in_research', 'manure_in_research');
-		// 	return "If M09 is 7, then M15 MUST be YES!";
-		// }
+		if (input_value('new_pipe_mat_contact_11') != input_value('new_pipe_mat_contact') ) {
+			make_all_invalid('new_pipe_mat_contact_11', 'new_pipe_mat_contact');
+			return '"New Pipe in contact with mat" in M10 AND M11 must be the same!';
+		}
 
 		return "";
 	}
@@ -160,11 +160,12 @@
 		$("input[type=radio]").on('change', function (evt, myName) {
 			var tag = $(evt.currentTarget).data('tag');
 			$('#' + tag).removeClass('invalid');
-
+			$("input[type=submit]").removeAttr('disabled');
 		});
 
 		$("input[type=text]").on('change', function (evt, element) {
 			$(evt.currentTarget).removeClass('invalid');
+			$("input[type=submit]").removeAttr('disabled');
 		});
 	});
 

@@ -237,14 +237,14 @@ challenge do
 
   mission "M10 Pipe Replacement" do
     item :new_pipe_installed, "New Pipe is installed where Broken Pipe was?", "0", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_mat_contact, "This New Pipe has full/flat contact with the mat?", "20", ["Yes", "No"], ["1", "0"]
+    item :new_pipe_mat_contact, "The New Pipe has full/flat contact with the mat?", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
        (items[:new_pipe_installed].to_i * 1) * (items[:new_pipe_mat_contact].to_i * 20)
     end
   end
 
   mission "M11 Pipe Construction" do
-    item :new_pipe_mat_contact_11, "New Pipe has full/flat contact with the mat?", "12", ["Yes", "No"], ["1", "0"]
+    item :new_pipe_mat_contact_11, "New Pipe has full/flat contact with the mat?", "0", ["Yes", "No"], ["1", "0"]
     item :new_pipe_partial, "This new pipe is partially in its target?", "15", ["Yes", "No"], ["1", "0"]
     item :new_pipe_complete, "This new pipe is completely in its target?", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
