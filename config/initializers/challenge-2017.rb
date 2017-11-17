@@ -318,7 +318,7 @@ challenge do
   end
 
   mission "P Penalties" do
-    item :penalties, "Penalty discs in the white triangle area", "-5", ["0", "1", "2", "3", "4", "5"], ["0", "1", "2", "3", "4", "5"]
+    item :penalties, "Penalty discs in the white triangle area", "-5", ["0", "1", "2", "3", "4", "5", "6"], ["0", "1", "2", "3", "4", "5", "6"]
 
     score do |items|
        (items[:penalties].to_i) * -5
