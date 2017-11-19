@@ -128,10 +128,6 @@
 		// 	return "M15 cannot be YES, if M09 less than 7!";
 		// }
 
-		if (input_value('new_pipe_mat_contact_11') != input_value('new_pipe_mat_contact') ) {
-			make_all_invalid('new_pipe_mat_contact_11', 'new_pipe_mat_contact');
-			return '"New Pipe in contact with mat" in M10 AND M11 must be the same!';
-		}
 
 		return "";
 	}
