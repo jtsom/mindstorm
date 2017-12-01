@@ -43,12 +43,17 @@ function change_color()
 	} else {
 		tableField.className = '';
 	}
-	
+
 }
+
+function setToZero() {
+  $("input[id$='_0']").click();
+}
+
 function validate() {
-	
+
 	matchNumber = document.getElementById('match_match_number').value;
-	
+
 	if (matchNumber.length == 0)
 	{
 		alert('Please enter the match number!');
@@ -56,7 +61,7 @@ function validate() {
 		return false;
 	}
 
-/*	
+/*
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
 	green = parseInt(document.getElementById('results_LeveeTouchingGreen').value);
 	if (red + green > 8)
@@ -65,7 +70,7 @@ function validate() {
 		document.getElementById('results_LeveeTouchingRed').focus();
 		return false;
 	}
-	
+
 	moneyResearch = document.getElementById('results_MoneyInResearchArea').value;
 	moneyUnderground = document.getElementById('results_MoneyInUndergroundReservoir').value;
 	if (moneyResearch.toUpperCase() =='Y' && moneyUnderground.toUpperCase() == 'Y')
@@ -74,7 +79,7 @@ function validate() {
 		document.getElementById('results_MoneyInResearchArea').focus();
 		return false;
 	}
-	
+
 	bearUpright = document.getElementById('results_BearUpright').value;
 	bearSleeping = document.getElementById('results_BearSleeping').value;
 	if (bearUpright.toUpperCase() =='Y' && bearSleeping.toUpperCase() == 'Y')
@@ -82,8 +87,8 @@ function validate() {
 		alert('Bear can be either Upright or Sleeping, not both!');
 		document.getElementById('results_BearUpright').focus();
 		return false;
-	}	
-	
+	}
+
 	robotResearch = document.getElementById('results_RobotInResearch').value;
 	robotYellow = document.getElementById('results_RobotInYellowGrid').value;
 	if (robotResearch.toUpperCase() =='Y' && robotYellow.toUpperCase() == 'Y')
@@ -92,6 +97,6 @@ function validate() {
 		alert('Robot may finish in either Research Area or Yellow Grid Area, not both!');
 		return false;
 	}
-*/	
+*/
 	return true;
 }

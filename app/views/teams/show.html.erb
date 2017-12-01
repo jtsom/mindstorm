@@ -39,8 +39,8 @@
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]
-				idx = item.values.index(value)
-				disp = item.labels[idx]
+				# idx = item.values.index(value)
+				# disp = item.labels[idx]
 				#score = value.to_i * item.scoring.to_i
 
 				#score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
@@ -48,7 +48,7 @@
 # 			        value = ["N","Y"][value]
 # 			    end
 	%>
-				<td><%= disp  %></td>
+				<td><%= value  %></td>
 	<%		end
 		end	%>
 	</tr>

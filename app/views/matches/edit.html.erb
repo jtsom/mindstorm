@@ -9,6 +9,9 @@
 
 <% labels = [] %>
 <div class="row">
+  <button type="button" class="btn btn-warning btn-sm" onclick="setToZero();">Set to Zero</button>
+</div>
+<div class="row">
   <table style="border-collapse:collapse;" border="1">
     <%= fields_for :results do |match_fields|
   		$challenge.missions.each do |mission| -%>

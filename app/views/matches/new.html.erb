@@ -10,6 +10,9 @@
 
     <div class="col-md-3>" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 2, :onchange => "change_color();" } %></div>
   </div>
+  <div class="row">
+    <button type="button" class="btn btn-warning btn-sm" onclick="setToZero();">Set to Zero</button>
+  </div>
 <div class="row">
 <table style="border-collapse:collapse;" border="1">
   <%= fields_for :results do |match_fields|
