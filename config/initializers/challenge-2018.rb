@@ -299,9 +299,14 @@ challenge do
   end
 
   mission "M15 Lander Touch-Down" do
-    item :fire_dropped, "Fire is dropped?", "25", ["Yes", "No"], ["1", "0"]
+    item :lander_target_circle, "Lander in its Target Circle", "22", ["Yes", "No"], ["1", "0"]
+    item :lander_northeast_area, "Lander In Northeast Area?", "20", ["Yes", "No"], ["1", "0"]
+    item :lander_in_base, "Lander In Base?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:fire_dropped].to_i) * 25)
+      ((items[:lander_target_circle].to_i) * 22) + (items[:lander_northeast_area].to_i) * 20) + (items[:lander_in_base].to_i) * 16))
+    end
+    check "Lander can only be in target circle, northeast area or base!" do |items|
+      (items[:lander_target_circle].to_i + items[:lander_northeast_area].to_i) + items[:lander_in_base].to_i) <= 1
     end
   end
 
