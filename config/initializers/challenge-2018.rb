@@ -254,10 +254,9 @@ challenge do
     end
 
   mission "M10 Food Production" do
-    item :new_pipe_installed, "New Pipe is installed where Broken Pipe was?", "0", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_mat_contact, "The New Pipe has full/flat contact with the mat?", "20", ["Yes", "No"], ["1", "0"]
+    item :spin_food_growth_chamber, "Spin Food Growth Chamger?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
-       (items[:new_pipe_installed].to_i * 1) * (items[:new_pipe_mat_contact].to_i * 20)
+       (items[:new_pipe_installed].to_i * 16)
     end
   end
 
