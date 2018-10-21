@@ -195,9 +195,9 @@ challenge do
   end
 
   mission "M04 Crater Crossing" do
-    item :rain_out_of_cloud, "At least one Rain is out of the Rain Cloud?", "20", ["Yes", "No"], ["1", "0"]
+    item :robot_crossed_crater, "Robot has crossed crater?", "20", ["Yes", "No"], ["1", "0"]
       score do |items|
-        ((items[:rain_out_of_cloud].to_i) * 20)
+        ((items[:robot_crossed_crater].to_i) * 20)
       end
     end
 
