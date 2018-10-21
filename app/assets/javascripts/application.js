@@ -60,6 +60,14 @@ function validate() {
 		document.getElementById('match_match_number').focus();
 		return false;
 	}
+  brickInPlanet = document.getElementById('results_BrickEjectedInPlanet').value;
+	brickNotInPlanet = document.getElementById('results_BrickEjectedNotInPlanet').value;
+	if (brickInPlanet.toUpperCase() =='Y' && brickNotInPlanet.toUpperCase() == 'Y')
+	{
+		document.getElementById('results_BrickEjectedInPlanet').focus();
+		alert('2x4 Brick can either be in Planet Area Or Not, not both!');
+		return false;
+	}
 
 /*
 	red = parseInt(document.getElementById('results_LeveeTouchingRed').value);
