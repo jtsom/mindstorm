@@ -133,6 +133,11 @@
 		 	 return "Gas Core Sample can either be in Lander Target Circle OR Base!";
 		 }
 
+		 if (input_value('gerhard_completely_in_airlock') == 1 && input_value('gerhard_partially_in_airlock') == 1) {
+			 make_all_invalid('gerhard_completely_in_airlock', 'gerhard_partially_in_airlock');
+			 return "Gerhard can be Completely or Partially in airlock, not both!";
+		 }
+
 		return "";
 	}
 

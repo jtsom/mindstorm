@@ -224,9 +224,13 @@ challenge do
   end
 
   mission "M07 Space Walk Emergency" do
-    item :middle_layer_raised, "Middle layer is raised?",  "20", ["Yes", "No"], ["1", "0"]
+    item :gerhard_completely_in_airlock, "Gerhard Completely in Airlock?",  "22", ["Yes", "No"], ["1", "0"]
+    item :gerhard_partially_in_airlock, "Gerhard Partially in Airlock",  "18", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:middle_layer_raised].to_i) * 20)
+      ((items[:gerhard_completely_in_airlock].to_i) * 22) + ((items[:gerhard_partially_in_airlock].to_i) * 18)
+    end
+    check "Gerhard can be Completely or Partially in airlock, not both!" do |items|
+      (items[:gerhard_completely_in_airlock].to_i + items[:gerhard_partially_in_airlock].to_i) <= 1
     end
   end
 
