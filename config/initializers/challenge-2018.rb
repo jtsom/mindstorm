@@ -235,10 +235,14 @@ challenge do
   end
 
   mission "M08 Aerobic Exercise" do
-    item :manholes_flipped, "Manhole Cover(s) are flipped over past vertical", "15", ["0", "1", "2"], ["0", "1", "2"]
-    item :both_manholes_flipped, "Both Manhole Covers are flipped over in separate Tripod Target?", "30", ["Yes", "No"], ["1", "0"]
+    item :pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "22", ["0", "1", "2"], ["0", "1", "2"]
+    item :pointer_tip_completely_white, "Pointer tip completely in white?", "20", ["Yes", "No"], ["1", "0"]
+    item :pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
-       ((items[:manholes_flipped].to_i) * 15) + ((items[:both_manholes_flipped].to_i) * 30)
+       ((items[:pointer_tip_in_orange].to_i) * 22) + ((items[:pointer_tip_completely_white].to_i) * 20)+ ((items[:pointer_tip_in_gray].to_i) * 18)
+    end
+    check "Pointer Tip can only be in Orange, Grey or White!" do |items|
+      (items[:pointer_tip_in_orange].to_i + items[:pointer_tip_completely_white].to_i) + items[:pointer_tip_in_gray].to_i) <= 1
     end
   end
 
