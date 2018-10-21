@@ -176,9 +176,10 @@ challenge do
   end
 
   mission "M02 Solar Panel Array" do
-    item :big_water, "Big Water is on other team’s Field", "25", ["Yes", "No"], ["1", "0"]
+    item :both_angled_same_field, "Both Solar Panels are Angled toward the same Field", "22", ["Yes", "No"], ["1", "0"]
+    item :yours_angled_other_field, "our Solar Panel is Angled toward the other team’s Field", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:big_water].to_i) * 25
+      ((items[:both_angled_same_field].to_i) * 22) + ((items[:yours_angled_other_field].to_i) * 18)
     end
   end
 
