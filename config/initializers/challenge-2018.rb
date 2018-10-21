@@ -268,9 +268,9 @@ challenge do
   end
 
   mission "M12 Satellite Orbits" do
-    item :sludge_touching_wood, "Sludge touching visible wood of a drawn garden box?", "30", ["Yes", "No"], ["1", "0"]
+    item :satellites_in_outer_orbit, "Satellites in Outer Orbit?", "8", ["0", "1", "2", "3"], ["0", "1", "2", "3"]
     score do |items|
-       ((items[:sludge_touching_wood].to_i) * 30)
+       ((items[:sludge_touching_wood].to_i) * 8)
     end
   end
 
