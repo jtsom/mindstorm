@@ -247,14 +247,9 @@ challenge do
   end
 
   mission "M09 Strength Exercise" do
-      item :all_tripod_feet_touching, "All the Tripod’s feet are touching the mat?", "15", ["Yes", "No"], ["1", "0"]
-      item :tripod_partial, "Tripod is partially in a Tripod Target?", "15", ["Yes", "No"], ["1", "0"]
-      item :tripod_complete, "Tripod is completely in a Tripod Target?", "20", ["Yes", "No"], ["1", "0"]
+      item :lift_strength_bar, "Lift Strength Bar?", "16", ["Yes", "No"], ["1", "0"]
       score do |items|
-        ((items[:all_tripod_feet_touching].to_i) * 1) * ( ((items[:tripod_partial].to_i) * 15) + ((items[:tripod_complete].to_i) * 20) )
-      end
-      check "Tripods can only be PARTIALLY or COMPLETELY in Tripod Target" do |items|
-        (items[:tripod_partial].to_i + items[:tripod_complete].to_i) <= 1
+        ((items[:lift_strength_bar].to_i) * 16)
       end
     end
 
