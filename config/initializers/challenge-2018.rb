@@ -167,9 +167,11 @@ YN = ["1", "0"]
 challenge do
 
   mission "M01 Space Travel" do
-    item :broken_pipe_in_base, "Broken Pipe is completely in Base?", "20", ["Yes", "No"], ["1", "0"]
+    item :vehicle_payload_down_ramp, "Vehicle Payload independently rolled down ramp?", "22", ["Yes", "No"], ["1", "0"]
+    item :supply_payload_down_ramp, "Supply Payload independently rolled down ramp?", "14", ["Yes", "No"], ["1", "0"]
+    item :crew_payload_down_ramp, "Crew Payload independently rolled down ramp?", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:broken_pipe_in_base].to_i) * 20
+      ((items[:broken_pipe_in_base].to_i) * 22) + ((items[:supply_payload_down_ramp].to_i) * 14) + ((items[:crew_payload_down_ramp].to_i) * 10)
     end
   end
 
