@@ -288,13 +288,13 @@ challenge do
   end
 
   mission "M14 Meteoroid Deflection" do
-    item :water_well_partial, "Water Well contacting mat PARTIALLY inside target area?", "15", ["Yes", "No"], ["1", "0"]
-    item :water_well_complete, "Water Well contacting mat COMPLETELY inside target area?", "25", ["Yes", "No"], ["1", "0"]
+    item :meteoroids_in_center, "Meteoroids In Center Section", "12", ["0", "1", "2"], ["0", "1", "2"]
+    item :meteoroids_side_section, "Meteoroids Either Side Section", "8", ["0", "1", "2"], ["0", "1", "2"]
     score do |items|
-      ((items[:water_well_partial].to_i) * 15) + ((items[:water_well_complete].to_i) * 25)
+      ((items[:meteoroids_in_center].to_i) * 12) + ((items[:meteoroids_side_section].to_i) * 8)
     end
-    check "Water Well can only be PARTIALLY or COMPLETELY inside target area" do |items|
-      (items[:water_well_partial].to_i + items[:water_well_complete].to_i) <= 1
+    check "Cannot have both meteoroids in Center Sectin AND Side Sections" do |items|
+      (items[:meteoroids_in_center].to_i + items[:meteoroids_side_section].to_i) == 4
     end
   end
 
