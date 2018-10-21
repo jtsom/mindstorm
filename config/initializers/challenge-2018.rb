@@ -171,7 +171,7 @@ challenge do
     item :supply_payload_down_ramp, "Supply Payload independently rolled down ramp?", "14", ["Yes", "No"], ["1", "0"]
     item :crew_payload_down_ramp, "Crew Payload independently rolled down ramp?", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:broken_pipe_in_base].to_i) * 22) + ((items[:supply_payload_down_ramp].to_i) * 14) + ((items[:crew_payload_down_ramp].to_i) * 10)
+      ((items[:vehicle_payload_down_ramp].to_i) * 22) + ((items[:supply_payload_down_ramp].to_i) * 14) + ((items[:crew_payload_down_ramp].to_i) * 10)
     end
   end
 
@@ -235,14 +235,14 @@ challenge do
   end
 
   mission "M08 Aerobic Exercise" do
-    item :pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "22", ["0", "1", "2"], ["0", "1", "2"]
+    item :pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "22", ["Yes", "No"], ["1", "0"]
     item :pointer_tip_completely_white, "Pointer tip completely in white?", "20", ["Yes", "No"], ["1", "0"]
     item :pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
        ((items[:pointer_tip_in_orange].to_i) * 22) + ((items[:pointer_tip_completely_white].to_i) * 20)+ ((items[:pointer_tip_in_gray].to_i) * 18)
     end
     check "Pointer Tip can only be in Orange, Grey or White!" do |items|
-      (items[:pointer_tip_in_orange].to_i + items[:pointer_tip_completely_white].to_i) + items[:pointer_tip_in_gray].to_i) <= 1
+      (items[:pointer_tip_in_orange].to_i + items[:pointer_tip_completely_white].to_i + items[:pointer_tip_in_gray].to_i) <= 1
     end
   end
 
@@ -276,14 +276,14 @@ challenge do
 
   #check
   mission "M13 Observatory" do
-    item :obs_pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "20", ["0", "1", "2"], ["0", "1", "2"]
+    item :obs_pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "20", ["Yes", "No"], ["1", "0"]
     item :obs_pointer_tip_completely_white, "Pointer tip completely in white?", "18", ["Yes", "No"], ["1", "0"]
     item :obs_pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
        ((items[:obs_pointer_tip_in_orange].to_i) * 20) + ((items[:obs_pointer_tip_completely_white].to_i) * 18)+ ((items[:obs_pointer_tip_in_gray].to_i) * 16)
     end
     check "Observatory Pointer Tip can only be in Orange, Grey or White!" do |items|
-      (items[:obs_pointer_tip_in_orange].to_i + items[:obs_pointer_tip_completely_white].to_i) + items[:obs_pointer_tip_in_gray].to_i) <= 1
+      (items[:obs_pointer_tip_in_orange].to_i + items[:obs_pointer_tip_completely_white].to_i + items[:obs_pointer_tip_in_gray].to_i) <= 1
     end
   end
 
@@ -293,8 +293,10 @@ challenge do
     score do |items|
       ((items[:meteoroids_in_center].to_i) * 12) + ((items[:meteoroids_side_section].to_i) * 8)
     end
-    check "Cannot have both meteoroids in Center Sectin AND Side Sections" do |items|
-      (items[:meteoroids_in_center].to_i + items[:meteoroids_side_section].to_i) == 4
+    check "Cannot have both meteoroids in Center Section AND Side Sections" do |items|
+      puts items[:meteoroids_in_center].to_i
+      puts items[:meteoroids_side_section].to_i
+      (items[:meteoroids_in_center].to_i + items[:meteoroids_side_section].to_i) < 4
     end
   end
 
@@ -303,10 +305,10 @@ challenge do
     item :lander_northeast_area, "Lander In Northeast Area?", "20", ["Yes", "No"], ["1", "0"]
     item :lander_in_base, "Lander In Base?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:lander_target_circle].to_i) * 22) + (items[:lander_northeast_area].to_i) * 20) + (items[:lander_in_base].to_i) * 16))
+      ((items[:lander_target_circle].to_i) * 22) + ((items[:lander_northeast_area].to_i) * 20) + ((items[:lander_in_base].to_i) * 16)
     end
     check "Lander can only be in target circle, northeast area or base!" do |items|
-      (items[:lander_target_circle].to_i + items[:lander_northeast_area].to_i) + items[:lander_in_base].to_i) <= 1
+      (items[:lander_target_circle].to_i + items[:lander_northeast_area].to_i + items[:lander_in_base].to_i) <= 1
     end
   end
 

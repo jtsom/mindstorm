@@ -138,7 +138,7 @@
 			 return "Gerhard can be Completely or Partially in airlock, not both!";
 		 }
 
-		 if ((input_value('pointer_tip_in_orange') + input_value('pointer_tip_completely_white') + input_value('pointer_tip_in_gray') > 1) {
+		 if ((input_value('pointer_tip_in_orange') + input_value('pointer_tip_completely_white') + input_value('pointer_tip_in_gray') > 1)) {
 			 make_all_invalid('pointer_tip_in_orange', 'pointer_tip_completely_white', 'pointer_tip_in_gray');
 			 return "Pointer Tip can only be in Orange, Grey or White!";
 		 }
