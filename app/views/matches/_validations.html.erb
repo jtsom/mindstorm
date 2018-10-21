@@ -148,6 +148,11 @@
 			 return "Observatory Pointer Tip can only be in Orange, Grey or White!";
 		 }
 
+		 if ((input_value('lander_target_circle') + input_value('lander_northeast_area') + input_value('lander_in_base')) > 1) {
+			 make_all_invalid('lander_target_circle', 'lander_northeast_area', 'lander_in_base');
+			 return "Lander can only be in target circle, northeast area or base!";
+		 }
+
 		return "";
 	}
 
