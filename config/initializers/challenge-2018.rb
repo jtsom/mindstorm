@@ -184,9 +184,13 @@ challenge do
   end
 
   mission "M03 3D Printing" do
-  item :pump_contact_with_mat, "Pump Addition has contact with the mat?", "20", ["Yes", "No"], ["1", "0"]
+    item :brick_ejected_in_planet, "The 2x4 Brick ejected and completely in the Northeast Planet Area", "22", ["Yes", "No"], ["1", "0"]
+    item :brick_ejected_not_in_planet, "The 2x4 Brick ejected and not completely in the Northeast Planet Area?", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:pump_contact_with_mat].to_i) * 20)
+      ((items[:brick_ejected_in_planet].to_i) * 22) + ((items[:brick_ejected_not_in_planet].to_i) * 18)
+    end
+    check "2x4 Brick much either be IN planet area or not in planet area" do |items|
+      (items[:brick_ejected_in_planet].to_i + items[:brick_ejected_not_in_planet].to_i) <= 1
     end
   end
 
