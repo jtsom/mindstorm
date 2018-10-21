@@ -123,11 +123,15 @@
 		// 	return "Milk must be IN BASE or ON RAMP - cannot be both!";
 		// }
 
-		// if (input_value('all_manure_in_research') == 1 && input_value('manure_in_research') != 7) {
-		// 	make_all_invalid('all_manure_in_research', 'manure_in_research');
-		// 	return "M15 cannot be YES, if M09 less than 7!";
-		// }
+		 if (input_value('brick_ejected_in_planet') == 1 && input_value('brick_ejected_not_in_planet') == 1) {
+		 	 make_all_invalid('brick_ejected_in_planet', 'brick_ejected_not_in_planet');
+		 	 return "2x4 Brick can either be in Planet Area Or Not, not both!";
+		 }
 
+		 if (input_value('gas_core_sample_in_lander') == 1 && input_value('gas_core_sample_in_base') == 1) {
+		 	 make_all_invalid('gas_core_sample_in_lander', 'gas_core_sample_in_base');
+		 	 return "Gas Core Sample can either be in Lander Target Circle OR Base!";
+		 }
 
 		return "";
 	}

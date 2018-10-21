@@ -196,16 +196,22 @@ challenge do
 
   mission "M04 Crater Crossing" do
     item :robot_crossed_crater, "Robot has crossed crater?", "20", ["Yes", "No"], ["1", "0"]
-      score do |items|
-        ((items[:robot_crossed_crater].to_i) * 20)
-      end
+    score do |items|
+      ((items[:robot_crossed_crater].to_i) * 20)
     end
+  end
 
   mission "M05 Extraction" do
-    item :lock_latch_dropped, "Lock latch is in dropped position?", "30", ["Yes", "No"], ["1", "0"]
-      score do |items|
-        ((items[:lock_latch_dropped].to_i) * 30)
-      end
+    item :four_core_samples_moved, "All four Core Samples so they are no longer touching the axle", "16", ["Yes", "No"], ["1", "0"]
+    item :gas_core_sample_in_lander, "Gas Core Sample completely in the Lander’s Target Circle", "12", ["Yes", "No"], ["1", "0"]
+    item :gas_core_sample_in_base, "Gas Core Sample completely in Base", "10", ["Yes", "No"], ["1", "0"]
+    item :water_core_sample_in_food_chamber, "Water Core Sample supported only by the Food Growth Chamber", "8", ["Yes", "No"], ["1", "0"]
+    score do |items|
+      ((items[:four_core_samples_moved].to_i) * 16) + ((items[:gas_core_sample_in_lander].to_i) * 12) + ((items[:gas_core_sample_in_base].to_i) * 10) + ((items[:water_core_sample_in_food_chamber].to_i) * 8)
+    end
+    check "Gas Core Sample can either be in Lander Target Circle OR Base" do |items|
+      (items[:gas_core_sample_in_lander].to_i + items[:gas_core_sample_in_base].to_i) <= 1
+    end
   end
 
   mission "M06 Space Station Modules" do
