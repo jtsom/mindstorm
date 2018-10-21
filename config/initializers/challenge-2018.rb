@@ -261,14 +261,9 @@ challenge do
   end
 
   mission "M11 Escape Velocity" do
-    item :new_pipe_mat_contact_11, "New Pipe has full/flat contact with the mat?", "0", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_partial, "This new pipe is partially in its target?", "15", ["Yes", "No"], ["1", "0"]
-    item :new_pipe_complete, "This new pipe is completely in its target?", "20", ["Yes", "No"], ["1", "0"]
+    item :spacecraft_stays_up, "Spacecraft Stays Up?", "24", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:new_pipe_mat_contact_11].to_i) * 1) * (((items[:new_pipe_partial].to_i) * 15) + ((items[:new_pipe_complete].to_i) * 20))
-    end
-    check "New Pipe can only be PARTIALLY or COMPLETELY in its target" do |items|
-      (items[:new_pipe_partial].to_i + items[:new_pipe_complete].to_i) <= 1
+      ((items[:new_pipe_mat_contact_11].to_i) * 26)
     end
   end
 
