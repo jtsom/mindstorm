@@ -276,10 +276,14 @@ challenge do
 
   #check
   mission "M13 Observatory" do
-    item :flower_raised, "Flower is raised?", "30", ["Yes", "No"], ["1", "0"]
-    item :rain_touching_purple, "At least one Rain is in the purple part?", "30", ["Yes", "No"], ["1", "0"]
+    item :obs_pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "20", ["0", "1", "2"], ["0", "1", "2"]
+    item :obs_pointer_tip_completely_white, "Pointer tip completely in white?", "18", ["Yes", "No"], ["1", "0"]
+    item :obs_pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
-       ((items[:flower_raised].to_i) * 30) + ((items[:rain_touching_purple].to_i) * 30)
+       ((items[:obs_pointer_tip_in_orange].to_i) * 20) + ((items[:obs_pointer_tip_completely_white].to_i) * 18)+ ((items[:obs_pointer_tip_in_gray].to_i) * 16)
+    end
+    check "Observatory Pointer Tip can only be in Orange, Grey or White!" do |items|
+      (items[:obs_pointer_tip_in_orange].to_i + items[:obs_pointer_tip_completely_white].to_i) + items[:obs_pointer_tip_in_gray].to_i) <= 1
     end
   end
 
