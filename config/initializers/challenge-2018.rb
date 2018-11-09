@@ -316,7 +316,7 @@ challenge do
     item :penalties, "Penalty discs in the southeast triangle area", "-3", ["0", "1", "2", "3", "4", "5", "6"], ["0", "1", "2", "3", "4", "5", "6"]
 
     score do |items|
-       (items[:penalties].to_i) * -5
+       (items[:penalties].to_i) * -3
     end
   end
 end
