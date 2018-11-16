@@ -263,7 +263,7 @@ challenge do
   mission "M11 Escape Velocity" do
     item :spacecraft_stays_up, "Spacecraft Stays Up?", "24", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:new_pipe_mat_contact_11].to_i) * 26)
+      ((items[:new_pipe_mat_contact_11].to_i) * 24)
     end
   end
 
