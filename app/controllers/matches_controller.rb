@@ -98,12 +98,6 @@ class MatchesController < ApplicationController
        end
      end
 
-     if results[:manure_in_research] == "7"
-       results[:all_manure_in_research] = "1"
-     else
-       results[:all_manure_in_research] = "0"
-     end
-
      @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
      @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
      @match.results = results
@@ -143,12 +137,6 @@ class MatchesController < ApplicationController
           when "n", "N" then 0
           else value
         end
-      end
-
-      if results[:manure_in_research] == "7"
-        results[:all_manure_in_research] = "1"
-      else
-        results[:all_manure_in_research] = "0"
       end
 
       @match.results = results
