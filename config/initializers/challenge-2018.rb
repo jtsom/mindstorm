@@ -256,21 +256,21 @@ challenge do
   mission "M10 Food Production" do
     item :spin_food_growth_chamber, "Spin Food Growth Chamger?", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
-       (items[:new_pipe_installed].to_i * 16)
+       (items[:spin_food_growth_chamber].to_i * 16)
     end
   end
 
   mission "M11 Escape Velocity" do
     item :spacecraft_stays_up, "Spacecraft Stays Up?", "24", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:new_pipe_mat_contact_11].to_i) * 24)
+      ((items[:spacecraft_stays_up].to_i) * 24)
     end
   end
 
   mission "M12 Satellite Orbits" do
     item :satellites_in_outer_orbit, "Satellites in Outer Orbit?", "8", ["0", "1", "2", "3"], ["0", "1", "2", "3"]
     score do |items|
-       ((items[:sludge_touching_wood].to_i) * 8)
+       ((items[:satellites_in_outer_orbit].to_i) * 8)
     end
   end
 
