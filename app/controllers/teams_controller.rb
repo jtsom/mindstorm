@@ -144,19 +144,19 @@ class TeamsController < ApplicationController
 # fllTeamNumber,MatchNumber,TableNumber
 
   def matchupload
-  
+
   	all_teams = @current_competition.teams
   	num_matches = Qualification.where(:team_id => all_teams.map(&:id)).length
-  	
+
   	if num_matches > 0
   		flash[:error] = 'Matches already exist. Cannot upload.'
   		redirect_to :action => :index
   		return
   	end
-  	
+
   	raw_results = "{:vehicle_payload_down_ramp=> '0', :supply_payload_down_ramp=> '0' , :crew_payload_down_ramp=> '0' , :both_angled_same_field=> '0' , :yours_angled_other_field=> '0' , :brick_ejected_in_planet=> '0', :brick_ejected_not_in_planet=> '0', :robot_crossed_crater=> '0' , :four_core_samples_moved=> '0', :gas_core_sample_in_lander=> '0', :gas_core_sample_in_base=> '0', :water_core_sample_in_food_chamber=> '0', :cone_module_in_base=> '0', :tube_module_in_west_habitation=> '0' , :dock_module_in_east_habitation=> '0' , :gerhard_completely_in_airlock=> '0', :gerhard_partially_in_airlock=> '0' , :pointer_tip_in_orange=> '0', :pointer_tip_completely_white=> '0' , :pointer_tip_in_gray=> '0', :lift_strength_bar=> '0', :spin_food_growth_chamber=> '0' , :spacecraft_stays_up=> '0', :satellites_in_outer_orbit=> '0', :obs_pointer_tip_in_orange=> '0', :obs_pointer_tip_completely_white=> '0' , :obs_pointer_tip_in_gray=> '0', :meteoroids_in_center=> '0' , :meteoroids_side_section=> '0', :lander_target_circle=> '0' , :lander_northeast_area=> '0', :lander_in_base=> '0' , :penalties=> '0', :all_manure_in_research=> '0'  }"
   	results = eval(raw_results)
-  	
+
     uploaded = params[:match_import][:file]
     if uploaded
 		raw = uploaded.read
@@ -169,20 +169,20 @@ class TeamsController < ApplicationController
 		if data[0] == "MATCH UPLOAD"
 			data = data[1, data.length]
 			puts "size=" + data.length.to_s
-	
+
 			data.each { |line|
 			  puts "line=" + line
 			  fields = line.split(",")
 			  puts fields[0] + ' ' + fields[1] + ' ' + fields[2]
-	  
+
 			  fll_number = fields[0].to_i
 			  match_number = fields[1].to_i
 			  table_number = fields[2].to_i
-	  
+
 			  team = (all_teams.detect { |team| team[:fll_number] == fll_number})
-			  if team 
+			  if team
 				  match = Qualification.create()
-				  
+
 				  match.match_number = match_number
 				  match.table_number = table_number
 				  match.results = results
@@ -198,9 +198,9 @@ class TeamsController < ApplicationController
 			flash[:error] = 'Incorrect file format!'
 		end
 	else
-		flash[:error] = 'Please select a file.'	
+		flash[:error] = 'Please select a file.'
 	end
-	
+
     redirect_to :action => :index
   end
 
@@ -264,6 +264,8 @@ class TeamsController < ApplicationController
   end
 
   def sendresults
+    puts ENV['MINDSTORM_EMAIL_LOGIN']
+    puts ENV['MINDSTORM_EMAIL_PASSWORD']
     @team = @current_competition.teams.find(params[:id])
 
     @qualifications = @team.qualifications.order(:match_number)
