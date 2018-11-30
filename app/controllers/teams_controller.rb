@@ -264,8 +264,6 @@ class TeamsController < ApplicationController
   end
 
   def sendresults
-    puts ENV['MINDSTORM_EMAIL_LOGIN']
-    puts ENV['MINDSTORM_EMAIL_PASSWORD']
     @team = @current_competition.teams.find(params[:id])
 
     @qualifications = @team.qualifications.order(:match_number)

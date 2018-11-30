@@ -215,9 +215,9 @@ challenge do
   end
 
   mission "M06 Space Station Modules" do
-    item :cone_module_in_base, "Big Water is ejected from Water Treatment model?", "16", ["Yes", "No"], ["1", "0"]
-    item :tube_module_in_west_habitation, "Tube Module into the Habitation Hub port west side?", "16", ["Yes", "No"], ["1", "0"]
-    item :dock_module_in_east_habitation, "Dock Module into the Habitation Hub port east side?", "14", ["Yes", "No"], ["1", "0"]
+    item :cone_module_in_base, "Cone Module is completely in Base?", "16", ["Yes", "No"], ["1", "0"]
+    item :tube_module_in_west_habitation, "Tube Module is in west port of Habitation Hub?", "16", ["Yes", "No"], ["1", "0"]
+    item :dock_module_in_east_habitation, "Dock Module is in east port of Habitation Hub?", "14", ["Yes", "No"], ["1", "0"]
       score do |items|
         ((items[:cone_module_in_base].to_i) * 16) + ((items[:tube_module_in_west_habitation].to_i) * 16) + ((items[:dock_module_in_east_habitation].to_i) * 14)
       end
