@@ -167,9 +167,9 @@ YN = ["1", "0"]
 challenge do
 
   mission "M01 Space Travel" do
-    item :vehicle_payload_down_ramp, "Vehicle Payload independently rolled down ramp?", "22", ["Yes", "No"], ["1", "0"]
-    item :supply_payload_down_ramp, "Supply Payload independently rolled down ramp?", "14", ["Yes", "No"], ["1", "0"]
-    item :crew_payload_down_ramp, "Crew Payload independently rolled down ramp?", "10", ["Yes", "No"], ["1", "0"]
+    item :vehicle_payload_down_ramp, "Vehicle Payload rolled past first track connection", "22", ["Yes", "No"], ["1", "0"]
+    item :supply_payload_down_ramp, "Supply Payload rolled past first track connection", "14", ["Yes", "No"], ["1", "0"]
+    item :crew_payload_down_ramp, "Crew Payload rolled past first track connection", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:vehicle_payload_down_ramp].to_i) * 22) + ((items[:supply_payload_down_ramp].to_i) * 14) + ((items[:crew_payload_down_ramp].to_i) * 10)
     end
@@ -177,7 +177,7 @@ challenge do
 
   mission "M02 Solar Panel Array" do
     item :both_angled_same_field, "Both Solar Panels are Angled toward the same Field", "22", ["Yes", "No"], ["1", "0"]
-    item :yours_angled_other_field, "our Solar Panel is Angled toward the other team’s Field", "18", ["Yes", "No"], ["1", "0"]
+    item :yours_angled_other_field, "Your Solar Panel is Angled toward the other team’s Field", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:both_angled_same_field].to_i) * 22) + ((items[:yours_angled_other_field].to_i) * 18)
     end
@@ -185,7 +185,7 @@ challenge do
 
   mission "M03 3D Printing" do
     item :brick_ejected_in_planet, "The 2x4 Brick ejected and completely in the Northeast Planet Area", "22", ["Yes", "No"], ["1", "0"]
-    item :brick_ejected_not_in_planet, "The 2x4 Brick ejected and not completely in the Northeast Planet Area?", "18", ["Yes", "No"], ["1", "0"]
+    item :brick_ejected_not_in_planet, "The 2x4 Brick ejected and not completely in the Northeast Planet Area", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:brick_ejected_in_planet].to_i) * 22) + ((items[:brick_ejected_not_in_planet].to_i) * 18)
     end
@@ -195,7 +195,7 @@ challenge do
   end
 
   mission "M04 Crater Crossing" do
-    item :robot_crossed_crater, "Robot has crossed crater?", "20", ["Yes", "No"], ["1", "0"]
+    item :robot_crossed_crater, "Gate completely flattened and crossing equipment cleared", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:robot_crossed_crater].to_i) * 20)
     end
@@ -215,16 +215,16 @@ challenge do
   end
 
   mission "M06 Space Station Modules" do
-    item :cone_module_in_base, "Cone Module is completely in Base?", "16", ["Yes", "No"], ["1", "0"]
-    item :tube_module_in_west_habitation, "Tube Module is in west port of Habitation Hub?", "16", ["Yes", "No"], ["1", "0"]
-    item :dock_module_in_east_habitation, "Dock Module is in east port of Habitation Hub?", "14", ["Yes", "No"], ["1", "0"]
+    item :cone_module_in_base, "Cone Module is completely in Base", "16", ["Yes", "No"], ["1", "0"]
+    item :tube_module_in_west_habitation, "Tube Module is in west port of Habitation Hub", "16", ["Yes", "No"], ["1", "0"]
+    item :dock_module_in_east_habitation, "Dock Module is in east port of Habitation Hub", "14", ["Yes", "No"], ["1", "0"]
       score do |items|
         ((items[:cone_module_in_base].to_i) * 16) + ((items[:tube_module_in_west_habitation].to_i) * 16) + ((items[:dock_module_in_east_habitation].to_i) * 14)
       end
   end
 
   mission "M07 Space Walk Emergency" do
-    item :gerhard_completely_in_airlock, "Gerhard Completely in Airlock?",  "22", ["Yes", "No"], ["1", "0"]
+    item :gerhard_completely_in_airlock, "Gerhard Completely in Airlock",  "22", ["Yes", "No"], ["1", "0"]
     item :gerhard_partially_in_airlock, "Gerhard Partially in Airlock",  "18", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:gerhard_completely_in_airlock].to_i) * 22) + ((items[:gerhard_partially_in_airlock].to_i) * 18)
@@ -236,8 +236,8 @@ challenge do
 
   mission "M08 Aerobic Exercise" do
     item :pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "22", ["Yes", "No"], ["1", "0"]
-    item :pointer_tip_completely_white, "Pointer tip completely in white?", "20", ["Yes", "No"], ["1", "0"]
-    item :pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "18", ["Yes", "No"], ["1", "0"]
+    item :pointer_tip_completely_white, "Pointer tip completely in white", "20", ["Yes", "No"], ["1", "0"]
+    item :pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders", "18", ["Yes", "No"], ["1", "0"]
     score do |items|
        ((items[:pointer_tip_in_orange].to_i) * 22) + ((items[:pointer_tip_completely_white].to_i) * 20)+ ((items[:pointer_tip_in_gray].to_i) * 18)
     end
@@ -247,28 +247,28 @@ challenge do
   end
 
   mission "M09 Strength Exercise" do
-      item :lift_strength_bar, "Lift Strength Bar?", "16", ["Yes", "No"], ["1", "0"]
+      item :lift_strength_bar, "Lift Strength Bar", "16", ["Yes", "No"], ["1", "0"]
       score do |items|
         ((items[:lift_strength_bar].to_i) * 16)
       end
     end
 
   mission "M10 Food Production" do
-    item :spin_food_growth_chamber, "Spin Food Growth Chamger?", "16", ["Yes", "No"], ["1", "0"]
+    item :spin_food_growth_chamber, "Grey weight is dropped after green, but before tan (due only to moving the Push Bar)", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
        (items[:spin_food_growth_chamber].to_i * 16)
     end
   end
 
   mission "M11 Escape Velocity" do
-    item :spacecraft_stays_up, "Spacecraft Stays Up?", "24", ["Yes", "No"], ["1", "0"]
+    item :spacecraft_stays_up, "Spacecraft Stays Up", "24", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:spacecraft_stays_up].to_i) * 24)
     end
   end
 
   mission "M12 Satellite Orbits" do
-    item :satellites_in_outer_orbit, "Satellites in Outer Orbit?", "8", ["0", "1", "2", "3"], ["0", "1", "2", "3"]
+    item :satellites_in_outer_orbit, "Satellites on or above the area between the two lines of Outer Orbit", "8", ["0", "1", "2", "3"], ["0", "1", "2", "3"]
     score do |items|
        ((items[:satellites_in_outer_orbit].to_i) * 8)
     end
@@ -276,9 +276,9 @@ challenge do
 
   #check
   mission "M13 Observatory" do
-    item :obs_pointer_tip_in_orange, " Pointer tip completely in orange, or partly covering either of orange’s end-borders", "20", ["Yes", "No"], ["1", "0"]
-    item :obs_pointer_tip_completely_white, "Pointer tip completely in white?", "18", ["Yes", "No"], ["1", "0"]
-    item :obs_pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders?", "16", ["Yes", "No"], ["1", "0"]
+    item :obs_pointer_tip_in_orange, "Pointer tip completely in orange, or partly covering either of orange’s end-borders", "20", ["Yes", "No"], ["1", "0"]
+    item :obs_pointer_tip_completely_white, "Pointer tip completely in white", "18", ["Yes", "No"], ["1", "0"]
+    item :obs_pointer_tip_in_gray, "Pointer tip completely in gray, or partly covering either of gray’s end-borders", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
        ((items[:obs_pointer_tip_in_orange].to_i) * 20) + ((items[:obs_pointer_tip_completely_white].to_i) * 18)+ ((items[:obs_pointer_tip_in_gray].to_i) * 16)
     end
@@ -288,8 +288,8 @@ challenge do
   end
 
   mission "M14 Meteoroid Deflection" do
-    item :meteoroids_in_center, "Meteoroids In Center Section", "12", ["0", "1", "2"], ["0", "1", "2"]
-    item :meteoroids_side_section, "Meteoroids Either Side Section", "8", ["0", "1", "2"], ["0", "1", "2"]
+    item :meteoroids_in_center, "Meteoroids touching the Mat and in the Center Section", "12", ["0", "1", "2"], ["0", "1", "2"]
+    item :meteoroids_side_section, "Meteoroids touching the Mat and in Either Side Section", "8", ["0", "1", "2"], ["0", "1", "2"]
     score do |items|
       ((items[:meteoroids_in_center].to_i) * 12) + ((items[:meteoroids_side_section].to_i) * 8)
     end
@@ -301,13 +301,13 @@ challenge do
   end
 
   mission "M15 Lander Touch-Down" do
-    item :lander_target_circle, "Lander in its Target Circle", "22", ["Yes", "No"], ["1", "0"]
-    item :lander_northeast_area, "Lander In Northeast Area?", "20", ["Yes", "No"], ["1", "0"]
-    item :lander_in_base, "Lander In Base?", "16", ["Yes", "No"], ["1", "0"]
+    item :lander_target_circle, "Lander in its Target Circle intact, touching mat", "22", ["Yes", "No"], ["1", "0"]
+    item :lander_northeast_area, "Lander In Northeast Area intact, touching mat", "20", ["Yes", "No"], ["1", "0"]
+    item :lander_in_base, "Lander In Base intact, touching mat", "16", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:lander_target_circle].to_i) * 22) + ((items[:lander_northeast_area].to_i) * 20) + ((items[:lander_in_base].to_i) * 16)
     end
-    check "Lander can only be in target circle, northeast area or base!" do |items|
+    check "Lander can only be in target circle, northeast area or base intact, touching mat!" do |items|
       (items[:lander_target_circle].to_i + items[:lander_northeast_area].to_i + items[:lander_in_base].to_i) <= 1
     end
   end
