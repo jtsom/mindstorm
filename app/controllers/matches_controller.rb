@@ -98,12 +98,6 @@ class MatchesController < ApplicationController
        end
      end
 
-     if results[:manure_in_research] == "7"
-       results[:all_manure_in_research] = "1"
-     else
-       results[:all_manure_in_research] = "0"
-     end
-
      @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
      @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
      @match.results = results
@@ -114,7 +108,12 @@ class MatchesController < ApplicationController
        @match.challenge_year = $challenge.mission_year
        if @match.save
          flash[:notice] = "Results for match #{@match.match_number} updated."
-         redirect_to team_path @team
+         case params[:controller]
+           when "qualifications"
+             redirect_to qualifications_path :anchor => "match_#{@match.match_number}"
+           when "finals"
+             redirect_to finals_path :anchor => "match_#{@match.match_number}"
+         end
        else
           render "matches/edit"
        end
@@ -143,12 +142,6 @@ class MatchesController < ApplicationController
           when "n", "N" then 0
           else value
         end
-      end
-
-      if results[:manure_in_research] == "7"
-        results[:all_manure_in_research] = "1"
-      else
-        results[:all_manure_in_research] = "0"
       end
 
       @match.results = results

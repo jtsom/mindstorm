@@ -17,7 +17,7 @@
 <table style="border-collapse:collapse;" border="1">
   <%= fields_for :results do |match_fields|
 		$challenge.missions.each do |mission| -%>
-  <tr><td colspan="2"><b><%= mission.description.html_safe -%></b></td></tr>
+  <tr><td colspan="3"><b><%= mission.description.html_safe -%></b></td></tr>
 	<% mission.items.each do |item|
 		# max_length = 2
 		# allowed_values=item.allowed_values
@@ -49,6 +49,7 @@
 		 -%>
     <tr>
 		  <td><%= item.description %></td>
+      <td><%= item.scoring %> Pts</td>
   		<td>
   			<div id="<%= item.label %>"><%= render partial: "choices" , locals: { choices: item, match_fields: match_fields, value: value } %></div>
   		</td>

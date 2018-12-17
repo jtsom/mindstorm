@@ -2,7 +2,7 @@
 <p><%= link_to "Team List ", teams_path %></p>
 
 <table class="matchlist">
-<% @matches.group_by(&:match_number).sort.each do |match_number, matches| 
+<% @matches.group_by(&:match_number).sort.each do |match_number, matches|
 	lnk = case params[:controller]
 			when "qualifications"
 				qualification_path(match_number)
@@ -12,7 +12,7 @@
 
 	%>
 	<tr>
-		<td colspan="2"><b><%= link_to "Match: #{match_number}", lnk %></b></td>
+		<td colspan="2"><a name="<%= "match_#{match_number}"%>"/><b><%= link_to "Match: #{match_number}", lnk %></b></td>
 	</tr>
 	<% matches.each do |match|
 		edit_link = case params[:controller]
@@ -20,8 +20,8 @@
 						edit_team_qualification_path(match.team_id, match)
 					when "finals"
 						edit_team_final_path(match.team_id, match)
-					end	
-					
+					end
+
 		delete_link = case params[:controller]
 					when "qualifications"
 						team_qualification_path(match.team_id, match)

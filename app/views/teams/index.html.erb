@@ -34,3 +34,17 @@
 
 <% end -%>
 </div>
+<hr>
+<div>
+Match Upload
+<%= form_for :match_import, :url => {:action => :matchupload}, :html => { :multipart => true } do |f| -%>
+      <p><label for="upload_file">
+        Select a JSON File :
+      </label>
+
+      <%= f.file_field :file %></p>
+
+        <%= f.submit "Upload", :data => {:disable_with =>  "Uploading..."} %>
+
+<% end -%>
+</div>
