@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110112328) do
+ActiveRecord::Schema.define(version: 20191025004811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20171110112328) do
     t.string "award_inspiration", limit: 255
     t.string "award_teamwork", limit: 255
     t.string "award_gracprof", limit: 255
+    t.text "cv_gj_comments"
+    t.text "cv_ta_coments"
   end
 
   create_table "matches", id: :serial, force: :cascade do |t|
@@ -91,6 +93,8 @@ ActiveRecord::Schema.define(version: 20171110112328) do
     t.string "award_research", limit: 255
     t.string "award_innosolution", limit: 255
     t.string "award_presentation", limit: 255
+    t.text "p_gj_comments"
+    t.text "p_ta_comments"
     t.index ["team_id"], name: "index_project_scores_on_team_id"
   end
 
@@ -118,6 +122,8 @@ ActiveRecord::Schema.define(version: 20171110112328) do
     t.string "award_mechdesign", limit: 255
     t.string "award_programming", limit: 255
     t.string "award_strategy", limit: 255
+    t.text "r_gj_comments"
+    t.text "r_ta_comments"
     t.index ["team_id"], name: "index_robot_scores_on_team_id"
   end
 
