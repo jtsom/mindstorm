@@ -154,7 +154,8 @@ class TeamsController < ApplicationController
   		return
   	end
 
-  	raw_results = "{:vehicle_payload_down_ramp=> '0', :supply_payload_down_ramp=> '0' , :crew_payload_down_ramp=> '0' , :both_angled_same_field=> '0' , :yours_angled_other_field=> '0' , :brick_ejected_in_planet=> '0', :brick_ejected_not_in_planet=> '0', :robot_crossed_crater=> '0' , :four_core_samples_moved=> '0', :gas_core_sample_in_lander=> '0', :gas_core_sample_in_base=> '0', :water_core_sample_in_food_chamber=> '0', :cone_module_in_base=> '0', :tube_module_in_west_habitation=> '0' , :dock_module_in_east_habitation=> '0' , :gerhard_completely_in_airlock=> '0', :gerhard_partially_in_airlock=> '0' , :pointer_tip_in_orange=> '0', :pointer_tip_completely_white=> '0' , :pointer_tip_in_gray=> '0', :lift_strength_bar=> '0', :spin_food_growth_chamber=> '0' , :spacecraft_stays_up=> '0', :satellites_in_outer_orbit=> '0', :obs_pointer_tip_in_orange=> '0', :obs_pointer_tip_completely_white=> '0' , :obs_pointer_tip_in_gray=> '0', :meteoroids_in_center=> '0' , :meteoroids_side_section=> '0', :lander_target_circle=> '0' , :lander_northeast_area=> '0', :lander_in_base=> '0' , :penalties=> '0', :all_manure_in_research=> '0'  }"
+    raw_results = "{:robot_inspection=>'0', :supported_by_bridge=>'0', :flags_raised=>'0', :clearly_lowered=>'0', :independent_and_supported=>'0', :completely_in_blue_circle=>'0', :inspection_drone_supported=>'0', :bat_supported_by_branch=>'0', :unit_supported_by_tree_large_branch=>'0', :unit_supported_by_tree_small_branch=>'0', :traffic_jam_lifted=>'0', :swing_released=>'0', :blue_car_down=>'0', :balanced=>'0', :blue_beams_down=>'0', :standing_and_independent=>'0', :completely_in_circle=>'0', :partly_in_circle=>'0', :circles_with_matching_units=>'0', :sum_stack_height=>'0', :upgrades=>'0', :precision=>'60'}"
+
   	results = eval(raw_results)
 
     uploaded = params[:match_import][:file]

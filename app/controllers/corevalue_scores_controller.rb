@@ -60,6 +60,6 @@ class CorevalueScoresController < ApplicationController
                     :t_effectiveness, :t_efficiency, :t_initiative, :t_comments,
                     :g_inclusion, :g_respect, :g_coopertition, :g_comments,
                     :total_score, :judge_name, :inspiration, :teamwork, :grac_prof,
-                    :award_inspiration, :award_teamwork, :award_gracprof)
+                    :award_inspiration, :award_teamwork, :award_gracprof, :cv_gj_comments, :cv_ta_coments)
     end
 end

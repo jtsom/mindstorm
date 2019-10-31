@@ -62,7 +62,7 @@ class ProjectScoresController < ApplicationController
                                       :i_teamsolution, :i_innovation, :i_implementation, :i_comments,
                                       :p_preseffective, :p_creativity, :p_sharing, :p_comments,
                                       :judge_name, :research, :innovative_solution, :presentation,
-                                      :award_research, :award_innosolution, :award_presentation)
+                                      :award_research, :award_innosolution, :award_presentation, :p_gj_comments, :p_ta_comments)
     end
 
 
