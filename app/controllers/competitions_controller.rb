@@ -78,6 +78,6 @@ end
   private
 
   def comp_params
-    params.require(:competition).permit(:name, :email, :password, :from_email, :full_name ,:contact_name, :send_email)
+    params.require(:competition).permit(:name, :email, :password, :from_email, :full_name ,:contact_name, :send_email, :judge_lanes)
   end
 end
