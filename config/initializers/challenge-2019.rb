@@ -208,7 +208,7 @@ challenge do
   end
 
   mission "M03 Inspection Drone" do
-    item :inspection_drone_supported, "Inspection Drone is Supported by axle (A) on the Bridge", "20", ["Yes", "No"], ["1", "0"]
+    item :inspection_drone_supported, "Inspection Drone is Supported by axle (A) on the Bridge", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:inspection_drone_supported].to_i) * 10)
       s += add_bonus(s, items[:robot_inspection] )
@@ -266,7 +266,7 @@ challenge do
   mission "M09 Safety Factor" do
       item :blue_beams_down, "Blue Beams Knocked out", "10", to_sa((0..6)), to_sa((0..6))
       score do |items|
-        s = ((items[:lift_strength_bar].to_i) * 10)
+        s = ((items[:blue_beams_down].to_i) * 10)
         s += add_bonus(s, items[:robot_inspection] )
       end
     end
