@@ -1,8 +1,8 @@
 class TeamMailer < ActionMailer::Base
 
     def team_details_email(competition, team, qualifications, finals)
-      puts ENV['MINDSTORM_EMAIL_LOGIN']
-      puts ENV['MINDSTORM_EMAIL_PASSWORD']
+      puts ENV['MG_MINDSTORM_EMAIL_LOGIN']
+      puts ENV['MG_MINDSTORM_EMAIL_PASSWORD']
       @team = team
       @qualifications = qualifications
       @finals = finals

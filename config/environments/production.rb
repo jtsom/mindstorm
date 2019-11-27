@@ -3,12 +3,22 @@ Mindstorm::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.gmail.com",
+  #     :port                 => 587,
+  #     :domain               => 'shrewsburyrobotics.org',
+  #     :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
+  #     :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
+  #     :authentication       => 'plain',
+  #     :enable_starttls_auto => true
+  # }
+
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.mailgun.com",
       :port                 => 587,
-      :domain               => 'shrewsburyrobotics.org',
-      :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
-      :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
+      :domain               => 'mg.mindstormmayhem.com',
+      :user_name            => ENV['MG_MINDSTORM_EMAIL_LOGIN'],
+      :password             => ENV['MG_MINDSTORM_EMAIL_PASSWORD'],
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
