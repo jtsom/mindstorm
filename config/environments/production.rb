@@ -19,8 +19,7 @@ Mindstorm::Application.configure do
       :domain               => 'mg.mindstormmayhem.com',
       :user_name            => ENV['MG_MINDSTORM_EMAIL_LOGIN'],
       :password             => ENV['MG_MINDSTORM_EMAIL_PASSWORD'],
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
+      :authentication       => 'plain'
   }
 
   # Code is not reloaded between requests.
