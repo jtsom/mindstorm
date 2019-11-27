@@ -16,7 +16,7 @@ Mindstorm::Application.configure do
     config.action_mailer.smtp_settings = {
       :address              => "smtp.mailgun.com",
       :port                 => 587,
-      :domain               => 'mg.mindstormmayhem.com',
+      :domain               => 'mindstormmayhem.com',
       :user_name            => ENV['MG_MINDSTORM_EMAIL_LOGIN'],
       :password             => ENV['MG_MINDSTORM_EMAIL_PASSWORD'],
       :authentication       => 'plain'
