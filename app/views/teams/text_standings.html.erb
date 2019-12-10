@@ -1,3 +1,8 @@
-<% @teams.each_with_index do |team, i| -%>
-<div><%=team.fll_number %> <%=team.team_name %> <%= team.high_score %><br /></div>
+TeamNumber,TeamName,HighScore,match1,match2,match3,match4,match5
+<% @teams.each do |team| -%>
+<div>"<%=team.fll_number %>","<%=team.team_name %>", <%= team.high_score %>
+    <% team.qualifications.order(:match_number).each do |match| %>
+    ,<%= match.score %>
+    <% end %>
+<br /></div>
 <% end -%>

@@ -218,11 +218,7 @@ class TeamsController < ApplicationController
   end
 
   def text_standings
-    @teams = @current_competition.teams.sort do |a,b|
-      (b.high_score <=> a.high_score)
-      #comp.zero? ? (a.fll_number <=> b.fll_number) : comp
-    end
-
+    @teams = @current_competition.teams.includes(:qualifications)
     respond_to do |format|
       format.html
       format.xml { render :xml => @teams }
