@@ -1,14 +1,25 @@
 Mindstorm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
+  config.action_mailer.delivery_method = :smtp
+
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.gmail.com",
+  #     :port                 => 587,
+  #     :domain               => 'shrewsburyrobotics.org',
+  #     :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
+  #     :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
+  #     :authentication       => 'plain',
+  #     :enable_starttls_auto => true
+  # }
+
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.mailgun.org",
       :port                 => 587,
-      :domain               => 'shrewsburyrobotics.org',
-      :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
-      :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
+      :domain               => 'mg.mindstormmayhem.com',
+      :user_name            => ENV['MG_MINDSTORM_EMAIL_LOGIN'],
+      :password             => ENV['MG_MINDSTORM_EMAIL_PASSWORD'],
+      :authentication       => 'plain'
   }
 
   # Code is not reloaded between requests.

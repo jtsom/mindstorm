@@ -1,6 +1,7 @@
 <%= form_for [@team, @robotscore] do |f| %>
   <%= errors_for(@robotscore) %>
 <p>Judge: <%= f.text_field :judge_name %></p>
+<p>Rank: <%= f.text_field :rank %></p>
 
 <table class="grid">
     <tr style="border: none;">
@@ -33,7 +34,7 @@
             <b>Durbility</b>
         </td>
         <td class="altRC" colspan="3">
-            Evidence of structural integrity; ability to withstand rigors of competition
+            Robot designed to maintain structural integrity and have the ability to withstand rigors of competition
         </td>
     </tr>
     <tr>
@@ -58,7 +59,7 @@
             <b>Mechanical Efficiency</b>
         </td>
         <td colspan="4">
-            Economic use of parts and time; easy to repair and modify
+            Robot designed to be easy to repair, modify, and be handled by technicians
         </td>
     </tr>
     <tr>
@@ -66,16 +67,16 @@
 			<%= f.radio_button :m_efficiency, "0", :default => true %>
 		</td>
         <td>
-            <%= f.radio_button :m_efficiency, "1" %> <%= f.label :m_efficiency, "excessive parts or time to repair/modify", :value => "1" %>
+            <%= f.radio_button :m_efficiency, "1" %> <%= f.label :m_efficiency, "excessive time to repair/modify", :value => "1" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "2" %> <%= f.label :m_efficiency, "inefficient parts or time to repair/modify", :value => "2" %>
+            <%= f.radio_button :m_efficiency, "2" %> <%= f.label :m_efficiency, "inefficient to repair/modify", :value => "2" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "3" %> <%= f.label :m_efficiency, "appropriate use of parts and time to repair/modify", :value => "3" %>
+            <%= f.radio_button :m_efficiency, "3" %> <%= f.label :m_efficiency, "appropriate time to repair/modify", :value => "3" %>
         </td>
         <td>
-            <%= f.radio_button :m_efficiency, "4" %> <%= f.label :m_efficiency, "streamlined use of parts and time to repair/modify", :value => "4" %>
+            <%= f.radio_button :m_efficiency, "4" %> <%= f.label :m_efficiency, "streamlined time to repair/modify", :value => "4" %>
         </td>
     </tr>
     <tr class="altRC">
@@ -83,8 +84,7 @@
             <b>Mechanization</b>
         </td>
         <td colspan="4">
-            Ability of robot mechanisms to move or act with appropriate speed, strength and accuracy
-                for inteneded tasks (propulsion and execution)
+            Robot mechanisms designed to move or act with appropriate speed, strength and accuracy for intended tasks (propulsion and execution)
         </td>
     </tr>
     <tr>
@@ -107,12 +107,8 @@
 	<tr height="60px">
 		<td colspan="5"><%= f.check_box :award_mechdesign, {}, "Y", "N" %> <strong>Mechanical Design Award Consideration</strong></td>
 	</tr>
-    <tr valign="top">
-        <td colspan="5" valign="top">
-            Comments:<%= f.text_area :m_comments, :rows => 5, :cols => 100 %>
-        </td>
-    </tr>
 </table>
+
 <table class="grid">
     <tr style="border: none;">
         <td style="border: none;">
@@ -142,7 +138,7 @@
             <b>Programming Quality</b>
         </td>
         <td class="altRC" colspan="3">
-            Programs are appropriate for the intended purpose and would achieve consistent results, assuming no mechanical faults
+            Programs are appropriate for the intended purpose and should achieve consistent results, assuming no mechanical faults
         </td>
     </tr>
     <tr>
@@ -192,8 +188,8 @@
             <b>Automation/Navigation</b>
         </td>
         <td colspan="3">
-            Ability of the robot to move or act as intended using mechanical and/or sensor feedback (with
-                minimal reliance on driver intervention and/or program timing)
+            Robot designed to move or act as intended using mechanical and/or sensor feedback
+             (with minimal reliance on driver intervention and/or program timing)
         </td>
     </tr>
     <tr>
@@ -216,12 +212,8 @@
 	<tr height="60px">
 		<td colspan="5"><%= f.check_box :award_programming, {}, "Y", "N" %> <strong> Programming Award Consideration</strong></td>
 	</tr>
-    <tr valign="top">
-        <td colspan="5">
-            Comments:<%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
-        </td>
-    </tr>
 </table>
+
 <table class="grid">
     <tr style="border: none;">
         <td style="border: none;">
@@ -251,8 +243,9 @@
             <b>Design Process</b>
         </td>
         <td class="altRC" colspan="4">
-            Ablity to develop and explain improvement cycles where alternatives are considered
-                and narrowed, designs improved (applies to programming as well as mechanical design)
+            Developed and explained improvement cycles where alternatives were considered and narrowed,
+            selections tested, designs improved (applies to programming as well as mechanical design)
+
         </td>
     </tr>
     <tr>
@@ -277,7 +270,7 @@
             <b>Missions Strategy</b>
         </td>
         <td colspan="3">
-            Ability to clearly define and describe the team's game strategy
+            Clearly defined and describe the team's game strategy
         </td>
     </tr>
     <tr>
@@ -302,8 +295,8 @@
             <b>Innovation</b>
         </td>
         <td colspan="3">
-          Creation of new, unique, or unexpected feature(s)(e.g designs, programming, strategies
-                or applications) that are beneficial in performing the specified task
+          Team identifies their sources of inspiration and creates new, unique, or
+           unexpected feature(s) (e.g. designs, programs, strategies or applications) that are beneficial in performing the specified tasks
         </td>
     </tr>
     <tr>
@@ -311,7 +304,7 @@
 			<%= f.radio_button :i_innovation, "0", :default => true %>
 		</td>
         <td>
-            <%= f.radio_button :i_innovation, "1" %> <%= f.label :i_innovation, "original feature(s) with no added value or potential", :value => "1" %>
+            <%= f.radio_button :i_innovation, "1" %> <%= f.label :i_innovation, "No original feature(s)", :value => "1" %>
         </td>
         <td>
             <%= f.radio_button :i_innovation, "2" %> <%= f.label :i_innovation, "original feature(s) with some added value or potential", :value => "2" %>
@@ -326,12 +319,14 @@
 	<tr height="60px">
 		<td colspan="5"><%= f.check_box :award_strategy, {}, "Y", "N" %> <strong> Strategy &amp; Innovation Award Consideration</strong></td>
 	</tr>
-    <tr valign="top">
-        <td colspan="5">
-            Comments:<%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
-        </td>
-    </tr>
-</table>
 
+</table>
+    <table>
+        <tr><th class="comments">Great Job...</th><th class="comments">Think About...</th></tr>
+        <tr>
+            <td><%= f.text_area :r_gj_comments, :rows => 5, :cols => 80 %></td>
+            <td><%= f.text_area :r_ta_comments, :rows => 5, :cols => 80 %></td>
+        </tr>
+    </table>
   <p><%= f.submit "Submit" %></p>
 <% end %>

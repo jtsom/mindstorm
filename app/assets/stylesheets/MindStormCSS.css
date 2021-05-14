@@ -1,6 +1,4 @@
-﻿body
-{
-}
+﻿
 
 label.btn.btn-default.active {
 	background: #00CC00;
@@ -14,6 +12,7 @@ label.btn.btn-default.active {
 {
     -webkit-transform: rotate(-90deg);
       -moz-transform: rotate(-90deg);
+      transform: rotate(-90deg);
 	width: 20px;
 	margin-top:170px;
 	font-weight: bold;
@@ -86,6 +85,11 @@ select
 {
   width: 65px;
 }
+
+.comments {
+    font-size: 18px;
+}
+
 @media screen
 {
 .page-break  { display:block; }

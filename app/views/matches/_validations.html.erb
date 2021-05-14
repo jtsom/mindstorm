@@ -57,101 +57,23 @@
 
 	function special_validation() {
 
-		// if (input_value('bar_south') == 1) {
-		// 	if (input_value('marker_color') == 0 && input_value('marker_ticks') != 0) {
-		// 		$("#marker_color").addClass('invalid');
-		// 		return "Must select dial location!";
-		// 	}
-		// 	if (input_value('marker_color') != 0 && input_value('marker_ticks') == 0) {
-		// 		$("#marker_ticks").addClass('invalid');
-		// 		return "Must select dial location!";
-		// 	}
-		// }
-		//
-		// var totalLoops = (input_value('robotics_loop_touch') == 0 ? 1 : 0) +
-		// 				 (input_value('senses_touch') == 0 ? 1 : 0) +
-		// 				 (input_value('correct_engine_loop_removed') == 1 ? 2 : 0) +
-		// 				 (input_value('community_touch') == 0 ? 1 : 0) +
-		// 				 (input_value('loops_on_scale'));
-		//
-		// if (totalLoops > 8) {
-		// 	$("#robotics_loop_touch").addClass('invalid');
-		// 	$("#senses_touch").addClass('invalid');
-		// 	$("#correct_engine_loop_removed").addClass('invalid');
-		// 	$("#community_touch").addClass('invalid');
-		// 	$("#loops_on_scale").addClass('invalid');
-		// 	return "Can't use more than 8 loops";
-		// }
+		var totalUnits = (input_value('unit_supported_by_tree_large_branch') +
+						  input_value('unit_supported_by_tree_small_branch') +
+						  input_value('independent_and_supported'));
+		if (totalUnits > 16) {
+			make_all_invalid(['unit_supported_by_tree_large_branch', 'unit_supported_by_tree_small_branch', 'independent_and_supported']);
+			return "Total number of Units must be less than 16!";
+		}
 
-		// if (input_value('engine_installed') == 1 && input_value('car_folded_east_area') == 1) {
-		// 	make_all_invalid("engine_installed", "car_folded_east_area");
-		// 	return "Car can either be folded or have it's engine installed!";
-		// }
-		//
-		// if (input_value('bars_in_w_transfer') + input_value('bars_not_in_w_transfer') > 15 ) {
-		// 	make_all_invalid('bars_in_w_transfer', 'bars_not_in_w_transfer');
-		// 	return "Too many Blue / Yellow bars!";
-		// }
-		//
-		// if (input_value('bars_in_original_position') + input_value('bars_in_green_bin_or_landfill') + input_value('bars_elsewhere') > 12 ) {
-		// 	make_all_invalid('bars_in_original_position', 'bars_in_green_bin_or_landfill', 'bars_elsewhere');
-		// 	return "Too many Black bars!";
-		// }
-		//
-		// if (input_value('compost_ejected') == 1 && input_value('compost_in_safety') == 1) {
-		// 	make_all_invalid('compost_ejected','compost_in_safety');
-		// 	return "Compost can be in or out of Safety!";
-		// }
+		if (input_value('blue_car_down') == 1 && input_value('balanced') == 1) {
+			make_all_invalid(['blue_car_down', 'balanced']);
+			return "Either Blue Car is Down or Elevator is Balanced!";
+		}
 
-		// if (input_value('milk_and_manure') == 1 && input_value('milk_only') == 1) {
-		// 	make_all_invalid('milk_and_manure', 'milk_only');
-		// 	return "Milk and manure OR Milk only allowed!";
-		// }
-    //
-		// if (input_value('bee_no_honey') == 1 && input_value('bee_honey_in_base') == 1) {
-		// 	make_all_invalid('bee_no_honey', 'bee_honey_in_base');
-		// 	return "No Honey in Beehive OR honey in Base!";
-		// }
-    //
-		// if (input_value('prosthesis_not_held_by_ref') == 1 && input_value('prostheses_in_farm') == 1) {
-		// 	make_all_invalid('prosthesis_not_held_by_ref', 'prostheses_in_farm');
-		// 	return "Prosthesis on pet and not held by ref OR completely in Farm!";
-		// }
-    //
-		// if (input_value('three_milk_in_base') == 1 && input_text('milk_on_ramp_option') !== 'None') {
-		// 	make_all_invalid('three_milk_in_base', 'milk_on_ramp_option');
-		// 	return "Milk must be IN BASE or ON RAMP - cannot be both!";
-		// }
-
-		 if (input_value('brick_ejected_in_planet') == 1 && input_value('brick_ejected_not_in_planet') == 1) {
-		 	 make_all_invalid('brick_ejected_in_planet', 'brick_ejected_not_in_planet');
-		 	 return "2x4 Brick can either be in Planet Area Or Not, not both!";
-		 }
-
-		 if (input_value('gas_core_sample_in_lander') == 1 && input_value('gas_core_sample_in_base') == 1) {
-		 	 make_all_invalid('gas_core_sample_in_lander', 'gas_core_sample_in_base');
-		 	 return "Gas Core Sample can either be in Lander Target Circle OR Base!";
-		 }
-
-		 if (input_value('gerhard_completely_in_airlock') == 1 && input_value('gerhard_partially_in_airlock') == 1) {
-			 make_all_invalid('gerhard_completely_in_airlock', 'gerhard_partially_in_airlock');
-			 return "Gerhard can be Completely or Partially in airlock, not both!";
-		 }
-
-		 if ((input_value('pointer_tip_in_orange') + input_value('pointer_tip_completely_white') + input_value('pointer_tip_in_gray') > 1)) {
-			 make_all_invalid('pointer_tip_in_orange', 'pointer_tip_completely_white', 'pointer_tip_in_gray');
-			 return "Pointer Tip can only be in Orange, Grey or White!";
-		 }
-
-		 if ((input_value('obs_pointer_tip_in_orange') + input_value('obs_pointer_tip_completely_white') + input_value('obs_pointer_tip_in_gray')) > 1) {
-			 make_all_invalid('obs_pointer_tip_in_orange', 'obs_pointer_tip_completely_white', 'obs_pointer_tip_in_gray');
-			 return "Observatory Pointer Tip can only be in Orange, Grey or White!";
-		 }
-
-		 if ((input_value('lander_target_circle') + input_value('lander_northeast_area') + input_value('lander_in_base')) > 1) {
-			 make_all_invalid('lander_target_circle', 'lander_northeast_area', 'lander_in_base');
-			 return "Lander can only be in target circle, northeast area or base!";
-		 }
+		if (input_value('completely_in_circle') == 1 && input_value('partly_in_circle') == 1) {
+			make_all_invalid(['completely_in_circle', 'partly_in_circle']);
+			return "Team Structure can either be Completely or Partly in any circle";
+		}
 
 		return "";
 	}
@@ -168,10 +90,12 @@
 		$('#' + tag).addClass('invalid');
 	}
 
-	function make_all_invalid() {
-		for (var i = 0; i < arguments.length; i++) {
-			$('#' + arguments[i]).addClass('invalid');
-		}
+	function make_all_invalid(fields) {
+		fields.map(a => $('#' + a).addClass('invalid'));
+
+		// for (var i = 0; i < arguments.length; i++) {
+		// 	$('#' + arguments[i]).addClass('invalid');
+		// }
 		window.scrollTo(0, $("#" + arguments[0]).position().top);
 	}
 

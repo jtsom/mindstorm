@@ -4,7 +4,6 @@
 			<li>Problem Identification: <%= project.r_problemID %></li>
 			<li>Sources of Information: <%= project.r_source %></li>
 			<li>Problem Analysis: <%= project.r_analysis %></li>
-			<li>Comments: <%= project.r_comments %></li>
 		</ul>
 	</li>
 	<li>Innovative Solution - Award Consideration? <%= project.award_innosolution %>
@@ -12,7 +11,6 @@
 			<li>Team Solution: <%= project.i_teamsolution %></li>
 			<li>Innovation: <%= project.i_innovation %></li>
 			<li>Solution Development: <%= project.i_implementation %></li>
-			<li>Comments: <%= project.i_comments %></li>
 		</ul>
 	</li>
 	<li>Presentation - Award Consideration? <%= project.award_presentation %>
@@ -20,7 +18,10 @@
 			<li>Sharing: <%= project.p_sharing %></li>
 			<li>Creativity: <%= project.p_creativity %></li>
 			<li>Presentation Effectiveness: <%= project.p_preseffective %></li>
-			<li>Comments: <%= project.p_comments %></li>
 		</ul>
 	</li>
+	<li>Great Job...</li>
+	<li><%= project.p_gj_comments %></li>
+	<li>Think About...</li>
+	<li><%= project.p_ta_comments %></li>
 </ul>

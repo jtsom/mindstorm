@@ -5,7 +5,8 @@ class Competition < ActiveRecord::Base
   validates :from_email, :presence => true
   validates :full_name, :presence => true
   validates :contact_name, :presence => true
-  
+  validates :judge_lanes, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
+
   def self.authenticate(competition_name, password)
     competition = find_by name: competition_name.downcase
     if competition && competition.password.downcase == password.downcase
@@ -14,5 +15,5 @@ class Competition < ActiveRecord::Base
       nil
     end
   end
-  
+
 end

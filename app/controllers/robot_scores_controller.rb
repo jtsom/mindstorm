@@ -59,11 +59,11 @@ private
     end
 
     def scores_params
-      params.require(:robot_score).permit(:total_score, :m_durability, :m_efficiency, :m_mechanization, :m_comments,
+      params.require(:robot_score).permit(:rank, :total_score, :m_durability, :m_efficiency, :m_mechanization, :m_comments,
                                             :p_quality, :p_efficiency, :p_automation, :p_comments,
                                             :i_designprocess, :i_strategy, :i_innovation, :i_comments,
                                             :judge_name, :mechanical_design, :programming, :innovation_strategy,
-                                            :award_mechdesign, :award_programming, :award_strategy)
+                                            :award_mechdesign, :award_programming, :award_strategy, :r_gj_comments, :r_ta_comments)
     end
 
 end

@@ -3,6 +3,8 @@
         <p>Judge:
             <%= f.text_field :judge_name %>
         </p>
+        <p>Rank: <%= f.text_field :rank %></p>
+        <p style="color:red">* Required for Award Consideration</p>
         <table class="grid">
             <tr style="border: none;">
                 <td style="border: none;">
@@ -39,7 +41,7 @@
                     <div class="vertical">Research</div>
                 </td>
                 <td class="altPR" colspan="2">
-                    <b>Problem Identification</b>
+                    <b>Problem Identification <span style="color: red">*</span></b>
                 </td>
                 <td class="altPR" colspan="3">Clear definition of the problem being studied</td>
             </tr>
@@ -122,31 +124,7 @@
                         <%= f.label :r_analysis, "extensive study and analysis by team", :value => "4" %>
                 </td>
             </tr>
-            <!-- <tr class="altPR">
-<td colspan="2">
-<b>Review Existing Solutions</b>
-</td>
-<td colspan="3">
-<i>Extent to which existing theories and solutions were analyzed by the team, Including an effort to verify the originality of the team's solution</i>
-</td>
-</tr>
-<tr>
-<td>
-<%= f.radio_button :r_review, "0", :default => true %>
-</td>
-<td>
-<%= f.radio_button :r_review, "1" %> <%= f.label :r_review, "minimal review; no team analysis", :value => "1" %>
-</td>
-<td>
-<%= f.radio_button :r_review, "2" %> <%= f.label :r_review, "minimal review; some team analysis ", :value => "2" %>
-</td>
-<td>
-<%= f.radio_button :r_review, "3" %> <%= f.label :r_review, "sufficient review and analysis by team", :value => "3" %>
-</td>
-<td>
-<%= f.radio_button :r_review, "4" %> <%= f.label :r_review, "extensive review and analysis by team", :value => "4" %>
-</td>
-</tr> -->
+
             <tr height="60px">
                 <td colspan="5">
                     <%= f.check_box :award_research, {}, "Y", "N" %>
@@ -154,13 +132,8 @@
                         </strong>
                 </td>
             </tr>
-            <tr valign="top">
-                <td colspan="5" valign="top">
-                    Comments:
-                    <%= f.text_area :r_comments, :rows => 5, :cols => 100 %>
-                </td>
-            </tr>
         </table>
+
         <table class="grid">
             <tr style="border: none;">
                 <td style="border: none;">
@@ -197,7 +170,7 @@
                     <div class="vertical">Innovative&nbsp;Solution</div>
                 </td>
                 <td class="altPR" colspan="2">
-                    <b>Team Solution</b>
+                    <b>Team Solution <span style="color: red">*</span></b>
                 </td>
                 <td class="altPR" colspan="3">
                     Clear explanation of the proposed solution and description of how it solves the problem
@@ -291,13 +264,8 @@
                         </strong>
                 </td>
             </tr>
-            <tr valign="top">
-                <td colspan="5">
-                    Comments:
-                    <%= f.text_area :i_comments, :rows => 5, :cols => 100 %>
-                </td>
-            </tr>
         </table>
+
         <table class="grid">
             <tr style="border: none;">
                 <td style="border: none;">
@@ -336,7 +304,7 @@
                       Presentation</div>
               </td>
                 <td  class="altPR" colspan="2">
-                    <b>Sharing</b>
+                    <b>Sharing <span style="color: red">*</span></b>
                 </td>
                 <td class="altPR" colspan="3">
                     Degree to which the team shared their Project before the tournament with others who might benefit from the team's efforts
@@ -428,13 +396,15 @@
                         </strong>
                 </td>
             </tr>
-            <tr valign="top">
-                <td colspan="5">
-                    Comments:
-                    <%= f.text_area :p_comments, :rows => 5, :cols => 100 %>
-                </td>
-            </tr>
+
         </table>
+            <table>
+        <tr><th class="comments">Great Job...</th><th class="comments">Think About...</th></tr>
+        <tr>
+            <td><%= f.text_area :p_gj_comments, :rows => 5, :cols => 80 %></td>
+            <td><%= f.text_area :p_ta_comments, :rows => 5, :cols => 80 %></td>
+        </tr>
+    </table>
         <p>
             <%= f.submit "Submit" %>
         </p>

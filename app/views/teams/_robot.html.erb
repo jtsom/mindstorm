@@ -4,7 +4,6 @@
 			<li>Durability: <%= robot.m_durability %></li>
 			<li>Mechanical Efficiency: <%= robot.m_efficiency %></li>
 			<li>Mechanization: <%= robot.m_mechanization %></li>
-			<li>Comments: <%= robot.m_comments %></li>
 		</ul>
 	</li>
 	<li>Programming - Award Consideration? <%= robot.award_programming %>
@@ -12,7 +11,6 @@
 			<li>Programming Quality: <%= robot.p_quality %></li>
 			<li>Programming Efficiency: <%= robot.p_efficiency %></li>
 			<li>Automation/Navigation: <%= robot.p_automation %></li>
-			<li>Comments: <%= robot.p_comments %></li>
 		</ul>
 	</li>
 	<li>Innovation &amp; Strategy - Award Consideration? <%= robot.award_strategy %>
@@ -20,7 +18,10 @@
 			<li>Design Process: <%= robot.i_designprocess %></li>
 			<li>Mission Strategy: <%= robot.i_strategy %></li>
 			<li>Innovation: <%= robot.i_innovation %></li>
-			<li>Comments: <%= robot.i_comments %></li>
 		</ul>
 	</li>
+	<li>Great Job...</li>
+	<li><%= robot.r_gj_comments %></li>
+	<li>Think About...</li>
+	<li><%= robot.r_ta_comments %></li>
 </ul>
