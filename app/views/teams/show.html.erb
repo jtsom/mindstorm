@@ -3,6 +3,7 @@
 
 <table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
+	<th rowspan="2">GP</th>
 	<th rowspan="2">Table</th>
 	<th rowspan="2">Points</th>
 	<% $challenge.missions.each do |mission| -%>
@@ -19,7 +20,7 @@
 	</tr>
 
 	<tr>
-	<th colspan="3"></th>
+	<th colspan="4"></th>
 	<% $challenge.missions.each do |mission|
 		mission.items.each do |item| -%>
 	<th><%= item.scoring -%></th>
@@ -28,12 +29,13 @@
 	</tr>
 
 	<tr>
-		<td colspan="34" style="background-color: #dddddd"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
+		<td colspan="41" style="background-color: #dddddd"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
 	</tr>
 	<% 	@qualifications.each do |match| -%>
 	<tr align="center">
 
 	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
+	<td><%= match.GP_Score %></td>
 	<td><%= match.table_number %></td>
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
@@ -55,12 +57,13 @@
 	<% end 	%>
 
 	<tr>
-		<td colspan="34" style="background-color: #dddddd"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		<td colspan="41" style="background-color: #dddddd"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 	</tr>
 		<% 	@finals.each do |match| %>
 		<tr align="center">
 
 		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
+		<td> - </td>
 		<td><%= match.table_number %></td>
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|

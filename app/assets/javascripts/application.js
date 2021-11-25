@@ -48,7 +48,7 @@ function change_color()
 
 function setToZero() {
 	$("input[id$='_0']").click();
-	$("#results_precision_60").click();
+	$("#results_precision_50").click();
 }
 
 function validate() {

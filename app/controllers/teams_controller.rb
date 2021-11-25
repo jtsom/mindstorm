@@ -154,7 +154,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0', :supported_by_bridge=>'0', :flags_raised=>'0', :clearly_lowered=>'0', :independent_and_supported=>'0', :completely_in_blue_circle=>'0', :inspection_drone_supported=>'0', :bat_supported_by_branch=>'0', :unit_supported_by_tree_large_branch=>'0', :unit_supported_by_tree_small_branch=>'0', :traffic_jam_lifted=>'0', :swing_released=>'0', :blue_car_down=>'0', :balanced=>'0', :blue_beams_down=>'0', :standing_and_independent=>'0', :completely_in_circle=>'0', :partly_in_circle=>'0', :circles_with_matching_units=>'0', :sum_stack_height=>'0', :upgrades=>'0', :precision=>'60'}"
+    raw_results = "{:robot_inspection=>'0', :complete_project_model=>'0', :closed_partly_full=>'0', :closed_completely_full=>'0', :cargo_plane_prepared=>'0', :cargo_plane_unloaded=>'0', :truck_reached_destination=>'0', :airplane_reached_destination=>'0', :engine_switched_to_electric=>'0', :yellow_panel_not_knocked_down=>'0', :yellow_panel_knocked_down=>'0', :container_not_touching_ship=>'0', :container_touching_ship=>'0', :food_packet_separted_from_helicopter=>'0', :food_packet_separted_from_other_field=>'0', :both_teams_separated_food_package=>'0', :train_track_repaired=>'0', :train_reached_destination=>'0', :containers_sorted=>'0', :package_delivered_partly_on_doorstep=>'0', :package_delivered_fully_on_doorstep=>'0', :turbine_blade_touching_mat=>'0', :turbine_blade_not_touching_mat=>'0', :chicken_upright_partly_in_circle=>'0', :chicken_upright_fully_in_circle=>'0', :trucks_latched_together=>'0', :trucks_latched_to_bridge=>'0', :bridge_deck_lowered=>'0', :containers_on_trucks=>'0', :containers_on_train=>'0', :containers_on_cargo_ship=>'0', :containers_partly_any_circle=>'0', :containers_fully_any_circle=>'0', :blue_container_in_blue_circle=>'0', :green_container_in_green_circle=>'0', :circles_with_containers=>'0', :precision=>'50'}"
 
   	results = eval(raw_results)
 
@@ -218,6 +218,14 @@ class TeamsController < ApplicationController
   end
 
   def text_standings
+    @teams = @current_competition.teams.includes(:qualifications)
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @teams }
+    end
+  end
+
+  def gp_scores
     @teams = @current_competition.teams.includes(:qualifications)
     respond_to do |format|
       format.html

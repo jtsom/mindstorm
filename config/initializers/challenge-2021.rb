@@ -184,14 +184,14 @@ challenge do
   mission "M00 Inspection" do
     item :robot_inspection, "Robot and all of its equipment fit in the ‘Small Inspection Area’", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:robot_inspection].to_i) * 20)
+      (items[:robot_inspection].to_i) * 20
     end
   end
 
   mission "M01 Innovation Project Model" do
     item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; touching circle", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:supported_by_bridge].to_i) * 20)
+      (items[:supported_by_bridge].to_i) * 20
     end
   end
 
@@ -199,7 +199,7 @@ challenge do
     item :closed_partly_full, "Hinged Container closed and Partly Full", "20", ["Yes", "No"], ["1", "0"]
     item :closed_completely_full, "Hinged Container closed and Completely Full", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:clearly_loclosed_partly_fullwered].to_i) * 20) + (items[:closed_completely_full].to_i) * 15)
+      ((items[:closed_partly_full].to_i) * 20) + ((items[:closed_completely_full].to_i) * 15)
     end
   end
 
@@ -243,7 +243,7 @@ challenge do
     item :container_not_touching_ship, "Container no longer touching cargo ship's east deck",  "20", ["Yes", "No"], ["1", "0"]
     item :container_touching_ship, "Container completely east of cargo ship's east deck",  "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:container_not_touching_ship].to_i) * 20) + (items[:container_touching_ship].to_i) * 10)
+      ((items[:container_not_touching_ship].to_i) * 20) + ((items[:container_touching_ship].to_i) * 10)
     end
 	  check "Container can either be touching cargo ship or completely east of cargo ship!" do |items|
         (items[:container_not_touching_ship].to_i + items[:container_touching_ship].to_i) <= 1
@@ -310,18 +310,18 @@ challenge do
   end
 
   mission "M14 Bridge" do
-    item :bridge_deck_lowered, "Bridge desk(s) lowered and rest on their center support", "10", to_sa((0..2), to_sa((0..2))
+    item :bridge_deck_lowered, "Bridge desk(s) lowered and rest on their center support", "10", to_sa((0..2)), to_sa((0..2))
     score do |items|
       ((items[:bridge_deck_lowered].to_i) * 10)
     end
   end
 
   mission "M15 Load Cargo" do
-    item :containers_on_trucks, "Containers on and touching only platooning trucks", "10", to_sa((0..2), to_sa((0..2))
-    item :containers_on_train, "Containers on and touching only the train", "20", to_sa((0..2), to_sa((0..2))
-    item :containers_on_cargo_ship, "Containers on and touching only cargo ship's west deck", "30", to_sa((0..2), to_sa((0..2))
+    item :containers_on_trucks, "Containers on and touching only platooning trucks", "10", to_sa((0..2)), to_sa((0..2))
+    item :containers_on_train, "Containers on and touching only the train", "20", to_sa((0..2)), to_sa((0..2))
+    item :containers_on_cargo_ship, "Containers on and touching only cargo ship's west deck", "30", to_sa((0..2)), to_sa((0..2))
     score do |items|
-      s = ((items[:containers_on_trucks].to_i) * 10) + ((items[:containers_on_train].to_i) * 20) ((items[:containers_on_cargo_ship].to_i) * 30)
+      s = ((items[:containers_on_trucks].to_i) * 10) + ((items[:containers_on_train].to_i) * 20) + ((items[:containers_on_cargo_ship].to_i) * 30)
     end
     check "Containers can only be on PLATOONING TRUCKS, TRAIN or CARGO SHIP" do |items|
     	(items[:containers_on_trucks].to_i + items[:containers_on_train].to_i + items[:containers_on_train].to_i) <= 1
@@ -335,13 +335,13 @@ challenge do
     item :green_container_in_green_circle, "Lime Green conatiner completely in GREEN circle", "20", ["Yes", "No"], ["1", "0"]
     item :circles_with_containers, "Circles with at least one container completely in them.", "10", to_sa((0..6)), to_sa((0..6))
     score do |items|
-      s = ((items[:containers_partly_any_circle].to_i) * 5) + (items[:containers_fully_any_circle].to_i) * 10) + (items[:blue_container_in_blue_circle].to_i) * 20)
-      s += (items[:green_container_in_green_circle].to_i) * 20) + (items[:circles_with_containers].to_i) * 10)
+      s = ((items[:containers_partly_any_circle].to_i) * 5) + ((items[:containers_fully_any_circle].to_i) * 10) + ((items[:blue_container_in_blue_circle].to_i) * 20)
+      s += ((items[:green_container_in_green_circle].to_i) * 20) + ((items[:circles_with_containers].to_i) * 10)
     end
   end
 
   mission "M17 Precision" do
-    item :precision, "Precision Tokens left on Field", "60", ["6", "5", "4", "3", "2", "1", "0"], ["50", "50", "35", "25", "15", "10", "0"]
+    item :precision, "Precision Tokens left on Field", "50", ["6", "5", "4", "3", "2", "1", "0"], ["50", "50", "35", "25", "15", "10", "0"]
 
     score do |items|
       items[:precision].to_i

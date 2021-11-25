@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191119013920) do
+ActiveRecord::Schema.define(version: 20211112214122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20191119013920) do
     t.integer "table_number"
     t.string "type", limit: 255
     t.integer "challenge_year"
+    t.integer "GP_Score"
     t.index ["type"], name: "index_matches_on_type"
   end
 

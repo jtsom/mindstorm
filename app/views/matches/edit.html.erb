@@ -5,6 +5,7 @@
 <div class="row">
   <div class="col-md-3"><b><%= label("match",:match_number) %></b> <%= f.text_field :match_number %></div>
   <div class="col-md-3"><b><%= label("match", :table_number) %></b> <%= f.text_field :table_number %></div>
+  <div class="col-md-12"><b><%= label(:match, :GP_Score, "Gracious Professionalism") %></b> <%= f.select :GP_Score, ['0', '2', '3', '4'] %> </div>
 </div>
 
 <% labels = [] %>

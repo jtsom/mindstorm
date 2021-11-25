@@ -7,9 +7,14 @@
  <div class="form-group">
   <div class="row">
     <div class="col-md-3"><b><%= label(:match, :match_number) %></b> <%= f.text_field :match_number %></div>
-
     <div class="col-md-3>" id="tableField"><b><%= label(:match, :table_number) %></b> <%= f.text_field :table_number, {:size => 10, :maxlength => 2, :onchange => "change_color();" } %></div>
   </div>
+  <div class="row">
+    <div class="col-md-12"><b><%= label(:match, :GP_Score, "Gracious Professionalism") %></b>
+		<%= f.select :GP_Score, ['0', '2', '3', '4'], {}, {:class => "form-select" } %>
+	</div>
+  </div>
+
   <div class="row">
     <button type="button" class="btn btn-warning btn-sm" onclick="setToZero();">Set to Zero</button>
   </div>
