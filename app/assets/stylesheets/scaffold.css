@@ -169,3 +169,12 @@ table#finalresults {font: 10px arial sans-serif;}
 .standings-table td {
 	font-size: 150%;
 }
+
+.form-horizontal .form-group {
+margin-right: 0px;
+margin-left: 0px;
+}
+.row {
+margin-right: 0px;
+margin-left: 0px;
+}
