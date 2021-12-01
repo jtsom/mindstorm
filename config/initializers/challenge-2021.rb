@@ -224,7 +224,7 @@ challenge do
   mission "M05 Switch Engine" do
     item :engine_switched_to_electric, "Engine has been switched from diesel to electric", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:engine_switched_to_electric].to_i) * 20) 
+      s = ((items[:engine_switched_to_electric].to_i) * 20)
     end
   end
 
@@ -269,7 +269,7 @@ challenge do
     end
 
   mission "M10 Sorting Center" do
-    item :containers_sorted, "Containers have been sorted so only light orange container remains competely in blue box.", "20", ["Yes", "No"], ["1", "0"]
+    item :containers_sorted, "Containers have been sorted so only light orange container remains completely in blue box.", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
     (items[:containers_sorted].to_i * 20)
     end
@@ -289,7 +289,7 @@ challenge do
   mission "M12 Large Delivery" do
     item :turbine_blade_touching_mat, "Turbine blade touching blue holder and the mat?", "20", ["Yes", "No"], ["1", "0"]
     item :turbine_blade_not_touching_mat, "Turbine blade touching blue holder and nothing else?", "30", ["Yes", "No"], ["1", "0"]
-    item :chicken_upright_partly_in_circle, "Chicken statue upright and partly in citcle?", "5", ["Yes", "No"], ["1", "0"]
+    item :chicken_upright_partly_in_circle, "Chicken statue upright and partly in circle?", "5", ["Yes", "No"], ["1", "0"]
     item :chicken_upright_fully_in_circle, "Chicken statue upright and fully in circle?", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:turbine_blade_touching_mat].to_i) * 20) + ((items[:turbine_blade_not_touching_mat].to_i) * 30)
@@ -331,8 +331,8 @@ challenge do
   mission "M16 CARGO CONNECT℠" do
     item :containers_partly_any_circle, "Containers PARTLY in any circle", "5", to_sa((0..8)), to_sa((0..8))
     item :containers_fully_any_circle, "Containers COMPLETELY in any circle", "10", to_sa((0..8)), to_sa((0..8))
-    item :blue_container_in_blue_circle, "Blue (not hinged) conatiner completely in BLUE circle", "20", ["Yes", "No"], ["1", "0"]
-    item :green_container_in_green_circle, "Lime Green conatiner completely in GREEN circle", "20", ["Yes", "No"], ["1", "0"]
+    item :blue_container_in_blue_circle, "Blue (not hinged) container completely in BLUE circle", "20", ["Yes", "No"], ["1", "0"]
+    item :green_container_in_green_circle, "Lime Green container completely in GREEN circle", "20", ["Yes", "No"], ["1", "0"]
     item :circles_with_containers, "Circles with at least one container completely in them.", "10", to_sa((0..6)), to_sa((0..6))
     score do |items|
       s = ((items[:containers_partly_any_circle].to_i) * 5) + ((items[:containers_fully_any_circle].to_i) * 10) + ((items[:blue_container_in_blue_circle].to_i) * 20)
