@@ -179,7 +179,6 @@ class TeamsController < ApplicationController
 			  fll_number = fields[0].to_i
 			  match_number = fields[1].to_i
 			  table_number = fields[2].to_i
-
 			  team = (all_teams.detect { |team| team[:fll_number] == fll_number})
 			  if team
 				  match = Qualification.create()
@@ -190,6 +189,7 @@ class TeamsController < ApplicationController
 				  match.team_id = team.id
 				  match.score = 0
 				  match.challenge_year = $challenge.mission_year
+          match.GP_Score = 3
 				  match.save
 			  end
 			}
