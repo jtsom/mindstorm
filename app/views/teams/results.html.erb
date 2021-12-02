@@ -4,20 +4,20 @@ Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 <%= link_to "Robot", results_path(:type => "robot") %> |
 <%= link_to "Project", results_path(:type => "project") %> |
 <%= link_to "Core Values", results_path(:type => "corevalues") %> |
-<%= link_to "Champion", results_path(:type => "champion") %> | 
+<%= link_to "Champion", results_path(:type => "champion") %> |
 <%= link_to "Awards", results_path(:type => "awards") %> |
 <table border=1 id="finalresults" style='border-collapse: collapse;table-layout:fixed'>
 
 	<tr>
 		<td colspan="2">&nbsp;</td>
 		<td >&nbsp;</td>
-		<td colspan="2" style="text-align:center">Robot Performance</td>
+		<td colspan="3" style="text-align:center">Robot Performance</td>
 		<td >&nbsp;</td>
-		<td colspan="5"  style="text-align:center">Robot</td>
+		<td colspan="12"  style="text-align:center">Robot</td>
 		<td >&nbsp;</td>
-		<td colspan="5"  style="text-align:center">Project</td>
+		<td colspan="12"  style="text-align:center">Project</td>
 		<td >&nbsp;</td>
-		<td colspan="5"  style="text-align:center">Core Values</td>
+		<td colspan="8"  style="text-align:center">Core Values</td>
 		<td >&nbsp;</td>
 		<td colspan="3"  style="text-align:center">Champion's Award</td>
 	</tr>
@@ -27,22 +27,40 @@ Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 		<td>&nbsp;</td>
 		<td>High Score</td>
 		<td>Rank</td>
+		<td>GP</td>
 		<td>&nbsp;</td>
-		<td>Mechanical Design</td>
-		<td>Programming</td>
-		<td>Innovation &amp; Strategy</td>
+		<td>Identify</td>
+		<td>Identify</td>
+		<td>Design</td>
+		<td>Design</td>
+		<td>Create</td>
+		<td>Create</td>
+		<td>Iterate</td>
+		<td>Iterate</td>
+		<td>Communicate</td>
+		<td>Communicate</td>
 		<td>Total</td>
 		<td>Rank</td>
 		<td>&nbsp;</td>
-		<td>Research</td>
-		<td>Innovative Solution</td>
-		<td>Presentation</td>
+		<td>Identify</td>
+		<td>Identify</td>
+		<td>Design</td>
+		<td>Design</td>
+		<td>Create</td>
+		<td>Create</td>
+		<td>Iterate</td>
+		<td>Iterate</td>
+		<td>Communicate</td>
+		<td>Communicate</td>
 		<td>Total</td>
 		<td>Rank</td>
 		<td>&nbsp;</td>
-		<td>Inspiration</td>
+		<td>Innovation</td>
+		<td>Discovery</td>
+		<td>Impact</td>
+		<td>Inclusion</td>
 		<td>Teamwork</td>
-		<td>Gracious Professionalism</td>
+		<td>Fun</td>
 		<td>Total</td>
 		<td>Rank</td>
 		<td>&nbsp;</td>
@@ -50,6 +68,6 @@ Sort by: <%= link_to "Team", results_path(:type => "team") %> |
 		<td>Score</td>
 		<td>Rank</td>
 	</tr>
-	
+
 	<%= render :partial => 'teamresult', :collection => @teams, :as => :team %>
 </table>

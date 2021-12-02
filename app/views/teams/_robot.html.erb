@@ -1,25 +1,18 @@
 <ul>
-	<li>Mechanical Design - Award Consideration? <%= robot.award_mechdesign %>
-		<ul>
-			<li>Durability: <%= robot.m_durability %></li>
-			<li>Mechanical Efficiency: <%= robot.m_efficiency %></li>
-			<li>Mechanization: <%= robot.m_mechanization %></li>
-		</ul>
-	</li>
-	<li>Programming - Award Consideration? <%= robot.award_programming %>
-		<ul>
-			<li>Programming Quality: <%= robot.p_quality %></li>
-			<li>Programming Efficiency: <%= robot.p_efficiency %></li>
-			<li>Automation/Navigation: <%= robot.p_automation %></li>
-		</ul>
-	</li>
-	<li>Innovation &amp; Strategy - Award Consideration? <%= robot.award_strategy %>
-		<ul>
-			<li>Design Process: <%= robot.i_designprocess %></li>
-			<li>Mission Strategy: <%= robot.i_strategy %></li>
-			<li>Innovation: <%= robot.i_innovation %></li>
-		</ul>
-	</li>
+	<li>Identify: <%= robot.identify %> <%= robot.identify_exceed %></li>
+	<li>Identify 2: <%= robot.identify2 %> <%= robot.identify2_exceed %></li>
+	<li>Design: <%= robot.design %> <%= robot.design_exceed %></li>
+	<li>Design 2: <%= robot.design2 %> <%= robot.design2_exceed %></li>
+	<li>Create: <%= robot.create %> <%= robot.create_exceed %></li>
+	<li>Create 2: <%= robot.create2 %> <%= robot.create2_exceed %></li>
+
+	<li>Iterate: <%= robot.iterate %> <%= robot.iterate_exceed %></li>
+	<li>Iterate 2: <%= robot.iterate2 %> <%= robot.iterate2_exceed %></li>
+
+	<li>Communicate: <%= robot.communicate %> <%= robot.communicate_exceed %></li>
+	<li>Communicate 2: <%= robot.communicate2 %> <%= robot.communicate2_exceed %></li>
+</ul>
+<ul>
 	<li>Great Job...</li>
 	<li><%= robot.r_gj_comments %></li>
 	<li>Think About...</li>

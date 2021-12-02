@@ -1,25 +1,18 @@
 <ul>
-	<li>Research - Award Consideration? <%= project.award_research %>
-		<ul>
-			<li>Problem Identification: <%= project.r_problemID %></li>
-			<li>Sources of Information: <%= project.r_source %></li>
-			<li>Problem Analysis: <%= project.r_analysis %></li>
-		</ul>
-	</li>
-	<li>Innovative Solution - Award Consideration? <%= project.award_innosolution %>
-		<ul>
-			<li>Team Solution: <%= project.i_teamsolution %></li>
-			<li>Innovation: <%= project.i_innovation %></li>
-			<li>Solution Development: <%= project.i_implementation %></li>
-		</ul>
-	</li>
-	<li>Presentation - Award Consideration? <%= project.award_presentation %>
-		<ul>
-			<li>Sharing: <%= project.p_sharing %></li>
-			<li>Creativity: <%= project.p_creativity %></li>
-			<li>Presentation Effectiveness: <%= project.p_preseffective %></li>
-		</ul>
-	</li>
+	<li>Identify: <%= project.identify %> <%= project.identify_exceed %></li>
+	<li>Identify 2: <%= project.identify2 %> <%= project.identify2_exceed %></li>
+	<li>Design: <%= project.design %> <%= project.design_exceed %></li>
+	<li>Design 2: <%= project.design2 %> <%= project.design2_exceed %></li>
+	<li>Create: <%= project.create %> <%= project.create_exceed %></li>
+	<li>Create 2: <%= project.create2 %> <%= project.create2_exceed %></li>
+
+	<li>Iterate: <%= project.iterate %> <%= project.iterate_exceed %></li>
+	<li>Iterate 2: <%= project.iterate2 %> <%= project.iterate2_exceed %></li>
+
+	<li>Communicate: <%= project.communicate %> <%= project.communicate_exceed %></li>
+	<li>Communicate 2: <%= project.communicate2 %> <%= project.communicate2_exceed %></li>
+</ul>
+<ul>
 	<li>Great Job...</li>
 	<li><%= project.p_gj_comments %></li>
 	<li>Think About...</li>

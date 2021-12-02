@@ -25,10 +25,8 @@ class CorevalueScore < ActiveRecord::Base
 
 private
   def calculate_total_scores
-    self.inspiration = i_discovery + i_team_spirit + i_integration
-    self.teamwork = t_effectiveness + t_efficiency + t_initiative
-    self.grac_prof = g_inclusion + g_respect + g_coopertition
-    self.total_score = self.inspiration + self.teamwork + self.grac_prof
+
+    self.total_score = discovery + innovation + impact + inclusion + teamwork + fun
   end
 
 
