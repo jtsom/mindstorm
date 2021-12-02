@@ -59,9 +59,9 @@
 
 		var totalUnits = (input_value('containers_partly_any_circle') +
 						  input_value('containers_fully_any_circle'));
-		if (totalUnits > 16) {
+		if (totalUnits > 8) {
 			make_all_invalid(['containers_partly_any_circle', 'containers_fully_any_circle', 'independent_and_supported']);
-			return "Total number of Containers must be less than 16!";
+			return "Total number of Containers must be less than 8!";
 		}
 
 		// if (input_value('blue_car_down') == 1 && input_value('balanced') == 1) {
