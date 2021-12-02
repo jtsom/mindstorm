@@ -58,11 +58,13 @@ class ProjectScoresController < ApplicationController
     end
 
     def scores_params
-      params.require(:project_score).permit(:rank, :total_score, :r_problemID, :r_source, :r_analysis, :r_review, :r_comments,
-                                      :i_teamsolution, :i_innovation, :i_implementation, :i_comments,
-                                      :p_preseffective, :p_creativity, :p_sharing, :p_comments,
-                                      :judge_name, :research, :innovative_solution, :presentation,
-                                      :award_research, :award_innosolution, :award_presentation, :p_gj_comments, :p_ta_comments)
+      params.require(:project_score).permit(:rank, :total_score, :judge_name,
+      :identify, :identify2, :identify2_exceed,
+      :design, :design2, :design_exceed,
+      :create, :create2, :create2_exceed,
+      :iterate, :iterate2, :iterate2_exceed,
+      :communicate, :communicate2, :communicate2_exceed,
+      :p_gj_comments, :p_ta_comments)
     end
 
 
