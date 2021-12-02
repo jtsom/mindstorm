@@ -102,7 +102,6 @@
 	@team.robot_scores.each do |robot_score|
 %>
 	<p>Judge: <%= robot_score.judge_name %></p>
-	<p>Rank: <%= robot_score.rank %></p>
 	<p> <%= link_to "Update Entry", edit_team_robot_score_path(@team, robot_score)%> |
 		<%= link_to "Remove Entry", team_robot_score_path(@team, robot_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 	<%= render :partial => "robot", :object => robot_score %>
@@ -115,7 +114,6 @@
 	@team.project_scores.each do |project_score|
 %>
 		<p>Judge: <%= project_score.judge_name %></p>
-		<p>Rank: <%= project_score.rank %></p>
 		<p> <%= link_to "Update Entry", edit_team_project_score_path(@team, project_score) %> |
 			<%= link_to "Remove Entry", team_project_score_path(@team, project_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 		<%= render :partial => "project", :object => project_score %>
@@ -129,7 +127,6 @@
 	@team.corevalue_scores.each do |corevalue_score|
 %>
 		<p>Judge: <%= corevalue_score.judge_name %></p>
-		<p>Rank: <%= corevalue_score.rank %></p>
 		<p><%= link_to "Update Entry", edit_team_corevalue_score_path(@team, corevalue_score) %> |
 			<%= link_to "Remove Entry", team_corevalue_score_path(@team, corevalue_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>

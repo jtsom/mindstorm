@@ -3,7 +3,7 @@ class ProjectScore < ActiveRecord::Base
   belongs_to :team
   before_save :calculate_total_scores
   validates :judge_name, :presence => true
-  validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  # validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
 
   # def research_score
   #   fields = %w{r_problemID r_source r_analysis r_review }

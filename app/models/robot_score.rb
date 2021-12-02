@@ -4,7 +4,7 @@ class RobotScore < ActiveRecord::Base
 
   before_save :calculate_total_scores
   validates :judge_name, :presence => true
-  validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  # validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
 
 
   # def mechanical_score

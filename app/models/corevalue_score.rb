@@ -3,7 +3,7 @@ class CorevalueScore < ActiveRecord::Base
   before_save :calculate_total_scores
 
   validates :judge_name, :presence => true
-  validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  # validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
 
   # def inspiration_score
   #   fields = %w{i_discovery i_team_spirit i_integration}
