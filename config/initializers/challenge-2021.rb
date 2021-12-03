@@ -320,9 +320,6 @@ challenge do
     score do |items|
       s = ((items[:containers_on_trucks].to_i) * 10) + ((items[:containers_on_train].to_i) * 20) + ((items[:containers_on_cargo_ship].to_i) * 30)
     end
-    check "Containers can only be on PLATOONING TRUCKS, TRAIN or CARGO SHIP" do |items|
-    	(items[:containers_on_trucks].to_i + items[:containers_on_train].to_i + items[:containers_on_cargo_ship].to_i) <= 1
-    end
   end
 
   mission "M16 CARGO CONNECT℠" do
