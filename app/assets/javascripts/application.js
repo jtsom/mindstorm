@@ -49,6 +49,7 @@ function change_color()
 function setToZero() {
 	$("input[id$='_0']").click();
 	$("#results_precision_50").click();
+	$("#results_chicken_upright_fully_in_circle_1").click();
 }
 
 function validate() {

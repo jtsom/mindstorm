@@ -182,7 +182,7 @@ end
 challenge do
 
   mission "M00 Inspection" do
-    item :robot_inspection, "Robot and all of its equipment fit in the ‘Small Inspection Area’", "20", ["Yes", "No"], ["1", "0"]
+    item :robot_inspection, "Robot and all of its equipment fit in the 'Small Inspection Area'", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       (items[:robot_inspection].to_i) * 20
     end
@@ -191,21 +191,21 @@ challenge do
   mission "M01 Innovation Project Model" do
     item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; touching circle", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:supported_by_bridge].to_i) * 20
+      (items[:complete_project_model].to_i) * 20
     end
   end
 
   mission "M02 Unused Capacity" do
     item :closed_partly_full, "Hinged Container closed and Partly Full", "20", ["Yes", "No"], ["1", "0"]
-    item :closed_completely_full, "Hinged Container closed and Completely Full", "20", ["Yes", "No"], ["1", "0"]
+    item :closed_completely_full, "Hinged Container closed and Completely Full", "30", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:closed_partly_full].to_i) * 20) + ((items[:closed_completely_full].to_i) * 15)
+      ((items[:closed_partly_full].to_i) * 20) + ((items[:closed_completely_full].to_i) * 30)
     end
   end
 
   mission "M03 Unload Cargo Plane" do
-    item :cargo_plane_prepared, "Cargo plane prepared for unloading", "20", ["Yes", "No"], ["1", "0"]
-    item :cargo_plane_unloaded, "Cargo plane has been unloaded", "10", ["Yes", "No"], ["1", "0"]
+    item :cargo_plane_prepared, "Cargo plane door is completely down", "20", ["Yes", "No"], ["1", "0"]
+    item :cargo_plane_unloaded, "Cargo is completely separate from plane", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:cargo_plane_prepared].to_i) * 20) + ((items[:cargo_plane_unloaded].to_i) * 10)
     end
@@ -229,8 +229,8 @@ challenge do
   end
 
   mission "M06 Accident Avoidance" do
-    item :yellow_panel_not_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel NOT KNOCKED DOWN", "20", ["Yes", "No"], ["1", "0"]
-    item :yellow_panel_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel KNOCKED DOWN", "30", ["Yes", "No"], ["1", "0"]
+    item :yellow_panel_not_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel NOT KNOCKED DOWN And black frame is upright", "20", ["Yes", "No"], ["1", "0"]
+    item :yellow_panel_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel KNOCKED DOWN And black frame is upright", "30", ["Yes", "No"], ["1", "0"]
 	  score do |items|
 		((items[:yellow_panel_not_knocked_down].to_i) * 20) + ((items[:yellow_panel_knocked_down].to_i) * 30)
 	  end
@@ -245,14 +245,11 @@ challenge do
     score do |items|
       ((items[:container_not_touching_ship].to_i) * 20) + ((items[:container_touching_ship].to_i) * 10)
     end
-	  check "Container can either be touching cargo ship or completely east of cargo ship!" do |items|
-        (items[:container_not_touching_ship].to_i + items[:container_touching_ship].to_i) <= 1
-      end
   end
 
   mission "M08 Air Drop" do
     item :food_packet_separted_from_helicopter, "Food Packet separated from helicopter", "20", ["Yes", "No"], ["1", "0"]
-    item :food_packet_separted_from_other_field, "Food Packet separated from other field's helicopter", "10", ["Yes", "No"], ["1", "0"]
+    item :food_packet_separted_from_other_field, "Food Packet separated from other field's helicopter, and in your field's circle", "10", ["Yes", "No"], ["1", "0"]
     item :both_teams_separated_food_package, "Both teams have separated their food package from their helicopter", "10", ["Yes", "No"], ["1", "0"]
 
     score do |items|
@@ -293,10 +290,10 @@ challenge do
     item :chicken_upright_fully_in_circle, "Chicken statue upright and fully in circle?", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:turbine_blade_touching_mat].to_i) * 20) + ((items[:turbine_blade_not_touching_mat].to_i) * 30)
-      s += ((items[:chicken_upright_partly_in_circle].to_i) * 20) + ((items[:chicken_upright_fully_in_circle].to_i) * 30)
+      s += ((items[:chicken_upright_partly_in_circle].to_i) * 5) + ((items[:chicken_upright_fully_in_circle].to_i) * 10)
     end
     check "Turbine blade can only be touching or not touching mat OR Chicken can only be FULLY or PARTLY in circle" do |items|
-        ((items[:turbine_blade_touching_mat].to_i + items[:turbine_blade_not_touching_mat].to_i) <= 1) || ((items[:chicken_upright_partly_in_circle].to_i + items[:chicken_upright_fully_in_circle].to_i) <= 1)
+        ((items[:turbine_blade_touching_mat].to_i + items[:turbine_blade_not_touching_mat].to_i) <= 1) && ((items[:chicken_upright_partly_in_circle].to_i + items[:chicken_upright_fully_in_circle].to_i) <= 1)
     end
   end
 
@@ -305,12 +302,12 @@ challenge do
     item :trucks_latched_to_bridge, "A truck is latched to a bridge", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:trucks_latched_together].to_i) * 10) + ((items[:trucks_latched_to_bridge].to_i) * 10)
-      s += ((items[:trucks_latched_together].to_i) + (items[:trucks_latched_to_bridge].to_i)) * 10
+      s += ((items[:trucks_latched_together].to_i) * (items[:trucks_latched_to_bridge].to_i)) * 10
     end
   end
 
   mission "M14 Bridge" do
-    item :bridge_deck_lowered, "Bridge desk(s) lowered and rest on their center support", "10", to_sa((0..2)), to_sa((0..2))
+    item :bridge_deck_lowered, "Bridge deck(s) lowered and rest on their center support", "10", to_sa((0..2)), to_sa((0..2))
     score do |items|
       ((items[:bridge_deck_lowered].to_i) * 10)
     end
@@ -324,7 +321,7 @@ challenge do
       s = ((items[:containers_on_trucks].to_i) * 10) + ((items[:containers_on_train].to_i) * 20) + ((items[:containers_on_cargo_ship].to_i) * 30)
     end
     check "Containers can only be on PLATOONING TRUCKS, TRAIN or CARGO SHIP" do |items|
-    	(items[:containers_on_trucks].to_i + items[:containers_on_train].to_i + items[:containers_on_train].to_i) <= 1
+    	(items[:containers_on_trucks].to_i + items[:containers_on_train].to_i + items[:containers_on_cargo_ship].to_i) <= 1
     end
   end
 
