@@ -60,11 +60,11 @@ private
 
     def scores_params
       params.require(:robot_score).permit(:rank, :total_score,  :judge_name,
-      :identify, :identify2, :identify2_exceed,
-      :design, :design2, :design_exceed,
-      :create, :create2, :create2_exceed,
-      :iterate, :iterate2, :iterate2_exceed,
-      :communicate, :communicate2, :communicate2_exceed,
+      :identify,:identify_exceed, :identify2, :identify2_exceed,
+      :design, :design_exceed,:design2, :design2_exceed,
+      :create, :create_exceed, :create2, :create2_exceed,
+      :iterate, :iterate_exceed, :iterate2, :iterate2_exceed,
+      :communicate, :communicate_exceed, :communicate2, :communicate2_exceed,
        :r_gj_comments, :r_ta_comments)
     end
 
