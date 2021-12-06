@@ -201,6 +201,9 @@ challenge do
     score do |items|
       ((items[:closed_partly_full].to_i) * 20) + ((items[:closed_completely_full].to_i) * 30)
     end
+    check "Closed Hinged Container can be either PARTIALLY full or COMPLETELY full." do |items|
+      (items[:closed_partly_full].to_i + items[:closed_completely_full].to_i) <= 1
+    end
   end
 
   mission "M03 Unload Cargo Plane" do
