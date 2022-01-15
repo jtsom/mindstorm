@@ -3,403 +3,261 @@
         <p>Judge:
             <%= f.text_field :judge_name %>
         </p>
-        <p>Rank: <%= f.text_field :rank %></p>
         <p style="color:red">* Required for Award Consideration</p>
         <table class="grid">
-            <tr style="border: none;">
-                <td style="border: none;">
-                    &nbsp;
-                </td>
-                <td>
-                    <b>
-                        <i>None</i>
-                    </b>
-                </td>
-                <td>
-                    <b>
-                        <i>Beginning</i>
-                    </b>
-                </td>
-                <td>
-                    <i>
-                        <b>Developing</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Accomplished</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Exemplary</b>
-                    </i>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="10">
-                    <div class="vertical">Research</div>
-                </td>
-                <td class="altPR" colspan="2">
-                    <b>Problem Identification <span style="color: red">*</span></b>
-                </td>
-                <td class="altPR" colspan="3">Clear definition of the problem being studied</td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :r_problemID, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_problemID, "1" %>
-                        <%= f.label :r_problemID, "unclear; few details", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_problemID, "2" %>
-                        <%= f.label :r_problemID, "partially clear; details missing", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_problemID, "3" %>
-                        <%= f.label :r_problemID, "mostly clear; detailed", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_problemID, "4" %>
-                        <%= f.label :r_problemID, "clear; very detailed", :value => "4" %>
-                </td>
-            </tr>
-            <tr class="altPR">
-                <td colspan="2">
-                    <b>Sources of Information</b>
-                </td>
-                <td colspan="3">
-                    Quality and variety of data/evidence and sources cited
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :r_source, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_source, "1" %>
-                        <%= f.label :r_source, "minimal quality; variety limited", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_source, "2" %>
-                        <%= f.label :r_source, "quality OR variety need improvement; did not include professional(s)", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_source, "3" %>
-                        <%= f.label :r_source, "sufficient quality and variety; included professional(s)", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_source, "4" %>
-                        <%= f.label :r_source, "extensive quality and variety; included multiple professionals", :value => "4" %>
-                </td>
-            </tr>
-            <tr class="altPR">
-                <td colspan="2">
-                    <b>Problem Analysis</b>
-                </td>
-                <td colspan="3">
-                    Depth to which the problem was studied and analyzed by the team, including extent of analysis of existing solutions
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :r_analysis, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_analysis, "1" %>
-                        <%= f.label :r_analysis, "minimal study; no team analysis", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_analysis, "2" %>
-                        <%= f.label :r_analysis, "minimal study; some team analysis ", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_analysis, "3" %>
-                        <%= f.label :r_analysis, "sufficient study and analysis by team", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :r_analysis, "4" %>
-                        <%= f.label :r_analysis, "extensive study and analysis by team", :value => "4" %>
-                </td>
-            </tr>
+        <tr style="border: none;">
+            <td style="background-color: #E9ECF7">
+                <b>Beginning</b><br>1
+            </td>
+            <td style="background-color: #BEC8E5">
+                <b>Developing</b><br>2
+            </td>
+            <td style="background-color: #90A3D0">
+                <b>Accomplished</b><br>3
+            </td>
+            <td style="background-color: #5F83BF">
+                <b>Exceeds</b><br>4<br><b><i>How has the team exceeded?</i></b>
+            </td>
+        </tr>
 
-            <tr height="60px">
-                <td colspan="5">
-                    <%= f.check_box :award_research, {}, "Y", "N" %>
-                        <strong>Research Award Consideration
-                        </strong>
-                </td>
-            </tr>
-        </table>
+        <tr>
+            <td class="altPR">
+                <b>IDENTIFY</b>
+            </td>
+            <td class="altPR" colspan="3">
+              	Team had a clearly defined problem that was well researched.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :identify, "1" %>
+                <%= f.label :identify, "Problem not clearly defined", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify, "2" %>
+                <%= f.label :identify, "Partially clear definition of the problem", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify, "3" %>
+                <%= f.label :identify, "Clear definition of the problem", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify, "4" %>
+                <%= f.label :identify, "", :value => "4" %>
+                <%= f.text_area :identify_exceed %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :identify2, "1" %>
+                <%= f.label :identify2, "Minimal research", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify2, "2" %>
+                <%= f.label :identify2, "Partial research from more than one source", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify2, "3" %>
+                <%= f.label :identify2, "Clear, detailed research from a variety of sources", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :identify2, "4" %>
+                <%= f.label :identify2, "", :value => "4" %>
+                <%= f.text_area :identify2_exceed %>
+            </td>
+        </tr>
 
-        <table class="grid">
-            <tr style="border: none;">
-                <td style="border: none;">
-                    &nbsp;
-                </td>
-                <td>
-                    <b>
-                        <i>None</i>
-                    </b>
-                </td>
-                <td>
-                    <b>
-                        <i>Beginning</i>
-                    </b>
-                </td>
-                <td>
-                    <i>
-                        <b>Developing</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Accomplished</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Exemplary</b>
-                    </i>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="8">
-                    <div class="vertical">Innovative&nbsp;Solution</div>
-                </td>
-                <td class="altPR" colspan="2">
-                    <b>Team Solution <span style="color: red">*</span></b>
-                </td>
-                <td class="altPR" colspan="3">
-                    Clear explanation of the proposed solution and description of how it solves the problem
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :i_teamsolution, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_teamsolution, "1" %>
-                        <%= f.label :i_teamsolution, "difficult to understand", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_teamsolution, "2" %>
-                        <%= f.label :i_teamsolution, "some parts confusing", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_teamsolution, "3" %>
-                        <%= f.label :i_teamsolution, "understandable", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_teamsolution, "4" %>
-                        <%= f.label :i_teamsolution, "easy to understand by all", :value => "4" %>
-                </td>
-            </tr>
-            <tr class="altPR">
-                <td colspan="2">
-                    <b>Innovation</b>
-                </td>
-                <td colspan="3">
-                    Degree to which the team's solution makes life better by improving existing options, developing a new application of existing
-                    ideas, or solving the problem in a completely new way.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :i_innovation, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_innovation, "1" %>
-                        <%= f.label :i_innovation, "existing solutions/application", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_innovation, "2" %>
-                        <%= f.label :i_innovation, "solutions/application contains some original elements(s)", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_innovation, "3" %>
-                        <%= f.label :i_innovation, "original solution/application; potential added value", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_innovation, "4" %>
-                        <%= f.label :i_innovation, "original solution/application; demonstrated added value", :value => "4" %>
-                </td>
-            </tr>
-            <tr class="altPR">
-                <td colspan="2">
-                    <b>Solution Development</b>
-                </td>
-                <td colspan="3">
-                    Systematic process used to select, develop, evaluate, test, and improve the solution (Implementation could include cost,
-                    ease of manufacturing, etc.)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :i_implementation, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_implementation, "1" %>
-                        <%= f.label :i_implementation, "process AND explanation need improvement", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_implementation, "2" %>
-                        <%= f.label :i_implementation, "process OR explanation need improvement", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_implementation, "3" %>
-                        <%= f.label :i_implementation, "systematic process included evaluation", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :i_implementation, "4" %>
-                        <%= f.label :i_implementation, "systematic process included evaluation; implementation considered", :value => "4" %>
-                </td>
-            </tr>
-            <tr height="60px">
-                <td colspan="5">
-                    <%= f.check_box :award_innosolution, {}, "Y", "N" %>
-                        <strong>Innovative Solution Award Consideration
-                        </strong>
-                </td>
-            </tr>
-        </table>
+        <tr>
+            <td class="altPR">
+                <b>DESIGN</b>
+            </td>
+            <td class="altPR" colspan="3">
+              	Team generated innovative ideas independently before selecting and planning which one to develop.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :design, "1" %>
+                <%= f.label :design, "Minimal evidence of an inclusive selection process", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :design, "2" %>
+                <%= f.label :design, "Partial evidence of an inclusive selection process", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :design, "3" %>
+                <%= f.label :design, "Clear evidence of an inclusive selection process", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :design, "4" %>
+                <%= f.label :design, "", :value => "4" %>
+                <%= f.text_area :design_exceed %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :design2, "1" %>
+                <%= f.label :design2, "Minimal evidence of an effective plan", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :design2, "2" %>
+                <%= f.label :design2, "Partial evidence of an effective plan", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :design2, "3" %>
+                <%= f.label :design2, "Clear evidence of an effective plan", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :design2, "4" %>
+                <%= f.label :design2, "", :value => "4" %>
+                <%= f.text_area :design2_exceed %>
+            </td>
+        </tr>
 
-        <table class="grid">
-            <tr style="border: none;">
-                <td style="border: none;">
-                    &nbsp;
-                </td>
-                <td>
-                    <b>
-                        <i>None</i>
-                    </b>
-                </td>
-                <td>
-                    <b>
-                        <i>Beginning</i>
-                    </b>
-                </td>
-                <td>
-                    <i>
-                        <b>Developing</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Accomplished</b>
-                    </i>
-                </td>
-                <td>
-                    <i>
-                        <b>Exemplary</b>
-                    </i>
-                </td>
-            </tr>
+        <tr>
+            <td class="altPR">
+                <b>CREATE</b>
+            </td>
+            <td class="altPR" colspan="3">
+              	Team developed an original idea or built on an existing one with a prototype model/drawing to represent their solution.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :create, "1" %>
+                <%= f.label :create, "Minimal development of innovative solution", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :create, "2" %>
+                <%= f.label :create, "Partial development of innovative solution", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :create, "3" %>
+                <%= f.label :create, "Clear development of innovative solution", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :create, "4" %>
+                <%= f.label :create, "", :value => "4" %>
+                <%= f.text_area :create_exceed %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :create2, "1" %>
+                <%= f.label :create2, "Unclear model/drawing of solution", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :create2, "2" %>
+                <%= f.label :create2, "Simple model/drawing that helps to share the solution", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :create2, "3" %>
+                <%= f.label :create2, "Detailed model/drawing that helps to share the solution", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :create2, "4" %>
+                <%= f.label :create2, "", :value => "4" %>
+                <%= f.text_area :create2_exceed %>
+            </td>
+        </tr>
+       <tr>
+            <td class="altPR">
+                <b>ITERATE</b>
+            </td>
+            <td class="altPR" colspan="3">
+              	Team shared their ideas, collected feedback, and included improvements in their solution.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :iterate, "1" %>
+                <%= f.label :iterate, "Minimal sharing of their solution", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate, "2" %>
+                <%= f.label :iterate, "Shared their solution with user OR professional", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate, "3" %>
+                <%= f.label :iterate, "Shared their solution with user AND professional", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate, "4" %>
+                <%= f.label :iterate, "", :value => "4" %>
+                <%= f.text_area :iterate_exceed %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :iterate2, "1" %>
+                <%= f.label :iterate2, "Minimal evidence of improvements in their solution", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate2, "2" %>
+                <%= f.label :iterate2, "Partial evidence of improvements in their solution", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate2, "3" %>
+                <%= f.label :iterate2, "Clear evidence of improvements in their solution", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :iterate2, "4" %>
+                <%= f.label :iterate2, "", :value => "4" %>
+                <%= f.text_area :iterate2_exceed %>
+            </td>
+        </tr>
 
-            <tr>
-              <td rowspan="8">
-                  <div class="vertical">
-                      Presentation</div>
-              </td>
-                <td  class="altPR" colspan="2">
-                    <b>Sharing <span style="color: red">*</span></b>
-                </td>
-                <td class="altPR" colspan="3">
-                    Degree to which the team shared their Project before the tournament with others who might benefit from the team's efforts
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :p_sharing, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_sharing, "1" %>
-                        <%= f.label :p_sharing, "shared with family / friends", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_sharing, "2" %>
-                        <%= f.label :p_sharing, "shared outside family / friends (such as classmates)", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_sharing, "3" %>
-                        <%= f.label :p_sharing, "shared with one audience who may benefit OR one professional", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_sharing, "4" %>
-                        <%= f.label :p_sharing, "shared with multiple audiences who may benefit OR multiple professionals", :value => "4" %>
-                </td>
-            </tr>
-            <tr class="altPR">
-                <td colspan="2">
-                    <b>Creativity</b>
-                </td>
-                <td colspan="3">
-                    Imagination used to develop and deliver the presentation
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :p_creativity, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_creativity, "1" %>
-                        <%= f.label :p_creativity, "minimally engaging OR unimaginative", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_creativity, "2" %>
-                        <%= f.label :p_creativity, "engaging OR imaginative", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_creativity, "3" %>
-                        <%= f.label :p_creativity, "engaging AND imaginative", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_creativity, "4" %>
-                        <%= f.label :p_creativity, "very engaging AND exceptionally imaginative", :value => "4" %>
-                </td>
-            </tr>
-            <tr>
-                <td class="altPR" colspan="2">
-                    <b>Presentation Effectiveness</b>
-                </td>
-                <td class="altPR" colspan="3">
-                    Message delivery and organization of the presentation
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%= f.radio_button :p_preseffective, "0", :default => true %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_preseffective, "1" %>
-                        <%= f.label :p_preseffective, "unclear OR disorganized", :value => "1" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_preseffective, "2" %>
-                        <%= f.label :p_preseffective, "partially clear; minimal organization", :value => "2" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_preseffective, "3" %>
-                        <%= f.label :p_preseffective, "mostly clear; mostly organized", :value => "3" %>
-                </td>
-                <td>
-                    <%= f.radio_button :p_preseffective, "4" %>
-                        <%= f.label :p_preseffective, "clear AND well organized", :value => "4" %>
-                </td>
-            </tr>
-            <tr height="60px">
-                <td colspan="5">
-                    <%= f.check_box :award_presentation, {}, "Y", "N" %>
-                        <strong>Presentation Award Consideration
-                        </strong>
-                </td>
-            </tr>
+              <tr>
+            <td class="altPR">
+                <b>COMMUNICATE</b>
+            </td>
+            <td class="altPR" colspan="3">
+              	Team shared a creative and effective presentation of their current solution and its impact on their users.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :communicate, "1" %>
+                <%= f.label :communicate, "Presentation minimally engaging", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate, "2" %>
+                <%= f.label :communicate, "Presentation partially engaging", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate, "3" %>
+                <%= f.label :communicate, "Presentation engaging", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate, "4" %>
+                <%= f.label :communicate, "", :value => "4" %>
+                <%= f.text_area :communicate_exceed %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :communicate2, "1" %>
+                <%= f.label :communicate2, "Solution and its potential impact on others unclear", :value => "1" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate2, "2" %>
+                <%= f.label :communicate2, "Solution and its potential impact on others partially clear", :value => "2" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate2, "3" %>
+                <%= f.label :communicate2, "Solution and its potential impact on others clear", :value => "3" %>
+            </td>
+            <td>
+                <%= f.radio_button :communicate2, "4" %>
+                <%= f.label :communicate2, "", :value => "4" %>
+                <%= f.text_area :communicate2_exceed %>
+            </td>
+        </tr>
+    </table>
+<!-------------------------------------------------->
 
-        </table>
-            <table>
-        <tr><th class="comments">Great Job...</th><th class="comments">Think About...</th></tr>
+    <table>
+        <tr><th class="altPR comments">Great Job...</th><th class="altPR comments">Think About...</th></tr>
         <tr>
             <td><%= f.text_area :p_gj_comments, :rows => 5, :cols => 80 %></td>
             <td><%= f.text_area :p_ta_comments, :rows => 5, :cols => 80 %></td>

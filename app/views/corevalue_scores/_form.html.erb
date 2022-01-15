@@ -2,327 +2,168 @@
 	<%= errors_for(@corevalue_score) %>
 
 	<p>Judge: <%= f.text_field :judge_name %></p>
-    <p>Rank: <%= f.text_field :rank %></p>
 
-	<table class="grid" >
+	<table class="grid">
         <tr style="border: none;">
-            <td style="border: none;">
-                &nbsp;
+            <td style="background-color: #FAEDEA">
+                <b>Beginning</b><br>Minimally observed across the team.<br>1
             </td>
-	        <td>
-	            <b><i>None</i></b>
-	        </td>
-            <td>
-                <b><i>Beginning</i></b>
+            <td style="background-color: #F3D2CA">
+                <b>Developing</b><br>Inconsistently observed across the team.<br>2
             </td>
-            <td>
-                <i><b>Developing</b></i>
+            <td style="background-color: #DCA7A0">
+                <b>Accomplished</b><br>Consistently observed across the team.<br>3
             </td>
-            <td>
-                <i><b>Accomplished</b></i>
-            </td>
-            <td>
-                <i><b>Exemplary</b></i>
+            <td style="background-color: #A56B65">
+                <b>Exceeds</b><br>4<br><b><i>How has the team exceeded?</i></b>
             </td>
         </tr>
+
         <tr>
-            <td rowspan="8" >
-                <div class="vertical">Inspiration</div>
-            </td>
-            <td class="altCV" colspan="2">
-                <b>Discovery</b>
+            <td class="altCV">
+                <b>DISCOVERY</b>
             </td>
             <td class="altCV" colspan="3">
-              	Team explored and improved skills or ideas within all three aspects (Robot, Innovation Project, Core Values) of FIRST® LEGO® League; used creativity &amp; persistence to solve problems
+              	Team explored new skills and ideas.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :i_discovery, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :i_discovery, "1" %><%= f.label :i_discovery, "minimal examples / all examples from 1 aspect", :value => "1" %>
+                <%= f.radio_button :discovery, "1" %>
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "2" %> <%= f.label :i_discovery, "some examples / examples from 2 aspects" , :value => "2" %>
+                <%= f.radio_button :discovery, "2" %>
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "3" %> <%= f.label :i_discovery, "multiple examples / examples from all 3 aspects", :value => "3" %>
+                <%= f.radio_button :discovery, "3" %>
             </td>
             <td>
-                <%= f.radio_button :i_discovery, "4" %> <%= f.label :i_discovery, "multiple examples of exploring new skills & ideas; extensive examples of improving in all 3 aspects", :value => "4" %>
+                <%= f.radio_button :discovery, "4" %>
+                <%= f.text_area :discovery_exceed %>
             </td>
         </tr>
-        <tr class="altCV">
-            <td colspan="2">
-                <b>Team Identity</b>
-            </td>
-            <td colspan="3">
-                Fun expression of team identity; team expresses how they enjoy FIRST LEGO League
-            </td>
-        </tr>
-        <tr>
-            <td>
-				<%= f.radio_button :i_team_spirit, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :i_team_spirit, "1" %> <%= f.label :i_team_spirit, "minimal identity; minimal enjoyment", :value => "1" %>
-            </td>
-            <td>
-                <%= f.radio_button :i_team_spirit, "2" %> <%= f.label :i_team_spirit, "some identity; enjoyment is unclear", :value => "2" %>
-            </td>
-            <td>
-                <%= f.radio_button :i_team_spirit, "3" %> <%= f.label :i_team_spirit, "clear identity; team clearly expresses their enjoyment", :value => "3" %>
-            </td>
-            <td>
-                <%= f.radio_button :i_team_spirit, "4" %> <%= f.label :i_team_spirit, "clear identity; team engages others in their enjoyment", :value => "4" %>
-            </td>
-        </tr>
-        <tr class="altCV">
-            <td colspan="2">
-                <b>Impact</b>
-            </td>
-            <td colspan="3">
-                Team applied knowledge, skills and/or values learned in FIRST LEGO League to improve themselves and their world
-            </td>
-        </tr>
-        <tr>
-            <td>
-				<%= f.radio_button :i_integration, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :i_integration, "1" %> <%= f.label :i_integration, "unclear impact of FIRST LEGO League".html_safe, :value => "1"  %>
-            </td>
-            <td>
-                <%= f.radio_button :i_integration, "2" %> <%= f.label :i_integration, "knowledge, values or skills impacted some team members", :value => "2"  %>
-            </td>
-            <td>
-                <%= f.radio_button :i_integration, "3" %> <%= f.label :i_integration, "knowledge, values or skills impacted all team members", :value => "3"  %>
-            </td>
-            <td>
-                <%= f.radio_button :i_integration, "4" %> <%= f.label :i_integration, "knowledge, values or skills impacted all team members AND team used values or skills to help others", :value => "4"  %>
-            </td>
-        </tr>
-		<tr height="60px">
-			<td colspan="5"><%= f.check_box :award_inspiration, {}, "Y",  "N" %> <strong>Inspiration Award Consideration</strong></td>
-		</tr>
-    </table>
 
-    <table class="grid">
-        <tr style="border: none;">
-            <td style="border: none;">
-                &nbsp;
-            </td>
-	        <td>
-	            <b><i>None</i></b>
-	        </td>
+        <tr class="altCV">
             <td>
-                <b><i>Beginning</i></b>
+                <b>INNOVATION</b>
             </td>
-            <td>
-                <i><b>Developing</b></i>
-            </td>
-            <td>
-                <i><b>Accomplished</b></i>
-            </td>
-            <td>
-                <i><b>Exemplary</b></i>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="7">
-                <div class="vertical">
-                    Teamwork</div>
-            </td>
-            <td class="altCV" colspan="2">
-                <b>Effectiveness</b>
-            </td>
-            <td class="altCV" colspan="3">
-                Problem solving and decision making processes help team achieve their goals
+            <td colspan="3">
+                Team used creativity and persistence to solve problems.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :t_effectiveness, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :t_effectiveness, "1" %> <%= f.label :t_effectiveness, "team goals AND team processes unclear", :value => "1" %>
+                <%= f.radio_button :innovation, "1" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "2" %> <%= f.label :t_effectiveness, "team goals OR team processes unclear", :value => "2" %>
+                <%= f.radio_button :innovation, "2" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "3" %> <%= f.label :t_effectiveness, "clear team goals and process", :value => "3" %>
+                <%= f.radio_button :innovation, "3" %>
             </td>
             <td>
-                <%= f.radio_button :t_effectiveness, "4" %> <%= f.label :t_effectiveness, "clear processes enable team to accomplish well defined goals", :value => "4" %>
+                <%= f.radio_button :innovation, "4" %>
+                <%= f.text_area :innovation_exceed %>
             </td>
         </tr>
         <tr class="altCV">
-            <td colspan="2">
-                <b>Efficiency</b>
+            <td>
+                <b>IMPACT</b>
             </td>
             <td colspan="3">
-              	Resources used relative to what the team accomplishes (time management, distribution
-                    of roles and responsibilities)
+                Team applied what they learned to improve their world.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :t_efficiency, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :t_efficiency, "1" %> <%= f.label :t_efficiency, "limited time management AND unclear goals", :value => "1" %>
+                <%= f.radio_button :impact, "1" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "2" %> <%= f.label :t_efficiency, "limited time management OR unclear goals", :value => "2" %>
+                <%= f.radio_button :impact, "2" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "3" %> <%= f.label :t_efficiency, "excellent time management and role definition allows team to accomplish most goals", :value => "3" %>
+                <%= f.radio_button :impact, "3" %>
             </td>
             <td>
-                <%= f.radio_button :t_efficiency, "4" %> <%= f.label :t_efficiency, "excellent time management and role definition allows teams to accomplish all goals", :value => "4" %>
+                <%= f.radio_button :impact, "4" %>
+                <%= f.text_area :impact_exceed %>
             </td>
-        </tr>
-        <tr class="altCV">
-            <td colspan="2">
-                <b>Kids Do The Work</b>
-            </td>
-            <td colspan="3">
-                Appropriate balance between team responsibility and coach guidance
-            </td>
-        </tr>
-        <tr>
-            <td>
-				<%= f.radio_button :t_initiative, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :t_initiative, "1" %> <%= f.label :t_initiative, "limited team responsibility AND excessive coach guidance", :value => "1" %>
-            </td>
-            <td>
-                <%= f.radio_button :t_initiative, "2" %> <%= f.label :t_initiative, "limited team responsibility OR excessive coach guidance", :value => "2" %>
-            </td>
-            <td>
-                <%= f.radio_button :t_initiative, "3" %> <%= f.label :t_initiative, "good balance between team responsibility and coach guidance", :value => "3" %>
-            </td>
-            <td>
-                <%= f.radio_button :t_initiative, "4" %> <%= f.label :t_initiative, "team independence with minimum coach guidance", :value => "4" %>
-            </td>
-        </tr>
-		<tr height="60px">
-			<td colspan="5"><%= f.check_box :award_teamwork, {}, "Y", "N" %> <strong> Teamwork Award Consideration</strong></td>
-		</tr>
 
-    </table>
-    <table class="grid">
-        <tr style="border: none;">
-            <td style="border: none;">
-                &nbsp;
-            </td>
-	        <td>
-	            <b><i>None</i></b>
-	        </td>
-            <td>
-                <b><i>Beginning</i></b>
-            </td>
-            <td>
-                <i><b>Developing</b></i>
-            </td>
-            <td>
-                <i><b>Accomplished</b></i>
-            </td>
-            <td>
-                <i><b>Exemplary</b></i>
-            </td>
         </tr>
-        <tr>
-            <td rowspan="7" valign="bottom">
-                <div class="vertical">
-                    Gracious&nbsp;Professionalism&trade;</div>
+        <tr class="altCV">
+            <td>
+                <b>INCLUSION</b>
             </td>
-            <td class="altCV" colspan="2">
-                <b>Inclusion</b>
-            </td>
-            <td class="altCV" colspan="3">
-                Consideration and appreciation for the contributions (ideas and skills) of all team
-                    members, with balanced involvement
+            <td colspan="3">
+                Team demonstrated respect and embraced their differences.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :g_inclusion, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :g_inclusion, "1" %> <%= f.label :g_inclusion, "limited consideration / appreciation for contributions", :value => "1" %>
+                <%= f.radio_button :inclusion, "1" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "2" %> <%= f.label :g_inclusion, "consideration / appreciation for contributions of most team members", :value => "2" %>
+                <%= f.radio_button :inclusion, "2" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "3" %> <%= f.label :g_inclusion, "clear consideration / appreciation for contributions of all team members", :value => "3" %>
+                <%= f.radio_button :inclusion, "3" %>
             </td>
             <td>
-                <%= f.radio_button :g_inclusion, "4" %> <%= f.label :g_inclusion, "all team members’ contributions actively welcomed & recognized", :value => "4" %>
+                <%= f.radio_button :inclusion, "4" %>
+                <%= f.text_area :inclusion_exceed %>
             </td>
         </tr>
         <tr class="altCV">
-            <td colspan="2">
-                <b>Respect</b>
+            <td>
+                <b>TEAMWORK</b>
             </td>
             <td colspan="3">
-                Team members act and speak with integrity and sensitivity, so that others feel valued&mdash;especially
-                    when solving problmes or resolving conflicts
+                Team clearly showed they had worked as a team throughout their journey.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :g_respect, "0", :default => true %>
-			</td>
-            <td>
-                 <%= f.radio_button :g_respect, "1" %> <%= f.label :g_respect, "not evident with majority of team members", :value => "1" %>
+                <%= f.radio_button :teamwork, "1" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "2" %> <%= f.label :g_respect, "evident with majority of the team members", :value => "2" %>
+                <%= f.radio_button :teamwork, "2" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "3" %> <%= f.label :g_respect, "clearly evident with all team members", :value => "3" %>
+                <%= f.radio_button :teamwork, "3" %>
             </td>
             <td>
-                 <%= f.radio_button :g_respect, "4" %> <%= f.label :g_respect, "clearly evident with all team members AND team encourages respect in others", :value => "4" %>
+                <%= f.radio_button :teamwork, "4" %>
+                <%= f.text_area :teamwork_exceed %>
             </td>
-        </tr>
-        <tr class="altCV">
-            <td colspan="2">
-                <b>Coopertition&trade;</b>
+
+        </tr><tr class="altCV">
+            <td>
+                <b>FUN</b>
             </td>
             <td colspan="3">
-                Learning is more important than winning; Team learns from, teaches, and cooperates with each other and competing teams. Team competes in the spirit of friendly competition
+                Teams clearly had fun and celebrated what they have achieved.
             </td>
         </tr>
         <tr>
             <td>
-				<%= f.radio_button :g_coopertition, "0", :default => true %>
-			</td>
-            <td>
-                <%= f.radio_button :g_coopertition, "1" %> <%= f.label :g_coopertition, "unclear or lack of team members cooperating with each other", :value => "4" %>
+                <%= f.radio_button :fun, "1" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "2" %> <%= f.label :g_coopertition, "team members cooperate with each other", :value => "4" %>
+                <%= f.radio_button :fun, "2" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "3" %> <%= f.label :g_coopertition, "team actively learns from and teaches teammates / celebrates other teams’ successes", :value => "4" %>
+                <%= f.radio_button :fun, "3" %>
             </td>
             <td>
-                <%= f.radio_button :g_coopertition, "4" %> <%= f.label :g_coopertition, "team actively helps, learns from, or collaborates with other teams AND celebrates other teams’ successes", :value => "4" %>
+                <%= f.radio_button :fun, "4" %>
+                <%= f.text_area :fun_exceed %>
             </td>
         </tr>
-     	<tr height="60px">
-			<td colspan="5"><%= f.check_box :award_gracprof, {}, "Y", "N" %> <strong>Gracious Professionalism Award Consideration</strong></td>
-		</tr>
     </table>
 
     <table>
-        <tr><th class="comments">Great Job...</th><th class="comments">Think About...</th></tr>
+    <caption>Feedback Comments</caption>
+        <tr><th class="altCV comments">Great Job...</th><th class="altCV comments">Think About...</th></tr>
         <tr>
             <td><%= f.text_area :cv_gj_comments, :rows => 5, :cols => 80 %></td>
             <td><%= f.text_area :cv_ta_coments, :rows => 5, :cols => 80 %></td>

@@ -1,0 +1,8 @@
+TeamNumber,TeamName,GPScore1,GPScore2,GPScore3,GPScore4,GPScore5
+<% @teams.each do |team| -%>
+<div>"<%=team.fll_number %>","<%=team.team_name %>"
+    <% team.qualifications.order(:match_number).each do |match| %>
+    ,<%= match.GP_Score %>
+    <% end %>
+<br /></div>
+<% end -%>

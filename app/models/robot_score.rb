@@ -4,7 +4,7 @@ class RobotScore < ActiveRecord::Base
 
   before_save :calculate_total_scores
   validates :judge_name, :presence => true
-  validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
+  # validates :rank, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 20 }
 
 
   # def mechanical_score
@@ -28,9 +28,6 @@ class RobotScore < ActiveRecord::Base
 
 private
     def calculate_total_scores
-      self.mechanical_design = m_durability + m_efficiency + m_mechanization
-      self.programming = p_quality + p_efficiency + p_automation
-      self.innovation_strategy = i_designprocess + i_strategy + i_innovation
-      self.total_score = self.mechanical_design + self.programming + self.innovation_strategy
+      self.total_score = identify + identify2 + design + design2 + create + create2 + iterate + iterate2 + communicate + communicate2
     end
 end

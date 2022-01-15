@@ -12,13 +12,13 @@
 	<div id="user_nav">
 	  <% if @current_competition %>
 	    <span class="teamTitle"><%= @current_competition.full_name %></span>.
-	    <%= link_to "Log out", logout_path %>
+	    <%= link_to "Log out", logout_path %> | <%= link_to 'Team List', teams_path -%>
 	  <% else %>
 	    <%= link_to "Log in", login_path %>
 	  <% end %>
 	</div>
 <p style="color: green"><%= flash[:notice] %></p>
-<div class="container">
+<div class="container-fluid">
 <%= yield  %>
 </div>
 </body>

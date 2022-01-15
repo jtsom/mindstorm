@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191119013920) do
+ActiveRecord::Schema.define(version: 20211202185541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20191119013920) do
     t.text "cv_gj_comments"
     t.text "cv_ta_coments"
     t.integer "rank"
+    t.integer "discovery"
+    t.text "discovery_exceed"
+    t.integer "innovation"
+    t.text "innovation_exceed"
+    t.integer "impact"
+    t.text "impact_exceed"
+    t.integer "inclusion"
+    t.text "inclusion_exceed"
+    t.text "teamwork_exceed"
+    t.integer "fun"
+    t.text "fun_exceed"
   end
 
   create_table "matches", id: :serial, force: :cascade do |t|
@@ -67,6 +78,7 @@ ActiveRecord::Schema.define(version: 20191119013920) do
     t.integer "table_number"
     t.string "type", limit: 255
     t.integer "challenge_year"
+    t.integer "GP_Score"
     t.index ["type"], name: "index_matches_on_type"
   end
 
@@ -98,6 +110,26 @@ ActiveRecord::Schema.define(version: 20191119013920) do
     t.text "p_gj_comments"
     t.text "p_ta_comments"
     t.integer "rank"
+    t.integer "identify"
+    t.text "identify_exceed"
+    t.integer "design"
+    t.text "design_exceed"
+    t.integer "create"
+    t.text "create_exceed"
+    t.integer "iterate"
+    t.text "iterate_exceed"
+    t.integer "communicate"
+    t.text "communicate_exceed"
+    t.integer "identify2"
+    t.text "identify2_exceed"
+    t.integer "design2"
+    t.text "design2_exceed"
+    t.integer "create2"
+    t.text "create2_exceed"
+    t.integer "iterate2"
+    t.text "iterate2_exceed"
+    t.integer "communicate2"
+    t.text "communicate2_exceed"
     t.index ["team_id"], name: "index_project_scores_on_team_id"
   end
 
@@ -128,6 +160,26 @@ ActiveRecord::Schema.define(version: 20191119013920) do
     t.text "r_gj_comments"
     t.text "r_ta_comments"
     t.integer "rank"
+    t.integer "identify"
+    t.text "identify_exceed"
+    t.integer "design"
+    t.text "design_exceed"
+    t.integer "create"
+    t.text "create_exceed"
+    t.integer "iterate"
+    t.text "iterate_exceed"
+    t.integer "communicate"
+    t.text "communicate_exceed"
+    t.integer "identify2"
+    t.text "identify2_exceed"
+    t.integer "design2"
+    t.text "design2_exceed"
+    t.integer "create2"
+    t.text "create2_exceed"
+    t.integer "iterate2"
+    t.text "iterate2_exceed"
+    t.integer "communicate2"
+    t.text "communicate2_exceed"
     t.index ["team_id"], name: "index_robot_scores_on_team_id"
   end
 

@@ -35,7 +35,38 @@ class Team < ActiveRecord::Base
     def innovation_strategy
       robot_scores.average(:innovation_strategy) || 0
     end
+##### NEW FIELDS #####
+     def robot_identify
+      robot_scores.average(:identify) || 0
+     end
+     def robot_identify2
+      robot_scores.average(:identify2) || 0
+     end
 
+     def robot_design
+      robot_scores.average(:design) || 0
+     end
+     def robot_design2
+      robot_scores.average(:design2) || 0
+     end
+     def robot_create
+      robot_scores.average(:create) || 0
+     end
+     def robot_create2
+      robot_scores.average(:create2) || 0
+     end
+     def robot_iterate
+      robot_scores.average(:iterate) || 0
+     end
+     def robot_iterate2
+      robot_scores.average(:iterate2) || 0
+     end
+     def robot_communicate
+      robot_scores.average(:communicate) || 0
+     end
+     def robot_communicate2
+      robot_scores.average(:communicate2) || 0
+     end
     def robot_scores_total
       robot_scores.average(:total_score) || 0
     end
@@ -54,6 +85,39 @@ class Team < ActiveRecord::Base
      def presentation
        project_scores.average(:presentation) || 0
      end
+##### NEW FIELDS #####
+     def project_identify
+      project_scores.average(:identify) || 0
+     end
+     def project_identify2
+      project_scores.average(:identify2) || 0
+     end
+
+     def project_design
+      project_scores.average(:design) || 0
+     end
+     def project_design2
+      project_scores.average(:design2) || 0
+     end
+     def project_create
+      project_scores.average(:create) || 0
+     end
+     def project_create2
+      project_scores.average(:create2) || 0
+     end
+     def project_iterate
+      project_scores.average(:iterate) || 0
+     end
+     def project_iterate2
+      project_scores.average(:iterate2) || 0
+     end
+     def project_communicate
+      project_scores.average(:communicate) || 0
+     end
+     def project_communicate2
+      project_scores.average(:communicate2) || 0
+     end
+
 
      def project_scores_total
        project_scores.average(:total_score) || 0
@@ -73,11 +137,30 @@ class Team < ActiveRecord::Base
     def grac_prof
       corevalue_scores.average(:grac_prof) || 0
     end
+        ##### NEW FIELDS #####
+    def innovation
+      corevalue_scores.average(:innovation) || 0
+    end
+    def discovery
+      corevalue_scores.average(:discovery) || 0
+    end
+    def impact
+      corevalue_scores.average(:impact) || 0
+    end
+    def inclusion
+      corevalue_scores.average(:inclusion) || 0
+    end
+    def fun
+      corevalue_scores.average(:fun) || 0
+    end
 
     def corevalue_scores_total
       corevalue_scores.average(:total_score) || 0
     end
 
+    def gp_score
+      qualifications.sum(:GP_Score)
+    end
     #################################
 
     def high_score

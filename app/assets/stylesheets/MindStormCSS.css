@@ -50,7 +50,7 @@ td
 .grid
 {
     border-collapse: collapse;
-    width: 960px;
+    width: 100%;
     border: thin solid #000000;
 	margin-bottom:40px;
 }
@@ -61,17 +61,17 @@ td
 }
 .altCV
 {
-    background: #EB9C8A;
+    background: #F6DBD5;
     border: thin solid #000000;
 }
 .altRC
 {
-    background: #B8CDEA;
+    background: #DAE9D9;
     border: thin solid #000000;
 }
 .altPR
 {
-    background: #FFFECE;
+    background: #D5DAEE;
     border: thin solid #000000;
 }
 /*td.alt
@@ -98,4 +98,21 @@ select
 @media all
 {
   .page-break  { display:block; page-break-after:always;}
+}
+
+#navlinks {
+    font-size: 14pt;
+}
+#teamtable td {
+    padding: .75em;
+    font-size: 16pt;
+}
+
+#teamtable td a {
+    font-size: 16pt;
+}
+
+.matchlist td {
+    padding: .75em;
+    font-size: 16pt;
 }

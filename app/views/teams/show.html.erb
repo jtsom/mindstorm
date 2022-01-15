@@ -3,6 +3,7 @@
 
 <table border="1" width="1024" style="border-collapse:collapse;">
 	<th rowspan="2">Match</th>
+	<th rowspan="2">GP</th>
 	<th rowspan="2">Table</th>
 	<th rowspan="2">Points</th>
 	<% $challenge.missions.each do |mission| -%>
@@ -19,7 +20,7 @@
 	</tr>
 
 	<tr>
-	<th colspan="3"></th>
+	<th colspan="4"></th>
 	<% $challenge.missions.each do |mission|
 		mission.items.each do |item| -%>
 	<th><%= item.scoring -%></th>
@@ -28,12 +29,13 @@
 	</tr>
 
 	<tr>
-		<td colspan="34" style="background-color: #dddddd"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
+		<td colspan="41" style="background-color: #dddddd"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
 	</tr>
 	<% 	@qualifications.each do |match| -%>
 	<tr align="center">
 
 	<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) -%></td>
+	<td><%= match.GP_Score %></td>
 	<td><%= match.table_number %></td>
 	<td><%= match.score %></td>
 	<%	$challenge.missions.each do |mission|
@@ -55,12 +57,13 @@
 	<% end 	%>
 
 	<tr>
-		<td colspan="34" style="background-color: #dddddd"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		<td colspan="41" style="background-color: #dddddd"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 	</tr>
 		<% 	@finals.each do |match| %>
 		<tr align="center">
 
 		<td><%= link_to match.match_number, edit_polymorphic_path([@team, match]) %></td>
+		<td> - </td>
 		<td><%= match.table_number %></td>
 		<td><%= match.score %></td>
 		<%	$challenge.missions.each do |mission|
@@ -99,7 +102,6 @@
 	@team.robot_scores.each do |robot_score|
 %>
 	<p>Judge: <%= robot_score.judge_name %></p>
-	<p>Rank: <%= robot_score.rank %></p>
 	<p> <%= link_to "Update Entry", edit_team_robot_score_path(@team, robot_score)%> |
 		<%= link_to "Remove Entry", team_robot_score_path(@team, robot_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 	<%= render :partial => "robot", :object => robot_score %>
@@ -112,7 +114,6 @@
 	@team.project_scores.each do |project_score|
 %>
 		<p>Judge: <%= project_score.judge_name %></p>
-		<p>Rank: <%= project_score.rank %></p>
 		<p> <%= link_to "Update Entry", edit_team_project_score_path(@team, project_score) %> |
 			<%= link_to "Remove Entry", team_project_score_path(@team, project_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 		<%= render :partial => "project", :object => project_score %>
@@ -126,7 +127,6 @@
 	@team.corevalue_scores.each do |corevalue_score|
 %>
 		<p>Judge: <%= corevalue_score.judge_name %></p>
-		<p>Rank: <%= corevalue_score.rank %></p>
 		<p><%= link_to "Update Entry", edit_team_corevalue_score_path(@team, corevalue_score) %> |
 			<%= link_to "Remove Entry", team_corevalue_score_path(@team, corevalue_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
 		<%= render :partial => "corevalue", :object => corevalue_score %>

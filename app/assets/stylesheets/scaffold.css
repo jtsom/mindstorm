@@ -66,9 +66,9 @@ td {
  vertical-align:top;
 }
 
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
+.errorMessage {
+  font-size: 24px;
+  color: red;
 }
 
 tr.odd
@@ -168,4 +168,13 @@ table#finalresults {font: 10px arial sans-serif;}
 
 .standings-table td {
 	font-size: 150%;
+}
+
+.form-horizontal .form-group {
+margin-right: 0px;
+margin-left: 0px;
+}
+.row {
+margin-right: 0px;
+margin-left: 0px;
 }

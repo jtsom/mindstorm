@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
     # <%= match_fields.text_field item.label, { :value => value, :size  => max_length, :maxlength => max_length, :onkeypress => val_func } %> <%= allowed_values %>
     @team = @current_competition.teams.find params[:team_id]
     @match = @match_class.new
+    @match.GP_Score = "3" # all teams start at 3
 		render  "matches/new"
   end
 
@@ -101,6 +102,7 @@ class MatchesController < ApplicationController
      @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
      @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
      @match.results = results
+     @match.GP_Score = params[params[:controller].singularize.to_sym][:GP_Score]
 
      if $challenge.check(results)
 
@@ -132,8 +134,11 @@ class MatchesController < ApplicationController
     @match = @match_class.new()
     @match.match_number = params[params[:controller].singularize.to_sym][:match_number]
     @match.table_number = params[params[:controller].singularize.to_sym][:table_number]
+    @match.GP_Score = params[params[:controller].singularize.to_sym][:GP_Score]
     @match.team_id = params[:team_id]
-
+    puts "##########################"
+puts params
+puts "##########################"
     if @match.valid?
       results = {}
       params[:results].each_pair do |key, value|
@@ -184,6 +189,6 @@ private
   end
 
   def match_params
-    params.permit(params[params[:controller].singularize.to_sym]).permit(params[params[:controller].singularize.to_sym])
+    params.permit(params[params[:controller].singularize.to_sym]).permit(params[params[:controller].singularize.to_sym]).permit(:GP_Score)
   end
 end

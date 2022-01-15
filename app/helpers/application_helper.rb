@@ -15,7 +15,7 @@ module ApplicationHelper
       end  
       html << "\t\t<ul>\n"
       object.errors.full_messages.each do |error|
-        html << "\t\t\t<li>#{error}</li>\n"
+        html << "\t\t\t<li class=""errorMessage"">#{error}</li>\n"
       end
       html << "\t\t</ul>\n"
       html << "\t</div>\n"

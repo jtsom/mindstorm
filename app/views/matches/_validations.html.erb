@@ -57,23 +57,22 @@
 
 	function special_validation() {
 
-		var totalUnits = (input_value('unit_supported_by_tree_large_branch') +
-						  input_value('unit_supported_by_tree_small_branch') +
-						  input_value('independent_and_supported'));
-		if (totalUnits > 16) {
-			make_all_invalid(['unit_supported_by_tree_large_branch', 'unit_supported_by_tree_small_branch', 'independent_and_supported']);
-			return "Total number of Units must be less than 16!";
+		var totalUnits = (input_value('containers_partly_any_circle') +
+						  input_value('containers_fully_any_circle'));
+		if (totalUnits > 8) {
+			make_all_invalid(['containers_partly_any_circle', 'containers_fully_any_circle', 'independent_and_supported']);
+			return "Total number of Containers must be less than 8!";
 		}
 
-		if (input_value('blue_car_down') == 1 && input_value('balanced') == 1) {
-			make_all_invalid(['blue_car_down', 'balanced']);
-			return "Either Blue Car is Down or Elevator is Balanced!";
-		}
+		// if (input_value('blue_car_down') == 1 && input_value('balanced') == 1) {
+		// 	make_all_invalid(['blue_car_down', 'balanced']);
+		// 	return "Either Blue Car is Down or Elevator is Balanced!";
+		// }
 
-		if (input_value('completely_in_circle') == 1 && input_value('partly_in_circle') == 1) {
-			make_all_invalid(['completely_in_circle', 'partly_in_circle']);
-			return "Team Structure can either be Completely or Partly in any circle";
-		}
+		// if (input_value('completely_in_circle') == 1 && input_value('partly_in_circle') == 1) {
+		// 	make_all_invalid(['completely_in_circle', 'partly_in_circle']);
+		// 	return "Team Structure can either be Completely or Partly in any circle";
+		// }
 
 		return "";
 	}

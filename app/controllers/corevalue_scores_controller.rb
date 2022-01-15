@@ -56,10 +56,14 @@ class CorevalueScoresController < ApplicationController
     end
 
     def scores_params
-      params.require(:corevalue_score).permit(:rank, :i_discovery,:i_team_spirit, :i_integration, :i_comments,
-                    :t_effectiveness, :t_efficiency, :t_initiative, :t_comments,
-                    :g_inclusion, :g_respect, :g_coopertition, :g_comments,
-                    :total_score, :judge_name, :inspiration, :teamwork, :grac_prof,
-                    :award_inspiration, :award_teamwork, :award_gracprof, :cv_gj_comments, :cv_ta_coments)
+      params.require(:corevalue_score).permit(:rank,
+                    :judge_name,
+                    :discovery, :discovery_exceed,
+                    :innovation, :innovation_exceed,
+                    :impact, :impact_exceed,
+                    :inclusion, :inclusion_exceed,
+                    :teamwork, :teamwork_exceed,
+                    :fun, :fun_exceed,
+                     :cv_gj_comments, :cv_ta_coments)
     end
 end
