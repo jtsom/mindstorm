@@ -21,11 +21,11 @@ class Challenge
   end
 
   def mission_year
-    return 2021
+    return 2022
   end
 
   def mission_name
-    return "FIRST Cargo Connect"
+    return "FIRST SuperPowered"
   end
 
   def to_s
@@ -181,163 +181,142 @@ end
 
 challenge do
 
-  mission "M00 Inspection" do
-    item :robot_inspection, "Robot and all of its equipment fit in the 'Small Inspection Area'", "20", ["Yes", "No"], ["1", "0"]
+  mission "M00 Equipment Inspection" do
+    item :robot_inspection, "Robot and all of its equipment fit completely in one launch area", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       (items[:robot_inspection].to_i) * 20
     end
   end
 
   mission "M01 Innovation Project Model" do
-    item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; touching circle", "20", ["Yes", "No"], ["1", "0"]
+    item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; touching circle", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:complete_project_model].to_i) * 20
+      (items[:complete_project_model].to_i) * 10
     end
   end
 
-  mission "M02 Unused Capacity" do
-    item :closed_partly_full, "Hinged Container closed and Partly Full", "20", ["Yes", "No"], ["1", "0"]
-    item :closed_completely_full, "Hinged Container closed and Completely Full", "30", ["Yes", "No"], ["1", "0"]
+  mission "M02 Oil Platform" do
+    item :fuel_units_in_truck, "Fuel Units in truck", "5", to_sa((0..3)), to_sa((0..3))
+    item :fuel_unit_over_station, "One fuel unit is in the fuel truck and the fuel truck is at least partly over the fueling station target", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:closed_partly_full].to_i) * 20) + ((items[:closed_completely_full].to_i) * 30)
-    end
-    check "Closed Hinged Container can be either PARTIALLY full or COMPLETELY full." do |items|
-      (items[:closed_partly_full].to_i + items[:closed_completely_full].to_i) <= 1
+      ((items[:fuel_units_in_truck].to_i) * 5) + ((items[:fuel_unit_over_station].to_i) * 10)
     end
   end
 
-  mission "M03 Unload Cargo Plane" do
-    item :cargo_plane_prepared, "Cargo plane door is completely down", "20", ["Yes", "No"], ["1", "0"]
-    item :cargo_plane_unloaded, "Cargo is completely separate from plane", "10", ["Yes", "No"], ["1", "0"]
+  mission "M03 Energy Storage" do
+    item :energy_units_in_bin, "Energy units completely in the energy storage bin", "10", ["0", "1", "2", "3+"], ["0","1", "2", "3"]
+    item :energy_unit_removed_from_bin, "Energy unit is completely removed from the energy storage tray", "5", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:cargo_plane_prepared].to_i) * 20) + ((items[:cargo_plane_unloaded].to_i) * 10)
+      ((items[:energy_units_in_bin].to_i) * 10) + ((items[:energy_unit_removed_from_bin].to_i) * 5)
     end
   end
 
-  mission "M04 Transportation Journey" do
-    item :truck_reached_destination, "Truck has reached it's destination, completely past it's blue line", "10", ["Yes", "No"], ["1", "0"]
-	item :airplane_reached_destination, "Airplane has reached it's destination, completely past it's blue line", "10", ["Yes", "No"], ["1", "0"]
-
+  mission "M04 Solar Farm" do
+    item :solar_energy_units_removed, "Energy units completely removed from its starting circle", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
-    	s = ((items[:truck_reached_destination].to_i) * 10) + ((items[:airplane_reached_destination].to_i) * 10)
-    	s += ((items[:truck_reached_destination].to_i) * (items[:airplane_reached_destination].to_i)) * 10
+    	s = ((items[:solar_energy_units_removed].to_i) * 5)
+    	s += (items[:solar_energy_units_removed].to_i) == 3 ? 5 : 0
     end
   end
 
-  mission "M05 Switch Engine" do
-    item :engine_switched_to_electric, "Engine has been switched from diesel to electric", "20", ["Yes", "No"], ["1", "0"]
+  mission "M05 Smart Grid" do
+    item :your_field_connector_raised, "Your field's orange connector is completely raised", "20", ["Yes", "No"], ["1", "0"]
+    item :other_field_connector_raised, "Both teams' orange connectors are completely raised", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:engine_switched_to_electric].to_i) * 20)
+      s = ((items[:your_field_connector_raised].to_i) * 20)
+      s += ((items[:your_field_connector_raised].to_i) * (items[:other_field_connector_raised].to_i)) * 10
     end
   end
 
-  mission "M06 Accident Avoidance" do
-    item :yellow_panel_not_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel NOT KNOCKED DOWN And black frame is upright", "20", ["Yes", "No"], ["1", "0"]
-    item :yellow_panel_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel KNOCKED DOWN And black frame is upright", "30", ["Yes", "No"], ["1", "0"]
+  mission "M06 Hybrid Car" do
+    item :hybrid_car_not_touching_ramp, "Hybrid car is no longer touching the ramp", "10", ["Yes", "No"], ["1", "0"]
+    item :hybrid_unit_in_car, "Hybrid unit is in the hybrid car", "10", ["Yes", "No"], ["1", "0"]
 	  score do |items|
-		((items[:yellow_panel_not_knocked_down].to_i) * 20) + ((items[:yellow_panel_knocked_down].to_i) * 30)
+		  ((items[:hybrid_car_not_touching_ramp].to_i) * 10) + ((items[:hybrid_unit_in_car].to_i) * 10)
 	  end
-      check "Yellow panel cannot be both knocked down and NOT knocked down!" do |items|
-        (items[:yellow_panel_not_knocked_down].to_i + items[:yellow_panel_knocked_down].to_i) <= 1
-      end
+
   end
 
-  mission "M07 Unload Cargo Ship" do
-    item :container_not_touching_ship, "Container no longer touching cargo ship's east deck",  "20", ["Yes", "No"], ["1", "0"]
-    item :container_touching_ship, "Container completely east of cargo ship's east deck",  "10", ["Yes", "No"], ["1", "0"]
+  mission "M07 Wind Turbine" do
+    item :energy_units_not_touching_turbine, "Energy units no longer touching the wind turbine",  "10", to_sa((0..3)), to_sa((0..3))
     score do |items|
-      ((items[:container_not_touching_ship].to_i) * 20) + ((items[:container_touching_ship].to_i) * 10)
+      ((items[:energy_units_not_touching_turbine].to_i) * 10)
     end
   end
 
-  mission "M08 Air Drop" do
-    item :food_packet_separted_from_helicopter, "Food Packet separated from helicopter", "20", ["Yes", "No"], ["1", "0"]
-    item :food_packet_separted_from_other_field, "Food Packet separated from other field's helicopter, and in your field's circle", "10", ["Yes", "No"], ["1", "0"]
-    item :both_teams_separated_food_package, "Both teams have separated their food package from their helicopter", "10", ["Yes", "No"], ["1", "0"]
+  mission "M08 Watch Television" do
+    item :television_completely_raised, "Television is completely raised", "10", ["Yes", "No"], ["1", "0"]
+    item :energy_unit_in_television, "Energy unit is completely in the green television slot", "10", ["Yes", "No"], ["1", "0"]
 
     score do |items|
-       ((items[:food_packet_separted_from_helicopter].to_i) * 20) + ((items[:food_packet_separted_from_other_field].to_i) * 10)+ ((items[:both_teams_separated_food_package].to_i) * 10)
+       ((items[:television_completely_raised].to_i) * 10) + ((items[:energy_unit_in_television].to_i) * 10)
     end
   end
 
-  mission "M09 Train Tracks" do
-      item :train_track_repaired, "Train track is repaired", "20", ["Yes", "No"], ["1", "0"]
-      item :train_reached_destination, "Train has reached it's destination", "20", ["Yes", "No"], ["1", "0"]
-      score do |items|
-        ((items[:train_track_repaired].to_i) * 20) + ((items[:train_reached_destination].to_i) * 20)
-      end
-    end
-
-  mission "M10 Sorting Center" do
-    item :containers_sorted, "Containers have been sorted so only light orange container remains completely in blue box.", "20", ["Yes", "No"], ["1", "0"]
+  mission "M09 Dinosaur Toy" do
+    item :dinosaur_toy_in_left_home, "Dinosaur toy is completely in the left home area", "10", ["Yes", "No"], ["1", "0"]
+    item :dinosaur_toy_with_energy_unit, "Dinosaur toy lid is completely closed WITH energy unit inside", "10", ["Yes", "No"], ["1", "0"]
+    item :dinosaur_toy_with_battery, "Dinosaur toy lid is completely closed WITH rechargeable battery inside", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-    (items[:containers_sorted].to_i * 20)
+      s = (items[:dinosaur_toy_in_left_home].to_i * 10)
+      s += (items[:dinosaur_toy_in_left_home].to_i == 1) * (((items[:dinosaur_toy_with_energy_unit].to_i * 10) + (items[:dinosaur_toy_with_battery].to_i * 20)))
+    end
+    check "Dinosaur Toy can only have EITHER an ENERGY UNIT or RECHARGEABLE BATTERY" do |items|
+      (items[:dinosaur_toy_with_energy_unit].to_i + items[:dinosaur_toy_with_battery].to_i) <= 1
     end
   end
 
-  mission "M11 Home Delivery" do
-    item :package_delivered_partly_on_doorstep, "Package delivered and PARTLY on doorstep", "20", ["Yes", "No"], ["1", "0"]
+  mission "M10 Power Plant" do
+    item :energy_units_not_touching_powerplant, "Energy units no longer touching the power plant", "5", to_sa((0..3)), to_sa((0..3))
     item :package_delivered_fully_on_doorstep, "Package delivered and COMPLETELY on doorstep", "30", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:package_delivered_partly_on_doorstep].to_i) * 20) + ((items[:package_delivered_fully_on_doorstep].to_i) * 30)
+     s = ((items[:energy_units_not_touching_powerplant].to_i) * 5)
+     s += items[:energy_units_not_touching_powerplant].to_i == 3 ? 10 : 0
     end
-    check "Package can be either PARTLY or COMPLETELY on doorstep" do |items|
-      (items[:package_delivered_partly_on_doorstep].to_i + items[:package_delivered_fully_on_doorstep].to_i) <= 1
-    end
+
   end
 
-  mission "M12 Large Delivery" do
-    item :turbine_blade_touching_mat, "Turbine blade touching blue holder and the mat?", "20", ["Yes", "No"], ["1", "0"]
-    item :turbine_blade_not_touching_mat, "Turbine blade touching blue holder and nothing else?", "30", ["Yes", "No"], ["1", "0"]
-    item :chicken_upright_partly_in_circle, "Chicken statue upright and partly in circle?", "5", ["Yes", "No"], ["1", "0"]
-    item :chicken_upright_fully_in_circle, "Chicken statue upright and fully in circle?", "10", ["Yes", "No"], ["1", "0"]
+  mission "M11 Hydroelectric Dam" do
+    item :energy_unit_not_touching_dam, "Energy unit is no longer touching the hydroelectric dam", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:turbine_blade_touching_mat].to_i) * 20) + ((items[:turbine_blade_not_touching_mat].to_i) * 30)
-      s += ((items[:chicken_upright_partly_in_circle].to_i) * 5) + ((items[:chicken_upright_fully_in_circle].to_i) * 10)
-    end
-    check "Turbine blade can only be touching or not touching mat OR Chicken can only be FULLY or PARTLY in circle" do |items|
-        ((items[:turbine_blade_touching_mat].to_i + items[:turbine_blade_not_touching_mat].to_i) <= 1) && ((items[:chicken_upright_partly_in_circle].to_i + items[:chicken_upright_fully_in_circle].to_i) <= 1)
+      s = ((items[:energy_unit_not_touching_dam].to_i) * 10)
     end
   end
 
-  mission "M13 Platooning Trucks" do
-    item :trucks_latched_together, "Both trucks latched together completely outside of home", "10", ["Yes", "No"], ["1", "0"]
-    item :trucks_latched_to_bridge, "A truck is latched to a bridge", "10", ["Yes", "No"], ["1", "0"]
+  mission "M12 Water Reservoir" do
+    item :water_units_in_reservoir, "Looped water units completely in the water reservoir, touching the mat", "5", to_sa((0..3)), to_sa((0..3))
+    item :water_units_on_hook, "Looped water units placed on a single red hook", "10", to_sa((0..2)), to_sa((0..2))
     score do |items|
-      s = ((items[:trucks_latched_together].to_i) * 10) + ((items[:trucks_latched_to_bridge].to_i) * 10)
-      s += ((items[:trucks_latched_together].to_i) * (items[:trucks_latched_to_bridge].to_i)) * 10
+      s = ((items[:water_units_in_reservoir].to_i) * 5) + ((items[:water_units_on_hook].to_i) * 10)
+    end
+    check "Maximum of 3 LOOPED WATER UNITS" do |items|
+      (items[:water_units_in_reservoir].to_i + items[:water_units_on_hook].to_i) <= 3
     end
   end
 
-  mission "M14 Bridge" do
-    item :bridge_deck_lowered, "Bridge deck(s) lowered and rest on their center support", "10", to_sa((0..2)), to_sa((0..2))
+  mission "M13 Power-To-X" do
+    item :energy_units_in_plant, "Energy units completely in the hydrogen plant target area", "5", ["0", "1", "2", "3+"], ["0","1", "2", "3"]
     score do |items|
-      ((items[:bridge_deck_lowered].to_i) * 10)
+      ((items[:energy_units_in_plant].to_i) * 5)
     end
   end
 
-  mission "M15 Load Cargo" do
-    item :containers_on_trucks, "Containers on and touching only platooning trucks", "10", to_sa((0..2)), to_sa((0..2))
-    item :containers_on_train, "Containers on and touching only the train", "20", to_sa((0..2)), to_sa((0..2))
-    item :containers_on_cargo_ship, "Containers on and touching only cargo ship's west deck", "30", to_sa((0..2)), to_sa((0..2))
+  mission "M14 Toy Factory" do
+    item :energy_units_in_toy_factory, "Energy units at least partly in the slot in the back of the toy factory (or in the red hopper)", "5", to_sa((0..3)), to_sa((0..3))
+    item :mini_toy_released, "Containers on and touching only the train", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:containers_on_trucks].to_i) * 10) + ((items[:containers_on_train].to_i) * 20) + ((items[:containers_on_cargo_ship].to_i) * 30)
+      s = ((items[:energy_units_in_toy_factory].to_i) * 5) + ((items[:mini_toy_released].to_i) * 10)
     end
   end
 
-  mission "M16 CARGO CONNECT℠" do
-    item :containers_partly_any_circle, "Containers PARTLY in any circle", "5", to_sa((0..8)), to_sa((0..8))
-    item :containers_fully_any_circle, "Containers COMPLETELY in any circle", "10", to_sa((0..8)), to_sa((0..8))
-    item :blue_container_in_blue_circle, "Blue (not hinged) container completely in BLUE circle", "20", ["Yes", "No"], ["1", "0"]
-    item :green_container_in_green_circle, "Lime Green container completely in GREEN circle", "20", ["Yes", "No"], ["1", "0"]
-    item :circles_with_containers, "Circles with at least one container completely in them.", "10", to_sa((0..6)), to_sa((0..6))
+  mission "M15 Rechargable Battery" do
+    item :energy_units_in_battery_area, "energy unit is completely in the rechargeable battery target area", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
-      s = ((items[:containers_partly_any_circle].to_i) * 5) + ((items[:containers_fully_any_circle].to_i) * 10) + ((items[:blue_container_in_blue_circle].to_i) * 20)
-      s += ((items[:green_container_in_green_circle].to_i) * 20) + ((items[:circles_with_containers].to_i) * 10)
+      s = ((items[:energy_units_in_battery_area].to_i) * 5)
     end
   end
 
-  mission "M17 Precision" do
+  mission "M16 Precision" do
     item :precision, "Precision Tokens left on Field", "50", ["6", "5", "4", "3", "2", "1", "0"], ["50", "50", "35", "25", "15", "10", "0"]
 
     score do |items|
