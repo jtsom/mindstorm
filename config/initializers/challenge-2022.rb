@@ -189,7 +189,7 @@ challenge do
   end
 
   mission "M01 Innovation Project Model" do
-    item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; touching circle", "10", ["Yes", "No"], ["1", "0"]
+    item :complete_project_model, "Innovation project model made of at least 2 white pieces; measures at least 4 'studs'; partly in circle", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       (items[:complete_project_model].to_i) * 10
     end
@@ -204,7 +204,7 @@ challenge do
   end
 
   mission "M03 Energy Storage" do
-    item :energy_units_in_bin, "Energy units completely in the energy storage bin", "10", ["0", "1", "2", "3+"], ["0","1", "2", "3"]
+    item :energy_units_in_bin, "Energy units completely in the energy storage bin, not touching team equipment", "10", ["0", "1", "2", "3+"], ["0","1", "2", "3"]
     item :energy_unit_removed_from_bin, "Energy unit is completely removed from the energy storage tray", "5", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:energy_units_in_bin].to_i) * 10) + ((items[:energy_unit_removed_from_bin].to_i) * 5)
@@ -220,7 +220,7 @@ challenge do
   end
 
   mission "M05 Smart Grid" do
-    item :your_field_connector_raised, "Your field's orange connector is completely raised", "20", ["Yes", "No"], ["1", "0"]
+    item :your_field_connector_raised, "Your field's orange connector is completely raised, smart grid model not touching team equipment", "20", ["Yes", "No"], ["1", "0"]
     item :other_field_connector_raised, "Both teams' orange connectors are completely raised", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:your_field_connector_raised].to_i) * 20)
@@ -245,8 +245,8 @@ challenge do
   end
 
   mission "M08 Watch Television" do
-    item :television_completely_raised, "Television is completely raised", "10", ["Yes", "No"], ["1", "0"]
-    item :energy_unit_in_television, "Energy unit is completely in the green television slot", "10", ["Yes", "No"], ["1", "0"]
+    item :television_completely_raised, "Television is completely raised, model is not touching team equipment", "10", ["Yes", "No"], ["1", "0"]
+    item :energy_unit_in_television, "Energy unit is completely in the green television slot, energy unit is not touching team equipment", "10", ["Yes", "No"], ["1", "0"]
 
     score do |items|
        ((items[:television_completely_raised].to_i) * 10) + ((items[:energy_unit_in_television].to_i) * 10)
@@ -268,7 +268,6 @@ challenge do
 
   mission "M10 Power Plant" do
     item :energy_units_not_touching_powerplant, "Energy units no longer touching the power plant", "5", to_sa((0..3)), to_sa((0..3))
-    item :package_delivered_fully_on_doorstep, "Package delivered and COMPLETELY on doorstep", "30", ["Yes", "No"], ["1", "0"]
     score do |items|
      s = ((items[:energy_units_not_touching_powerplant].to_i) * 5)
      s += items[:energy_units_not_touching_powerplant].to_i == 3 ? 10 : 0
@@ -284,8 +283,8 @@ challenge do
   end
 
   mission "M12 Water Reservoir" do
-    item :water_units_in_reservoir, "Looped water units completely in the water reservoir, touching the mat", "5", to_sa((0..3)), to_sa((0..3))
-    item :water_units_on_hook, "Looped water units placed on a single red hook", "10", to_sa((0..2)), to_sa((0..2))
+    item :water_units_in_reservoir, "Looped water units completely in the water reservoir, touching the mat, not touching team equipment", "5", to_sa((0..3)), to_sa((0..3))
+    item :water_units_on_hook, "Looped water units placed on a single red hook (scored per hook), not touching team equipment", "10", to_sa((0..2)), to_sa((0..2))
     score do |items|
       s = ((items[:water_units_in_reservoir].to_i) * 5) + ((items[:water_units_on_hook].to_i) * 10)
     end
@@ -302,15 +301,15 @@ challenge do
   end
 
   mission "M14 Toy Factory" do
-    item :energy_units_in_toy_factory, "Energy units at least partly in the slot in the back of the toy factory (or in the red hopper)", "5", to_sa((0..3)), to_sa((0..3))
-    item :mini_toy_released, "Containers on and touching only the train", "10", ["Yes", "No"], ["1", "0"]
+    item :energy_units_in_toy_factory, "Energy units at least partly in the slot in the back of the toy factory (or in the red hopper), not touching team equipment", "5", to_sa((0..3)), to_sa((0..3))
+    item :mini_toy_released, "Mini dinosaur toy has been released", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = ((items[:energy_units_in_toy_factory].to_i) * 5) + ((items[:mini_toy_released].to_i) * 10)
     end
   end
 
   mission "M15 Rechargable Battery" do
-    item :energy_units_in_battery_area, "energy unit is completely in the rechargeable battery target area", "5", to_sa((0..3)), to_sa((0..3))
+    item :energy_units_in_battery_area, "energy unit is completely in the rechargeable battery target area, not touching team equipment", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
       s = ((items[:energy_units_in_battery_area].to_i) * 5)
     end
