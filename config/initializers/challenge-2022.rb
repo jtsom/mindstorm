@@ -199,7 +199,8 @@ challenge do
     item :fuel_units_in_truck, "Fuel Units in truck", "5", to_sa((0..3)), to_sa((0..3))
     item :fuel_unit_over_station, "One fuel unit is in the fuel truck and the fuel truck is at least partly over the fueling station target", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:fuel_units_in_truck].to_i) * 5) + ((items[:fuel_unit_over_station].to_i) * 10)
+      s = ((items[:fuel_units_in_truck].to_i) * 5)
+      s += ((items[:fuel_unit_over_station].to_i) * 10) if s > 0
     end
   end
 
