@@ -259,7 +259,7 @@ challenge do
     item :dinosaur_toy_with_battery, "Dinosaur toy lid is completely closed WITH rechargeable battery inside", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = (items[:dinosaur_toy_in_left_home].to_i * 10)
-      s += (items[:dinosaur_toy_in_left_home].to_i == 1) * (((items[:dinosaur_toy_with_energy_unit].to_i * 10) + (items[:dinosaur_toy_with_battery].to_i * 20)))
+      s += (((items[:dinosaur_toy_with_energy_unit].to_i * 10) + (items[:dinosaur_toy_with_battery].to_i * 20)))
     end
     check "Dinosaur Toy can only have EITHER an ENERGY UNIT or RECHARGEABLE BATTERY" do |items|
       (items[:dinosaur_toy_with_energy_unit].to_i + items[:dinosaur_toy_with_battery].to_i) <= 1
