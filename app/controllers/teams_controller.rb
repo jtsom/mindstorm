@@ -481,6 +481,7 @@ class TeamsController < ApplicationController
       end
 
     end
+    flash[:notice] = 'Team scored have been recalculated.'
     redirect_to :controller => "teams"
   end
 
