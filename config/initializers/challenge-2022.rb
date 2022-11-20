@@ -280,7 +280,7 @@ challenge do
   mission "M11 Hydroelectric Dam" do
     item :energy_unit_not_touching_dam, "Energy unit is no longer touching the hydroelectric dam", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:energy_unit_not_touching_dam].to_i) * 10)
+      s = ((items[:energy_unit_not_touching_dam].to_i) * 20)
     end
   end
 
