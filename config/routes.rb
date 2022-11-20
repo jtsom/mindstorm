@@ -33,6 +33,7 @@ Mindstorm::Application.routes.draw do
   get 'standings', :to =>  'teams#standings'
   get 'textstandings', :to => 'teams#text_standings'
   get 'gpscores', :to => 'teams#gp_scores'
+  get 'recalculate', :to =>'teams#recalculate_scores'
 
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
   get 'results', :to  => 'teams#results'

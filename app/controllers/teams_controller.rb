@@ -458,6 +458,32 @@ class TeamsController < ApplicationController
     puts "type=" + params[:type] if params[:type]
   end
 
+  def recalculate_scores
+    teams = @current_competition.teams
+
+    # Get matches for teams in current competition
+    teams.each do |team|
+
+      all_matches = team.qualifications
+      if all_matches && !all_matches.empty?
+        all_matches.each do |match|
+          match.score = $challenge.score(match.results)
+          match.save
+        end
+      end
+
+      all_matches = team.finals
+      if all_matches && !all_matches.empty?
+        all_matches.each do |match|
+          match.score = $challenge.score(match.results)
+          match.save
+        end
+      end
+
+    end
+    redirect_to :controller => "teams"
+  end
+
 private
   def authenticate
     if current_competition == nil
