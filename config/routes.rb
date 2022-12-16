@@ -42,6 +42,7 @@ Mindstorm::Application.routes.draw do
 
   post 'teams/upload', :to => 'teams#upload'
   post 'teams/matchupload', :to => 'teams#matchupload'
+    post 'teams/elimmatchupload', :to => 'teams#elimmatchupload'
 
   get 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
 
