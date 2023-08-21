@@ -33,6 +33,7 @@ Mindstorm::Application.routes.draw do
   get 'standings', :to =>  'teams#standings'
   get 'textstandings', :to => 'teams#text_standings'
   get 'gpscores', :to => 'teams#gp_scores'
+  get 'recalculate', :to =>'teams#recalculate_scores'
 
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
   get 'results', :to  => 'teams#results'
@@ -41,6 +42,7 @@ Mindstorm::Application.routes.draw do
 
   post 'teams/upload', :to => 'teams#upload'
   post 'teams/matchupload', :to => 'teams#matchupload'
+    post 'teams/elimmatchupload', :to => 'teams#elimmatchupload'
 
   get 'sendresults/:id', :to => 'teams#sendresults', :as => :sendresults
 

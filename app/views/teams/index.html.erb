@@ -4,6 +4,7 @@
 	| <%= link_to "Finals Match List", finals_path %> | <%= link_to "Overall Results", results_path %>
   | <%= link_to "All Team Results", all_teams_path %>
   | <%= link_to "Gracious Professionism Results", gpscores_path %>
+
   </p>
 <table id="teamtable">
 
@@ -26,6 +27,9 @@
 <%= link_to 'New team', new_team_path %>
 <hr>
 <div>
+  <%= link_to "Recalculate Match Scores", recalculate_path %>
+</div>
+<div>
 <%= form_for :csv_import, :url => {:action => :upload}, :html => { :multipart => true } do |f| -%>
       <p><label for="dump_file">
         Select a JSON File :
@@ -41,6 +45,21 @@
 <div>
 Match Upload
 <%= form_for :match_import, :url => {:action => :matchupload}, :html => { :multipart => true } do |f| -%>
+      <p><label for="upload_file">
+        Select a JSON File :
+      </label>
+
+      <%= f.file_field :file %></p>
+
+        <%= f.submit "Upload", :data => {:disable_with =>  "Uploading..."} %>
+
+<% end -%>
+</div>
+
+<hr>
+<div>
+ELIM Match Upload
+<%= form_for :elim_match_import, :url => {:action => :elimmatchupload}, :html => { :multipart => true } do |f| -%>
       <p><label for="upload_file">
         Select a JSON File :
       </label>

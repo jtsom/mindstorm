@@ -235,7 +235,7 @@ challenge do
     item :yellow_panel_not_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel NOT KNOCKED DOWN And black frame is upright", "20", ["Yes", "No"], ["1", "0"]
     item :yellow_panel_knocked_down, "Robot parked over blue accident-avoidance line, yellow panel KNOCKED DOWN And black frame is upright", "30", ["Yes", "No"], ["1", "0"]
 	  score do |items|
-		((items[:yellow_panel_not_knocked_down].to_i) * 20) + ((items[:yellow_panel_knocked_down].to_i) * 30)
+		  ((items[:yellow_panel_not_knocked_down].to_i) * 20) + ((items[:yellow_panel_knocked_down].to_i) * 30)
 	  end
       check "Yellow panel cannot be both knocked down and NOT knocked down!" do |items|
         (items[:yellow_panel_not_knocked_down].to_i + items[:yellow_panel_knocked_down].to_i) <= 1
@@ -271,7 +271,7 @@ challenge do
   mission "M10 Sorting Center" do
     item :containers_sorted, "Containers have been sorted so only light orange container remains completely in blue box.", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-    (items[:containers_sorted].to_i * 20)
+      (items[:containers_sorted].to_i * 20)
     end
   end
 

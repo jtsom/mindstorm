@@ -154,7 +154,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0', :complete_project_model=>'0', :closed_partly_full=>'0', :closed_completely_full=>'0', :cargo_plane_prepared=>'0', :cargo_plane_unloaded=>'0', :truck_reached_destination=>'0', :airplane_reached_destination=>'0', :engine_switched_to_electric=>'0', :yellow_panel_not_knocked_down=>'0', :yellow_panel_knocked_down=>'0', :container_not_touching_ship=>'0', :container_touching_ship=>'0', :food_packet_separted_from_helicopter=>'0', :food_packet_separted_from_other_field=>'0', :both_teams_separated_food_package=>'0', :train_track_repaired=>'0', :train_reached_destination=>'0', :containers_sorted=>'0', :package_delivered_partly_on_doorstep=>'0', :package_delivered_fully_on_doorstep=>'0', :turbine_blade_touching_mat=>'0', :turbine_blade_not_touching_mat=>'0', :chicken_upright_partly_in_circle=>'0', :chicken_upright_fully_in_circle=>'0', :trucks_latched_together=>'0', :trucks_latched_to_bridge=>'0', :bridge_deck_lowered=>'0', :containers_on_trucks=>'0', :containers_on_train=>'0', :containers_on_cargo_ship=>'0', :containers_partly_any_circle=>'0', :containers_fully_any_circle=>'0', :blue_container_in_blue_circle=>'0', :green_container_in_green_circle=>'0', :circles_with_containers=>'0', :precision=>'50'}"
+    raw_results = "{:robot_inspection=>'0',:complete_project_model=>'0',:fuel_units_in_truck=>'0',:fuel_unit_over_station=>'0',:energy_units_in_bin=>'0',:energy_unit_removed_from_bin=>'0',:solar_energy_units_removed=>'0',:your_field_connector_raised=>'0',:other_field_connector_raised=>'0',:hybrid_car_not_touching_ramp=>'0',:hybrid_unit_in_car=>'0',:energy_units_not_touching_turbine=>'0',:television_completely_raised=>'0',:energy_unit_in_television=>'0',:dinosaur_toy_in_left_home=>'0',:dinosaur_toy_with_energy_unit=>'0',:dinosaur_toy_with_battery=>'0',:energy_units_not_touching_powerplant=>'0',:energy_unit_not_touching_dam=>'0',:water_units_in_reservoir=>'0',:water_units_on_hook=>'0',:energy_units_in_plant=>'0',:energy_units_in_toy_factory=>'0',:mini_toy_released=>'0',:energy_units_in_battery_area=>'0',:precision=>'50'}"
 
   	results = eval(raw_results)
 
@@ -195,6 +195,68 @@ class TeamsController < ApplicationController
 			}
 
 			flash[:notice] = 'Matches uploaded.'
+		else
+			flash[:error] = 'Incorrect file format!'
+		end
+	else
+		flash[:error] = 'Please select a file.'
+	end
+
+    redirect_to :action => :index
+  end
+
+ def elimmatchupload
+
+  	all_teams = @current_competition.teams
+  	num_matches = Final.where(:team_id => all_teams.map(&:id)).length
+
+  	if num_matches > 0
+  		flash[:error] = 'Elim Matches already exist. Cannot upload.'
+  		redirect_to :action => :index
+  		return
+  	end
+
+    raw_results = "{:robot_inspection=>'0',:complete_project_model=>'0',:fuel_units_in_truck=>'0',:fuel_unit_over_station=>'0',:energy_units_in_bin=>'0',:energy_unit_removed_from_bin=>'0',:solar_energy_units_removed=>'0',:your_field_connector_raised=>'0',:other_field_connector_raised=>'0',:hybrid_car_not_touching_ramp=>'0',:hybrid_unit_in_car=>'0',:energy_units_not_touching_turbine=>'0',:television_completely_raised=>'0',:energy_unit_in_television=>'0',:dinosaur_toy_in_left_home=>'0',:dinosaur_toy_with_energy_unit=>'0',:dinosaur_toy_with_battery=>'0',:energy_units_not_touching_powerplant=>'0',:energy_unit_not_touching_dam=>'0',:water_units_in_reservoir=>'0',:water_units_on_hook=>'0',:energy_units_in_plant=>'0',:energy_units_in_toy_factory=>'0',:mini_toy_released=>'0',:energy_units_in_battery_area=>'0',:precision=>'50'}"
+
+  	results = eval(raw_results)
+
+    uploaded = params[:elim_match_import][:file]
+    if uploaded
+		raw = uploaded.read
+		if raw.split("\r").length > 1
+		  data = raw.split("\r")
+		else
+		  data = raw.split("\n")
+		end
+
+		if data[0] == "ELIM MATCH UPLOAD"
+			data = data[1, data.length]
+			puts "size=" + data.length.to_s
+
+			data.each { |line|
+			  puts "line=" + line
+			  fields = line.split(",")
+			  puts fields[0] + ' ' + fields[1] + ' ' + fields[2]
+
+			  fll_number = fields[0].to_i
+			  match_number = fields[1].to_i
+			  table_number = fields[2].to_i
+			  team = (all_teams.detect { |team| team[:fll_number] == fll_number})
+			  if team
+				  match = Final.create()
+
+				  match.match_number = match_number
+				  match.table_number = table_number
+				  match.results = results
+				  match.team_id = team.id
+				  match.score = 0
+				  match.challenge_year = $challenge.mission_year
+          match.GP_Score = 3
+				  match.save
+			  end
+			}
+
+			flash[:notice] = 'Elims Matches uploaded.'
 		else
 			flash[:error] = 'Incorrect file format!'
 		end
@@ -456,6 +518,33 @@ class TeamsController < ApplicationController
     end
 
     puts "type=" + params[:type] if params[:type]
+  end
+
+  def recalculate_scores
+    teams = @current_competition.teams
+
+    # Get matches for teams in current competition
+    teams.each do |team|
+
+      all_matches = team.qualifications
+      if all_matches && !all_matches.empty?
+        all_matches.each do |match|
+          match.score = $challenge.score(match.results)
+          match.save
+        end
+      end
+
+      all_matches = team.finals
+      if all_matches && !all_matches.empty?
+        all_matches.each do |match|
+          match.score = $challenge.score(match.results)
+          match.save
+        end
+      end
+
+    end
+    flash[:notice] = 'Team scored have been recalculated.'
+    redirect_to :controller => "teams"
   end
 
 private

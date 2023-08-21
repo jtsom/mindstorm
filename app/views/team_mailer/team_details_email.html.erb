@@ -12,7 +12,7 @@
 	<p>We provide you this feedback as an opportunity for your teams to make improvements for future events and to better understand how the judge’s interpreted your contributions. Here are some important factors to understand:
 	</p>
 	<ol>
-		<li>The feedback is shown to you in a condensed form, using numerical equivalents (below) to represent which box the judges checked off. You need to review the data provided alongside the actual FLL Rubric (found here: http://firstinspiresst01.blob.core.windows.net/first-forward/fll-challenge/fll-challenge-cargo-connect-rubrics-2021-22.pdf). When deemed valuable, any judge’s comments are included at the end. The numerical equivalents for the rubric are:
+		<li>The feedback is shown to you in a condensed form, using numerical equivalents (below) to represent which box the judges checked off. You need to review the data provided alongside the actual FLL Rubric (found here: https://firstinspiresst01.blob.core.windows.net/first-energize/fll-challenge/fll-challenge-superpowered-rubrics.pdf). When deemed valuable, any judge’s comments are included at the end. The numerical equivalents for the rubric are:
 <br />
 			1. Beginning<br />
 			2. Developing<br />
@@ -72,7 +72,7 @@ There are sometimes typos when entering the information into the feedback form, 
 		</tr>
 
 		<tr>
-			<td colspan="34" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
+			<td colspan="41" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
 		</tr>
 		<% 	@qualifications.each do |match| -%>
 		<tr align="center">
@@ -98,7 +98,7 @@ There are sometimes typos when entering the information into the feedback form, 
 		<% end 	%>
 
 		<tr>
-			<td colspan="34" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+			<td colspan="41" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
 		</tr>
 			<% 	@finals.each do |match| %>
 			<tr align="center">
