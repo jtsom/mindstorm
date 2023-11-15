@@ -188,7 +188,7 @@ challenge do
     end
   end
 
-  mission "3D CINEMA" do
+  mission "M01 3D CINEMA" do
     item :three_d_cinema, "The 3D cinema's small red beam is completely to the right of the black frame?", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       (items[:three_d_cinema].to_i) * 20
@@ -196,18 +196,18 @@ challenge do
   end
 
   mission "M02 THEATER SCENE CHANGE" do
-    item :theater_flag_color, "If your theater's red flag is down and the active scene color is:", "5", ["Blue", "Pink", "Orange" "No"], ["10", "20", "30" ,"0"]
-    item :fuel_unit_over_station, "Do both teams' active scenes match:", "10", ["Yes", "No"], ["1", "0"]
+    item :theater_flag_color, "If your theater's red flag is down and the active scene color is:", "10, 20, 30", ["Blue", "Pink", "Orange", "No"], ["10", "20", "30" ,"0"]
+    item :active_scenes_match, "Do both teams' active scenes match:", "20,30, 10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = (items[:theater_flag_color].to_i)
       bonus = 0
-      if (items[:fuel_unit_over_station] == "Yes")
+      if (items[:active_scenes_match] == "1")
         case (items[:theater_flag_color])
-          when "Blue"
+          when "10"
             bonus = 20
-          when "Pink"
+          when "20"
             bonus = 30
-          when "Orange"
+          when "30"
             bonus = 10
           when "No"
             bonus = 0
@@ -225,12 +225,13 @@ challenge do
     end
   end
 
-  mission "M04 MASTERPIECE&sm;" do
+  mission "M04 MASTERPIECE" do
     item :art_piece_in_area, "Your team's LEGO art piece is at least partly in the museum target area?", "10", ["Yes", "No"], ["1", "0"]
     item :art_piece_bonus, "Bonus: And if the art piece is completely supported by the pedestal?", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
     	s = ((items[:art_piece_in_area].to_i) * 10)
     	s += ((items[:art_piece_bonus].to_i) * 20) if s > 0
+      s
     end
   end
 
@@ -295,6 +296,7 @@ challenge do
     score do |items|
       s = ((items[:water_units_in_reservoir].to_i) * 10)
       s += ((items[:water_units_on_hook].to_i) * 20) if s > 0
+      s
     end
 
   end
