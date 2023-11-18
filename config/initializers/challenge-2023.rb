@@ -252,7 +252,7 @@ challenge do
   end
 
   mission "M07 HOLOGRAM PERFORMER" do
-    item :hologram_performer, "The hologram performer's orange push activator is completely past the black stage set line?",  "20", to_sa((0..3)), to_sa((0..3))
+    item :hologram_performer, "The hologram performer's orange push activator is completely past the black stage set line?",  "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:hologram_performer].to_i) * 20)
     end
@@ -262,7 +262,7 @@ challenge do
     item :rolling_camera_position, "The rolling camera's white pointer is Left of:", "10", ["None", "Dark Blue", "Dark & Medium Blue", "Dark Medium & Light Blue"], ["0", "10", "20", "30"]
 
     score do |items|
-       items[:rolling_camera].to_i
+       items[:rolling_camera_position].to_i
     end
 
   end
@@ -284,7 +284,7 @@ challenge do
   end
 
   mission "M11 LIGHT SHOW" do
-    item :light_show, "The light show's white pointer is within zone", "10", ["None", "Yellow", "Red", "Green"], ["0", "10", "20", "30"]
+    item :light_show, "The light show's white pointer is within zone", "10", ["None", "Yellow", "Green", "Blue"], ["0", "10", "20", "30"]
     score do |items|
       items[:light_show].to_i
     end
@@ -292,10 +292,10 @@ challenge do
 
   mission "M12 VIRTUAL REALITY ARTIST" do
     item :virtual_reality_chicken, "The chicken is intact and has moved from its starting position?", "10", ["Yes", "No"], ["1", "0"]
-    item :chicken_bonus, "BONUS: the chicken is over or completely past the lavender dot", "20", to_sa((0..2)), to_sa((0..2))
+    item :chicken_bonus, "BONUS: the chicken is over or completely past the lavender dot", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:water_units_in_reservoir].to_i) * 10)
-      s += ((items[:water_units_on_hook].to_i) * 20) if s > 0
+      s = ((items[:virtual_reality_chicken].to_i) * 10)
+      s += ((items[:chicken_bonus].to_i) * 20) if s > 0
       s
     end
 
