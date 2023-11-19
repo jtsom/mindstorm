@@ -50,8 +50,8 @@
 	<%	$challenge.missions.each do |mission|
 			mission.items.each do |item|
 				value = match.results[item.label]
-				idx = item.values.index(value)
-				disp = item.labels[idx]
+				# idx = item.values.index(value)
+				# disp = item.labels[idx]
 	%>
 				<td><%= disp  %></td>
 	<%		end
