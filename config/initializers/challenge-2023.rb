@@ -318,17 +318,21 @@ challenge do
   end
 
   mission "M15 EXPERT DELIVERY" do
-    item :sam, "Sam the Stage Manager in Movie Set", "10", ["Yes", "No"], ["1", "0"]
-    item :anna, "Anna the Curator in Museum", "10", ["Yes", "No"], ["1", "0"]
-    item :noah, "Noah the Sound Engineer in Music Concert", "10", ["Yes", "No"], ["1", "0"]
-    item :izzy, "Izzy the Skateboarder in Skate Park", "10", ["Yes", "No"], ["1", "0"]
-    item :emily, "Emily the Visual Effects Director in Cinema", "10", ["Yes", "No"], ["1", "0"]
+    # item :sam, "Sam the Stage Manager in Movie Set", "10", ["Yes", "No"], ["1", "0"]
+    # item :anna, "Anna the Curator in Museum", "10", ["Yes", "No"], ["1", "0"]
+    # item :noah, "Noah the Sound Engineer in Music Concert", "10", ["Yes", "No"], ["1", "0"]
+    # item :izzy, "Izzy the Skateboarder in Skate Park", "10", ["Yes", "No"], ["1", "0"]
+    # item :emily, "Emily the Visual Effects Director in Cinema", "10", ["Yes", "No"], ["1", "0"]
+    # score do |items|
+    #   s = ((items[:sam].to_i) * 10)
+    #   s += ((items[:anna].to_i) * 10)
+    #   s += ((items[:noah].to_i) * 10)
+    #   s += ((items[:izzy].to_i) * 10)
+    #   s += ((items[:emily].to_i) * 10)
+    # end
+    item :experts_delivered, "Number of experts at least partly in their target destination:", "10", to_sa((0..5)), to_sa((0..5))
     score do |items|
-      s = ((items[:sam].to_i) * 10)
-      s += ((items[:anna].to_i) * 10)
-      s += ((items[:noah].to_i) * 10)
-      s += ((items[:izzy].to_i) * 10)
-      s += ((items[:emily].to_i) * 10)
+      items[:experts_delivered].to_i * 10
     end
   end
 
