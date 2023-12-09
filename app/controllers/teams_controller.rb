@@ -154,7 +154,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0',:complete_project_model=>'0',:fuel_units_in_truck=>'0',:fuel_unit_over_station=>'0',:energy_units_in_bin=>'0',:energy_unit_removed_from_bin=>'0',:solar_energy_units_removed=>'0',:your_field_connector_raised=>'0',:other_field_connector_raised=>'0',:hybrid_car_not_touching_ramp=>'0',:hybrid_unit_in_car=>'0',:energy_units_not_touching_turbine=>'0',:television_completely_raised=>'0',:energy_unit_in_television=>'0',:dinosaur_toy_in_left_home=>'0',:dinosaur_toy_with_energy_unit=>'0',:dinosaur_toy_with_battery=>'0',:energy_units_not_touching_powerplant=>'0',:energy_unit_not_touching_dam=>'0',:water_units_in_reservoir=>'0',:water_units_on_hook=>'0',:energy_units_in_plant=>'0',:energy_units_in_toy_factory=>'0',:mini_toy_released=>'0',:energy_units_in_battery_area=>'0',:precision=>'50'}"
+    raw_results = "{:robot_inspection=>'0', :three_d_cinema=>'0', :theater_flag_color=>'0', :active_scenes_match=>'0', :screens_raised=>'0', :art_piece_in_area=>'0', :art_piece_bonus=>'0', :augmented_reality=>'0', :lights_rotated=>'0', :speakers_lever_rotated=>'0', :hologram_performer=>'0', :rolling_camera_position=>'0', :boat_touching_mat=>'0', :camera_in_target_area=>'0', :mixer_sliders_raised=>'0', :light_show=>'0', :virtual_reality_chicken=>'0', :chicken_bonus=>'0', :craft_machine_lid_open=>'0', :craft_machine_latch_down=>'0', :audience_members=>'0', :target_destination=>'0', :experts_delivered=>'0', :precision=>'50'}"
 
   	results = eval(raw_results)
 
@@ -216,7 +216,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0',:complete_project_model=>'0',:fuel_units_in_truck=>'0',:fuel_unit_over_station=>'0',:energy_units_in_bin=>'0',:energy_unit_removed_from_bin=>'0',:solar_energy_units_removed=>'0',:your_field_connector_raised=>'0',:other_field_connector_raised=>'0',:hybrid_car_not_touching_ramp=>'0',:hybrid_unit_in_car=>'0',:energy_units_not_touching_turbine=>'0',:television_completely_raised=>'0',:energy_unit_in_television=>'0',:dinosaur_toy_in_left_home=>'0',:dinosaur_toy_with_energy_unit=>'0',:dinosaur_toy_with_battery=>'0',:energy_units_not_touching_powerplant=>'0',:energy_unit_not_touching_dam=>'0',:water_units_in_reservoir=>'0',:water_units_on_hook=>'0',:energy_units_in_plant=>'0',:energy_units_in_toy_factory=>'0',:mini_toy_released=>'0',:energy_units_in_battery_area=>'0',:precision=>'50'}"
+    raw_results = "{:robot_inspection=>'0', :three_d_cinema=>'0', :theater_flag_color=>'0', :active_scenes_match=>'0', :screens_raised=>'0', :art_piece_in_area=>'0', :art_piece_bonus=>'0', :augmented_reality=>'0', :lights_rotated=>'0', :speakers_lever_rotated=>'0', :hologram_performer=>'0', :rolling_camera_position=>'0', :boat_touching_mat=>'0', :camera_in_target_area=>'0', :mixer_sliders_raised=>'0', :light_show=>'0', :virtual_reality_chicken=>'0', :chicken_bonus=>'0', :craft_machine_lid_open=>'0', :craft_machine_latch_down=>'0', :audience_members=>'0', :target_destination=>'0', :experts_delivered=>'0', :precision=>'50'}"
 
   	results = eval(raw_results)
 
