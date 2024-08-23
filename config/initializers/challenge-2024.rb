@@ -201,131 +201,131 @@ challenge do
   end
 
   mission "M02 SHARK" do
-    item :theater_flag_color, "If your theater's red flag is down and the active scene color is:", "10, 20, 30", ["Blue", "Pink", "Orange", "No"], ["10", "20", "30" ,"0"]
-    item :active_scenes_match, "Do both teams' active scenes match:", "20,30, 10", ["Yes", "No"], ["1", "0"]
+    item :shark_not_touching_cave, "The shark is no longer touching the cave:", "20", ["Yes", "No"], ["1", "0"]
+    item :shark_touching_mat_in_habitat, "The shark is touching the mat and is at least partly in the shark habitat:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = (items[:theater_flag_color].to_i)
-      bonus = 0
-      if (items[:active_scenes_match] == "1")
-        case (items[:theater_flag_color])
-          when "10"
-            bonus = 20
-          when "20"
-            bonus = 30
-          when "30"
-            bonus = 10
-          when "No"
-            bonus = 0
-        end
-      end
-
-      s + bonus
+      s = (items[:shark_not_touching_cave].to_i) * 20
+      s += ((items[:shark_touching_mat_in_habitat].to_i) * 10) if s > 0
+      s
     end
   end
 
   mission "M03 CORAL REEF" do
-    item :screens_raised, "The three immersive experience screens are raised?", "20", ["Yes", "No"], ["1", "0"]
+    item :coral_reef_flipped_up, "The coral reef is flipped up, not touching the mat:", "20", ["Yes", "No"], ["1", "0"]
+    item :reef_segments_upright, "The coral reef is flipped up, not touching the mat:", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
-      ((items[:screens_raised].to_i) * 20)
+      s = ((items[:coral_reef_flipped_up].to_i) * 20)
+      s += ((items[:reef_segments_upright].to_i) * 5)
+      s
     end
   end
 
   mission "M04 SCUBA DIVER" do
-    item :art_piece_in_area, "Your team's LEGO art piece is at least partly in the museum target area?", "10", ["Yes", "No"], ["1", "0"]
-    item :art_piece_bonus, "Bonus: And if the art piece is completely supported by the pedestal?", "20", ["Yes", "No"], ["1", "0"]
+    item :scuba_diver_not_touching_nursery, "The scuba diver is no longer touching the coral nursery:", "20", ["Yes", "No"], ["1", "0"]
+    item :scuba_diver_hanging, "The scuba diver is hanging on the coral reef support:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-    	s = ((items[:art_piece_in_area].to_i) * 10)
-    	s += ((items[:art_piece_bonus].to_i) * 20) if s > 0
+    	s = ((items[:scuba_diver_not_touching_nursery].to_i) * 20)
+    	s += ((items[:scuba_diver_hanging].to_i) * 20) if s > 0
       s
     end
   end
 
   mission "M05 ANGLER FISH" do
-    item :augmented_reality, "The augmented reality statue's orange lever is rotated completely to the right?", "30", ["Yes", "No"], ["1", "0"]
+    item :angler_fish, "The angler fish is latched within the shipwreck:", "30", ["Yes", "No"], ["1", "0"]
     score do |items|
-      s = ((items[:augmented_reality].to_i) * 30)
+      (items[:angler_fish].to_i) * 30
     end
   end
 
   mission "M06 RAISE THE MAST" do
-    item :lights_rotated, "The lights' orange lever is rotated completely downwards?", "10", ["Yes", "No"], ["1", "0"]
-    item :speakers_lever_rotated, "The speakers' orange lever is rotated completely to the left?", "10", ["Yes", "No"], ["1", "0"]
+    item :ships_mast_raised, "The shipwreck's mast is completely raised:", "30", ["Yes", "No"], ["1", "0"]
 	  score do |items|
-		  ((items[:lights_rotated].to_i) * 10) + ((items[:speakers_lever_rotated].to_i) * 10)
+		  (items[:ships_mast_raised].to_i) * 30
 	  end
 
   end
 
   mission "M07 KRAKEN'S TREASURE" do
-    item :hologram_performer, "The hologram performer's orange push activator is completely past the black stage set line?",  "20", ["Yes", "No"], ["1", "0"]
+    item :chest_outside_nest, "The treasure chest is completely outside the kraken's nest:",  "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:hologram_performer].to_i) * 20)
+      ((items[:chest_outside_nest].to_i) * 20)
     end
   end
 
   mission "M08 ARTIFICIAL HABITAT" do
-    item :rolling_camera_position, "The rolling camera's white pointer is Left of:", "10", ["None", "Dark Blue", "Dark & Medium Blue", "Dark Medium & Light Blue"], ["0", "10", "20", "30"]
+    item :habitat_segments_flat, "Number of artificial habitat stack segments completely flat and upright:", "10", to_sa((0..4)), to_sa((0..4))
 
     score do |items|
-       items[:rolling_camera_position].to_i
+       (items[:habitat_segments_flat].to_i) * 10
     end
 
   end
 
   mission "M09 UNEXPECTED ENCOUNTER" do
-    item :boat_touching_mat, "The boat is touching the mat and is completely past the black scene line?", "10", ["Yes", "No"], ["1", "0"]
-    item :camera_in_target_area, "the camera is touching the mat and is at least partly in the camera target area?", "10", ["Yes", "No"], ["1", "0"]
+    item :unknown_creature_released, "The unknown creature is released:", "20", ["Yes", "No"], ["1", "0"]
+    item :creature_in_cold_seep, "The unknown creature is at least partly in the cold seep:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-      (items[:boat_touching_mat].to_i * 10) + (items[:camera_in_target_area].to_i * 10)
+      s = (items[:unknown_creature_released].to_i * 20)
+      s += (items[:creature_in_cold_seep].to_i * 10) if s > 0
+      s
     end
   end
 
   mission "M10 SEND OVER THE SUBMERSIBLE" do
-    item :mixer_sliders_raised, "Sound mixer sliders raised?", "10", to_sa((0..3)), to_sa((0..3))
+    item :yellow_flag_down, "Your team's yellow flag is down:", "30", ["Yes", "No"], ["1", "0"]
+    item :submersible_closer_to_opposing_field, "YThe submersible is clearly closer to the opposing field:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
-     s = ((items[:mixer_sliders_raised].to_i) * 10)
+     s = ((items[:yellow_flag_down].to_i) * 30)
+     s += ((items[:submersible_closer_to_opposing_field].to_i) * 10) if s > 0
+     s
     end
 
   end
 
   mission "M11 SONAR DISCOVERY" do
-    item :light_show, "The light show's white pointer is within zone", "10", ["None", "Yellow", "Green", "Blue"], ["0", "10", "20", "30"]
+    item :whales, "Number of whales revealed:", "20", ["0", "1", "2"], ["0", "20", "30"]
     score do |items|
       items[:light_show].to_i
     end
   end
 
   mission "M12 FEED THE WHALE" do
-    item :virtual_reality_chicken, "The chicken is intact and has moved from its starting position?", "10", ["Yes", "No"], ["1", "0"]
-    item :chicken_bonus, "BONUS: the chicken is over or completely past the lavender dot", "20", ["Yes", "No"], ["1", "0"]
+    item :krill_amount, "Number of krill at least partly in the whale's mouth:", "10", to_sa((0..5)), to_sa((0..5))
     score do |items|
-      s = ((items[:virtual_reality_chicken].to_i) * 10)
-      s += ((items[:chicken_bonus].to_i) * 20) if s > 0
-      s
+      ((items[:krill_amount].to_i) * 10)
     end
 
   end
 
   mission "M13 CHANGING SHIPPING LANES" do
-    item :craft_machine_lid_open, "The craft machine's orange and white lid is completely open?", "10", ["Yes", "No"], ["1", "0"]
-    item :craft_machine_latch_down, "The craft machine's light pink latch is pointing straight down?", "20", ["Yes", "No"], ["1", "0"]
+    item :ship_in_new_shipping_lane, "The ship is in the new shipping lane, touching the mat:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      ((items[:craft_machine_lid_open].to_i) * 10) + ((items[:craft_machine_latch_down].to_i) * 20)
+      ((items[:ship_in_new_shipping_lane].to_i) * 20)
     end
   end
 
   mission "M14 SAMPLE COLLECTION" do
-    item :audience_members, "Audience members completely in a target destination:", "5", to_sa((0..7)), to_sa((0..7))
-    item :target_destination, "A target destination has at least one audience member completely in", "5", to_sa((0..7)), to_sa((0..7))
+    item :sample_outside_area, "The water sample is completely outside the water sample area:", "5", ["Yes", "No"], ["1", "0"]
+    item :seabed_sample_not_touching, "The seabed sample is no longer touching the seabed:", "10", ["Yes", "No"], ["1", "0"]
+    item :plankton_not_touching_forest, "The plankton sample is no longer touching the kelp forest:", "10", ["Yes", "No"], ["1", "0"]
+    item :trident_pieces_not_touching_shipwreck, "Number of trident pieces no longer touching the shipwreck:", "5", ["0", "1", "2"], ["0", "20", "30"]
+
     score do |items|
-      s = ((items[:audience_members].to_i) * 5) + ((items[:target_destination].to_i) * 5)
+      s = ((items[:sample_outside_area].to_i) * 5)
+      s += ((items[:seabed_sample_not_touching].to_i) * 10)
+      s += ((items[:plankton_not_touching_forest].to_i) * 10)
+      s += (items[:trident_pieces_not_touching_shipwreck].to_i)
+      s
     end
   end
 
   mission "M15 RESEARCH VESSEL" do
-    item :experts_delivered, "Number of experts at least partly in their target destination:", "10", to_sa((0..5)), to_sa((0..5))
+    item :items_in_cargo_area, "Number of samples, trident part(s), or treasure chest at least partly in the research vessel's cargo area:", "5", to_sa((0..6)), to_sa((0..6))
+    item :ports_latch_in_vessel_loop, "The ports latch is at least partly in the research vessel's loop:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
-      items[:experts_delivered].to_i * 10
+      s = items[:items_in_cargo_area].to_i * 5
+      s = items[:ports_latch_in_vessel_loop].to_i * 20
+      s
     end
   end
 
