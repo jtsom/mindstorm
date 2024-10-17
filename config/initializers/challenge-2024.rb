@@ -100,7 +100,7 @@ class Mission
     # @items.inject(true) {|valid, item|
     #   item.check(result) && valid
     # } &&
-    @checks.inject(true) {|valid, pair|
+    @checks.inject(true) { |valid, pair|
       c = pair[1].call(result)
       $errors << pair[0] if !c
       c && valid
