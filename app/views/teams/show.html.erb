@@ -87,9 +87,7 @@
 
 <p>Add: <%= link_to 'Robot Score', new_team_robot_score_path(@team), class: "btn btn-primary btn-xs" %> |
 	<%= link_to 'Project Score', new_team_project_score_path(@team), class: "btn btn-primary btn-xs" %> |
-	<%if false %>
 	<%=  link_to 'Core Value Score', new_team_corevalue_score_path(@team), class: "btn btn-primary btn-xs"  %>
-	<% end %>
 	</p>
 
 <%= link_to 'Edit', edit_team_path(@team) -%> |
@@ -98,7 +96,7 @@
 <p>Team was considered for <%= @r_count + @c_count + @p_count %> out of 9 awards.</p>
 <table width="1024" border="1" style="border-collapse:collapse">
 	<tr>
-		<td width="50%">
+		<td width="33%">
 <h2>Robot Scores</h2>
 
 <%
@@ -110,7 +108,7 @@
 	<%= render :partial => "robot", :object => robot_score %>
 <%	end %>
 </td>
-<td width="50%">
+<td width="33%">
 <h2>Project Scores</h2>
 
 <%
@@ -122,6 +120,18 @@
 		<%= render :partial => "project", :object => project_score %>
 <%	end %>
 </ol>
+</td>
+<td width="34%">
+<h2>Core Values Scores</h2>
+
+<%
+	@team.corevalue_scores.each do |corevalue_score|
+%>
+		<p>Judge: <%= corevalue_score.judge_name %></p>
+		<p><%= link_to "Update Entry", edit_team_corevalue_score_path(@team, corevalue_score) %> |
+			<%= link_to "Remove Entry", team_corevalue_score_path(@team, corevalue_score), data: { confirm: 'Are you sure?' }, :method => :delete %></p>
+		<%= render :partial => "corevalue", :object => corevalue_score %>
+<%	end %>
 </td>
 
 </tr>

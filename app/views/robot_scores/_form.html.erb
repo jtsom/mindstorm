@@ -23,21 +23,21 @@
                 <b>IDENTIFY</b>
             </td>
             <td class="altRC" colspan="3">
-              	Team had a clearly defined mission strategy and explored building and coding skills they needed.
+              	Team determined which missions to attempt, explored building and coding resources, and sought guidance as needed.
             </td>
         </tr>
         <tr>
             <td>
                 <%= f.radio_button :identify, "1" %>
-                <%= f.label :identify, "Unclear mission strategy", :value => "1" %>
+                <%= f.label :identify, "Minimal evidence of mission strategy", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :identify, "2" %>
-                <%= f.label :identify, "Partially clear mission strategy", :value => "2" %>
+                <%= f.label :identify, "Partial evidence of mission strategy", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :identify, "3" %>
-                <%= f.label :identify, "Clear mission strategy", :value => "3" %>
+                <%= f.label :identify, "Clear evidence of mission strategy", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :identify, "4" %>
@@ -48,15 +48,15 @@
         <tr>
             <td>
                 <%= f.radio_button :identify2, "1" %>
-                <%= f.label :identify2, "Limited evidence of building and coding skills in all team members", :value => "1" %>
+                <%= f.label :identify2, "Minimal use of building or coding resources", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :identify2, "2" %>
-                <%= f.label :identify2, "Inconsistent evidence of building and coding skills in all team members", :value => "2" %>
+                <%= f.label :identify2, "Some use of building or coding resources", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :identify2, "3" %>
-                <%= f.label :identify2, "Consistent evidence of building and coding skills in all team members", :value => "3" %>
+                <%= f.label :identify2, "Clear use of building or coding resources to support their mission strategy", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :identify2, "4" %>
@@ -70,21 +70,21 @@
                 <b>DESIGN</b>
             </td>
             <td class="altRC" colspan="3">
-              	Team produced innovative designs and a clear workplan, seeking guidance as needed.
+              	Team members worked collaboratively on their designs and developed the building and coding skills needed.
             </td>
         </tr>
         <tr>
             <td>
                 <%= f.radio_button :design, "1" %>
-                <%= f.label :design, "Minimal evidence of an effective plan", :value => "1" %>
+                <%= f.label :design, "MMinimal evidence that all team members contributed ideas", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :design, "2" %>
-                <%= f.label :design, "Partial evidence of an effective plan", :value => "2" %>
+                <%= f.label :design, "Partial evidence that all team members contributed ideas", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :design, "3" %>
-                <%= f.label :design, "Clear evidence of an effective plan", :value => "3" %>
+                <%= f.label :design, "Clear evidence that all team members contributed ideas", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :design, "4" %>
@@ -95,15 +95,15 @@
         <tr>
             <td>
                 <%= f.radio_button :design2, "1" %>
-                <%= f.label :design2, "Minimal explanation of robot and code’s innovative features", :value => "1" %>
+                <%= f.label :design2, "Minimal evidence of building and coding skills in all team members", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :design2, "2" %>
-                <%= f.label :design2, "Partial explanation of robot and code’s innovative features", :value => "2" %>
+                <%= f.label :design2, "PPartial evidence of building and coding skills in all team members", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :design2, "3" %>
-                <%= f.label :design2, "Clear explanation of robot and code’s innovative features", :value => "3" %>
+                <%= f.label :design2, "Clear evidence of building and coding skills in all team members", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :design2, "4" %>
@@ -117,21 +117,21 @@
                 <b>CREATE</b>
             </td>
             <td class="altRC" colspan="3">
-              	Team developed an effective robot and code solution matching their mission strategy.
+              	Team developed original designs or improved on existing ones according to their mission strategy.
             </td>
         </tr>
          <tr>
             <td>
                 <%= f.radio_button :create, "1" %>
-                <%= f.label :create, "Limited explanation of their robot and its attachment and sensor functionality", :value => "1" %>
+                <%= f.label :create, "Unclear explanation of attachments and their purpose", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :create, "2" %>
-                <%= f.label :create, "Simple explanation of their robot and its attachment and sensor functionality", :value => "2" %>
+                <%= f.label :create, "Simple explanation of attachments and their purpose", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :create, "3" %>
-                <%= f.label :create, "Detailed explanation of their robot and its attachment and sensor functionality", :value => "3" %>
+                <%= f.label :create, "Clear explanation of innovative attachments and their purpose", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :create, "4" %>
@@ -142,15 +142,15 @@
         <tr>
             <td>
                 <%= f.radio_button :create2, "1" %>
-                <%= f.label :create2, "Unclear explanation of how code makes their robot act", :value => "1" %>
+                <%= f.label :create2, "Unclear explanation of code and/or sensor use", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :create2, "2" %>
-                <%= f.label :create2, "Partially clear explanation of how code makes their robot act", :value => "2" %>
+                <%= f.label :create2, "Simple explanation of code and/or sensor use", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :create2, "3" %>
-                <%= f.label :create2, "Clear explanation of how code makes their robot act", :value => "3" %>
+                <%= f.label :create2, "Clear explanation of innovative code and/or sensor use", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :create2, "4" %>
@@ -163,7 +163,7 @@
                 <b>ITERATE</b>
             </td>
             <td class="altRC" colspan="3">
-              	Team repeatedly tested their robot and code to identify areas for improvement and incorporated the findings into their current solution.
+              	Team repeatedly tested their robot and code to identify areas for improvement and incorporated the findings into their solutions.
             </td>
         </tr>
         <tr>
@@ -188,15 +188,15 @@
         <tr>
             <td>
                 <%= f.radio_button :iterate2, "1" %>
-                <%= f.label :iterate2, "Minimal evidence their robot and code was improved", :value => "1" %>
+                <%= f.label :iterate2, "Minimal evidence of improvements based on testing", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :iterate2, "2" %>
-                <%= f.label :iterate2, "Partial evidence their robot and code was improved", :value => "2" %>
+                <%= f.label :iterate2, "Partial evidence of improvements based on testing", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :iterate2, "3" %>
-                <%= f.label :iterate2, "Clear evidence their robot and code was improved", :value => "3" %>
+                <%= f.label :iterate2, "Clear evidence of improvements based on testing", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :iterate2, "4" %>
@@ -210,21 +210,21 @@
                 <b>COMMUNICATE</b>
             </td>
             <td class="altRC" colspan="3">
-              	Team's explanation of the robot design process was effective and showed how all team members have been involved.
+              	Team effectively explained what they learned from the robot design process and celebrated their progress.
             </td>
         </tr>
         <tr>
             <td>
                 <%= f.radio_button :communicate, "1" %>
-                <%= f.label :communicate, "Unclear explanation of robot design process", :value => "1" %>
+                <%= f.label :communicate, "Unclear explanation of process and lessons learned", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :communicate, "2" %>
-                <%= f.label :communicate, "Partially clear explanation of robot design process", :value => "2" %>
+                <%= f.label :communicate, "Simple explanation of process and lessons learned", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :communicate, "3" %>
-                <%= f.label :communicate, "Clear explanation of robot design process", :value => "3" %>
+                <%= f.label :communicate, "Detailed explanation of process and lessons learned", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :communicate, "4" %>
@@ -235,15 +235,15 @@
         <tr>
             <td>
                 <%= f.radio_button :communicate2, "1" %>
-                <%= f.label :communicate2, "Minimal evidence that all team members were involved", :value => "1" %>
+                <%= f.label :communicate2, "Team shows minimal pride or enthusiasm for their work", :value => "1" %>
             </td>
             <td>
                 <%= f.radio_button :communicate2, "2" %>
-                <%= f.label :communicate2, "Partial evidence that all team members were involved", :value => "2" %>
+                <%= f.label :communicate2, "Team shows partial pride or enthusiasm for their work", :value => "2" %>
             </td>
             <td>
                 <%= f.radio_button :communicate2, "3" %>
-                <%= f.label :communicate2, "Clear evidence that all team members were involved", :value => "3" %>
+                <%= f.label :communicate2, "Team clearly shows pride or enthusiasm for their work", :value => "3" %>
             </td>
             <td>
                 <%= f.radio_button :communicate2, "4" %>
