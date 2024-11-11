@@ -194,7 +194,7 @@ challenge do
     item :coral_buds_flipped_up, "The coral buds are flipped up", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = (items[:coral_tree_hanging].to_i) * 20
-      s += ((items[:coral_tree_in_holder].to_i) * 20) if s > 0
+      s += ((items[:coral_tree_in_holder].to_i) * 10) if s > 0
       s += (items[:coral_buds_flipped_up].to_i) * 20
       s
     end
@@ -212,7 +212,7 @@ challenge do
 
   mission "M03 CORAL REEF" do
     item :coral_reef_flipped_up, "The coral reef is flipped up, not touching the mat:", "20", ["Yes", "No"], ["1", "0"]
-    item :reef_segments_upright, "The coral reef is flipped up, not touching the mat:", "5", to_sa((0..3)), to_sa((0..3))
+    item :reef_segments_upright, "If a reef segment is standing upright, outside of home, and touching the mat:", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
       s = ((items[:coral_reef_flipped_up].to_i) * 20)
       s += ((items[:reef_segments_upright].to_i) * 5)
@@ -273,7 +273,7 @@ challenge do
 
   mission "M10 SEND OVER THE SUBMERSIBLE" do
     item :yellow_flag_down, "Your team's yellow flag is down:", "30", ["Yes", "No"], ["1", "0"]
-    item :submersible_closer_to_opposing_field, "YThe submersible is clearly closer to the opposing field:", "10", ["Yes", "No"], ["1", "0"]
+    item :submersible_closer_to_opposing_field, "The submersible is clearly closer to the opposing field:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
      s = ((items[:yellow_flag_down].to_i) * 30)
      s += ((items[:submersible_closer_to_opposing_field].to_i) * 10) if s > 0
@@ -285,7 +285,7 @@ challenge do
   mission "M11 SONAR DISCOVERY" do
     item :whales, "Number of whales revealed:", "20", ["0", "1", "2"], ["0", "20", "30"]
     score do |items|
-      items[:light_show].to_i
+      items[:whales].to_i
     end
   end
 
@@ -324,7 +324,7 @@ challenge do
     item :ports_latch_in_vessel_loop, "The ports latch is at least partly in the research vessel's loop:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = items[:items_in_cargo_area].to_i * 5
-      s = items[:ports_latch_in_vessel_loop].to_i * 20
+      s += items[:ports_latch_in_vessel_loop].to_i * 20
       s
     end
   end
