@@ -188,7 +188,7 @@ challenge do
     end
   end
 
-  mission "M01 CORAL NURSERY" do
+  mission "M01 CORAL NURSERY (E)" do
     item :coral_tree_hanging, "The coral tree is hanging on the coral tree support", "20", ["Yes", "No"], ["1", "0"]
     item :coral_tree_in_holder, "The bottom of the coral tree is in its holder", "10", ["Yes", "No"], ["1", "0"]
     item :coral_buds_flipped_up, "The coral buds are flipped up", "20", ["Yes", "No"], ["1", "0"]
@@ -210,7 +210,7 @@ challenge do
     end
   end
 
-  mission "M03 CORAL REEF" do
+  mission "M03 CORAL REEF (E)" do
     item :coral_reef_flipped_up, "The coral reef is flipped up, not touching the mat:", "20", ["Yes", "No"], ["1", "0"]
     item :reef_segments_upright, "If a reef segment is standing upright, outside of home, and touching the mat:", "5", to_sa((0..3)), to_sa((0..3))
     score do |items|
@@ -237,7 +237,7 @@ challenge do
     end
   end
 
-  mission "M06 RAISE THE MAST" do
+  mission "M06 RAISE THE MAST (E)" do
     item :ships_mast_raised, "The shipwreck's mast is completely raised:", "30", ["Yes", "No"], ["1", "0"]
 	  score do |items|
 		  (items[:ships_mast_raised].to_i) * 30
@@ -245,14 +245,14 @@ challenge do
 
   end
 
-  mission "M07 KRAKEN'S TREASURE" do
+  mission "M07 KRAKEN'S TREASURE (E)" do
     item :chest_outside_nest, "The treasure chest is completely outside the kraken's nest:",  "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       ((items[:chest_outside_nest].to_i) * 20)
     end
   end
 
-  mission "M08 ARTIFICIAL HABITAT" do
+  mission "M08 ARTIFICIAL HABITAT (E)" do
     item :habitat_segments_flat, "Number of artificial habitat stack segments completely flat and upright:", "10", to_sa((0..4)), to_sa((0..4))
 
     score do |items|
@@ -271,7 +271,7 @@ challenge do
     end
   end
 
-  mission "M10 SEND OVER THE SUBMERSIBLE" do
+  mission "M10 SEND OVER THE SUBMERSIBLE (E)" do
     item :yellow_flag_down, "Your team's yellow flag is down:", "30", ["Yes", "No"], ["1", "0"]
     item :submersible_closer_to_opposing_field, "The submersible is clearly closer to the opposing field:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
@@ -289,7 +289,7 @@ challenge do
     end
   end
 
-  mission "M12 FEED THE WHALE" do
+  mission "M12 FEED THE WHALE (E)" do
     item :krill_amount, "Number of krill at least partly in the whale's mouth:", "10", to_sa((0..5)), to_sa((0..5))
     score do |items|
       ((items[:krill_amount].to_i) * 10)
@@ -319,7 +319,7 @@ challenge do
     end
   end
 
-  mission "M15 RESEARCH VESSEL" do
+  mission "M15 RESEARCH VESSEL (E)" do
     item :items_in_cargo_area, "Number of samples, trident part(s), or treasure chest at least partly in the research vessel's cargo area:", "5", to_sa((0..6)), to_sa((0..6))
     item :ports_latch_in_vessel_loop, "The ports latch is at least partly in the research vessel's loop:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
