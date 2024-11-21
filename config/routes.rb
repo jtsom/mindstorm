@@ -37,6 +37,8 @@ Mindstorm::Application.routes.draw do
 
   #map.standings 'standings', :controller => 'teams', :action => 'standings'
   get 'results', :to  => 'teams#results'
+  get 'exportresults', :to => 'teams#exportresults'
+
   #map.results 'results', :controller => 'teams', :action => 'results'
   get 'all_teams', :to => 'teams#all_teams'
 

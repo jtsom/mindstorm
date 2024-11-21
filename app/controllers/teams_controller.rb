@@ -344,6 +344,12 @@ class TeamsController < ApplicationController
 
   end
 
+  def exportresults
+    #get all the teams
+    @teams = @current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
+    @teams = @teams.sort {|a,b| a.fll_number <=> b.fll_number}
+  end
+
   def results
 
     #get all the teams
