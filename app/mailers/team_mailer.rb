@@ -25,7 +25,7 @@ class TeamMailer < ActionMailer::Base
         cc_email += ', ' + team.asst_coach_email
       end
 
-      to_email_with_name = "#{team.coach}"
+      to_email_with_name = "#{team.coach_email}"
       from_email_with_name = "#{competition.contact_name} <#{competition.from_email}>"
       mail(from: competition.from_email, cc: competition.from_email,
             reply_to: from_email_with_name,
