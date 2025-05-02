@@ -216,7 +216,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0', :three_d_cinema=>'0', :theater_flag_color=>'0', :active_scenes_match=>'0', :screens_raised=>'0', :art_piece_in_area=>'0', :art_piece_bonus=>'0', :augmented_reality=>'0', :lights_rotated=>'0', :speakers_lever_rotated=>'0', :hologram_performer=>'0', :rolling_camera_position=>'0', :boat_touching_mat=>'0', :camera_in_target_area=>'0', :mixer_sliders_raised=>'0', :light_show=>'0', :virtual_reality_chicken=>'0', :chicken_bonus=>'0', :craft_machine_lid_open=>'0', :craft_machine_latch_down=>'0', :audience_members=>'0', :target_destination=>'0', :experts_delivered=>'0', :precision=>'50'}"
+    raw_results = "{:robot_inspection=>'0', :coral_tree_hanging=>'0', :coral_tree_in_holder=>'0', :coral_buds_flipped_up=>'0', :shark_not_touching_cave=>'0', :shark_touching_mat_in_habitat=>'0', :coral_reef_flipped_up=>'0', :reef_segments_upright=>'0', :scuba_diver_not_touching_nursery=>'0', :scuba_diver_hanging=>'0', :angler_fish=>'0', :ships_mast_raised=>'0', :chest_outside_nest=>'0', :habitat_segments_flat=>'0', :unknown_creature_released=>'0', :creature_in_cold_seep=>'0', :yellow_flag_down=>'0', :submersible_closer_to_opposing_field=>'0', :whales=>'0', :krill_amount=>'0', :ship_in_new_shipping_lane=>'0', :sample_outside_area=>'0', :seabed_sample_not_touching=>'0', :plankton_not_touching_forest=>'0', :trident_pieces_not_touching_shipwreck=>'0', :items_in_cargo_area=>'0', :ports_latch_in_vessel_loop=>'0', :precision=>'50' }"
 
   	results = eval(raw_results)
 
@@ -342,6 +342,12 @@ class TeamsController < ApplicationController
 
     TeamMailer.team_details_email(current_competition, @team, @qualifications, @finals).deliver
 
+  end
+
+  def exportresults
+    #get all the teams
+    @teams = @current_competition.teams.includes(:robot_scores, :project_scores, :corevalue_scores)
+    @teams = @teams.sort {|a,b| a.fll_number <=> b.fll_number}
   end
 
   def results

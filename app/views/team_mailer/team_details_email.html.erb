@@ -127,7 +127,7 @@ There are sometimes typos when entering the information into the feedback form, 
 
 	<table width="1024" border="1" style="border-collapse:collapse">
 		<tr>
-			<td width="33%" valign="top">
+			<td width="50%" valign="top">
 	<h2>Robot Scores</h2>
 
 	<%
@@ -137,7 +137,7 @@ There are sometimes typos when entering the information into the feedback form, 
 		<%= render :partial => "robot", :object => robot_score %>
 	<%	end %>
 	</td>
-	<td width="33%" valign="top">
+	<td width="50%" valign="top">
 	<h2>Project Scores</h2>
 
 	<%
@@ -148,6 +148,8 @@ There are sometimes typos when entering the information into the feedback form, 
 	<%	end %>
 	</ol>
 	</td>
+
+
 	<td width="34%" valign="top">
 	<h2>Core Values Scores</h2>
 
@@ -158,6 +160,8 @@ There are sometimes typos when entering the information into the feedback form, 
 			<%= render :partial => "corevalue", :object => corevalue_score %>
 	<%	end %>
 	</td>
+
+
 	</tr>
 	</table>
   </body>

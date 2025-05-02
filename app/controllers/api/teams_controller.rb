@@ -3,13 +3,15 @@ module Api
 		respond_to :json
 
 		def index
-			@teams = Team.includes(:qualifications).where("competition_id = ?", params[:competition_id]).order(:fll_number)
-			respond_with @teams, :include => :qualifications
+			teams = Team.includes(:qualifications).where("competition_id = ?", params[:competition_id]).order(:fll_number)
+			respond_with teams.to_json(only: [:fll_number, :team_name, :coach, :town, :id, :state], include: [qualifications: {}])
 		end
 
 		def show
 			team = Team.includes(:qualifications).find(params[:id])
-			respond_with team, :include => :qualifications
+			x = team.to_json(only: [:fll_number, :team_name, :coach, :town], include: [qualifications: {}])
+			# respond_with team.as_json(only: [:fll_number, :team_name, :coach, :town, :qualifications]), include: {qualifications: {}}
+			respond_with team.to_json(only: [:fll_number, :team_name, :coach, :town, :id, :state], include: [qualifications: {}])
 		end
 
 	end

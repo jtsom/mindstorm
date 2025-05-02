@@ -3,11 +3,11 @@ module Api
 		respond_to :json
 
 		def index
-			respond_with Competition.all.order(:name)
+			respond_with Competition.all.order(:name).as_json(only: [:name, :full_name, :id])
 		end
 
 		def show
-			respond_with Competition.find(params[:id])
+			respond_with Competition.find(params[:id]).as_json(only: [:name, :full_name, :id])
 		end
 
 		def standings

@@ -26,7 +26,7 @@ class CorevalueScore < ActiveRecord::Base
 private
   def calculate_total_scores
 
-    self.total_score = discovery + innovation + impact + inclusion + teamwork + fun
+    self.total_score = 0 #discovery + innovation + impact + inclusion + teamwork + fun
   end
 
 
