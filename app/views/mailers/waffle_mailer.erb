@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<%= stylesheet_link_tag 'MindStormCSS.css', :media => "all" %>
+  </head>
+  <body>
+    <h1>Thank you for joining us at WAFFLE!</h1>
+    <p>
+		Below you will find the judging feedback from the WAFFLE. Our volunteer judges dedicated much time and effort listening to your teams' vast accomplishments and deliberating with each other on the merits of those achievements.
+    </p>
+	<p>We provide you this feedback as an opportunity for your teams to make improvements for future events and to better understand how the judge's interpreted your contributions. Here are some important factors to understand:
+	</p>
+	<ol>
+		<li>The feedback is shown to you in a condensed form, using numerical equivalents (below) to represent which box the judges checked off. You need to review the data provided alongside the actual FLL Rubric (found here: https://firstinspiresst01.blob.core.windows.net/first-energize/fll-challenge/fll-challenge-superpowered-rubrics.pdf). When deemed valuable, any judge’s comments are included at the end. The numerical equivalents for the rubric are:
+<br />
+			1. Beginning<br />
+			2. Developing<br />
+			3. Accomplished<br />
+			4. Exceeds<br />
+		</li>
+		<li>Please use these results as a positive way to look at your team rather than a negative. It is an opportunity for everyone to make improvements and to reinforce what the judges saw as excellent. Nobody’s perfect (not even the judges).
+		</li>
+		<li>For all teams, the sheet will say considered for 0 of 9 awards.  We do not use this system to track consideration for awards.
+		</li>
+	</ol>
+	<p>
+	Several teams have requested to know their ranking across all disciplines, so we have provided a link to rankings here:
+	https://docs.google.com/spreadsheets/d/e/2PACX-1vT8A8h-6dl1A3cZQFxWmlDH8qqvSgkch1M_wbncwxkO99vDAlf516j948YMK5ugI-1IP0T_fk9ELHYY/pubhtml?gid=0&single=true
+	</p>
+	<p>
+	Thank you for competing at WAFFLE!<br />
+	-WAFFLE Event Organizers (gr-fllopen@wpi.edu)<br />
+	</p>
+	<hr>
+	<p class="teamname"><%= "#{@team.fll_number} #{@team.team_name}" %></p>
+
+	<table border="1" width="1024" style="border-collapse:collapse;">
+		<th rowspan="2">Match</th>
+		<th rowspan="2">Table</th>
+		<th rowspan="2">Points</th>
+		<% $challenge.missions.each do |mission| -%>
+			<th colspan=<%= mission.items.length %> ><%= mission.description.html_safe -%></th>
+		<% end %>
+		</tr>
+
+		<tr>
+		<% $challenge.missions.each do |mission|
+		  	 mission.items.each do |item| -%>
+				<th align="center"><%= item.label.to_s.titleize -%></th>
+		<%   end
+		   end %>
+		</tr>
+
+		<tr>
+		<th colspan="3"></th>
+		<% $challenge.missions.each do |mission|
+			mission.items.each do |item| -%>
+		<th><%= item.scoring -%></th>
+		<% 	end
+		 end %>
+		</tr>
+
+		<tr>
+			<td colspan="41" style="background-color: yellow"><%= "#{pluralize(@qualifications.length, "Qualification")}" %> - Average score: <%= @team.average_qual_score %> - High Score: <%= @team.high_score %></td>
+		</tr>
+		<% 	@qualifications.each do |match| -%>
+		<tr align="center">
+
+		<td><%= match.match_number -%></td>
+		<td><%= match.table_number %></td>
+		<td><%= match.score %></td>
+		<%	$challenge.missions.each do |mission|
+				mission.items.each do |item|
+          value = match.results[item.label]
+  				idx = item.values.index(value)
+  				disp = item.labels[idx]
+					#score = value.to_i * item.scoring.to_i
+					#score = (item.scoring == "" ? "" : "(" + mission.scoringFunction.call(match.results).to_s + ")" )
+					# if value != " " and $challenge.type_of(item.label) == :boolean
+					# 				        value = ["N","Y"][value]
+					# 				    end
+		%>
+					<td><%= disp  %></td>
+		<%		end
+			end	%>
+		</tr>
+		<% end 	%>
+
+		<tr>
+			<td colspan="41" style="background-color: yellow"><%= "#{pluralize(@finals.length, "Final")}" %></td>
+		</tr>
+			<% 	@finals.each do |match| %>
+			<tr align="center">
+
+			<td><%= match.match_number %></td>
+			<td><%= match.table_number %></td>
+			<td><%= match.score %></td>
+			<%	$challenge.missions.each do |mission|
+					mission.items.each do |item|
+            value = match.results[item.label]
+    				idx = item.values.index(value)
+    				disp = item.labels[idx]
+						# score = value.to_i * item.scoring.to_i
+						# if value != " " and $challenge.type_of(item.label) == :boolean
+						# 					        value = ["N","Y"][value]
+						# 					    end
+			%>
+						<td><%= disp %></td>
+			<%		end
+				end	%>
+			</tr>
+		<% end 	%>
+
+	</table>
+
+
+	<table width="1024" border="1" style="border-collapse:collapse">
+		<tr>
+			<td width="50%" valign="top">
+	<h2>Robot Scores</h2>
+
+	<%
+		@team.robot_scores.each do |robot_score|
+	%>
+		<p>Judge: <%= robot_score.judge_name %></p>
+		<%= render :partial => "robot", :object => robot_score %>
+	<%	end %>
+	</td>
+	<td width="50%" valign="top">
+	<h2>Project Scores</h2>
+
+	<%
+		@team.project_scores.each do |project_score|
+	%>
+			<p>Judge: <%= project_score.judge_name %></p>
+			<%= render :partial => "project", :object => project_score %>
+	<%	end %>
+	</ol>
+	</td>
+
+
+	<td width="34%" valign="top">
+	<h2>Core Values Scores</h2>
+
+	<%
+		@team.corevalue_scores.each do |corevalue_score|
+	%>
+			<p>Judge: <%= corevalue_score.judge_name %></p>
+			<%= render :partial => "corevalue", :object => corevalue_score %>
+	<%	end %>
+	</td>
+
+
+	</tr>
+	</table>
+  </body>
+</html>
