@@ -1,16 +1,25 @@
 Mindstorm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.gmail.com",
+  #     :port                 => 587,
+  #     :domain               => 'shrewsburyrobotics.org',
+  #     :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
+  #     :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
+  #     :authentication       => 'plain',
+  #     :enable_starttls_auto => true
+  # }
+
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :domain               => 'shrewsburyrobotics.org',
-      :user_name            => ENV['MINDSTORM_EMAIL_LOGIN'],
-      :password             => ENV['MINDSTORM_EMAIL_PASSWORD'],
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
-  }
-  
+    :address              => "smtp.mailgun.org",
+    :port                 => 587,
+    :domain               => 'mg.mindstormmayhem.com',
+    :user_name            => ENV['MG_MINDSTORM_EMAIL_LOGIN'],
+    :password             => ENV['MG_MINDSTORM_EMAIL_PASSWORD'],
+    :authentication       => 'plain'
+}
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -24,7 +33,8 @@ Mindstorm::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

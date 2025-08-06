@@ -27,9 +27,15 @@ class TeamMailer < ActionMailer::Base
 
       to_email_with_name = "#{team.coach_email}"
       from_email_with_name = "#{competition.contact_name} <#{competition.from_email}>"
+      # mail(from: competition.from_email, cc: competition.from_email,
+      #       reply_to: from_email_with_name,
+      #       to: to_email_with_name,
+      #       subject: "Your Team's Results at #{competition.full_name}")
       mail(from: competition.from_email, cc: competition.from_email,
             reply_to: from_email_with_name,
             to: to_email_with_name,
-            subject: "Your Team's Results at #{competition.full_name}")
+            subject: "Your Team's Results at WAFFLE",
+            template_path: "mailers",
+            template_name: "waffle_mailer" )
     end
 end
