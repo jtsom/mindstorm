@@ -21,7 +21,7 @@ class Challenge
   end
 
   def mission_year
-    return 202
+    return 2025
   end
 
   def mission_name
