@@ -280,7 +280,7 @@ challenge do
 
   mission "M11 Angler Artifacts (E)" do
     item :artifacts_raised, "Artifacts are raised above the ground layer:", "20", ["Yes", "No"], ["1", "0"]
-    item :crane_lowered, "Bonus: And the crane flag is at least partly lowered:", "20", ["Yes", "No"], ["1", "0"]
+    item :crane_lowered, "Bonus: And the crane flag is at least partly lowered:", "10", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = (items[:artifacts_raised].to_i) * 20
       s += (items[:crane_lowered].to_i) * 10 if s > 0
@@ -315,10 +315,8 @@ challenge do
 
   mission "M15 Site Marking" do
     item :flag_touching_mat, "Sites with a flag at least partly inside and touching the mat:", "10", to_sa((0..3)), to_sa((0..3))
-    item :ports_latch_in_vessel_loop, "The ports latch is at least partly in the research vessel's loop:", "20", ["Yes", "No"], ["1", "0"]
     score do |items|
       s = items[:flag_touching_mat].to_i * 10
-      s += (items[:ports_latch_in_vessel_loop].to_i * 20)
     end
   end
 
