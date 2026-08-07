@@ -216,7 +216,7 @@ class TeamsController < ApplicationController
   		return
   	end
 
-    raw_results = "{:robot_inspection=>'0', :coral_tree_hanging=>'0', :coral_tree_in_holder=>'0', :coral_buds_flipped_up=>'0', :shark_not_touching_cave=>'0', :shark_touching_mat_in_habitat=>'0', :coral_reef_flipped_up=>'0', :reef_segments_upright=>'0', :scuba_diver_not_touching_nursery=>'0', :scuba_diver_hanging=>'0', :angler_fish=>'0', :ships_mast_raised=>'0', :chest_outside_nest=>'0', :habitat_segments_flat=>'0', :unknown_creature_released=>'0', :creature_in_cold_seep=>'0', :yellow_flag_down=>'0', :submersible_closer_to_opposing_field=>'0', :whales=>'0', :krill_amount=>'0', :ship_in_new_shipping_lane=>'0', :sample_outside_area=>'0', :seabed_sample_not_touching=>'0', :plankton_not_touching_forest=>'0', :trident_pieces_not_touching_shipwreck=>'0', :items_in_cargo_area=>'0', :ports_latch_in_vessel_loop=>'0', :precision=>'50' }"
+    raw_results = "{:robot_inspection=> '0', :soil_deposits_cleared=> '0', :brush_not_touching=> '0', :topsoil_sections_cleared=> '0', :minecart_on_opposing_field=> '0', :opposing_mindcart_on_field=> '0', :artifact_not_touching_mine=> '0', :support_structures_standing=> '0', :floor_upright=> '0', :ore_blocks=> '0', :millstone_not_touching_base=> '0', :pieces_outside_silo=> '0', :roof_raised=> '0', :wares_raised=> '0', :scale_tipped=> '0', :scale_pan_removed=> '0', :artifacts_raised=> '0', :crane_lowered=> '0', :sand_cleared=> '0', :ship_raised=> '0', :statue_raised=> '0', :artifacts_in_forum=> '0', :flag_touching_mat=> '0', :ports_latch_in_vessel_loop=> '0', :precision: '50'}"
 
   	results = eval(raw_results)
 

@@ -4,9 +4,24 @@
 <%= q.score %>,
 <%- end %>
 
+<%-
+ if team.qualifications.length < APP_CONFIG["max_matches"]
+    (team.qualifications.length+1..APP_CONFIG["max_matches"]).each do %>
+0,
+<% end
+end
+%>
 <%- team.qualifications.each do |q| %>
 <%= q.GP_Score %>,
 <%- end %>
+
+<%-
+ if team.qualifications.length < APP_CONFIG["max_matches"]
+    (team.qualifications.length+1..APP_CONFIG["max_matches"]).each do %>
+0,
+<% end
+end
+%>
 
 <%= team.robot_identify %>,
 <%= team.robot_identify2 %>,
